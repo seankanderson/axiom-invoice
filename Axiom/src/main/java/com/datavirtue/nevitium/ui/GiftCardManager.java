@@ -290,7 +290,7 @@ public class GiftCardManager extends javax.swing.JDialog {
         );
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Zoom.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Zoom.png"))); // NOI18N
 
         searchField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         searchField.setToolTipText("Type a First or Last Name or Card# and Hit ENTER");
@@ -370,7 +370,7 @@ public class GiftCardManager extends javax.swing.JDialog {
         jToolBar3.setFloatable(false);
         jToolBar3.setRollover(true);
 
-        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Corrupt text.png"))); // NOI18N
+        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Corrupt text.png"))); // NOI18N
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -379,7 +379,7 @@ public class GiftCardManager extends javax.swing.JDialog {
         });
         jToolBar3.add(clearButton);
 
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -462,21 +462,21 @@ public class GiftCardManager extends javax.swing.JDialog {
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/OK.png"))); // NOI18N
+        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/OK.png"))); // NOI18N
         selectButton.setText("Select");
         selectButton.setFocusable(false);
         selectButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         selectButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar2.add(selectButton);
 
-        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/No.png"))); // NOI18N
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/No.png"))); // NOI18N
         cancelButton.setText("None");
         cancelButton.setFocusable(false);
         cancelButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         cancelButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar2.add(cancelButton);
 
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Delete.png"))); // NOI18N
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Delete.png"))); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setFocusable(false);
         deleteButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);

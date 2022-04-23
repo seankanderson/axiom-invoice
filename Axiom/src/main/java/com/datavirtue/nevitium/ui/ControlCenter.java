@@ -73,7 +73,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
 
         System.setProperty("http.agent", "Nevitium");
-        winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         initComponents();
         buildMenu();
          
@@ -128,9 +128,9 @@ public class ControlCenter extends javax.swing.JFrame {
     private void updateMessage() {
 
         if (!appSettings.getInternet().isShowRemoteMessage()) {
-            internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Disconnect.png")));
+            internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Disconnect.png")));
         } else {
-            internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Connect.png")));
+            internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Connect.png")));
         }
         if (appSettings.getInternet().isShowRemoteMessage()) {
             /* Thread Example */
@@ -206,7 +206,7 @@ public class ControlCenter extends javax.swing.JFrame {
         mainToolbar.setRollover(true);
         mainToolbar.setBorderPainted(false);
 
-        connectionsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-48/Conference.png"))); // NOI18N
+        connectionsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Conference.png"))); // NOI18N
         connectionsButton.setText("Connections");
         connectionsButton.setFocusable(false);
         connectionsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -218,7 +218,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         mainToolbar.add(connectionsButton);
 
-        inventoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-48/Tables.png"))); // NOI18N
+        inventoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Tables.png"))); // NOI18N
         inventoryButton.setText("Inventory");
         inventoryButton.setFocusable(false);
         inventoryButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -232,7 +232,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         mainToolbar.add(inventoryButton);
 
-        activityButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-48/Money.png"))); // NOI18N
+        activityButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Money.png"))); // NOI18N
         activityButton.setText("Invoices");
         activityButton.setFocusable(false);
         activityButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -245,7 +245,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         mainToolbar.add(activityButton);
 
-        invoiceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-48/Barcode scanner1.png"))); // NOI18N
+        invoiceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Barcode scanner1.png"))); // NOI18N
         invoiceButton.setText("SALE");
         invoiceButton.setFocusable(false);
         invoiceButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -259,7 +259,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         mainToolbar.add(invoiceButton);
 
-        settingsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-48/Configuration.png"))); // NOI18N
+        settingsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Configuration.png"))); // NOI18N
         settingsButton.setText("Setup");
         settingsButton.setFocusable(false);
         settingsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -272,7 +272,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         mainToolbar.add(settingsButton);
 
-        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-48/Close.png"))); // NOI18N
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Close.png"))); // NOI18N
         exitButton.setText("Exit");
         exitButton.setFocusable(false);
         exitButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -299,7 +299,7 @@ public class ControlCenter extends javax.swing.JFrame {
         );
 
         internetStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Connect.png"))); // NOI18N
+        internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Connect.png"))); // NOI18N
         internetStatus.setToolTipText("Nevitium Internet Status");
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -822,7 +822,7 @@ public class ControlCenter extends javax.swing.JFrame {
     }//GEN-LAST:event_settingsButtonActionPerformed
 
     private void connectionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectionsButtonActionPerformed
-        //Tools.playSound(getClass().getResource("/businessmanager/res/slip.wav"));
+        //Tools.playSound(getClass().getResource("/slip.wav"));
         var contactsApp = new ContactsApp(this, true, false, true, true);
 
         try {
@@ -1032,7 +1032,7 @@ public class ControlCenter extends javax.swing.JFrame {
         fileMenu.setMnemonic('F');
         fileMenu.setText("File");
 
-        newCompanyItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Open file.png"))); // NOI18N
+        newCompanyItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Open file.png"))); // NOI18N
         newCompanyItem.setText("Open/Create New Company Folder");
         newCompanyItem.setToolTipText("Browse - Open or create a new company");
         newCompanyItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1042,7 +1042,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         fileMenu.add(newCompanyItem);
 
-        backupItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Archive.png")));
+        backupItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Archive.png")));
         backupItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_BACK_SPACE, java.awt.event.InputEvent.CTRL_MASK));
         backupItem.setText("Backup to ZIP File");
         backupItem.setToolTipText("Create a backup of the company folder in a compressed file");
@@ -1053,7 +1053,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         fileMenu.add(backupItem);
 
-        exportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Export text.png")));
+        exportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Export text.png")));
         exportItem.setText("Basic Export");
         exportItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1062,7 +1062,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         fileMenu.add(exportItem);
 
-        upgradeExportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Export table.png")));
+        upgradeExportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Export table.png")));
         upgradeExportItem.setText("Full Export");
         upgradeExportItem.setToolTipText("Creates a ZIP file containing a text file for each data table");
         upgradeExportItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1072,7 +1072,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         fileMenu.add(upgradeExportItem);
 
-        upgradeImportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Import table.png")));
+        upgradeImportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Import table.png")));
         upgradeImportItem.setText("Full Import");
         upgradeImportItem.setToolTipText("Import a full text file backup into the current company");
         upgradeImportItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1082,7 +1082,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         fileMenu.add(upgradeImportItem);
 
-        conversionImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Import text.png")));
+        conversionImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Import text.png")));
         conversionImport.setText("Convert from v1.4 Full Export");
         conversionImport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1092,7 +1092,7 @@ public class ControlCenter extends javax.swing.JFrame {
         fileMenu.add(conversionImport);
         fileMenu.add(jSeparator1);
 
-        settingsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Configuration.png")));
+        settingsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Configuration.png")));
         settingsItem.setText("Settings");
         settingsItem.setToolTipText("Customize & Configure Nevitium to your needs");
         settingsItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1103,7 +1103,7 @@ public class ControlCenter extends javax.swing.JFrame {
         fileMenu.add(settingsItem);
         fileMenu.add(jSeparator3);
 
-        switchItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/User login.png")));
+        switchItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/User login.png")));
         switchItem.setText("Change User");
         switchItem.setToolTipText("Protect your data with security");
         switchItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1114,7 +1114,7 @@ public class ControlCenter extends javax.swing.JFrame {
         fileMenu.add(switchItem);
 
         exitItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
-        exitItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Close.png")));
+        exitItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Close.png")));
         exitItem.setText("EXIT");
         exitItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1125,7 +1125,7 @@ public class ControlCenter extends javax.swing.JFrame {
         fileMenu.add(jSeparator10);
 
         enhancedModeBox.setSelected(true);
-        enhancedModeBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Data.png")));
+        enhancedModeBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Data.png")));
         enhancedModeBox.setText("Enhanced Mode");
         enhancedModeBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1145,7 +1145,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
 
         connectionsItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
-        connectionsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Conference.png")));
+        connectionsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Conference.png")));
         connectionsItem.setText("My Connections");
         connectionsItem.setToolTipText("Manage your contact information");
         connectionsItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1156,7 +1156,7 @@ public class ControlCenter extends javax.swing.JFrame {
         toolsMenu.add(connectionsItem);
 
         inventoryItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
-        inventoryItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Tables.png")));
+        inventoryItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Tables.png")));
         inventoryItem.setText("My Inventory");
         inventoryItem.setToolTipText("Explore and modify your inventory and services");
         inventoryItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1168,7 +1168,7 @@ public class ControlCenter extends javax.swing.JFrame {
         toolsMenu.add(jSeparator4);
 
         invoiceItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, 0));
-        invoiceItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Money.png"))); // NOI18N
+        invoiceItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Money.png"))); // NOI18N
         invoiceItem.setMnemonic('F');
         invoiceItem.setText("Invoice Activity");
         invoiceItem.setToolTipText("Manage invoices and quotes or take payments and process returns");
@@ -1181,7 +1181,7 @@ public class ControlCenter extends javax.swing.JFrame {
         toolsMenu.add(jSeparator6);
 
         quickItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F8, 0));
-        quickItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Barcode scanner1.png"))); // NOI18N
+        quickItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Barcode scanner1.png"))); // NOI18N
         quickItem.setText("Quick Invoice");
         quickItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1191,7 +1191,7 @@ public class ControlCenter extends javax.swing.JFrame {
         toolsMenu.add(quickItem);
 
         checkMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, 0));
-        checkMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Notebook.png"))); // NOI18N
+        checkMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Notebook.png"))); // NOI18N
         checkMenuItem.setText("Print Checks");
         checkMenuItem.setToolTipText("Print standard computer checks on a laser or inkjet printer");
         checkMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1201,7 +1201,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         toolsMenu.add(checkMenuItem);
 
-        workOrderItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Edit document 3d.png")));
+        workOrderItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Edit document 3d.png")));
         workOrderItem.setText("Blank Work Order");
         workOrderItem.setToolTipText("Prints a Blank Work Order");
         workOrderItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1211,7 +1211,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         toolsMenu.add(workOrderItem);
 
-        layoutManagerItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Measure.png")));
+        layoutManagerItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Measure.png")));
         layoutManagerItem.setText("Form Builder");
         layoutManagerItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1221,7 +1221,7 @@ public class ControlCenter extends javax.swing.JFrame {
         //toolsMenu.add(layoutManagerItem);
         toolsMenu.add(jSeparator8);
 
-        paymentSystemMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Card terminal.png")));
+        paymentSystemMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Card terminal.png")));
         paymentSystemMenuItem.setText("Launch Payment System");
         paymentSystemMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1231,7 +1231,7 @@ public class ControlCenter extends javax.swing.JFrame {
         toolsMenu.add(paymentSystemMenuItem);
         toolsMenu.add(jSeparator9);
 
-        prepaidItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Credit cards.png")));
+        prepaidItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Credit cards.png")));
         prepaidItem.setText("Prepaid Account Manager");
         prepaidItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1245,7 +1245,7 @@ public class ControlCenter extends javax.swing.JFrame {
         reportMenu.setMnemonic('R');
         reportMenu.setText("Reports");
 
-        outstandingItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Event manager.png")));
+        outstandingItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Event manager.png")));
         outstandingItem.setText("Unpaid Invoice Report");
         outstandingItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, java.awt.event.InputEvent.CTRL_MASK));
         outstandingItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1255,7 +1255,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         reportMenu.add(outstandingItem);
 
-        salesItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Datasheet.png")));
+        salesItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Datasheet.png")));
         salesItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F10, java.awt.event.InputEvent.CTRL_MASK));
         salesItem.setText("Sales (COGS) Report");
         salesItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1265,7 +1265,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         reportMenu.add(salesItem);
 
-        revenueItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Datasheet.png")));
+        revenueItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Datasheet.png")));
         revenueItem.setText("Revenue Report");
         revenueItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1274,7 +1274,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         reportMenu.add(revenueItem);
 
-        miscInvoiceReportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Items.png")));
+        miscInvoiceReportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Items.png")));
         miscInvoiceReportItem.setText("Misc Invoice Report");
         miscInvoiceReportItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1284,7 +1284,7 @@ public class ControlCenter extends javax.swing.JFrame {
         reportMenu.add(miscInvoiceReportItem);
         reportMenu.add(jSeparator2);
 
-        inventoryReportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/List 3d.png")));
+        inventoryReportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/List 3d.png")));
         inventoryReportItem.setText("Inventory Status Report");
         inventoryReportItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1293,7 +1293,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         reportMenu.add(inventoryReportItem);
 
-        reorderReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/List 3d.png")));
+        reorderReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/List 3d.png")));
         reorderReport.setText("Inventory Reorder Report");
         reorderReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1303,7 +1303,7 @@ public class ControlCenter extends javax.swing.JFrame {
         reportMenu.add(reorderReport);
         reportMenu.add(jSeparator5);
 
-        custReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/List.png")));
+        custReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/List.png")));
         custReport.setText("Customer List");
         custReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1312,7 +1312,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         reportMenu.add(custReport);
 
-        CustPhoneList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Call.png")));
+        CustPhoneList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Call.png")));
         CustPhoneList.setText("Customer Phone List");
         CustPhoneList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1321,7 +1321,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         reportMenu.add(CustPhoneList);
 
-        vendorList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/List.png")));
+        vendorList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/List.png")));
         vendorList.setText("Supplier List");
         vendorList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1330,7 +1330,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         reportMenu.add(vendorList);
 
-        VendorPhoneList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Call.png")));
+        VendorPhoneList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Call.png")));
         VendorPhoneList.setText("Supplier Phone List");
         VendorPhoneList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1356,7 +1356,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         helpMenu.add(manualItem);
 
-        infoItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Info.png")));
+        infoItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Info.png")));
         infoItem.setText("Info");
         infoItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1366,7 +1366,7 @@ public class ControlCenter extends javax.swing.JFrame {
         helpMenu.add(infoItem);
         helpMenu.add(jSeparator7);
 
-        creditsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Information.png")));
+        creditsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Information.png")));
         creditsItem.setText("Credits");
         creditsItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1679,7 +1679,7 @@ public class ControlCenter extends javax.swing.JFrame {
     }//event_inventoryItemActionPerformed
 
     private void connectionsItemActionPerformed(java.awt.event.ActionEvent evt) {//event_connectionsItemActionPerformed
-        Tools.playSound(getClass().getResource("/businessmanager/res/slip.wav"));
+        Tools.playSound(getClass().getResource("/slip.wav"));
         var contactsApp = new ContactsApp(this, true, false, true, true);
         try {
             contactsApp.display();
@@ -1721,7 +1721,7 @@ public class ControlCenter extends javax.swing.JFrame {
     }//event_conversionImportActionPerformed
 
     private void toolsMenuMouseClicked(java.awt.event.MouseEvent evt) {//event_toolsMenuMouseClicked
-        Tools.playSound(getClass().getResource("/businessmanager/res/slip.wav"));
+        Tools.playSound(getClass().getResource("/slip.wav"));
     }//event_toolsMenuMouseClicked
 
     private void enhancedModeBoxActionPerformed(java.awt.event.ActionEvent evt) {//event_enhancedModeBoxActionPerformed

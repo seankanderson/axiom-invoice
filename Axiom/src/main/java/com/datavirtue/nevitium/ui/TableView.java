@@ -108,7 +108,7 @@ public class TableView extends javax.swing.JDialog {
             .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
 
-        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/cancel.gif"))); // NOI18N
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cancel.gif"))); // NOI18N
         cancelButton.setText("Close");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +116,7 @@ public class TableView extends javax.swing.JDialog {
             }
         });
 
-        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/ok.gif"))); // NOI18N
+        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ok.gif"))); // NOI18N
         selectButton.setText("Select");
         selectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

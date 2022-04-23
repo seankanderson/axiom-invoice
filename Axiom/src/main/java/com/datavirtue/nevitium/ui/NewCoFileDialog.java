@@ -111,7 +111,7 @@ public class NewCoFileDialog extends javax.swing.JDialog {
             }
         });
 
-        browseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Find in folder.png"))); // NOI18N
+        browseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Find in folder.png"))); // NOI18N
         browseButton.setText("Browse");
         browseButton.setToolTipText("Select the destination folder");
         browseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +180,7 @@ public class NewCoFileDialog extends javax.swing.JDialog {
         jTextPane2.setText("Supply the name of the folder you would like to store the data in (Company Name). Although it is good to use a company name for the data folder, it is purely optional. This folder will be created inside the one you selected above.  You can see the exact folder path in the title bar at the top of this window.");
         jScrollPane2.setViewportView(jTextPane2);
 
-        okButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Create.png"))); // NOI18N
+        okButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Create.png"))); // NOI18N
         okButton.setText("Create");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

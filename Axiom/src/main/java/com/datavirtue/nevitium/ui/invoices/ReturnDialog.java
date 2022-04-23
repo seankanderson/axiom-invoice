@@ -48,7 +48,7 @@ public class ReturnDialog extends javax.swing.JDialog {
         super(parent, modal);
         this.parentFrame = parent;
         Toolkit tools = Toolkit.getDefaultToolkit();
-        winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         initComponents();
 
         Injector injector = DiService.getInjector();
@@ -386,7 +386,7 @@ public class ReturnDialog extends javax.swing.JDialog {
 
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        processReturnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/OK.png"))); // NOI18N
+        processReturnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/OK.png"))); // NOI18N
         processReturnButton.setText("Process");
         processReturnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

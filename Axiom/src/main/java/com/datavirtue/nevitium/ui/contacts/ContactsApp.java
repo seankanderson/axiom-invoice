@@ -69,7 +69,7 @@ public class ContactsApp extends javax.swing.JDialog {
         appSettingsService = injector.getInstance(AppSettingsService.class);
         appSettingsService.setObjectType(AppSettings.class);
 
-        winIcon = Toolkit.getDefaultToolkit().getImage(ContactsApp.class.getResource("/businessmanager/res/Orange.png"));
+        winIcon = Toolkit.getDefaultToolkit().getImage(ContactsApp.class.getResource("/Orange.png"));
 
         initComponents();
 
@@ -753,7 +753,7 @@ public class ContactsApp extends javax.swing.JDialog {
             }
         });
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Zoom.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Zoom.png"))); // NOI18N
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
@@ -770,7 +770,7 @@ public class ContactsApp extends javax.swing.JDialog {
         functionToolbar.setFloatable(false);
         functionToolbar.setRollover(true);
 
-        toggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Down.png"))); // NOI18N
+        toggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Down.png"))); // NOI18N
         toggleButton.setText("Less Detail");
         toggleButton.setToolTipText("Click this to Toggle the Form On or Off");
         toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -783,7 +783,7 @@ public class ContactsApp extends javax.swing.JDialog {
         });
         functionToolbar.add(toggleButton);
 
-        labelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Tag.png"))); // NOI18N
+        labelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Tag.png"))); // NOI18N
         labelButton.setText("Labels");
         labelButton.setToolTipText("Select Rows and Click this Button to Generate Labels");
         labelButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -797,7 +797,7 @@ public class ContactsApp extends javax.swing.JDialog {
         });
         functionToolbar.add(labelButton);
 
-        exportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Export text.png"))); // NOI18N
+        exportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Export text.png"))); // NOI18N
         exportButton.setText("Export");
         exportButton.setToolTipText("Export the Current Table to a (.csv text) File");
         exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -810,7 +810,7 @@ public class ContactsApp extends javax.swing.JDialog {
         });
         functionToolbar.add(exportButton);
 
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Delete.png"))); // NOI18N
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Delete.png"))); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setToolTipText("Permenant Delete!");
         deleteButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -829,7 +829,7 @@ public class ContactsApp extends javax.swing.JDialog {
         filterToolbar.setBorderPainted(false);
 
         buttonGroup1.add(allRadio);
-        allRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Navigator.png"))); // NOI18N
+        allRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Navigator.png"))); // NOI18N
         allRadio.setText("All Records");
         allRadio.setFocusable(false);
         allRadio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -842,7 +842,7 @@ public class ContactsApp extends javax.swing.JDialog {
         filterToolbar.add(allRadio);
 
         buttonGroup1.add(custRadio);
-        custRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Customers.png"))); // NOI18N
+        custRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Customers.png"))); // NOI18N
         custRadio.setText("Cutomers");
         custRadio.setFocusable(false);
         custRadio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -855,7 +855,7 @@ public class ContactsApp extends javax.swing.JDialog {
         filterToolbar.add(custRadio);
 
         buttonGroup1.add(suppRadio);
-        suppRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Trailer.png"))); // NOI18N
+        suppRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Trailer.png"))); // NOI18N
         suppRadio.setText("Suppliers");
         suppRadio.setFocusable(false);
         suppRadio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -868,7 +868,7 @@ public class ContactsApp extends javax.swing.JDialog {
         filterToolbar.add(suppRadio);
 
         buttonGroup1.add(unpaidRadio);
-        unpaidRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Call.png"))); // NOI18N
+        unpaidRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Call.png"))); // NOI18N
         unpaidRadio.setText("Unpaid");
         unpaidRadio.setFocusable(false);
         unpaidRadio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -881,7 +881,7 @@ public class ContactsApp extends javax.swing.JDialog {
         filterToolbar.add(unpaidRadio);
         filterToolbar.add(jSeparator1);
 
-        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/OK.png"))); // NOI18N
+        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/OK.png"))); // NOI18N
         selectButton.setText("Select");
         selectButton.setFocusable(false);
         selectButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -893,7 +893,7 @@ public class ContactsApp extends javax.swing.JDialog {
         });
         filterToolbar.add(selectButton);
 
-        voidButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/No.png"))); // NOI18N
+        voidButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/No.png"))); // NOI18N
         voidButton.setText("None");
         voidButton.setFocusable(false);
         voidButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1278,7 +1278,7 @@ public class ContactsApp extends javax.swing.JDialog {
         invoiceToolbar.setRollover(true);
 
         viewButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        viewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Eye.png"))); // NOI18N
+        viewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Eye.png"))); // NOI18N
         viewButton.setText("View");
         viewButton.setToolTipText("Open an Invoice or Quote");
         viewButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1293,7 +1293,7 @@ public class ContactsApp extends javax.swing.JDialog {
         invoiceToolbar.add(viewButton);
 
         invoiceReportButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        invoiceReportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Paper.png"))); // NOI18N
+        invoiceReportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Paper.png"))); // NOI18N
         invoiceReportButton.setText("History");
         invoiceReportButton.setToolTipText("Customer's invoice history statement");
         invoiceReportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1307,7 +1307,7 @@ public class ContactsApp extends javax.swing.JDialog {
         invoiceToolbar.add(invoiceReportButton);
 
         purchaseHistoryButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        purchaseHistoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Credit.png"))); // NOI18N
+        purchaseHistoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Credit.png"))); // NOI18N
         purchaseHistoryButton.setText("Purchases");
         purchaseHistoryButton.setToolTipText("Customer's product purchase history report");
         purchaseHistoryButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1321,7 +1321,7 @@ public class ContactsApp extends javax.swing.JDialog {
 
         invoiceLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         invoiceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        invoiceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Rotate CW.png"))); // NOI18N
+        invoiceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Rotate CW.png"))); // NOI18N
         invoiceLabel.setText("Invoices");
         invoiceLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
@@ -1704,13 +1704,13 @@ public class ContactsApp extends javax.swing.JDialog {
 
             detailPanel.setVisible(false);
             toggleButton.setText("More Detail");
-            toggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Up.png")));
+            toggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Up.png")));
 
         } else {
 
             detailPanel.setVisible(true);
             toggleButton.setText("Less Detail");
-            toggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Down.png")));
+            toggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Down.png")));
         }
 
         findField.requestFocus();

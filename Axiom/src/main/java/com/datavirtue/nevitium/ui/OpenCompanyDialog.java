@@ -22,7 +22,7 @@ public class OpenCompanyDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         Toolkit tools = Toolkit.getDefaultToolkit();
-        winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         this.setIconImage(winIcon);
         java.awt.Dimension dim = DV.computeCenter((java.awt.Window) this);
         this.setLocation(dim.width, Tools.YSCR);
@@ -66,7 +66,7 @@ public class OpenCompanyDialog extends javax.swing.JDialog {
         setAlwaysOnTop(true);
 
         openButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        openButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Folder tree.png"))); // NOI18N
+        openButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Folder tree.png"))); // NOI18N
         openButton.setText("Browse To Existing Company Folder");
         openButton.setMargin(new java.awt.Insets(14, 14, 14, 14));
         openButton.setNextFocusableComponent(newButton);
@@ -77,7 +77,7 @@ public class OpenCompanyDialog extends javax.swing.JDialog {
         });
 
         newButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Create.png"))); // NOI18N
+        newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Create.png"))); // NOI18N
         newButton.setText("Create New Company (F2)");
         newButton.setMargin(new java.awt.Insets(14, 14, 14, 14));
         newButton.setNextFocusableComponent(jList1);
@@ -88,7 +88,7 @@ public class OpenCompanyDialog extends javax.swing.JDialog {
         });
 
         cancelButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/No.png"))); // NOI18N
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/No.png"))); // NOI18N
         cancelButton.setText("Cancel");
         cancelButton.setNextFocusableComponent(openButton);
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +114,7 @@ public class OpenCompanyDialog extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jList1);
 
         openPreviousButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        openPreviousButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Open.png"))); // NOI18N
+        openPreviousButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Open.png"))); // NOI18N
         openPreviousButton.setText("Open Previous");
         openPreviousButton.setEnabled(false);
         openPreviousButton.setNextFocusableComponent(cancelButton);

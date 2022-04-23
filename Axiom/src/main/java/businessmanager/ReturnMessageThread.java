@@ -23,9 +23,9 @@ public class ReturnMessageThread extends Thread {
         textField.setText(message);
         
             if (textField.getText().contains("No Internet")){
-                internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Disconnect.png")));
+                internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Disconnect.png")));
             }else{
-                internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Connect.png")));
+                internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Connect.png")));
             }
         if (debug) System.out.println("Ending Message Thread");
     }

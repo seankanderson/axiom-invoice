@@ -51,7 +51,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         super(parent, modal);
         this.parentWin = parent;
         Toolkit tools = Toolkit.getDefaultToolkit();
-        winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         initComponents();
 
         var injector = DiService.getInjector();
@@ -859,7 +859,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         paymentTable.setToolTipText("Invoice Activity");
         jScrollPane3.setViewportView(paymentTable);
 
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Delete.png"))); // NOI18N
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Delete.png"))); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setToolTipText("Deletes entries from Payment Activity.");
         deleteButton.setMargin(new java.awt.Insets(2, 10, 2, 10));
@@ -934,7 +934,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         actionToolbar.setFloatable(false);
         actionToolbar.setRollover(true);
 
-        newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Barcode scanner1.png"))); // NOI18N
+        newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Barcode scanner1.png"))); // NOI18N
         newButton.setText("New");
         newButton.setToolTipText("Launch a New Invoice / Quote");
         newButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -948,7 +948,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         });
         actionToolbar.add(newButton);
 
-        openButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Eye.png"))); // NOI18N
+        openButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Eye.png"))); // NOI18N
         openButton.setText("View");
         openButton.setToolTipText("View & Print an Invoice");
         openButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -962,7 +962,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         });
         actionToolbar.add(openButton);
 
-        payButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Payment.png"))); // NOI18N
+        payButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Payment.png"))); // NOI18N
         payButton.setText("Payment");
         payButton.setToolTipText("Take a Payment, Record a Credit or Add Fees to the Selected Invoice");
         payButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -976,7 +976,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         });
         actionToolbar.add(payButton);
 
-        returnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Cycle.png"))); // NOI18N
+        returnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Cycle.png"))); // NOI18N
         returnButton.setText("Returns");
         returnButton.setToolTipText("Process product returns from an invoice");
         returnButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -990,7 +990,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         });
         actionToolbar.add(returnButton);
 
-        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Abort.png"))); // NOI18N
+        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Abort.png"))); // NOI18N
         closeButton.setText("Close");
         closeButton.setToolTipText("\"Write Off\" the Invoice");
         closeButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1004,7 +1004,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         });
         actionToolbar.add(closeButton);
 
-        voidButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Burn document.png"))); // NOI18N
+        voidButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Burn document.png"))); // NOI18N
         voidButton.setText("VOID");
         voidButton.setToolTipText("VOID - The only way to \"delete\" an invoice");
         voidButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1018,7 +1018,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         });
         actionToolbar.add(voidButton);
 
-        statementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Period end.png"))); // NOI18N
+        statementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Period end.png"))); // NOI18N
         statementButton.setText("Statement");
         statementButton.setToolTipText("Statement for the Highlighted Invoice");
         statementButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1032,7 +1032,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         });
         actionToolbar.add(statementButton);
 
-        historyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Case history.png"))); // NOI18N
+        historyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Case history.png"))); // NOI18N
         historyButton.setText("History");
         historyButton.setToolTipText("Invoice History for the Customer on the Highlighted Invoice");
         historyButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1050,7 +1050,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         statusToolbar.setRollover(true);
 
         buttonGroup2.add(unpaidRadio);
-        unpaidRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Red message.png"))); // NOI18N
+        unpaidRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Red message.png"))); // NOI18N
         unpaidRadio.setSelected(true);
         unpaidRadio.setText("UNPAID");
         unpaidRadio.setFocusable(false);
@@ -1065,7 +1065,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         statusToolbar.add(unpaidRadio);
 
         buttonGroup2.add(paidRadio);
-        paidRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Green message.png"))); // NOI18N
+        paidRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Green message.png"))); // NOI18N
         paidRadio.setText("PAID");
         paidRadio.setFocusable(false);
         paidRadio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1079,7 +1079,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         statusToolbar.add(paidRadio);
 
         buttonGroup2.add(quoteRadio);
-        quoteRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Handshake.png"))); // NOI18N
+        quoteRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Handshake.png"))); // NOI18N
         quoteRadio.setText("Quotes");
         quoteRadio.setFocusable(false);
         quoteRadio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1093,7 +1093,7 @@ public class InvoiceManager extends javax.swing.JDialog {
         statusToolbar.add(quoteRadio);
 
         buttonGroup2.add(voidRadio);
-        voidRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Burn document 3d.png"))); // NOI18N
+        voidRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Burn document 3d.png"))); // NOI18N
         voidRadio.setText("VOIDS");
         voidRadio.setFocusable(false);
         voidRadio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

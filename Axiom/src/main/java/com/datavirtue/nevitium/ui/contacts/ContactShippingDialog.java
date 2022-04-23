@@ -50,7 +50,7 @@ public class ContactShippingDialog extends javax.swing.JDialog {
     public ContactShippingDialog(java.awt.Frame parent, boolean modal, UUID contactId, boolean selectMode) {
         super(parent, modal);
         
-        winIcon = Toolkit.getDefaultToolkit().getImage(ContactShippingDialog.class.getResource("/businessmanager/res/Orange.png"));
+        winIcon = Toolkit.getDefaultToolkit().getImage(ContactShippingDialog.class.getResource("/Orange.png"));
         initComponents();
         var injector = DiService.getInjector();
         this.contactService = injector.getInstance(ContactService.class);
@@ -242,7 +242,7 @@ public class ContactShippingDialog extends javax.swing.JDialog {
         jToolBar1.setRollover(true);
 
         selectButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/OK.png"))); // NOI18N
+        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/OK.png"))); // NOI18N
         selectButton.setText("Select");
         selectButton.setToolTipText("Select a shipping address");
         selectButton.addActionListener(new java.awt.event.ActionListener() {
@@ -253,7 +253,7 @@ public class ContactShippingDialog extends javax.swing.JDialog {
         jToolBar1.add(selectButton);
 
         cancelButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/No.png"))); // NOI18N
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/No.png"))); // NOI18N
         cancelButton.setText("Cancel");
         cancelButton.setToolTipText("Cancel / Close window");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -264,7 +264,7 @@ public class ContactShippingDialog extends javax.swing.JDialog {
         jToolBar1.add(cancelButton);
 
         saveButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
         saveButton.setText("Save");
         saveButton.setToolTipText("Saves changes");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -278,7 +278,7 @@ public class ContactShippingDialog extends javax.swing.JDialog {
         jToolBar2.setRollover(true);
 
         cloneButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cloneButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Account cards.png"))); // NOI18N
+        cloneButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Account cards.png"))); // NOI18N
         cloneButton.setText("Clone Original");
         cloneButton.setToolTipText("Copies the parent address information into the form.");
         cloneButton.addActionListener(new java.awt.event.ActionListener() {
@@ -289,7 +289,7 @@ public class ContactShippingDialog extends javax.swing.JDialog {
         jToolBar2.add(cloneButton);
 
         clearButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Corrupt text.png"))); // NOI18N
+        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Corrupt text.png"))); // NOI18N
         clearButton.setText("Clear");
         clearButton.setToolTipText("Clears the fields to allow new record creation.");
         clearButton.addActionListener(new java.awt.event.ActionListener() {

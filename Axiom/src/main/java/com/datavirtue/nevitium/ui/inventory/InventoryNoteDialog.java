@@ -88,7 +88,7 @@ public class InventoryNoteDialog extends javax.swing.JDialog {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel1.setToolTipText("Notes hava 512 character limit.");
 
-        savebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
+        savebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
         savebutton.setText("Save");
         savebutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class InventoryNoteDialog extends javax.swing.JDialog {
             }
         });
 
-        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Close.png"))); // NOI18N
+        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Close.png"))); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

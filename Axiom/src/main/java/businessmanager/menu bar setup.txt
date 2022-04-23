@@ -114,7 +114,7 @@
             }
         });
 
-        newCompanyItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/folder.png"))); // NOI18N
+        newCompanyItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/folder.png"))); // NOI18N
         newCompanyItem.setText("Open/Create New Company Folder");
         newCompanyItem.setToolTipText("Browse - Open or create a new company");
         newCompanyItem.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +134,7 @@
         });
         fileMenu.add(backupItem);
 
-        exportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/csv.png"))); // NOI18N
+        exportItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/csv.png"))); // NOI18N
         exportItem.setText("Basic Export");
         exportItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +170,7 @@
         fileMenu.add(conversionImport);
         fileMenu.add(jSeparator1);
 
-        settingsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/load-settings.png"))); // NOI18N
+        settingsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/load-settings.png"))); // NOI18N
         settingsItem.setText("Settings");
         settingsItem.setToolTipText("Customize & Configure Nevitium to your needs");
         settingsItem.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +181,7 @@
         fileMenu.add(settingsItem);
         fileMenu.add(jSeparator3);
 
-        switchItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/lock.png"))); // NOI18N
+        switchItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lock.png"))); // NOI18N
         switchItem.setText("Change User");
         switchItem.setToolTipText("Protect your data with security");
         switchItem.addActionListener(new java.awt.event.ActionListener() {
@@ -192,7 +192,7 @@
         fileMenu.add(switchItem);
 
         exitItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
-        exitItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZE/log-out16.png"))); // NOI18N
+        exitItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZE/log-out16.png"))); // NOI18N
         exitItem.setText("EXIT");
         exitItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,7 +222,7 @@
         });
 
         connectionsItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
-        connectionsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/list-all-participants.png"))); // NOI18N
+        connectionsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/list-all-participants.png"))); // NOI18N
         connectionsItem.setText("My Connections");
         connectionsItem.setToolTipText("Manage your contact information");
         connectionsItem.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +233,7 @@
         toolsMenu.add(connectionsItem);
 
         inventoryItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
-        inventoryItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/pen.png"))); // NOI18N
+        inventoryItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pen.png"))); // NOI18N
         inventoryItem.setText("My Inventory");
         inventoryItem.setToolTipText("Explore and modify your inventory and services");
         inventoryItem.addActionListener(new java.awt.event.ActionListener() {
@@ -245,7 +245,7 @@
         toolsMenu.add(jSeparator4);
 
         invoiceItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, 0));
-        invoiceItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/ViewInvoice.png"))); // NOI18N
+        invoiceItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ViewInvoice.png"))); // NOI18N
         invoiceItem.setMnemonic('F');
         invoiceItem.setText("My Invoices");
         invoiceItem.setToolTipText("View invoices, take payments and process returns");
@@ -258,7 +258,7 @@
         toolsMenu.add(jSeparator6);
 
         quickItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F8, 0));
-        quickItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Hand Scanner16.png"))); // NOI18N
+        quickItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hand Scanner16.png"))); // NOI18N
         quickItem.setText("Quick Invoice");
         quickItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,7 +268,7 @@
         toolsMenu.add(quickItem);
 
         checkMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, 0));
-        checkMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/directory-object.png"))); // NOI18N
+        checkMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/directory-object.png"))); // NOI18N
         checkMenuItem.setText("Print Checks");
         checkMenuItem.setToolTipText("Print standard computer checks on a laser or inkjet printer");
         checkMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -278,7 +278,7 @@
         });
         toolsMenu.add(checkMenuItem);
 
-        workOrderItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/adobe.gif"))); // NOI18N
+        workOrderItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adobe.gif"))); // NOI18N
         workOrderItem.setText("Blank Work Order");
         workOrderItem.setToolTipText("Prints a Blank Work Order");
         workOrderItem.addActionListener(new java.awt.event.ActionListener() {
@@ -693,7 +693,7 @@
     }//event_inventoryItemActionPerformed
 
     private void connectionsItemActionPerformed(java.awt.event.ActionEvent evt) {//event_connectionsItemActionPerformed
-        Tools.playSound(getClass().getResource("/businessmanager/res/slip.wav"));
+        Tools.playSound(getClass().getResource("/slip.wav"));
         MyConnectionsApp cd = new MyConnectionsApp (this, true, application,false, true,true);
         //cd.setVisible(true);
         
@@ -736,7 +736,7 @@
     }//event_jMenuBar1MouseClicked
 
     private void toolsMenuMouseClicked(java.awt.event.MouseEvent evt) {//event_toolsMenuMouseClicked
-        Tools.playSound(getClass().getResource("/businessmanager/res/slip.wav"));
+        Tools.playSound(getClass().getResource("/slip.wav"));
     }//event_toolsMenuMouseClicked
 
     private void enhancedModeBoxActionPerformed(java.awt.event.ActionEvent evt) {//event_enhancedModeBoxActionPerformed

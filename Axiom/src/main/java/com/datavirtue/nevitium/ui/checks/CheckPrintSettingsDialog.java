@@ -386,7 +386,7 @@ public class CheckPrintSettingsDialog extends javax.swing.JDialog {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        applyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
+        applyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
         applyButton.setText("Save/Apply");
         applyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -394,7 +394,7 @@ public class CheckPrintSettingsDialog extends javax.swing.JDialog {
             }
         });
 
-        browseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Find in folder.png"))); // NOI18N
+        browseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Find in folder.png"))); // NOI18N
         browseButton.setText("Browse");
         browseButton.setMargin(new java.awt.Insets(2, 7, 2, 7));
         browseButton.addActionListener(new java.awt.event.ActionListener() {

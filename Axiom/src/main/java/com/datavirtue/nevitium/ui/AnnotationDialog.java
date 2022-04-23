@@ -164,28 +164,28 @@ public class AnnotationDialog extends javax.swing.JDialog {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        createButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Create.png"))); // NOI18N
+        createButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Create.png"))); // NOI18N
         createButton.setText("Create");
         createButton.setFocusable(false);
         createButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         createButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(createButton);
 
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Delete.png"))); // NOI18N
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Delete.png"))); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setFocusable(false);
         deleteButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         deleteButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(deleteButton);
 
-        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Corrupt text.png"))); // NOI18N
+        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Corrupt text.png"))); // NOI18N
         clearButton.setText("Clear");
         clearButton.setFocusable(false);
         clearButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         clearButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(clearButton);
 
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
         saveButton.setText("Save");
         saveButton.setFocusable(false);
         saveButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -195,13 +195,13 @@ public class AnnotationDialog extends javax.swing.JDialog {
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/OK.png"))); // NOI18N
+        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/OK.png"))); // NOI18N
         selectButton.setText("Select");
         selectButton.setFocusable(false);
         selectButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jToolBar2.add(selectButton);
 
-        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/No.png"))); // NOI18N
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/No.png"))); // NOI18N
         cancelButton.setText("Cancel");
         cancelButton.setFocusable(false);
         cancelButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);

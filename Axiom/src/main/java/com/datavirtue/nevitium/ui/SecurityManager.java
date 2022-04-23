@@ -32,7 +32,7 @@ public class SecurityManager extends javax.swing.JDialog {
         initComponents();
 
         Toolkit tools = Toolkit.getDefaultToolkit();
-        Image winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        Image winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         this.setIconImage(winIcon);
 
         java.awt.Dimension dim = DV.computeCenter((java.awt.Window) this);
@@ -348,7 +348,7 @@ public class SecurityManager extends javax.swing.JDialog {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Security.png"))); // NOI18N
+        newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Security.png"))); // NOI18N
         newButton.setText("New ");
         newButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -357,7 +357,7 @@ public class SecurityManager extends javax.swing.JDialog {
         });
         jToolBar1.add(newButton);
 
-        removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Delete.png"))); // NOI18N
+        removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Delete.png"))); // NOI18N
         removeButton.setText("Remove");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -471,7 +471,7 @@ public class SecurityManager extends javax.swing.JDialog {
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
         saveButton.setText("Save User Permissions");
         saveButton.setEnabled(false);
         saveButton.addActionListener(new java.awt.event.ActionListener() {

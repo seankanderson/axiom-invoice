@@ -24,7 +24,7 @@ public class OldFileDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         Toolkit tools = Toolkit.getDefaultToolkit();
-        Image winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        Image winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         this.setIconImage(winIcon);
         java.awt.Dimension dim = DV.computeCenter((java.awt.Window) this);
         this.setLocation(dim.width, dim.height);
@@ -111,7 +111,7 @@ public class OldFileDialog extends javax.swing.JDialog {
             }
         });
 
-        browseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Find in folder.png"))); // NOI18N
+        browseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Find in folder.png"))); // NOI18N
         browseButton.setText("Browse");
         browseButton.setToolTipText("Select the destination folder");
         browseButton.setIconTextGap(8);
@@ -187,7 +187,7 @@ public class OldFileDialog extends javax.swing.JDialog {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/No.png"))); // NOI18N
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/No.png"))); // NOI18N
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +196,7 @@ public class OldFileDialog extends javax.swing.JDialog {
         });
         jToolBar1.add(cancelButton);
 
-        okButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Next.png"))); // NOI18N
+        okButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Next.png"))); // NOI18N
         okButton.setText("Go");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -135,7 +135,7 @@ public class NoteDialog extends javax.swing.JDialog {
         jLabel1.setText("Name");
 
         saveButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
         saveButton.setText("Save");
         saveButton.setToolTipText("Save your modifications");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +162,7 @@ public class NoteDialog extends javax.swing.JDialog {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Create.png"))); // NOI18N
+        newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Create.png"))); // NOI18N
         newButton.setText("New");
         newButton.setToolTipText("Create a new Message");
         newButton.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +172,7 @@ public class NoteDialog extends javax.swing.JDialog {
         });
         jToolBar1.add(newButton);
 
-        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/OK.png"))); // NOI18N
+        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/OK.png"))); // NOI18N
         selectButton.setText("Select");
         selectButton.setToolTipText("Return the above selected message");
         selectButton.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +182,7 @@ public class NoteDialog extends javax.swing.JDialog {
         });
         jToolBar1.add(selectButton);
 
-        defaultButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Check file.png"))); // NOI18N
+        defaultButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Check file.png"))); // NOI18N
         defaultButton.setText("Set Default");
         defaultButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,7 +192,7 @@ public class NoteDialog extends javax.swing.JDialog {
         jToolBar1.add(defaultButton);
 
         deleteButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Delete.png"))); // NOI18N
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Delete.png"))); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setToolTipText("Permenant Delete!");
         deleteButton.setMargin(new java.awt.Insets(2, 7, 2, 7));

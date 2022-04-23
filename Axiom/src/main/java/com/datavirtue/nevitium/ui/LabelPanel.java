@@ -502,7 +502,7 @@ public class LabelPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/label_diagram.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/label_diagram.jpg"))); // NOI18N
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

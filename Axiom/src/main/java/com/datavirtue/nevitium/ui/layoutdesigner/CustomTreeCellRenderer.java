@@ -22,11 +22,11 @@ public class CustomTreeCellRenderer extends DefaultTreeCellRenderer {
     Icon tableNodeIcon;
     Icon barcodeNodeIcon, positionIcon, sizeIcon, dataIcon, textIcon, fontIcon, imageIcon, graphicsIcon, incIcon  ;
     ImageIcon defaultIcon = new javax.swing.ImageIcon(getClass()
-            .getResource("/businessmanager/res/Aha-16/enabled/Object.png"));
+            .getResource("/Aha-16/enabled/Object.png"));
     ImageIcon leafIcon = new javax.swing.ImageIcon(getClass()
-            .getResource("/businessmanager/res/Aha-16/enabled/Go.png"));
+            .getResource("/Aha-16/enabled/Go.png"));
     ImageIcon rootIcon = new javax.swing.ImageIcon(getClass()
-            .getResource("/businessmanager/res/Aha-16/enabled/Units.png"));
+            .getResource("/Aha-16/enabled/Units.png"));
     
     public CustomTreeCellRenderer(Icon rootLevel, Icon subCell, 
             Icon settingsIcon, Icon tableIcon, Icon barcodeIcon,

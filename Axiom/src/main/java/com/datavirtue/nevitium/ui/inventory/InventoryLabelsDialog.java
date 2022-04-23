@@ -318,7 +318,7 @@ public class InventoryLabelsDialog extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        goButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Play.png"))); // NOI18N
+        goButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Play.png"))); // NOI18N
         goButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 goButtonActionPerformed(evt);

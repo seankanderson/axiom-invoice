@@ -23,7 +23,7 @@ public class InventoryGroupDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         Toolkit tools = Toolkit.getDefaultToolkit();
-        Image winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        Image winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         this.setIconImage(winIcon);
         workingPath = path;
         java.awt.Dimension dim = DV.computeCenter((java.awt.Window) this);
@@ -133,7 +133,7 @@ public class InventoryGroupDialog extends javax.swing.JDialog {
 
         jScrollPane1.setViewportView(groupList);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Create.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Create.png"))); // NOI18N
         jButton1.setText("Add");
         jButton1.setToolTipText("Adds from selected inventory items.");
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -143,7 +143,7 @@ public class InventoryGroupDialog extends javax.swing.JDialog {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Delete.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Delete.png"))); // NOI18N
         jButton2.setText("Remove");
         jButton2.setToolTipText("Instantly removes the selected group!");
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);

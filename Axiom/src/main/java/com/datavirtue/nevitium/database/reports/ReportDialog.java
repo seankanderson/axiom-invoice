@@ -34,7 +34,7 @@ public class ReportDialog extends javax.swing.JDialog {
         super(parent, modal);
 
         Toolkit tools = Toolkit.getDefaultToolkit();
-        winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        winIcon = tools.getImage(getClass().getResource("/Orange.png"));
 
 
         initComponents();
@@ -111,7 +111,7 @@ public class ReportDialog extends javax.swing.JDialog {
 
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/No.png"))); // NOI18N
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/No.png"))); // NOI18N
         cancelButton.setText("Cancel");
         cancelButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +120,7 @@ public class ReportDialog extends javax.swing.JDialog {
             }
         });
 
-        goButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Play.png"))); // NOI18N
+        goButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Play.png"))); // NOI18N
         goButton.setText("GO");
         goButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         goButton.setNextFocusableComponent(cancelButton);

@@ -44,7 +44,7 @@ public class PaymentActivityDialog extends javax.swing.JDialog {
         appSettingsService.setObjectType(AppSettings.class);
 
         Toolkit tools = Toolkit.getDefaultToolkit();
-        winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         this.currentInvoice = invoice;
         initComponents();
         java.awt.Dimension dim = DV.computeCenter((java.awt.Window) this);
@@ -97,7 +97,7 @@ public class PaymentActivityDialog extends javax.swing.JDialog {
         paymentTable.setToolTipText("Invoice Activity");
         jScrollPane3.setViewportView(paymentTable);
 
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Delete.png"))); // NOI18N
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Delete.png"))); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setToolTipText("Deletes entries from Payment Activity.");
         deleteButton.setMargin(new java.awt.Insets(2, 10, 2, 10));
@@ -131,7 +131,7 @@ public class PaymentActivityDialog extends javax.swing.JDialog {
         toolBar.setFloatable(false);
         toolBar.setRollover(true);
 
-        payButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Payment.png"))); // NOI18N
+        payButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Payment.png"))); // NOI18N
         payButton.setText("Payments");
         payButton.setToolTipText("Take a Payment, Record a Credit or Add Fees to the Selected Invoice");
         payButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -144,7 +144,7 @@ public class PaymentActivityDialog extends javax.swing.JDialog {
         });
         toolBar.add(payButton);
 
-        returnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Undo v2.png"))); // NOI18N
+        returnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Undo v2.png"))); // NOI18N
         returnButton.setText("Returns");
         returnButton.setToolTipText("Process product returns from an invoice");
         returnButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

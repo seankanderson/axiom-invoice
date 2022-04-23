@@ -166,7 +166,7 @@ public class CheckDialog extends javax.swing.JDialog {
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/prnchk.gif"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prnchk.gif"))); // NOI18N
         jLabel1.setToolTipText("Basic Check On Top Ink Jet / Laser Checks");
 
         jLabel5.setText("Standard Three-Part");
@@ -251,7 +251,7 @@ public class CheckDialog extends javax.swing.JDialog {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Customers.png"))); // NOI18N
+        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Customers.png"))); // NOI18N
         selectButton.setText("Select");
         selectButton.setMargin(new java.awt.Insets(2, 7, 2, 7));
         selectButton.addActionListener(new java.awt.event.ActionListener() {
@@ -262,7 +262,7 @@ public class CheckDialog extends javax.swing.JDialog {
         jToolBar1.add(selectButton);
 
         clearButton.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Corrupt text.png"))); // NOI18N
+        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Corrupt text.png"))); // NOI18N
         clearButton.setText("Clear");
         clearButton.setMargin(new java.awt.Insets(2, 6, 2, 6));
         clearButton.addActionListener(new java.awt.event.ActionListener() {
@@ -326,7 +326,7 @@ public class CheckDialog extends javax.swing.JDialog {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        goButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Play.png"))); // NOI18N
+        goButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Play.png"))); // NOI18N
         goButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 goButtonActionPerformed(evt);
@@ -334,7 +334,7 @@ public class CheckDialog extends javax.swing.JDialog {
         });
 
         printSetupButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        printSetupButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Form.png"))); // NOI18N
+        printSetupButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Form.png"))); // NOI18N
         printSetupButton.setText("Layout");
         printSetupButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -25,7 +25,7 @@ public class DiscountDialog extends javax.swing.JDialog {
         super(parent, modal);
         itemToDiscount = item;
         Toolkit tools = Toolkit.getDefaultToolkit();
-        winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Aha-16/enabled/Percent.png"));
+        winIcon = tools.getImage(getClass().getResource("/Aha-16/enabled/Percent.png"));
 
         initComponents();
        
@@ -103,7 +103,7 @@ public class DiscountDialog extends javax.swing.JDialog {
 
         jLabel2.setText("Percentage");
 
-        applyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Apply.png"))); // NOI18N
+        applyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Apply.png"))); // NOI18N
         applyButton.setText("Apply");
         applyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

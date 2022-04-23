@@ -64,7 +64,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         parentWin = parent;
 
         Toolkit tools = Toolkit.getDefaultToolkit();
-        winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         initComponents();
 
         themeComboBox.setModel(new DefaultComboBoxModel(LocalSettingsService.THEME_NAMES));
@@ -91,15 +91,15 @@ public class SettingsDialog extends javax.swing.JDialog {
             }
         });
 
-        this.addTab(0, "My Company", "/businessmanager/res/Aha-16/enabled/Globe.png");
-        this.addTab(1, "Internet  ", "/businessmanager/res/Aha-16/enabled/Address book.png");
-        this.addTab(2, "Backups   ", "/businessmanager/res/Aha-16/enabled/Archive.png");
-        this.addTab(3, "Security  ", "/businessmanager/res/Aha-16/enabled/Lock.png");
-        this.addTab(4, "Invoice   ", "/businessmanager/res/Aha-16/enabled/Barcode scanner1.png");
-        this.addTab(5, "Layouts   ", "/businessmanager/res/Aha-16/enabled/Measure.png");
-        this.addTab(6, "Inventory ", "/businessmanager/res/Aha-16/enabled/Book of records.png");
-        this.addTab(7, "Output    ", "/businessmanager/res/Aha-16/enabled/Documents.png");
-        this.addTab(8, "Info      ", "/businessmanager/res/Aha-16/enabled/Info.png");
+        this.addTab(0, "My Company", "/Aha-16/enabled/Globe.png");
+        this.addTab(1, "Internet  ", "/Aha-16/enabled/Address book.png");
+        this.addTab(2, "Backups   ", "/Aha-16/enabled/Archive.png");
+        this.addTab(3, "Security  ", "/Aha-16/enabled/Lock.png");
+        this.addTab(4, "Invoice   ", "/Aha-16/enabled/Barcode scanner1.png");
+        this.addTab(5, "Layouts   ", "/Aha-16/enabled/Measure.png");
+        this.addTab(6, "Inventory ", "/Aha-16/enabled/Book of records.png");
+        this.addTab(7, "Output    ", "/Aha-16/enabled/Documents.png");
+        this.addTab(8, "Info      ", "/Aha-16/enabled/Info.png");
 
         invoicePrefixField.setDocument(new LimitedDocument(3));
         quotePrefixField.setDocument(new LimitedDocument(3));
@@ -1004,7 +1004,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         );
 
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZEglobe.png"))); // NOI18N
+        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZEglobe.png"))); // NOI18N
 
         org.jdesktop.layout.GroupLayout jPanel16Layout = new org.jdesktop.layout.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -1044,7 +1044,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("My Company", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Globe.png")), companyInfoPanel); // NOI18N
+        jTabbedPane1.addTab("My Company", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Globe.png")), companyInfoPanel); // NOI18N
 
         showRemoteMessageCheckbox.setText("Show Remote Message (Grabs a small message from datavirtue.com)");
         showRemoteMessageCheckbox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -1081,7 +1081,7 @@ public class SettingsDialog extends javax.swing.JDialog {
 
         emailPassword.setToolTipText("The password for your email account on the mail server.");
 
-        testEmailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZE/wifi16.png"))); // NOI18N
+        testEmailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZE/wifi16.png"))); // NOI18N
         testEmailButton.setText("Send Test Message");
         testEmailButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1163,7 +1163,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .add(jLabel35)))
         );
 
-        configEDIButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Data transmission.png"))); // NOI18N
+        configEDIButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Data transmission.png"))); // NOI18N
         configEDIButton.setText("Configure EDI");
         configEDIButton.setToolTipText("Configure EDI to support multiple users and/or locations.");
         configEDIButton.setEnabled(false);
@@ -1197,7 +1197,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap(230, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Internet", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Address book.png")), EDIPanel); // NOI18N
+        jTabbedPane1.addTab("Internet", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Address book.png")), EDIPanel); // NOI18N
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(" Backups "));
 
@@ -1291,11 +1291,11 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap(330, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Backups", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Archive.png")), backupPanel); // NOI18N
+        jTabbedPane1.addTab("Backups", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Archive.png")), backupPanel); // NOI18N
 
         jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        manageUsersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/onebit_25.gif"))); // NOI18N
+        manageUsersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/onebit_25.gif"))); // NOI18N
         manageUsersButton.setText("Manage Users");
         manageUsersButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         manageUsersButton.setMargin(new java.awt.Insets(2, 7, 2, 7));
@@ -1305,7 +1305,7 @@ public class SettingsDialog extends javax.swing.JDialog {
             }
         });
 
-        logButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-48/Information.png"))); // NOI18N
+        logButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Information.png"))); // NOI18N
         logButton.setText("View Log");
         logButton.setEnabled(false);
         logButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1372,7 +1372,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap(240, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Security", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Lock.png")), securityPanel); // NOI18N
+        jTabbedPane1.addTab("Security", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Lock.png")), securityPanel); // NOI18N
 
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -1774,7 +1774,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Invoice", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Order form.png")), invoicePanel); // NOI18N
+        jTabbedPane1.addTab("Invoice", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Order form.png")), invoicePanel); // NOI18N
 
         layoutPathLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         layoutPathLabel.setText("Layout Path");
@@ -1833,7 +1833,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap(400, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Layouts", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Measure.png")), layoutPanel); // NOI18N
+        jTabbedPane1.addTab("Layouts", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Measure.png")), layoutPanel); // NOI18N
 
         jPanel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -1942,7 +1942,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Inventory", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Book of records.png")), inventoryPanel); // NOI18N
+        jTabbedPane1.addTab("Inventory", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Book of records.png")), inventoryPanel); // NOI18N
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(" Output "));
 
@@ -2230,7 +2230,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .add(73, 73, 73))
             );
 
-            jTabbedPane1.addTab("Output", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Documents.png")), outputPanel); // NOI18N
+            jTabbedPane1.addTab("Output", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Documents.png")), outputPanel); // NOI18N
 
             jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -2390,7 +2390,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 }
             });
 
-            checkUpdatesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZE/synchronized.png"))); // NOI18N
+            checkUpdatesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZE/synchronized.png"))); // NOI18N
             checkUpdatesButton.setText("Check For Updates");
             checkUpdatesButton.setToolTipText("Tells you if there are new updates for Nevitium.");
             checkUpdatesButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2474,9 +2474,9 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .addContainerGap())
             );
 
-            jTabbedPane1.addTab("Info", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Info.png")), infoPanel); // NOI18N
+            jTabbedPane1.addTab("Info", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Info.png")), infoPanel); // NOI18N
 
-            saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
+            saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
             saveButton.setText("Close/Save");
             saveButton.setToolTipText("Click to save and exit.");
             saveButton.addActionListener(new java.awt.event.ActionListener() {

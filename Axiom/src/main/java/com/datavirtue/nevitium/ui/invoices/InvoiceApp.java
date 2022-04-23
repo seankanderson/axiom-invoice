@@ -225,7 +225,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         optionsToolbar.setLayout(new FlowLayout());
 
         Toolkit tools = Toolkit.getDefaultToolkit();
-        winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        winIcon = tools.getImage(getClass().getResource("/Orange.png"));
 
         qtyTextField.setDocument(new JTextFieldFilter(JTextFieldFilter.FLOAT));
         addCategoryInfo = appSettings.getInventory().isAddCategoryLineToInvoiceItems();
@@ -896,7 +896,7 @@ public class InvoiceApp extends javax.swing.JDialog {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        custButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Customers.png"))); // NOI18N
+        custButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Customers.png"))); // NOI18N
         custButton.setText("Bill To:");
         custButton.setToolTipText("Select a customer from My Connections");
         custButton.setIconTextGap(1);
@@ -941,7 +941,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         shipToTextArea.setToolTipText("DO NOT use this as the customer field, it is for Shipping directives only.");
         jScrollPane4.setViewportView(shipToTextArea);
 
-        shipToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Airplane.png"))); // NOI18N
+        shipToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Airplane.png"))); // NOI18N
         shipToButton.setText("Ship To:");
         shipToButton.setToolTipText("Select a shipping address from My Connections");
         shipToButton.setMaximumSize(new java.awt.Dimension(39, 23));
@@ -973,7 +973,7 @@ public class InvoiceApp extends javax.swing.JDialog {
             }
         });
 
-        convertButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Copy document.png"))); // NOI18N
+        convertButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Copy document.png"))); // NOI18N
         convertButton.setText("Copy To Invoice");
         convertButton.setToolTipText("Uses this Quote to Build a New Invoice");
         convertButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -983,7 +983,7 @@ public class InvoiceApp extends javax.swing.JDialog {
             }
         });
 
-        copyBillToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZE/template16.png"))); // NOI18N
+        copyBillToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZE/template16.png"))); // NOI18N
         copyBillToButton.setText("Copy");
         copyBillToButton.setToolTipText("Copies the 'Bill To'  into 'Ship To'");
         copyBillToButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -993,7 +993,7 @@ public class InvoiceApp extends javax.swing.JDialog {
             }
         });
 
-        clearShipToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Erase.png"))); // NOI18N
+        clearShipToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Erase.png"))); // NOI18N
         clearShipToButton.setText("Clear");
         clearShipToButton.setToolTipText("Clears the 'Ship To' info");
         clearShipToButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1120,7 +1120,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         optionsToolbar.setOrientation(javax.swing.SwingConstants.VERTICAL);
         optionsToolbar.setRollover(true);
 
-        messageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Get message.png"))); // NOI18N
+        messageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Get message.png"))); // NOI18N
         messageButton.setText("Invoice Message");
         messageButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
         messageButton.setPreferredSize(new java.awt.Dimension(160, 33));
@@ -1131,7 +1131,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         });
         optionsToolbar.add(messageButton);
 
-        viewReturnsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZE/monitoring16.png"))); // NOI18N
+        viewReturnsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZE/monitoring16.png"))); // NOI18N
         viewReturnsButton.setText("View Returns");
         viewReturnsButton.setToolTipText("Product Returns for this Invoice");
         viewReturnsButton.setPreferredSize(new java.awt.Dimension(160, 29));
@@ -1142,7 +1142,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         });
         optionsToolbar.add(viewReturnsButton);
 
-        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Print preview.png"))); // NOI18N
+        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Print preview.png"))); // NOI18N
         printButton.setText("Print Preview");
         printButton.setToolTipText("Print");
         printButton.setPreferredSize(new java.awt.Dimension(160, 29));
@@ -1153,7 +1153,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         });
         optionsToolbar.add(printButton);
 
-        printReceiptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Form 3d.png"))); // NOI18N
+        printReceiptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Form 3d.png"))); // NOI18N
         printReceiptButton.setText("Print Receipt");
         printReceiptButton.setFocusable(false);
         printReceiptButton.setPreferredSize(new java.awt.Dimension(160, 29));
@@ -1203,7 +1203,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        calcButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Grid.png"))); // NOI18N
+        calcButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Grid.png"))); // NOI18N
         calcButton.setText("Prices");
         calcButton.setToolTipText("Tally Invoice Totals");
         calcButton.setMargin(new java.awt.Insets(1, 1, 1, 1));
@@ -1215,7 +1215,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         jToolBar1.add(calcButton);
 
         saveButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
         saveButton.setText("Quote");
         saveButton.setToolTipText("Save As a Quote");
         saveButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1228,7 +1228,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         jToolBar1.add(saveButton);
 
         postButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        postButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Next.png"))); // NOI18N
+        postButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Next.png"))); // NOI18N
         postButton.setText(" Post");
         postButton.setToolTipText("Save As an Invoice");
         postButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1240,7 +1240,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         jToolBar1.add(postButton);
 
         closeButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Cancel.png"))); // NOI18N
+        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Cancel.png"))); // NOI18N
         closeButton.setText("Discard");
         closeButton.setToolTipText("Cancel / Close");
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1347,7 +1347,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         toolBar.setFloatable(false);
         toolBar.setRollover(true);
 
-        paymentButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Money.png"))); // NOI18N
+        paymentButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Money.png"))); // NOI18N
         paymentButton.setText("Activity");
         paymentButton.setToolTipText("Process Payments and Adjustments for this Invoice");
         paymentButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1359,7 +1359,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         });
         toolBar.add(paymentButton);
 
-        statementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Period end.png"))); // NOI18N
+        statementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Period end.png"))); // NOI18N
         statementButton.setText("Statement");
         statementButton.setToolTipText("Detailed Statement of Activity for this Invoice");
         statementButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1371,7 +1371,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         });
         toolBar.add(statementButton);
 
-        historyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Case history.png"))); // NOI18N
+        historyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Case history.png"))); // NOI18N
         historyButton.setText("History");
         historyButton.setToolTipText("Invoice History for the Associated Customer");
         historyButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1457,7 +1457,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         jToolBar4.setFloatable(false);
         jToolBar4.setRollover(true);
 
-        VATButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Calculator.png"))); // NOI18N
+        VATButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Calculator.png"))); // NOI18N
         VATButton.setText("VAT  ");
         VATButton.setToolTipText("VAT - GST Tax Calculator");
         VATButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1467,7 +1467,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         });
         jToolBar4.add(VATButton);
 
-        shippingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Balance.png"))); // NOI18N
+        shippingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Balance.png"))); // NOI18N
         shippingButton.setText("Weight");
         shippingButton.setToolTipText("Calculate the weight of the select items");
         shippingButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1478,7 +1478,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         });
         jToolBar4.add(shippingButton);
 
-        packingslipButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Package.png"))); // NOI18N
+        packingslipButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Package.png"))); // NOI18N
         packingslipButton.setText("Packing");
         packingslipButton.setToolTipText("Print a packing slip of the selected items");
         packingslipButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1491,7 +1491,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         jToolBar5.setFloatable(false);
         jToolBar5.setRollover(true);
 
-        miscButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Login.png"))); // NOI18N
+        miscButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Login.png"))); // NOI18N
         miscButton.setText("Misc Item");
         miscButton.setToolTipText("Add Non-Inventory Item");
         miscButton.setNextFocusableComponent(qtyTextField);
@@ -1502,7 +1502,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         });
         jToolBar5.add(miscButton);
 
-        discountButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Percent.png"))); // NOI18N
+        discountButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Percent.png"))); // NOI18N
         discountButton.setText("Disc");
         discountButton.setToolTipText("Insert a discount");
         discountButton.setFocusable(false);
@@ -1514,7 +1514,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         });
         jToolBar5.add(discountButton);
 
-        removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Delete.png"))); // NOI18N
+        removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Delete.png"))); // NOI18N
         removeButton.setText("Remove");
         removeButton.setToolTipText("Removes the Selected Items");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2228,7 +2228,7 @@ public class InvoiceApp extends javax.swing.JDialog {
 
         /* Create and adjust the configuration singleton */
         Configuration cfg = new Configuration(Configuration.VERSION_2_3_29);
-        cfg.setDirectoryForTemplateLoading(new File(getClass().getResource("/businessmanager/res/html").toURI()));
+        cfg.setDirectoryForTemplateLoading(new File(getClass().getResource("/html").toURI()));
 
         // Recommended settings for new projects:
         cfg.setDefaultEncoding("UTF-8");
@@ -2240,7 +2240,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         /* Create variables--and populate with data--for the template */
         Map root = new HashMap();
 
-        //var url = getClass().getResource("/businessmanager/res/html/demo-logo.png");
+        //var url = getClass().getResource("/html/demo-logo.png");
         //var companyLogoImage = imageService.getImageFromUrl(url);
         //var base64CompanyLogo = imageService.convertImageToBase64Png(companyLogoImage);
         var base64CompanyLogo = this.settingsService.getObject().getCompany().getCompanyLogo();

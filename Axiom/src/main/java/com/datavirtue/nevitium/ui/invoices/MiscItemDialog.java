@@ -300,7 +300,7 @@ public class MiscItemDialog extends javax.swing.JDialog {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        VATButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Calculator.png"))); // NOI18N
+        VATButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Calculator.png"))); // NOI18N
         VATButton.setText("VAT");
         VATButton.setFocusable(false);
         VATButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -312,7 +312,7 @@ public class MiscItemDialog extends javax.swing.JDialog {
         });
         jToolBar1.add(VATButton);
 
-        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Create.png"))); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Create.png"))); // NOI18N
         addButton.setText("Add Item");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

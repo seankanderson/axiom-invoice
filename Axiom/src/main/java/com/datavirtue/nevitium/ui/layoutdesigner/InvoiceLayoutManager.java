@@ -68,7 +68,7 @@ private DocumentLayout layout;
         initComponents();
         String file_sep = System.getProperty("file.separator");
         Toolkit tools = Toolkit.getDefaultToolkit();
-        Image winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        Image winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         this.setIconImage(winIcon);
         
         //System.out.println(working_path+filename);
@@ -83,28 +83,28 @@ private DocumentLayout layout;
 //            preview(false);
 //        }
         
-        ImageIcon rootCell = new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Measure.png"));
-        ImageIcon subCell = new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Drawing.png"));
-        ImageIcon settingsCell = new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Gear.png"));
-        ImageIcon tableCell = new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Table.png"));
-        ImageIcon barcodeCell = new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Barcode scanner1.png"));
+        ImageIcon rootCell = new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Measure.png"));
+        ImageIcon subCell = new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Drawing.png"));
+        ImageIcon settingsCell = new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Gear.png"));
+        ImageIcon tableCell = new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Table.png"));
+        ImageIcon barcodeCell = new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Barcode scanner1.png"));
         
         ImageIcon positionCell = new javax.swing.ImageIcon(getClass()
-                .getResource("/businessmanager/res/Aha-16/enabled/Compass.png"));
+                .getResource("/Aha-16/enabled/Compass.png"));
         ImageIcon sizeCell = new javax.swing.ImageIcon(getClass()
-                .getResource("/businessmanager/res/Aha-16/enabled/Resize image.png"));
+                .getResource("/Aha-16/enabled/Resize image.png"));
         ImageIcon dataCell = new javax.swing.ImageIcon(getClass()
-                .getResource("/businessmanager/res/Aha-16/enabled/Data.png"));
+                .getResource("/Aha-16/enabled/Data.png"));
         ImageIcon textCell = new javax.swing.ImageIcon(getClass()
-                .getResource("/businessmanager/res/Aha-16/enabled/Tag.png"));
+                .getResource("/Aha-16/enabled/Tag.png"));
         ImageIcon fontCell = new javax.swing.ImageIcon(getClass()
-                .getResource("/businessmanager/res/Aha-16/enabled/Text.png"));
+                .getResource("/Aha-16/enabled/Text.png"));
         ImageIcon imageCell = new javax.swing.ImageIcon(getClass()
-                .getResource("/businessmanager/res/Aha-16/enabled/Image.png"));
+                .getResource("/Aha-16/enabled/Image.png"));
         ImageIcon graphicsCell = new javax.swing.ImageIcon(getClass()
-                .getResource("/businessmanager/res/Aha-16/enabled/Figures.png"));
+                .getResource("/Aha-16/enabled/Figures.png"));
         ImageIcon includeCell = new javax.swing.ImageIcon(getClass()
-                .getResource("/businessmanager/res/Aha-16/enabled/Apply.png"));
+                .getResource("/Aha-16/enabled/Apply.png"));
         
         
         jTree.setCellRenderer(new CustomTreeCellRenderer(rootCell, subCell, settingsCell,
@@ -545,7 +545,7 @@ private DefaultMutableTreeNode addNewDocumentElement(){
         jToolBar1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jToolBar1.setRollover(true);
 
-        loadButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Open file.png"))); // NOI18N
+        loadButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Open file.png"))); // NOI18N
         loadButton.setToolTipText("Open Layout File");
         loadButton.setFocusable(false);
         loadButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -557,7 +557,7 @@ private DefaultMutableTreeNode addNewDocumentElement(){
         });
         jToolBar1.add(loadButton);
 
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Floppy.png"))); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Floppy.png"))); // NOI18N
         saveButton.setToolTipText("Save Layout");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -566,7 +566,7 @@ private DefaultMutableTreeNode addNewDocumentElement(){
         });
         jToolBar1.add(saveButton);
 
-        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Print.png"))); // NOI18N
+        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Print.png"))); // NOI18N
         printButton.setToolTipText("Print");
         printButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -575,7 +575,7 @@ private DefaultMutableTreeNode addNewDocumentElement(){
         });
         jToolBar1.add(printButton);
 
-        exportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Export text.png"))); // NOI18N
+        exportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Export text.png"))); // NOI18N
         exportButton.setToolTipText("Export");
         exportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -584,7 +584,7 @@ private DefaultMutableTreeNode addNewDocumentElement(){
         });
         jToolBar1.add(exportButton);
 
-        psCalcButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Calculator.png"))); // NOI18N
+        psCalcButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Calculator.png"))); // NOI18N
         psCalcButton.setToolTipText("Postscript Calculator");
         psCalcButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -593,7 +593,7 @@ private DefaultMutableTreeNode addNewDocumentElement(){
         });
         jToolBar1.add(psCalcButton);
 
-        previewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Refresh v2.png"))); // NOI18N
+        previewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Refresh v2.png"))); // NOI18N
         previewButton.setToolTipText("View - Refresh");
         previewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

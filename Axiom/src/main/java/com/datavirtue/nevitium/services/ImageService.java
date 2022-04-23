@@ -54,5 +54,5 @@ public class ImageService {
         return ImageIO.read(file);
     }
 
-    //invoiceItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/ViewInvoice.png"))); // NOI18N
+    //invoiceItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ViewInvoice.png"))); // NOI18N
 }

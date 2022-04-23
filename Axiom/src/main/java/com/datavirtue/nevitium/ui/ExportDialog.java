@@ -22,7 +22,7 @@ public class ExportDialog extends javax.swing.JDialog implements Runnable,  Prog
         super(parent, false);
         initComponents();
         Toolkit tools = Toolkit.getDefaultToolkit();
-        Image winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Orange.png"));
+        Image winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         this.setIconImage(winIcon);
                 
         String path = System.getProperty("user.home");
@@ -208,7 +208,7 @@ public class ExportDialog extends javax.swing.JDialog implements Runnable,  Prog
 
         jLabel3.setText("Destination Directory / Folder");
 
-        browseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Find in folder.png"))); // NOI18N
+        browseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Find in folder.png"))); // NOI18N
         browseButton.setText("Browse");
         browseButton.setToolTipText("Select the folder you want the exports to end up at");
         browseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +217,7 @@ public class ExportDialog extends javax.swing.JDialog implements Runnable,  Prog
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Play.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Play.png"))); // NOI18N
         jButton2.setToolTipText("Select the destination and click GO to export");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -205,7 +205,7 @@ private boolean VAT = false;
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        maxButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Up.png"))); // NOI18N
+        maxButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Up.png"))); // NOI18N
         maxButton.setToolTipText("Maximize / Restore");
         maxButton.setMargin(new java.awt.Insets(2, 7, 2, 7));
         maxButton.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +236,7 @@ private boolean VAT = false;
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        buildButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Next.png"))); // NOI18N
+        buildButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Next.png"))); // NOI18N
         buildButton.setText("Build Report");
         buildButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +248,7 @@ private boolean VAT = false;
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Print.png"))); // NOI18N
+        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Print.png"))); // NOI18N
         printButton.setText("Print");
         printButton.setToolTipText("Print the report to a printer driver.");
         printButton.setEnabled(false);
@@ -259,7 +259,7 @@ private boolean VAT = false;
         });
         jToolBar2.add(printButton);
 
-        exportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Export table.png"))); // NOI18N
+        exportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Export table.png"))); // NOI18N
         exportButton.setText("Export");
         exportButton.setToolTipText("Export this report to a text file.");
         exportButton.setEnabled(false);
@@ -446,12 +446,12 @@ private void setView(){
         java.awt.Dimension dim = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
                 if (!max) {
                     this.setSize(small);
-                    maxButton.setIcon(new ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Up.png")));
+                    maxButton.setIcon(new ImageIcon(getClass().getResource("/Aha-24/enabled/Up.png")));
                 }
                     else {
                         dim.setSize(dim.getWidth(), dim.getHeight()-120);
                         this.setSize(dim);
-                        maxButton.setIcon(new ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Down.png")));
+                        maxButton.setIcon(new ImageIcon(getClass().getResource("/Aha-24/enabled/Down.png")));
                     }
 
         dim = DV.computeCenter((java.awt.Window) this);

@@ -33,7 +33,7 @@ private Image winIcon;
     public PrintPreview(Book b, float[] pageSize) {
         
         Toolkit tools = Toolkit.getDefaultToolkit();
-        winIcon = tools.getImage(getClass().getResource("/businessmanager/res/Aha-16/enabled/Preview.png"));
+        winIcon = tools.getImage(getClass().getResource("/Aha-16/enabled/Preview.png"));
         
         initComponents();
                                
@@ -94,7 +94,7 @@ private Image winIcon;
         setIconImage(winIcon);
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
 
-        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Print.png"))); // NOI18N
+        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Print.png"))); // NOI18N
         printButton.setFocusable(false);
         printButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         printButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -108,7 +108,7 @@ private Image winIcon;
         jToolBar1.setRollover(true);
         jToolBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        firstButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/hot/First.png"))); // NOI18N
+        firstButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/hot/First.png"))); // NOI18N
         firstButton.setFocusable(false);
         firstButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         firstButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -119,7 +119,7 @@ private Image winIcon;
         });
         jToolBar1.add(firstButton);
 
-        reverseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/hot/Back.png"))); // NOI18N
+        reverseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/hot/Back.png"))); // NOI18N
         reverseButton.setFocusable(false);
         reverseButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         reverseButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -130,7 +130,7 @@ private Image winIcon;
         });
         jToolBar1.add(reverseButton);
 
-        zoomOutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Zoom out.png"))); // NOI18N
+        zoomOutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Zoom out.png"))); // NOI18N
         zoomOutButton.setFocusable(false);
         zoomOutButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         zoomOutButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -144,7 +144,7 @@ private Image winIcon;
         pageLabel.setText("Pages");
         jToolBar1.add(pageLabel);
 
-        zoomInButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Zoom in.png"))); // NOI18N
+        zoomInButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Zoom in.png"))); // NOI18N
         zoomInButton.setFocusable(false);
         zoomInButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         zoomInButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -155,7 +155,7 @@ private Image winIcon;
         });
         jToolBar1.add(zoomInButton);
 
-        fwButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/hot/Forward.png"))); // NOI18N
+        fwButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/hot/Forward.png"))); // NOI18N
         fwButton.setFocusable(false);
         fwButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         fwButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -166,7 +166,7 @@ private Image winIcon;
         });
         jToolBar1.add(fwButton);
 
-        lastButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/hot/Last.png"))); // NOI18N
+        lastButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/hot/Last.png"))); // NOI18N
         lastButton.setFocusable(false);
         lastButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lastButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -177,7 +177,7 @@ private Image winIcon;
         });
         jToolBar1.add(lastButton);
 
-        pdfButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Internet.png"))); // NOI18N
+        pdfButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Internet.png"))); // NOI18N
         pdfButton.setFocusable(false);
         pdfButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         pdfButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

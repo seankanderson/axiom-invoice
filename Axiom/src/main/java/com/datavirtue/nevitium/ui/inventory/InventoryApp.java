@@ -81,7 +81,7 @@ public class InventoryApp extends javax.swing.JDialog {
         appSettingsService.setObjectType(AppSettings.class);
 
         Toolkit tools = Toolkit.getDefaultToolkit();
-        winIcon = tools.getImage(InventoryApp.class.getResource("/businessmanager/res/Orange.png"));
+        winIcon = tools.getImage(InventoryApp.class.getResource("/Orange.png"));
         this.setIconImage(winIcon);
 
         //Adjust references, to this context, for the needed objects 
@@ -837,7 +837,7 @@ public class InventoryApp extends javax.swing.JDialog {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        viewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Camera.png"))); // NOI18N
+        viewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Camera.png"))); // NOI18N
         viewButton.setText("View Pic (F12)");
         viewButton.setEnabled(false);
         viewButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -849,7 +849,7 @@ public class InventoryApp extends javax.swing.JDialog {
         });
         jToolBar1.add(viewButton);
 
-        groupButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Site map.png"))); // NOI18N
+        groupButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Site map.png"))); // NOI18N
         groupButton.setText("Groups");
         groupButton.setToolTipText("Highlight Inventory Items and Hit this Button to Create Product Groups");
         groupButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -861,7 +861,7 @@ public class InventoryApp extends javax.swing.JDialog {
         });
         jToolBar1.add(groupButton);
 
-        labelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Tag.png"))); // NOI18N
+        labelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Tag.png"))); // NOI18N
         labelButton.setText("Labels");
         labelButton.setToolTipText("Select rows above and press this button to create labels.");
         labelButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -873,7 +873,7 @@ public class InventoryApp extends javax.swing.JDialog {
         });
         jToolBar1.add(labelButton);
 
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Delete.png"))); // NOI18N
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Delete.png"))); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setToolTipText("Deleting In-Use Inventory Items is Not Recommended");
         deleteButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -886,7 +886,7 @@ public class InventoryApp extends javax.swing.JDialog {
         jToolBar1.add(deleteButton);
 
         selectButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/OK.png"))); // NOI18N
+        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/OK.png"))); // NOI18N
         selectButton.setText("Select");
         selectButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
         selectButton.addActionListener(new java.awt.event.ActionListener() {
@@ -896,7 +896,7 @@ public class InventoryApp extends javax.swing.JDialog {
         });
 
         voidButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        voidButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/No.png"))); // NOI18N
+        voidButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/No.png"))); // NOI18N
         voidButton.setText("None");
         voidButton.setMargin(new java.awt.Insets(2, 10, 2, 10));
         voidButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1326,7 +1326,7 @@ public class InventoryApp extends javax.swing.JDialog {
         });
         notesScrollPane.setViewportView(notesPane);
 
-        noteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Message.png"))); // NOI18N
+        noteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Message.png"))); // NOI18N
         noteButton.setText("Edit Notes");
         noteButton.setToolTipText("Keep Small Notes About Each Item");
         noteButton.setEnabled(false);
@@ -1450,7 +1450,7 @@ public class InventoryApp extends javax.swing.JDialog {
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Corrupt text.png"))); // NOI18N
+        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Corrupt text.png"))); // NOI18N
         clearButton.setText("Clear");
         clearButton.setToolTipText("Clear/Cancel");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1460,7 +1460,7 @@ public class InventoryApp extends javax.swing.JDialog {
         });
         jToolBar2.add(clearButton);
 
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
