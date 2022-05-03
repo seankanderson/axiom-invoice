@@ -97,9 +97,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="453" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="458" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToolBar1" min="-2" pref="51" max="-2" attributes="0"/>
+                      <Component id="jToolBar1" min="-2" pref="70" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -142,7 +142,7 @@
                 <Component class="javax.swing.JButton" name="viewButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Camera.png"/>
+                      <Image iconType="3" name="/icons/outline-green/image_gallery_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="View Pic (F12)"/>
                     <Property name="enabled" type="boolean" value="false"/>
@@ -156,7 +156,7 @@
                 <Component class="javax.swing.JButton" name="groupButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Site map.png"/>
+                      <Image iconType="3" name="/icons/outline-green/hierarchy_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Groups"/>
                     <Property name="toolTipText" type="java.lang.String" value="Highlight Inventory Items and Hit this Button to Create Product Groups"/>
@@ -170,7 +170,7 @@
                 <Component class="javax.swing.JButton" name="labelButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Tag.png"/>
+                      <Image iconType="3" name="/icons/outline-green/barcode_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Labels"/>
                     <Property name="toolTipText" type="java.lang.String" value="Select rows above and press this button to create labels."/>
@@ -181,10 +181,20 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="labelButtonActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.Box$Filler" name="filler2">
+                  <Properties>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[32767, 0]"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.HorizontalGlue"/>
+                  </AuxValues>
+                </Component>
                 <Component class="javax.swing.JButton" name="deleteButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Delete.png"/>
+                      <Image iconType="3" name="/icons/outline-green/Delete_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Delete"/>
                     <Property name="toolTipText" type="java.lang.String" value="Deleting In-Use Inventory Items is Not Recommended"/>
@@ -246,9 +256,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/OK.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Select"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[2, 2, 2, 2]"/>
@@ -262,9 +269,6 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/No.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="None"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -542,7 +546,7 @@
                               <Component id="taxCheckBox" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="tax2CheckBox" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="146" max="32767" attributes="0"/>
+                              <EmptySpace pref="151" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -894,7 +898,7 @@
                                   <Component id="availableCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="notesScrollPane" pref="345" max="32767" attributes="0"/>
+                              <Component id="notesScrollPane" pref="350" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="noteButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -982,9 +986,6 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="noteButton">
                       <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Message.png"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Edit Notes"/>
                         <Property name="toolTipText" type="java.lang.String" value="Keep Small Notes About Each Item"/>
                         <Property name="enabled" type="boolean" value="false"/>
@@ -1037,7 +1038,7 @@
                                   <Component id="picField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" pref="427" max="32767" attributes="0"/>
+                              <Component id="jScrollPane2" pref="432" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1078,14 +1079,10 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="picLabel">
-                          <Properties>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                <LineBorder/>
-                              </Border>
-                            </Property>
-                          </Properties>
+                        <Component class="javax.swing.JList" name="imageList">
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -1121,8 +1118,8 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jToolBar2" min="-2" pref="25" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jToolBar2" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="helpBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -1145,12 +1142,21 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
                   <SubComponents>
+                    <Component class="javax.swing.Box$Filler" name="filler1">
+                      <Properties>
+                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[32767, 0]"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.HorizontalGlue"/>
+                      </AuxValues>
+                    </Component>
                     <Component class="javax.swing.JButton" name="clearButton">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Corrupt text.png"/>
+                          <Image iconType="3" name="/icons/outline-green/close_window_32px.png"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Clear"/>
                         <Property name="toolTipText" type="java.lang.String" value="Clear/Cancel"/>
                       </Properties>
                       <Events>
@@ -1160,9 +1166,9 @@
                     <Component class="javax.swing.JButton" name="saveButton">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Floppy.png"/>
+                          <Image iconType="3" name="/icons/outline-green/save_32px.png"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Save"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Save changes"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>

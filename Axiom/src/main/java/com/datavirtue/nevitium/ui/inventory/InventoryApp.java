@@ -7,8 +7,8 @@
 /**
  *
  * @author  Sean K Anderson - Data Virtue
- * @rights Copyright Data Virtue 2006, 2007, 2008, 2009, 2010, 2011, 2022 All Rights
- * Reserved.
+ * @rights Copyright Data Virtue 2006, 2007, 2008, 2009, 2010, 2011, 2022 All
+ * Rights Reserved.
  */
 package com.datavirtue.nevitium.ui.inventory;
 
@@ -30,7 +30,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 import com.datavirtue.nevitium.models.inventory.Inventory;
 import com.datavirtue.nevitium.models.settings.AppSettings;
-import com.datavirtue.nevitium.models.settings.LocalAppSettings;
 import com.datavirtue.nevitium.services.InventoryService;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -42,6 +41,8 @@ import com.datavirtue.nevitium.services.LocalSettingsService;
 import com.datavirtue.nevitium.services.UserService;
 import com.datavirtue.nevitium.services.util.CurrencyUtil;
 import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.nevitium.ui.shared.ImageTransferHandler;
+import com.datavirtue.nevitium.ui.shared.InventoryImageCellRenderer;
 import com.datavirtue.nevitium.ui.util.AutoCompleteDocument;
 import com.datavirtue.nevitium.ui.util.DecimalCellRenderer;
 import java.awt.image.BufferedImage;
@@ -145,7 +146,7 @@ public class InventoryApp extends javax.swing.JDialog {
         if (select) {
 
             savePanel.setVisible(false);
-           
+
         }
 
     }//end constructor
@@ -191,7 +192,7 @@ public class InventoryApp extends javax.swing.JDialog {
 
     /* My initializer method */
     public void display() throws SQLException, BackingStoreException {
-       
+
         appSettings = appSettingsService.getObject();
         var user = UserService.getCurrentUser();
 
@@ -222,8 +223,6 @@ public class InventoryApp extends javax.swing.JDialog {
             setFieldsEnabled(false);
         }
 
-        
-        
         searchFieldCombo.setSelectedItem(appSettings.getInventory().getDefaultInventorySearchField());
 
         taxCheckBox.setToolTipText(appSettings.getInvoice().getTax1Name());
@@ -358,6 +357,27 @@ public class InventoryApp extends javax.swing.JDialog {
 
         serviceBox.setSelected(false);
 
+    }
+
+    private void createImageList() {
+
+        imageList.setModel(createModel());
+        imageList.setCellRenderer(new InventoryImageCellRenderer());
+        imageList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+        imageList.setVisibleRowCount(-1);
+        imageList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        imageList.setFixedCellWidth(240);
+        imageList.setFixedCellHeight(120);
+        imageList.setDragEnabled(true);
+        imageList.setDropMode(DropMode.INSERT);
+        imageList.setTransferHandler(new ImageTransferHandler(imageList));
+    }
+
+    private DefaultListModel createModel() {
+        DefaultListModel model = new DefaultListModel();
+        model.addElement(new Inventory()); ///blah blah 
+        
+        return model;
     }
 
     /**
@@ -737,6 +757,7 @@ public class InventoryApp extends javax.swing.JDialog {
         viewButton = new javax.swing.JButton();
         groupButton = new javax.swing.JButton();
         labelButton = new javax.swing.JButton();
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         deleteButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         selectButton = new javax.swing.JButton();
@@ -791,10 +812,11 @@ public class InventoryApp extends javax.swing.JDialog {
         picField = new javax.swing.JTextField();
         picButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        picLabel = new javax.swing.JLabel();
+        imageList = new javax.swing.JList<>();
         savePanel = new javax.swing.JPanel();
         helpBox = new javax.swing.JTextField();
         jToolBar2 = new javax.swing.JToolBar();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         clearButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
 
@@ -837,7 +859,7 @@ public class InventoryApp extends javax.swing.JDialog {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        viewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Camera.png"))); // NOI18N
+        viewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/image_gallery_32px.png"))); // NOI18N
         viewButton.setText("View Pic (F12)");
         viewButton.setEnabled(false);
         viewButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -849,7 +871,7 @@ public class InventoryApp extends javax.swing.JDialog {
         });
         jToolBar1.add(viewButton);
 
-        groupButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Site map.png"))); // NOI18N
+        groupButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/hierarchy_32px.png"))); // NOI18N
         groupButton.setText("Groups");
         groupButton.setToolTipText("Highlight Inventory Items and Hit this Button to Create Product Groups");
         groupButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -861,7 +883,7 @@ public class InventoryApp extends javax.swing.JDialog {
         });
         jToolBar1.add(groupButton);
 
-        labelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Tag.png"))); // NOI18N
+        labelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/barcode_32px.png"))); // NOI18N
         labelButton.setText("Labels");
         labelButton.setToolTipText("Select rows above and press this button to create labels.");
         labelButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -872,8 +894,9 @@ public class InventoryApp extends javax.swing.JDialog {
             }
         });
         jToolBar1.add(labelButton);
+        jToolBar1.add(filler2);
 
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Delete.png"))); // NOI18N
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/Delete_32px.png"))); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setToolTipText("Deleting In-Use Inventory Items is Not Recommended");
         deleteButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -886,7 +909,6 @@ public class InventoryApp extends javax.swing.JDialog {
         jToolBar1.add(deleteButton);
 
         selectButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/OK.png"))); // NOI18N
         selectButton.setText("Select");
         selectButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
         selectButton.addActionListener(new java.awt.event.ActionListener() {
@@ -896,7 +918,6 @@ public class InventoryApp extends javax.swing.JDialog {
         });
 
         voidButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        voidButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/No.png"))); // NOI18N
         voidButton.setText("None");
         voidButton.setMargin(new java.awt.Insets(2, 10, 2, 10));
         voidButton.addActionListener(new java.awt.event.ActionListener() {
@@ -999,9 +1020,9 @@ public class InventoryApp extends javax.swing.JDialog {
                 .addContainerGap()
                 .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jToolBar1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 51, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jToolBar1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1288,7 +1309,7 @@ public class InventoryApp extends javax.swing.JDialog {
                 .add(taxCheckBox)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(tax2CheckBox)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         detailTabPane.addTab("Detail", detailPanel);
@@ -1326,7 +1347,6 @@ public class InventoryApp extends javax.swing.JDialog {
         });
         notesScrollPane.setViewportView(notesPane);
 
-        noteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Message.png"))); // NOI18N
         noteButton.setText("Edit Notes");
         noteButton.setToolTipText("Keep Small Notes About Each Item");
         noteButton.setEnabled(false);
@@ -1380,7 +1400,7 @@ public class InventoryApp extends javax.swing.JDialog {
                     .add(reorderSpinnerControl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(availableCheckBox))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(notesScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                .add(notesScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(noteButton)
                 .addContainerGap())
@@ -1406,8 +1426,7 @@ public class InventoryApp extends javax.swing.JDialog {
             }
         });
 
-        picLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane2.setViewportView(picLabel);
+        jScrollPane2.setViewportView(imageList);
 
         org.jdesktop.layout.GroupLayout picturesPanelLayout = new org.jdesktop.layout.GroupLayout(picturesPanel);
         picturesPanel.setLayout(picturesPanelLayout);
@@ -1431,7 +1450,7 @@ public class InventoryApp extends javax.swing.JDialog {
                     .add(picButton)
                     .add(picField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1449,9 +1468,9 @@ public class InventoryApp extends javax.swing.JDialog {
 
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
+        jToolBar2.add(filler1);
 
-        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Corrupt text.png"))); // NOI18N
-        clearButton.setText("Clear");
+        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/close_window_32px.png"))); // NOI18N
         clearButton.setToolTipText("Clear/Cancel");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1460,8 +1479,8 @@ public class InventoryApp extends javax.swing.JDialog {
         });
         jToolBar2.add(clearButton);
 
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
-        saveButton.setText("Save");
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/save_32px.png"))); // NOI18N
+        saveButton.setToolTipText("Save changes");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
@@ -1483,8 +1502,8 @@ public class InventoryApp extends javax.swing.JDialog {
         savePanelLayout.setVerticalGroup(
             savePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, savePanelLayout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(jToolBar2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .add(jToolBar2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(helpBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1671,7 +1690,7 @@ public class InventoryApp extends javax.swing.JDialog {
             ByteArrayInputStream bis = new ByteArrayInputStream(this.currentItem.getImage());
             BufferedImage wPic = ImageIO.read(bis);
             this.picLabel.setIcon(new ImageIcon(wPic));
-            
+
         } catch (Exception e) {
 
             javax.swing.JOptionPane.showMessageDialog(null, "There was a problem with the file system.");
@@ -1762,16 +1781,15 @@ public class InventoryApp extends javax.swing.JDialog {
         findTextField.selectAll();
     }//GEN-LAST:event_findTextFieldFocusGained
 
-
     private void togglePanels() {
         if (savePanel.isVisible()) {
 
             savePanel.setVisible(false);
-           
+
         } else {
 
             savePanel.setVisible(true);
-            
+
         }
         findTextField.requestFocus();
     }
@@ -2189,9 +2207,12 @@ public class InventoryApp extends javax.swing.JDialog {
     private javax.swing.JTextField descTextField;
     private javax.swing.JPanel detailPanel;
     private javax.swing.JTabbedPane detailTabPane;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
     private javax.swing.JTextField findTextField;
     private javax.swing.JButton groupButton;
     private javax.swing.JTextField helpBox;
+    private javax.swing.JList<String> imageList;
     private javax.swing.JTable inventoryTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
@@ -2222,7 +2243,6 @@ public class InventoryApp extends javax.swing.JDialog {
     private javax.swing.JCheckBox partialBox;
     private javax.swing.JButton picButton;
     private javax.swing.JTextField picField;
-    private javax.swing.JLabel picLabel;
     private javax.swing.JPanel picturesPanel;
     private javax.swing.JTextField priceTextField;
     private javax.swing.JTextField qtyTextField;

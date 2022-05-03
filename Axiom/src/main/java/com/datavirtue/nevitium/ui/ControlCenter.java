@@ -194,7 +194,7 @@ public class ControlCenter extends javax.swing.JFrame {
         internetStatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Nevitium Invoice Manager");
+        setTitle("Axiom Business Manager");
         setIconImage(winIcon);
 
         picLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -206,7 +206,7 @@ public class ControlCenter extends javax.swing.JFrame {
         mainToolbar.setRollover(true);
         mainToolbar.setBorderPainted(false);
 
-        connectionsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Conference.png"))); // NOI18N
+        connectionsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/connected_people_64px.png"))); // NOI18N
         connectionsButton.setText("Connections");
         connectionsButton.setFocusable(false);
         connectionsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -218,7 +218,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         mainToolbar.add(connectionsButton);
 
-        inventoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Tables.png"))); // NOI18N
+        inventoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/barcode_reader_64px.png"))); // NOI18N
         inventoryButton.setText("Inventory");
         inventoryButton.setFocusable(false);
         inventoryButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -232,7 +232,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         mainToolbar.add(inventoryButton);
 
-        activityButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Money.png"))); // NOI18N
+        activityButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/ledger_64px.png"))); // NOI18N
         activityButton.setText("Invoices");
         activityButton.setFocusable(false);
         activityButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -245,7 +245,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         mainToolbar.add(activityButton);
 
-        invoiceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Barcode scanner1.png"))); // NOI18N
+        invoiceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/cash_register_64px.png"))); // NOI18N
         invoiceButton.setText("SALE");
         invoiceButton.setFocusable(false);
         invoiceButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -259,7 +259,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         mainToolbar.add(invoiceButton);
 
-        settingsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Configuration.png"))); // NOI18N
+        settingsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/administrative_tools_64px.png"))); // NOI18N
         settingsButton.setText("Setup");
         settingsButton.setFocusable(false);
         settingsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -272,7 +272,7 @@ public class ControlCenter extends javax.swing.JFrame {
         });
         mainToolbar.add(settingsButton);
 
-        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Close.png"))); // NOI18N
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/close_window_64px.png"))); // NOI18N
         exitButton.setText("Exit");
         exitButton.setFocusable(false);
         exitButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -323,7 +323,7 @@ public class ControlCenter extends javax.swing.JFrame {
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .add(mainToolbar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(statusMessagePanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
