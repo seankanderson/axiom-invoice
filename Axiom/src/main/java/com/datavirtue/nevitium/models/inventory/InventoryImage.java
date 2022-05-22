@@ -1,7 +1,7 @@
 package com.datavirtue.nevitium.models.inventory;
 
+import com.datavirtue.nevitium.database.orm.InventoryImageDao;
 import com.datavirtue.nevitium.models.BaseModel;
-import com.datavirtue.nevitium.models.contacts.Contact;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -13,11 +13,11 @@ import lombok.Setter;
  * @author SeanAnderson
  */
 @Getter @Setter
-@DatabaseTable(tableName = "inventory_images", daoClass = InventoryImage.class)
+@DatabaseTable(tableName = "inventory_images", daoClass = InventoryImageDao.class)
 public class InventoryImage extends BaseModel {
      
     @DatabaseField(foreign=true,foreignAutoRefresh=false, canBeNull = false)
-    private Contact inventory;
+    private Inventory inventory;
     @DatabaseField(dataType = DataType.BYTE_ARRAY)
     private byte[] image;
     @DatabaseField

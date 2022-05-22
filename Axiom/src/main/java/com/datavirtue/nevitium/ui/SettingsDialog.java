@@ -329,7 +329,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         }
         companyNameField.setFont(companyFont);
 
-        if (!company.getCompanyLogo().isEmpty()) {
+        if (company.getCompanyLogo() != null && !company.getCompanyLogo().isEmpty()) {
             try {
                 var image = imageService.convertBase64PngToBufferedImage(company.getCompanyLogo());
                 imageService.resizeAndSetImageToJLabel(image, this.companyLogoImage);

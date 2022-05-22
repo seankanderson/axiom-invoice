@@ -29,6 +29,7 @@ import java.awt.*;
 import java.math.BigDecimal;
 import java.util.Date;
 import com.datavirtue.nevitium.models.inventory.Inventory;
+import com.datavirtue.nevitium.models.inventory.InventoryImage;
 import com.datavirtue.nevitium.models.settings.AppSettings;
 import com.datavirtue.nevitium.services.InventoryService;
 import java.sql.SQLException;
@@ -41,14 +42,15 @@ import com.datavirtue.nevitium.services.LocalSettingsService;
 import com.datavirtue.nevitium.services.UserService;
 import com.datavirtue.nevitium.services.util.CurrencyUtil;
 import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.shared.ImageTransferHandler;
+import com.datavirtue.nevitium.ui.shared.CollectionMappedListModel;
+import com.datavirtue.nevitium.ui.shared.DroppedFilesHandler;
+import com.datavirtue.nevitium.ui.shared.ImageFileTransferHandler;
 import com.datavirtue.nevitium.ui.shared.InventoryImageCellRenderer;
 import com.datavirtue.nevitium.ui.util.AutoCompleteDocument;
 import com.datavirtue.nevitium.ui.util.DecimalCellRenderer;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
-import javax.imageio.ImageIO;
 import org.apache.commons.lang3.StringUtils;
 
 public class InventoryApp extends javax.swing.JDialog {
@@ -359,9 +361,30 @@ public class InventoryApp extends javax.swing.JDialog {
 
     }
 
+    private void handleDroppedFiles(ArrayList<File> files) {
+
+    }
+
     private void createImageList() {
 
-        imageList.setModel(createModel());
+        var handler = new DroppedFilesHandler() {
+            @Override
+            public void handleDroppedFiles(ArrayList<File> files) {
+                for (var file : files) {                    
+                    try {
+                        var image = Files.readAllBytes(file.toPath());
+                        var inventoryImage = new InventoryImage();
+                        inventoryImage.setImage(image);
+                        currentItem.getImages().add(inventoryImage);
+                    } catch (IOException ex) {
+                        Logger.getLogger(InventoryApp.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                createImageList();
+            }
+        };
+
+        imageList.setModel(new CollectionMappedListModel<InventoryImage>((ArrayList<InventoryImage>) new ArrayList(this.currentItem.getImages().stream().toList()) ));
         imageList.setCellRenderer(new InventoryImageCellRenderer());
         imageList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
         imageList.setVisibleRowCount(-1);
@@ -370,14 +393,7 @@ public class InventoryApp extends javax.swing.JDialog {
         imageList.setFixedCellHeight(120);
         imageList.setDragEnabled(true);
         imageList.setDropMode(DropMode.INSERT);
-        imageList.setTransferHandler(new ImageTransferHandler(imageList));
-    }
-
-    private DefaultListModel createModel() {
-        DefaultListModel model = new DefaultListModel();
-        model.addElement(new Inventory()); ///blah blah 
-        
-        return model;
+        imageList.setTransferHandler(new ImageFileTransferHandler(imageList, handler));
     }
 
     /**
@@ -633,6 +649,9 @@ public class InventoryApp extends javax.swing.JDialog {
         availableCheckBox.setSelected(currentItem.isAvailable());
 
         computePrices();
+
+        this.createImageList();
+
         setFieldsEnabled(true);
 
         if (currentItem.getCategory() != null && currentItem.getCategory().equalsIgnoreCase("Service")) {
@@ -1426,6 +1445,7 @@ public class InventoryApp extends javax.swing.JDialog {
             }
         });
 
+        imageList.setDropMode(javax.swing.DropMode.INSERT);
         jScrollPane2.setViewportView(imageList);
 
         org.jdesktop.layout.GroupLayout picturesPanelLayout = new org.jdesktop.layout.GroupLayout(picturesPanel);
@@ -1681,15 +1701,12 @@ public class InventoryApp extends javax.swing.JDialog {
             }
 
             var image = Files.readAllBytes(curFile.toPath());
-            this.currentItem.setImage(image);
+            var inventoryImage = new InventoryImage();
+            inventoryImage.setImage(image);
+            this.currentItem.getImages().add(inventoryImage);
             //inventoryService.save(currentItem);
-
-            picField.setText(curFile.getPath());
-
             picField.setText(DV.verifyPath(picField.getText()));
-            ByteArrayInputStream bis = new ByteArrayInputStream(this.currentItem.getImage());
-            BufferedImage wPic = ImageIO.read(bis);
-            this.picLabel.setIcon(new ImageIcon(wPic));
+            this.createImageList();
 
         } catch (Exception e) {
 
@@ -2212,7 +2229,7 @@ public class InventoryApp extends javax.swing.JDialog {
     private javax.swing.JTextField findTextField;
     private javax.swing.JButton groupButton;
     private javax.swing.JTextField helpBox;
-    private javax.swing.JList<String> imageList;
+    private javax.swing.JList<InventoryImage> imageList;
     private javax.swing.JTable inventoryTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;

@@ -1,10 +1,17 @@
 package com.datavirtue.nevitium.ui.shared;
 
+import com.datavirtue.nevitium.models.inventory.InventoryImage;
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
-import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -34,8 +41,16 @@ public class InventoryImageCellRenderer extends JPanel implements ListCellRender
         defaultListCellRenderer.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
         setBorder(defaultListCellRenderer.getBorder());
         setBackground(defaultListCellRenderer.getBackground());
-        imageLabel.setIcon((Icon) value);
-        descriptionLabel.setText("Description");
+        var inventoryImage = (InventoryImage)value;
+        ByteArrayInputStream bis = new ByteArrayInputStream(inventoryImage.getImage());
+        try {
+            BufferedImage wPic = ImageIO.read(bis);
+            imageLabel.setIcon(new ImageIcon(wPic));
+            descriptionLabel.setText(inventoryImage.getCaption());    
+        } catch (IOException ex) {
+            Logger.getLogger(InventoryImageCellRenderer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
         return this;
     }
 }
