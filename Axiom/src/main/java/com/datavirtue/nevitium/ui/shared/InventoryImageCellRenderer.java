@@ -1,6 +1,7 @@
 package com.datavirtue.nevitium.ui.shared;
 
 import com.datavirtue.nevitium.models.inventory.InventoryImage;
+import com.datavirtue.nevitium.services.util.Scalr;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.image.BufferedImage;
@@ -35,6 +36,7 @@ public class InventoryImageCellRenderer extends JPanel implements ListCellRender
         descriptionLabel.setBorder(emptyBorder);
         add(imageLabel, BorderLayout.CENTER);
         add(descriptionLabel, BorderLayout.SOUTH);
+               
     }
 
     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
@@ -45,8 +47,10 @@ public class InventoryImageCellRenderer extends JPanel implements ListCellRender
         ByteArrayInputStream bis = new ByteArrayInputStream(inventoryImage.getImage());
         try {
             BufferedImage wPic = ImageIO.read(bis);
-            imageLabel.setIcon(new ImageIcon(wPic));
-            descriptionLabel.setText(inventoryImage.getCaption());    
+            var scaled = Scalr.resize(wPic, Scalr.Method.QUALITY, Scalr.Mode.FIT_TO_WIDTH, 100);
+            imageLabel.setIcon(new ImageIcon(scaled));
+            descriptionLabel.setText(inventoryImage.getCaption()); 
+            
         } catch (IOException ex) {
             Logger.getLogger(InventoryImageCellRenderer.class.getName()).log(Level.SEVERE, null, ex);
         }

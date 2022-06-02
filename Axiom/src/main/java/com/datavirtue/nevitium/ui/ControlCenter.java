@@ -35,8 +35,6 @@ import java.awt.Desktop;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
 
 /**
@@ -72,7 +70,7 @@ public class ControlCenter extends javax.swing.JFrame {
             }
         });
 
-        System.setProperty("http.agent", "Nevitium");
+        System.setProperty("http.agent", "Axiom Business Terminal");
         winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         initComponents();
         buildMenu();
@@ -194,7 +192,7 @@ public class ControlCenter extends javax.swing.JFrame {
         internetStatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Axiom Business Manager");
+        setTitle("Axiom Business Terminal");
         setIconImage(winIcon);
 
         picLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

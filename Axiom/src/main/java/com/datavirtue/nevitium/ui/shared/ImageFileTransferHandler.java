@@ -98,8 +98,15 @@ public class ImageFileTransferHandler extends TransferHandler {
 
             Transferable transferable = support.getTransferable();
             try {
-                                
-                var fileList = (List)transferable.getTransferData(getDataFlavour(support));                
+                
+                var transferData = transferable.getTransferData(getDataFlavour(support)); 
+                
+                if (!(transferData instanceof List)) {
+                    System.out.println("Why is this getting called?!");
+                    return true;
+                }
+                
+                var fileList = (List) transferData;             
                 var draggedFiles = Arrays.asList(fileList.get(0));                
                 var files = new ArrayList<File>();
                 for(var file : draggedFiles) {

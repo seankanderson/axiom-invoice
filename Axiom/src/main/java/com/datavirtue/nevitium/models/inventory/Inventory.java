@@ -51,5 +51,5 @@ public class Inventory extends BaseModel{
     private boolean partialSaleAllowed;
         
     @ForeignCollectionField(eager = false)
-    private Collection<InventoryImage> images = new ArrayList();
+    private Collection<InventoryImageJoin> images = new ArrayList();
 }

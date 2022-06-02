@@ -63,13 +63,11 @@ public class InventoryApp extends javax.swing.JDialog {
     private java.util.List<Inventory> returnValue;
     private long lastRecvDate;
     private long lastSaleDate;
-    private boolean service = false;
     private java.awt.Image winIcon;
     private java.awt.Frame parentWin;
     private boolean selectMode;
     private TableModel tm;
-    private String nl = System.getProperty("line.separator");
-
+    
     /**
      * Creates new form InventoryDialog
      */
@@ -343,7 +341,7 @@ public class InventoryApp extends javax.swing.JDialog {
         saleField.setText("");
         recvdField.setText("");
 
-        reorderSpinnerControl.setValue(new Integer(0));
+        reorderSpinnerControl.setValue(0);
 
         picField.setText("");
 
@@ -375,6 +373,7 @@ public class InventoryApp extends javax.swing.JDialog {
                         var image = Files.readAllBytes(file.toPath());
                         var inventoryImage = new InventoryImage();
                         inventoryImage.setImage(image);
+                        inventoryImage.setCaption(file.getName());
                         currentItem.getImages().add(inventoryImage);
                     } catch (IOException ex) {
                         Logger.getLogger(InventoryApp.class.getName()).log(Level.SEVERE, null, ex);
@@ -389,10 +388,10 @@ public class InventoryApp extends javax.swing.JDialog {
         imageList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
         imageList.setVisibleRowCount(-1);
         imageList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        imageList.setFixedCellWidth(240);
-        imageList.setFixedCellHeight(120);
-        imageList.setDragEnabled(true);
-        imageList.setDropMode(DropMode.INSERT);
+        //imageList.setFixedCellWidth(240);
+        //imageList.setFixedCellHeight(120);
+        //imageList.setDragEnabled(true);
+        //imageList.setDropMode(DropMode.INSERT);
         imageList.setTransferHandler(new ImageFileTransferHandler(imageList, handler));
     }
 
@@ -1445,6 +1444,8 @@ public class InventoryApp extends javax.swing.JDialog {
             }
         });
 
+        imageList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        imageList.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         imageList.setDropMode(javax.swing.DropMode.INSERT);
         jScrollPane2.setViewportView(imageList);
 
