@@ -49,7 +49,4 @@ public class Inventory extends BaseModel{
     private int reorderCutoff;
     @DatabaseField
     private boolean partialSaleAllowed;
-        
-    @ForeignCollectionField(eager = false)
-    private Collection<InventoryImageJoin> images = new ArrayList();
 }

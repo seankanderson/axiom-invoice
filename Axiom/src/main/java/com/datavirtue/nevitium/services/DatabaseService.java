@@ -10,6 +10,7 @@ import com.datavirtue.nevitium.models.contacts.ContactAddress;
 import com.datavirtue.nevitium.models.contacts.ContactJournal;
 import com.datavirtue.nevitium.models.inventory.Inventory;
 import com.datavirtue.nevitium.models.inventory.InventoryImage;
+import com.datavirtue.nevitium.models.inventory.InventoryImageJoin;
 import com.datavirtue.nevitium.models.inventory.InventoryItemNote;
 import com.datavirtue.nevitium.models.invoices.Invoice;
 import com.datavirtue.nevitium.models.invoices.InvoiceCustomerInfo;
@@ -52,6 +53,7 @@ public class DatabaseService {
             TableUtils.dropTable(connectionSource, Inventory.class, true);
             TableUtils.dropTable(connectionSource, InventoryItemNote.class, true);
             TableUtils.dropTable(connectionSource, InventoryImage.class, true);
+            TableUtils.dropTable(connectionSource, InventoryImageJoin.class, true);
             TableUtils.dropTable(connectionSource, Contact.class, true);
             TableUtils.dropTable(connectionSource, ContactAddress.class, true);
             TableUtils.dropTable(connectionSource, Invoice.class, true);
@@ -66,6 +68,7 @@ public class DatabaseService {
             //TableUtils.dropTable(connectionSource, AppConfig.class, true);
         }
         
+        TableUtils.createTableIfNotExists(getConnection(), InventoryImageJoin.class); 
         TableUtils.createTableIfNotExists(getConnection(), Inventory.class); 
         TableUtils.clearTable(connectionSource, Inventory.class);
         TableUtils.createTableIfNotExists(getConnection(), InventoryItemNote.class); 

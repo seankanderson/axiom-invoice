@@ -19,9 +19,6 @@ import lombok.Setter;
 @DatabaseTable(tableName = "inventory_images", daoClass = InventoryImageDao.class)
 public class InventoryImage extends BaseModel {
      
-    @ForeignCollectionField(eager = false)
-    private Collection<InventoryImageJoin> images = new ArrayList();
-    
     @DatabaseField(dataType = DataType.BYTE_ARRAY)
     private byte[] image;
     @DatabaseField
