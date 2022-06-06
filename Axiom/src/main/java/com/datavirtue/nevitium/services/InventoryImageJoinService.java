@@ -1,29 +1,42 @@
 package com.datavirtue.nevitium.services;
 
-import com.datavirtue.nevitium.database.orm.InventoryDao;
+import com.datavirtue.nevitium.database.orm.InventoryImageDao;
+import com.datavirtue.nevitium.database.orm.InventoryImageJoinDao;
 import java.util.List;
 import java.sql.SQLException;
 import com.datavirtue.nevitium.models.inventory.Inventory;
+import com.datavirtue.nevitium.models.inventory.InventoryImage;
+import com.datavirtue.nevitium.models.inventory.InventoryImageJoin;
 import com.google.inject.Inject;
 import com.j256.ormlite.dao.DaoManager;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /**
  *
  * @author SeanAnderson
  */
-public class InventoryService extends BaseService<InventoryDao, Inventory> {
+public class InventoryImageJoinService extends BaseService<InventoryImageJoinDao, InventoryImageJoin> {
 
             
     @Inject
     private AppSettingsService appSettings;
     
-    public InventoryService() {
+    public InventoryImageJoinService() {
 
     }
 
-    public List<Inventory> getAllInventoryByUpc(String upc) throws SQLException {
-        return this.getDao().queryForEq("upc", upc);
+    public List<InventoryImage> getAllImagesForInventory(UUID inventoryId) throws SQLException {
+        var images = this.getDao().queryForEq("inventory_id", inventoryId);
+        var imageList = new ArrayList<InventoryImage>();
+        for(var image : images) {
+            imageList.add(image.getImage());
+        }
+        return imageList;
+    }
+    
+    public void saveImage(InventoryImage image) {
+        inventoryImageDao
     }
 
     public List<Inventory> getAllInventoryByCode(String code) throws SQLException {
@@ -69,9 +82,6 @@ public class InventoryService extends BaseService<InventoryDao, Inventory> {
     }
     
     public void deleteInventory(Inventory inventory) throws SQLException {
-        
-        // TODO: remove any image links from the join table -- leave images even if not associated, they can be linked to later and managed in another tool
-        
         this.getDao().delete(inventory);
 //        TransactionManager.callInTransaction(connection, new Callable<Void>() {
 //            public Void call() throws Exception {
@@ -95,8 +105,8 @@ public class InventoryService extends BaseService<InventoryDao, Inventory> {
     }
 
     @Override
-    public InventoryDao getDao() throws SQLException {
-        return DaoManager.createDao(connection, Inventory.class);
+    public InventoryImageJoinDao getDao() throws SQLException {
+        return DaoManager.createDao(connection, InventoryImageJoin.class);
     }
 
 }

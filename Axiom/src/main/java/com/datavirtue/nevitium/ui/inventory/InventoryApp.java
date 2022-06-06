@@ -38,6 +38,7 @@ import java.util.Arrays;
 import java.util.prefs.BackingStoreException;
 import com.datavirtue.nevitium.services.AppSettingsService;
 import com.datavirtue.nevitium.services.ExceptionService;
+import com.datavirtue.nevitium.services.InventoryImageService;
 import com.datavirtue.nevitium.services.LocalSettingsService;
 import com.datavirtue.nevitium.services.UserService;
 import com.datavirtue.nevitium.services.util.CurrencyUtil;
@@ -56,10 +57,11 @@ import org.apache.commons.lang3.StringUtils;
 public class InventoryApp extends javax.swing.JDialog {
 
     private InventoryService inventoryService;
+    private InventoryImageService inventoryImageService;
     private AppSettingsService appSettingsService;
     private AppSettings appSettings;
     private Inventory currentItem = new Inventory();
-
+    
     private java.util.List<Inventory> returnValue;
     private long lastRecvDate;
     private long lastSaleDate;
@@ -67,7 +69,7 @@ public class InventoryApp extends javax.swing.JDialog {
     private java.awt.Frame parentWin;
     private boolean selectMode;
     private TableModel tm;
-    
+
     /**
      * Creates new form InventoryDialog
      */
@@ -78,6 +80,7 @@ public class InventoryApp extends javax.swing.JDialog {
         initComponents();
         var injector = DiService.getInjector();
         inventoryService = injector.getInstance(InventoryService.class);
+        inventoryImageService = injector.getInstance(InventoryImageService.class);
         appSettingsService = injector.getInstance(AppSettingsService.class);
         appSettingsService.setObjectType(AppSettings.class);
 
@@ -359,8 +362,8 @@ public class InventoryApp extends javax.swing.JDialog {
 
     }
 
-    private void handleDroppedFiles(ArrayList<File> files) {
-
+    private void populateImageListModel() {
+        imageList.setModel(new CollectionMappedListModel<InventoryImage>((ArrayList<InventoryImage>) new ArrayList(this.currentItem.getImages().stream().toList())));
     }
 
     private void createImageList() {
@@ -368,22 +371,23 @@ public class InventoryApp extends javax.swing.JDialog {
         var handler = new DroppedFilesHandler() {
             @Override
             public void handleDroppedFiles(ArrayList<File> files) {
-                for (var file : files) {                    
+                for (var file : files) {
                     try {
                         var image = Files.readAllBytes(file.toPath());
                         var inventoryImage = new InventoryImage();
                         inventoryImage.setImage(image);
                         inventoryImage.setCaption(file.getName());
-                        currentItem.getImages().add(inventoryImage);
+                        saveImage(inventoryImage);                        
                     } catch (IOException ex) {
-                        Logger.getLogger(InventoryApp.class.getName()).log(Level.SEVERE, null, ex);
+                        ExceptionService.showErrorDialog(parentWin, ex, "Error reading the image file");
+                    } catch (SQLException ex) {
+                        ExceptionService.showErrorDialog(parentWin, ex, "Error saving image to database");
                     }
                 }
-                createImageList();
+                populateImageListModel();
             }
         };
 
-        imageList.setModel(new CollectionMappedListModel<InventoryImage>((ArrayList<InventoryImage>) new ArrayList(this.currentItem.getImages().stream().toList()) ));
         imageList.setCellRenderer(new InventoryImageCellRenderer());
         imageList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
         imageList.setVisibleRowCount(-1);
@@ -603,10 +607,14 @@ public class InventoryApp extends javax.swing.JDialog {
      */
     private void populateFields() {
 
-        this.populateForm();
+        try {
+            this.populateForm();
+        } catch (SQLException ex) {
+            ExceptionService.showErrorDialog(this, ex, "Error retrieving images for inventory item: " + this.currentItem.getDescription());
+        }
     }
 
-    private void populateForm() {
+    private void populateForm() throws SQLException {
         int selectedRow = inventoryTable.getSelectedRow();
         if (selectedRow < 0) {
             return;
@@ -649,7 +657,15 @@ public class InventoryApp extends javax.swing.JDialog {
 
         computePrices();
 
-        this.createImageList();
+        if (this.currentItem.getImages() == null ) {
+            // TODO: encapsulate this in a cancellable CompelteableFuture so image retreival does not hinder the UI
+            // each request cancels the previous request...
+            var images = this.inventoryImageService.getAllImagesForInventory(this.currentItem.getId());
+            this.currentItem.setImages(images);            
+        } 
+        
+        this.createImageList();        
+        this.populateImageListModel();
 
         setFieldsEnabled(true);
 
@@ -1680,12 +1696,34 @@ public class InventoryApp extends javax.swing.JDialog {
 
     }//GEN-LAST:event_savePanelKeyPressed
 
+    private void saveImage(InventoryImage image) throws SQLException {
+
+        var isNewInventory = currentItem.getId() == null;
+
+        if (isNewInventory) {
+            validateFormAndSave();
+        }
+
+        if (!this.currentItem.getImages().contains(image)) {
+            this.currentItem.getImages().add(image);
+        }
+
+        inventoryImageService.saveIfNewAndlinkImageToInventory(currentItem, image);
+
+        if (isNewInventory && this.currentItem.getId() != null) {
+            // inventory was updated
+        }
+
+        populateImageListModel();
+
+    }
+
+
     private void picButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_picButtonActionPerformed
 
         try {
 
             java.io.File file;
-            String f;
 
             file = new java.io.File(picField.getText());
             JFileChooser fileChooser = new JFileChooser(file);
@@ -1704,10 +1742,8 @@ public class InventoryApp extends javax.swing.JDialog {
             var image = Files.readAllBytes(curFile.toPath());
             var inventoryImage = new InventoryImage();
             inventoryImage.setImage(image);
-            this.currentItem.getImages().add(inventoryImage);
-            //inventoryService.save(currentItem);
+            this.saveImage(inventoryImage);            
             picField.setText(DV.verifyPath(picField.getText()));
-            this.createImageList();
 
         } catch (Exception e) {
 
@@ -1893,10 +1929,16 @@ public class InventoryApp extends javax.swing.JDialog {
         if (mouseButton == evt.BUTTON2 || mouseButton == evt.BUTTON3) {
             return;
         }
+        
+        
+        if(evt.getClickCount() == 1) { // TODO: make sure all click handlers are only populating on the first click
+            populateFields();
+            saveButton.setEnabled(true);
+        }
+        
+        if (evt.getClickCount() == 2) {  
 
-        if (selectMode) {
-
-            if (evt.getClickCount() == 2) {
+            if (selectMode) {
 
                 int row = inventoryTable.rowAtPoint(new Point(evt.getX(), evt.getY()));
 
@@ -1910,11 +1952,6 @@ public class InventoryApp extends javax.swing.JDialog {
             }
 
         }
-
-        populateFields();
-
-        saveButton.setEnabled(true);
-
 
     }//GEN-LAST:event_inventoryTableMouseClicked
 
@@ -1961,8 +1998,7 @@ public class InventoryApp extends javax.swing.JDialog {
 
     }//GEN-LAST:event_clearButtonActionPerformed
 
-    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-
+    private void validateFormAndSave() {
         try {
             if (validateForm()) {
                 saveRecord();
@@ -1971,6 +2007,11 @@ public class InventoryApp extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, e.getMessage(), "Error Saving", JOptionPane.OK_OPTION);
         }
 
+    }
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+
+        validateFormAndSave();
 
     }//GEN-LAST:event_saveButtonActionPerformed
 
@@ -2035,6 +2076,7 @@ public class InventoryApp extends javax.swing.JDialog {
         currentItem.setReorderCutoff((Integer) reorderSpinnerControl.getValue());
         inventoryService.save(currentItem);
 
+        // TODO: is there anything to do for images here? any impact from saving the inventory item early when adding images?
         // reflect changes for the user and cleanup UI
         updateTableModel(currentItem, isNewItem);
         saveButton.setEnabled(false);
