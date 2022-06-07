@@ -724,8 +724,8 @@ public class ContactsApp extends javax.swing.JDialog {
             }
         ));
         contactTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                contactTableMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                contactTableMousePressed(evt);
             }
         });
         contactTable.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -767,7 +767,6 @@ public class ContactsApp extends javax.swing.JDialog {
             }
         });
 
-        functionToolbar.setFloatable(false);
         functionToolbar.setRollover(true);
 
         toggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Down.png"))); // NOI18N
@@ -824,7 +823,6 @@ public class ContactsApp extends javax.swing.JDialog {
         });
         functionToolbar.add(deleteButton);
 
-        filterToolbar.setFloatable(false);
         filterToolbar.setRollover(true);
         filterToolbar.setBorderPainted(false);
 
@@ -1274,7 +1272,6 @@ public class ContactsApp extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(invoiceTable);
 
-        invoiceToolbar.setFloatable(false);
         invoiceToolbar.setRollover(true);
 
         viewButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -1321,7 +1318,6 @@ public class ContactsApp extends javax.swing.JDialog {
 
         invoiceLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         invoiceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        invoiceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Rotate CW.png"))); // NOI18N
         invoiceLabel.setText("Invoices");
         invoiceLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
@@ -1602,7 +1598,6 @@ public class ContactsApp extends javax.swing.JDialog {
 
         contactDetailTabPane.addTab("Journal", journalPanel);
 
-        contactDetailsToolBar.setFloatable(false);
         contactDetailsToolBar.setRollover(true);
 
         clearButton.setText("Clear");
@@ -2034,31 +2029,6 @@ public class ContactsApp extends javax.swing.JDialog {
 
     }//GEN-LAST:event_companyTextFieldMouseClicked
 
-    private void contactTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactTableMouseClicked
-        int mouseButton = evt.getButton();
-        if (mouseButton == evt.BUTTON2 || mouseButton == evt.BUTTON3) {
-            return;
-        }
-        //on Double Click
-
-        if (selectMode) {
-
-            if (evt.getClickCount() == 2) {
-
-                int row = contactTable.rowAtPoint(new Point(evt.getX(), evt.getY()));
-
-                if (contactTable.getSelectedRow() > -1) {
-                    var tableModel = (ContactsTableModel) contactTable.getModel();
-                    returnValue = (Contact) tableModel.getValueAt(row);
-                    this.setVisible(false);
-                }
-            }
-        }
-
-        populateFields();
-
-    }//GEN-LAST:event_contactTableMouseClicked
-
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
 
         if (contactTable.getSelectedRow() > -1) {
@@ -2277,6 +2247,30 @@ public class ContactsApp extends javax.swing.JDialog {
     private void searchFieldComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchFieldComboActionPerformed
+
+    private void contactTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactTableMousePressed
+         int mouseButton = evt.getButton();
+        if (mouseButton == evt.BUTTON2 || mouseButton == evt.BUTTON3) {
+            return;
+        }
+        //on Double Click
+
+        if (selectMode) {
+
+            if (evt.getClickCount() == 2) {
+
+                int row = contactTable.rowAtPoint(new Point(evt.getX(), evt.getY()));
+
+                if (contactTable.getSelectedRow() > -1) {
+                    var tableModel = (ContactsTableModel) contactTable.getModel();
+                    returnValue = (Contact) tableModel.getValueAt(row);
+                    this.setVisible(false);
+                }
+            }
+        }
+
+        populateFields();
+    }//GEN-LAST:event_contactTableMousePressed
 
     private void doInvoiceReport() {
         int r = contactTable.getSelectedRow();

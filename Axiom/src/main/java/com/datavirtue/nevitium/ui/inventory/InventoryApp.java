@@ -52,6 +52,7 @@ import com.datavirtue.nevitium.ui.util.DecimalCellRenderer;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.concurrent.CompletableFuture;
 import org.apache.commons.lang3.StringUtils;
 
 public class InventoryApp extends javax.swing.JDialog {
@@ -61,7 +62,7 @@ public class InventoryApp extends javax.swing.JDialog {
     private AppSettingsService appSettingsService;
     private AppSettings appSettings;
     private Inventory currentItem = new Inventory();
-    
+
     private java.util.List<Inventory> returnValue;
     private long lastRecvDate;
     private long lastSaleDate;
@@ -69,6 +70,8 @@ public class InventoryApp extends javax.swing.JDialog {
     private java.awt.Frame parentWin;
     private boolean selectMode;
     private TableModel tm;
+
+    private CompletableFuture<Void> imageLoader;
 
     /**
      * Creates new form InventoryDialog
@@ -377,7 +380,7 @@ public class InventoryApp extends javax.swing.JDialog {
                         var inventoryImage = new InventoryImage();
                         inventoryImage.setImage(image);
                         inventoryImage.setCaption(file.getName());
-                        saveImage(inventoryImage);                        
+                        saveImage(inventoryImage);
                     } catch (IOException ex) {
                         ExceptionService.showErrorDialog(parentWin, ex, "Error reading the image file");
                     } catch (SQLException ex) {
@@ -657,14 +660,9 @@ public class InventoryApp extends javax.swing.JDialog {
 
         computePrices();
 
-        if (this.currentItem.getImages() == null ) {
-            // TODO: encapsulate this in a cancellable CompelteableFuture so image retreival does not hinder the UI
-            // each request cancels the previous request...
-            var images = this.inventoryImageService.getAllImagesForInventory(this.currentItem.getId());
-            this.currentItem.setImages(images);            
-        } 
-        
-        this.createImageList();        
+        loadImages();
+
+        this.createImageList();
         this.populateImageListModel();
 
         setFieldsEnabled(true);
@@ -676,6 +674,26 @@ public class InventoryApp extends javax.swing.JDialog {
         }
         checkService();
         noteButton.setEnabled(true);
+    }
+
+    private void loadImages() {
+        if (imageLoader != null) {
+            imageLoader.complete(null);
+        }
+        imageLoader = CompletableFuture.runAsync(() -> {
+
+            if (currentItem.getImages() == null) {
+                try {
+                    // TODO: make cancellable...                    
+                    var images = inventoryImageService.getAllImagesForInventory(currentItem.getId());
+                    currentItem.setImages(images);
+                } catch (SQLException ex) {
+                    ExceptionService.showErrorDialog(parentWin, ex, "Error retrieving images from database");
+                }
+            }
+
+        });
+
     }
 
     private void getNote(int invKey) {
@@ -876,8 +894,8 @@ public class InventoryApp extends javax.swing.JDialog {
         inventoryTable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         inventoryTable.setToolTipText("Click a row and press F9 to receive.");
         inventoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                inventoryTableMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                inventoryTableMousePressed(evt);
             }
         });
         inventoryTable.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -890,7 +908,6 @@ public class InventoryApp extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(inventoryTable);
 
-        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         viewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/outline-green/image_gallery_32px.png"))); // NOI18N
@@ -1503,7 +1520,6 @@ public class InventoryApp extends javax.swing.JDialog {
         helpBox.setEditable(false);
         helpBox.setText("Click the UPC field to start a new record.");
 
-        jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
         jToolBar2.add(filler1);
 
@@ -1742,7 +1758,7 @@ public class InventoryApp extends javax.swing.JDialog {
             var image = Files.readAllBytes(curFile.toPath());
             var inventoryImage = new InventoryImage();
             inventoryImage.setImage(image);
-            this.saveImage(inventoryImage);            
+            this.saveImage(inventoryImage);
             picField.setText(DV.verifyPath(picField.getText()));
 
         } catch (Exception e) {
@@ -1923,37 +1939,6 @@ public class InventoryApp extends javax.swing.JDialog {
             togglePanels();
         }
     }//GEN-LAST:event_findTextFieldKeyPressed
-
-    private void inventoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryTableMouseClicked
-        int mouseButton = evt.getButton();
-        if (mouseButton == evt.BUTTON2 || mouseButton == evt.BUTTON3) {
-            return;
-        }
-        
-        
-        if(evt.getClickCount() == 1) { // TODO: make sure all click handlers are only populating on the first click
-            populateFields();
-            saveButton.setEnabled(true);
-        }
-        
-        if (evt.getClickCount() == 2) {  
-
-            if (selectMode) {
-
-                int row = inventoryTable.rowAtPoint(new Point(evt.getX(), evt.getY()));
-
-                if (inventoryTable.getSelectedRow() > -1) {
-                    returnValue = new ArrayList();
-                    var tableModel = (InventoryTableModel) this.inventoryTable.getModel();
-                    returnValue.add((Inventory) tableModel.getValueAt(row));
-                    this.setVisible(false);
-                }
-
-            }
-
-        }
-
-    }//GEN-LAST:event_inventoryTableMouseClicked
 
     private void voidButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voidButtonActionPerformed
 
@@ -2235,6 +2220,36 @@ public class InventoryApp extends javax.swing.JDialog {
     private void partialBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partialBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_partialBoxActionPerformed
+
+    private void inventoryTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryTableMousePressed
+        int mouseButton = evt.getButton();
+        if (mouseButton == evt.BUTTON2 || mouseButton == evt.BUTTON3) {
+            return;
+        }
+
+        if (evt.getClickCount() == 1) { // TODO: make sure all click handlers are only populating on the first click
+            populateFields();
+            saveButton.setEnabled(true);
+        }
+
+        if (evt.getClickCount() == 2) {
+
+            if (selectMode) {
+
+                int row = inventoryTable.rowAtPoint(new Point(evt.getX(), evt.getY()));
+
+                if (inventoryTable.getSelectedRow() > -1) {
+                    returnValue = new ArrayList();
+                    var tableModel = (InventoryTableModel) this.inventoryTable.getModel();
+                    returnValue.add((Inventory) tableModel.getValueAt(row));
+                    this.setVisible(false);
+                }
+
+            }
+
+        }
+
+    }//GEN-LAST:event_inventoryTableMousePressed
 
     private void selectAll(java.awt.event.FocusEvent evt) {
         JTextField tf = (JTextField) evt.getSource();

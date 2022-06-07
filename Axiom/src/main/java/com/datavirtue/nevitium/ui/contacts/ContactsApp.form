@@ -76,7 +76,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="contactTableMouseClicked"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="contactTableMousePressed"/>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="contactTableKeyPressed"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="contactTableKeyReleased"/>
           </Events>
@@ -150,7 +150,7 @@
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Zoom.png"/>
+              <Image iconType="3" name="/Aha-16/enabled/Zoom.png"/>
             </Property>
           </Properties>
           <Events>
@@ -169,7 +169,6 @@
         </Component>
         <Container class="javax.swing.JToolBar" name="functionToolbar">
           <Properties>
-            <Property name="floatable" type="boolean" value="false"/>
             <Property name="rollover" type="boolean" value="true"/>
           </Properties>
 
@@ -178,7 +177,7 @@
             <Component class="javax.swing.JButton" name="toggleButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Down.png"/>
+                  <Image iconType="3" name="/Aha-16/enabled/Down.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Less Detail"/>
                 <Property name="toolTipText" type="java.lang.String" value="Click this to Toggle the Form On or Off"/>
@@ -195,7 +194,7 @@
             <Component class="javax.swing.JButton" name="labelButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Tag.png"/>
+                  <Image iconType="3" name="/Aha-16/enabled/Tag.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Labels"/>
                 <Property name="toolTipText" type="java.lang.String" value="Select Rows and Click this Button to Generate Labels"/>
@@ -213,7 +212,7 @@
             <Component class="javax.swing.JButton" name="exportButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Export text.png"/>
+                  <Image iconType="3" name="/Aha-16/enabled/Export text.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Export"/>
                 <Property name="toolTipText" type="java.lang.String" value="Export the Current Table to a (.csv text) File"/>
@@ -230,7 +229,7 @@
             <Component class="javax.swing.JButton" name="deleteButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Delete.png"/>
+                  <Image iconType="3" name="/Aha-16/enabled/Delete.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Delete"/>
                 <Property name="toolTipText" type="java.lang.String" value="Permenant Delete!"/>
@@ -251,7 +250,6 @@
         </Container>
         <Container class="javax.swing.JToolBar" name="filterToolbar">
           <Properties>
-            <Property name="floatable" type="boolean" value="false"/>
             <Property name="rollover" type="boolean" value="true"/>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
@@ -264,7 +262,7 @@
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Navigator.png"/>
+                  <Image iconType="3" name="/Aha-16/enabled/Navigator.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="All Records"/>
                 <Property name="focusable" type="boolean" value="false"/>
@@ -281,7 +279,7 @@
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Customers.png"/>
+                  <Image iconType="3" name="/Aha-16/enabled/Customers.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cutomers"/>
                 <Property name="focusable" type="boolean" value="false"/>
@@ -298,7 +296,7 @@
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Trailer.png"/>
+                  <Image iconType="3" name="/Aha-16/enabled/Trailer.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Suppliers"/>
                 <Property name="focusable" type="boolean" value="false"/>
@@ -315,7 +313,7 @@
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Call.png"/>
+                  <Image iconType="3" name="/Aha-16/enabled/Call.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Unpaid"/>
                 <Property name="focusable" type="boolean" value="false"/>
@@ -331,7 +329,7 @@
             <Component class="javax.swing.JButton" name="selectButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/OK.png"/>
+                  <Image iconType="3" name="/Aha-16/enabled/OK.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Select"/>
                 <Property name="focusable" type="boolean" value="false"/>
@@ -345,7 +343,7 @@
             <Component class="javax.swing.JButton" name="voidButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/No.png"/>
+                  <Image iconType="3" name="/Aha-16/enabled/No.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="None"/>
                 <Property name="focusable" type="boolean" value="false"/>
@@ -1057,7 +1055,6 @@
                     </Container>
                     <Container class="javax.swing.JToolBar" name="invoiceToolbar">
                       <Properties>
-                        <Property name="floatable" type="boolean" value="false"/>
                         <Property name="rollover" type="boolean" value="true"/>
                       </Properties>
 
@@ -1069,7 +1066,7 @@
                               <Font name="Tahoma" size="12" style="0"/>
                             </Property>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                              <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Eye.png"/>
+                              <Image iconType="3" name="/Aha-16/enabled/Eye.png"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="View"/>
                             <Property name="toolTipText" type="java.lang.String" value="Open an Invoice or Quote"/>
@@ -1092,7 +1089,7 @@
                               <Font name="Tahoma" size="12" style="0"/>
                             </Property>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                              <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Paper.png"/>
+                              <Image iconType="3" name="/Aha-16/enabled/Paper.png"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="History"/>
                             <Property name="toolTipText" type="java.lang.String" value="Customer&apos;s invoice history statement"/>
@@ -1112,7 +1109,7 @@
                               <Font name="Tahoma" size="12" style="0"/>
                             </Property>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                              <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Credit.png"/>
+                              <Image iconType="3" name="/Aha-16/enabled/Credit.png"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Purchases"/>
                             <Property name="toolTipText" type="java.lang.String" value="Customer&apos;s product purchase history report"/>
@@ -1131,9 +1128,6 @@
                           <Font name="Tahoma" size="11" style="1"/>
                         </Property>
                         <Property name="horizontalAlignment" type="int" value="0"/>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Rotate CW.png"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Invoices"/>
                         <Property name="horizontalTextPosition" type="int" value="10"/>
                       </Properties>
@@ -1520,7 +1514,6 @@
         </Container>
         <Container class="javax.swing.JToolBar" name="contactDetailsToolBar">
           <Properties>
-            <Property name="floatable" type="boolean" value="false"/>
             <Property name="rollover" type="boolean" value="true"/>
           </Properties>
 
