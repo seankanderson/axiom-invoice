@@ -163,7 +163,7 @@ public class InventoryApp extends javax.swing.JDialog {
             StatusDialog sd = new StatusDialog(parentWin, false, "Please Wait", false);
             sd.changeMessage("Initializing Inventory");
             sd.addStatus("Building inventory table...");
-            //tm = db.createTableModel("inventory", iTable);//time consuming
+            
             try {
                 var allInventory = inventoryService.getAll();
                 tm = new InventoryTableModel(allInventory);

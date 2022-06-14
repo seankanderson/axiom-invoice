@@ -34,7 +34,7 @@ public class ContactsTableModel extends AbstractCollectionTableModel<Contact> {
                 item.setLastName((String)value);
                 break;
             case 3:
-                item.setPhone((String)value);
+                item.setPhoneNumber((String)value);
                 break;
             case 4:
                 item.setCountryCode((String)value);

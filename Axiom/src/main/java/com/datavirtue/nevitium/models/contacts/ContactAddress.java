@@ -41,8 +41,6 @@ public class ContactAddress extends BaseModel implements ContactAddressInterface
     @DatabaseField
     private String countryCode;
     @DatabaseField
-    private String phone;
-    @DatabaseField
     private String addressType;
     @DatabaseField
     private boolean defaultAddress;

@@ -21,4 +21,6 @@ public interface ContactAddressInterface {
     public String getPostalCode();
 
     public String getCountryCode();
+    
+    public String getPhoneNumber();
 }

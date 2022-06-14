@@ -4,10 +4,7 @@ import com.datavirtue.nevitium.database.orm.InventoryImageDao;
 import com.datavirtue.nevitium.models.BaseModel;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
-import java.util.ArrayList;
-import java.util.Collection;
 import lombok.Getter;
 import lombok.Setter;
 

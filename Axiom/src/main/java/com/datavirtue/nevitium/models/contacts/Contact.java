@@ -40,7 +40,7 @@ public class Contact extends BaseModel implements ContactAddressInterface {
     @DatabaseField
     private String countryCode;
     @DatabaseField
-    private String phone;
+    private String phoneNumber;
     @DatabaseField
     private String fax;    
     @DatabaseField

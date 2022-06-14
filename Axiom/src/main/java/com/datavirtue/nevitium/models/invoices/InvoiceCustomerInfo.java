@@ -5,6 +5,7 @@ import com.datavirtue.nevitium.models.BaseModel;
 import com.datavirtue.nevitium.models.contacts.ContactAddressInterface;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +19,8 @@ public class InvoiceCustomerInfo extends BaseModel implements ContactAddressInte
      
     @DatabaseField(foreign=true,foreignAutoRefresh=true, canBeNull = false)
     private Invoice invoice;
-    
+    @DatabaseField
+    private UUID contactId;
     @DatabaseField
     private String companyName;
     @DatabaseField

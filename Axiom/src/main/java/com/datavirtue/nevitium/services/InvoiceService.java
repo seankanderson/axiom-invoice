@@ -4,6 +4,7 @@ import com.datavirtue.nevitium.services.exceptions.PartialQuantityException;
 import com.datavirtue.nevitium.database.orm.InvoiceDao;
 import com.datavirtue.nevitium.models.contacts.Contact;
 import com.datavirtue.nevitium.models.contacts.ContactAddress;
+import com.datavirtue.nevitium.models.contacts.ContactAddressInterface;
 import com.datavirtue.nevitium.models.inventory.Inventory;
 import java.sql.SQLException;
 import com.datavirtue.nevitium.models.invoices.Invoice;
@@ -92,7 +93,7 @@ public class InvoiceService extends BaseService<InvoiceDao, Invoice> {
     public InvoiceCustomerInfo mapContactToInvoiceCustomer(Contact contact) {
 
         var invoiceCustomer = new InvoiceCustomerInfo();
-
+        invoiceCustomer.setContactId(contact.getId());
         invoiceCustomer.setCompanyName(contact.getCompanyName());
         invoiceCustomer.setContactName(contact.getContactName());
         invoiceCustomer.setAddress1(contact.getAddress1());
@@ -102,12 +103,12 @@ public class InvoiceService extends BaseService<InvoiceDao, Invoice> {
         invoiceCustomer.setPostalCode(contact.getPostalCode());
         invoiceCustomer.setCountryCode(contact.getCountryCode());
         invoiceCustomer.setTaxId(contact.getTaxId());
-        invoiceCustomer.setPhoneNumber(contact.getPhone());
+        invoiceCustomer.setPhoneNumber(contact.getPhoneNumber());
 
         return invoiceCustomer;
     }
 
-    public InvoiceCustomerInfo mapContactAddressToInvoiceShipTo(ContactAddress contactAddress) {
+    public InvoiceCustomerInfo mapContactAddressToInvoiceShipTo(ContactAddressInterface contactAddress) {
 
         var invoiceCustomer = new InvoiceCustomerInfo();
 
@@ -119,7 +120,7 @@ public class InvoiceService extends BaseService<InvoiceDao, Invoice> {
         invoiceCustomer.setState(contactAddress.getState());
         invoiceCustomer.setPostalCode(contactAddress.getPostalCode());
         invoiceCustomer.setCountryCode(contactAddress.getCountryCode());
-        invoiceCustomer.setPhoneNumber(contactAddress.getPhone());
+        invoiceCustomer.setPhoneNumber(contactAddress.getPhoneNumber());
 
         return invoiceCustomer;
     }

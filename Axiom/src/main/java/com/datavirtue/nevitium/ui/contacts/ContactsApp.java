@@ -361,7 +361,7 @@ public class ContactsApp extends javax.swing.JDialog {
         zipTextField.setText(currentContact.getPostalCode());
         countryCombo.setSelectedItem(currentContact.getCountryCode());
         contactTextField.setText(currentContact.getContactName());
-        phoneTextField.setText(currentContact.getPhone());
+        phoneTextField.setText(currentContact.getPhoneNumber());
         faxTextField.setText(currentContact.getFax());
         emailTextField.setText(currentContact.getEmail());
         wwwTextField.setText(currentContact.getWebLink());
@@ -2116,7 +2116,7 @@ public class ContactsApp extends javax.swing.JDialog {
         currentContact.setState(stateTextField.getText().trim());
         currentContact.setPostalCode(zipTextField.getText().trim());
         currentContact.setContactName(contactTextField.getText().trim());
-        currentContact.setPhone(phoneTextField.getText().trim());
+        currentContact.setPhoneNumber(phoneTextField.getText().trim());
         currentContact.setFax(faxTextField.getText().trim());
         currentContact.setEmail(emailTextField.getText().trim());
         currentContact.setWebLink(wwwTextField.getText().trim());

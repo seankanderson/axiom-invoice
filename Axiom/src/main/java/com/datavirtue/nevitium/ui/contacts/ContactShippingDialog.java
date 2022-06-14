@@ -482,7 +482,7 @@ public class ContactShippingDialog extends javax.swing.JDialog {
             stateField.setText(currentAddress.getState());
             postCodeField.setText(currentAddress.getPostalCode());
             countryCombo.setSelectedItem(currentAddress.getCountryCode());
-            phoneField.setText(currentAddress.getPhone());
+            phoneField.setText(currentAddress.getPhoneNumber());
             defaultBox.setSelected(currentAddress.isDefaultAddress());
             setFieldsEnabled(true);
 
@@ -548,7 +548,7 @@ public class ContactShippingDialog extends javax.swing.JDialog {
         stateField.setText(currentContact.getState());
         postCodeField.setText(currentContact.getPostalCode());
         countryCombo.setSelectedItem(currentContact.getCountryCode());
-        phoneField.setText(currentContact.getPhone());
+        phoneField.setText(currentContact.getPhoneNumber());
         setFieldsEnabled(true);
     }//GEN-LAST:event_cloneButtonActionPerformed
 
@@ -632,7 +632,7 @@ public class ContactShippingDialog extends javax.swing.JDialog {
         currentAddress.setState(this.stateField.getText());
         currentAddress.setPostalCode(this.postCodeField.getText());
         currentAddress.setCountryCode((String)this.countryCombo.getSelectedItem());
-        currentAddress.setPhone(this.phoneField.getText());
+        currentAddress.setPhoneNumber(this.phoneField.getText());
         
         contactService.saveAddress(currentAddress);
         refreshTable();

@@ -2454,7 +2454,6 @@ public class InvoiceApp extends javax.swing.JDialog {
 
                     this.setAddressView(address, shipToTextArea);
                     var customerInfo = invoiceService.mapContactAddressToInvoiceShipTo(address);
-                    //if (shipToKey > 0) shipToTextArea.setEditable(false);
                     this.currentInvoice.setShiptTo(customerInfo);
                 }
                 return;
@@ -2502,8 +2501,8 @@ public class InvoiceApp extends javax.swing.JDialog {
             ExceptionService.showErrorDialog(this, ex, "Error accessing local settings");
         }
 
-        var contact = contactsApp.getReturnValue();  //real value
-
+        var contact = contactsApp.getReturnValue();
+       
         if (contact == null) {
             return;
         }
@@ -2512,7 +2511,9 @@ public class InvoiceApp extends javax.swing.JDialog {
 
         this.customer = contact;
         this.currentInvoice.setCustomerId(contact.getId());
-
+        var customer = invoiceService.mapContactToInvoiceCustomer(contact);
+        this.currentInvoice.setBillTo(customer);
+        
         contactsApp.dispose();
         contactsApp = null;
 
@@ -2561,8 +2562,10 @@ public class InvoiceApp extends javax.swing.JDialog {
 
     private void copyBillToButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyBillToButtonActionPerformed
 
-        if (!StringUtils.isEmpty(this.custTextArea.getText())) {
-            shipToTextArea.setText(this.custTextArea.getText());
+        if (this.currentInvoice.getBillTo() != null) {
+            var shipTo = invoiceService.mapContactAddressToInvoiceShipTo(this.currentInvoice.getBillTo());
+            this.currentInvoice.setShiptTo(shipTo);
+            setAddressView(shipTo, shipToTextArea);
         }
     }//GEN-LAST:event_copyBillToButtonActionPerformed
 

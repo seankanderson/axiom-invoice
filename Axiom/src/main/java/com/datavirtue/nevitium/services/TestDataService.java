@@ -107,7 +107,7 @@ public class TestDataService {
         contact.setState("OH");
         contact.setPostalCode("45236");
         contact.setContactName("Beth Kates");
-        contact.setPhone("937-555-6722");
+        contact.setPhoneNumber("937-555-6722");
         contact.setFax("");
         contact.setEmail("joan.marsh@logo-sales.com");
         contact.setWebLink("https://www.logo-sales.com");
