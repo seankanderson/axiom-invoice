@@ -13,6 +13,7 @@ import com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Point;
+import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
@@ -21,10 +22,10 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class LocalSettingsService {
 
-    private static final String APP_NODE = "com/datavirtue/nevitium";
+    private static final String APP_NODE = "com/datavirtue/axiom";
     private static final String USER_SETTINGS_KEY = "LocalUserSettings";
     private static final String DEFAULT_VALUE = "";
-    public static final String DEFAULT_DATA_PATH = "~/nevitium/nevitium_database";
+    public static final String DEFAULT_DATA_PATH = "~/axiom-invoice/axiom_database";
     public static final String DEFAULT_CONNECTION_STRING = "jdbc:h2:" + DEFAULT_DATA_PATH + ";AUTO_SERVER=TRUE";
 
     public static final String ARC_ORANGE_THEME = "ArcOrange";
@@ -75,9 +76,16 @@ public class LocalSettingsService {
 
         if (LocalSettingsService.getLocalAppSettings() == null) {
             try {
-                javax.swing.UIManager.setLookAndFeel(new FlatArcOrangeIJTheme());
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                //javax.swing.UIManager.setLookAndFeel(new FlatArcOrangeIJTheme());
             } catch (UnsupportedLookAndFeelException ex) {
-
+                
+            } catch (ClassNotFoundException ex) {
+                
+            } catch (InstantiationException ex) {
+                
+            } catch (IllegalAccessException ex) {
+                
             }
             return;
         }

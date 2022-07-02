@@ -298,7 +298,7 @@ public class ControlCenter extends javax.swing.JFrame {
 
         internetStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Connect.png"))); // NOI18N
-        internetStatus.setToolTipText("Nevitium Internet Status");
+        internetStatus.setToolTipText("Axiom Internet Status");
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -477,7 +477,7 @@ public class ControlCenter extends javax.swing.JFrame {
         if (!good_import) {
 
             /* tell the asshole */
-            javax.swing.JOptionPane.showMessageDialog(null, "The file you tried to import is not a Nevitium Full Export.");
+            javax.swing.JOptionPane.showMessageDialog(null, "The file you tried to import is not a Axiom Full Export.");
             return;
 
         }
@@ -650,7 +650,7 @@ public class ControlCenter extends javax.swing.JFrame {
         } catch (ArchiveException ex) {
             javax.swing.JOptionPane.showMessageDialog(null, ex.toString());
             javax.swing.JOptionPane.showMessageDialog(null,
-                    "Please Restart Nevitium.");
+                    "Please Restart Axiom.");
         }
 
     }
@@ -1092,7 +1092,7 @@ public class ControlCenter extends javax.swing.JFrame {
 
         settingsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Configuration.png")));
         settingsItem.setText("Settings");
-        settingsItem.setToolTipText("Customize & Configure Nevitium to your needs");
+        settingsItem.setToolTipText("Customize & Configure Axiom to your needs");
         settingsItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 settingsItemActionPerformed(evt);
@@ -1483,7 +1483,7 @@ public class ControlCenter extends javax.swing.JFrame {
 //            int a = javax.swing.JOptionPane.showConfirmDialog(null,
 //                    "This feature is intended for importing data from a Full Export of "
 //                    + System.getProperty("line.separator")
-//                    + "Nevitium into a blank database and will overwrite your data."
+//                    + "Axiom into a blank database and will overwrite your data."
 //                    + System.getProperty("line.separator") + "Do you want to continue?",
 //                    "WARNING", JOptionPane.WARNING_MESSAGE);
 //            if (a == 0) {

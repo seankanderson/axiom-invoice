@@ -122,7 +122,7 @@ public class NewCoFileDialog extends javax.swing.JDialog {
 
         jTextPane1.setEditable(false);
         jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextPane1.setText("Nevitium company data is stored in folders (as opposed to a single file).  Below you can choose which folder or drive you would like to place the New Company Folder in.  The Browse window will also let you create folders if you wish.");
+        jTextPane1.setText("Axiom company data is stored in folders (as opposed to a single file).  Below you can choose which folder or drive you would like to place the New Company Folder in.  The Browse window will also let you create folders if you wish.");
         jScrollPane1.setViewportView(jTextPane1);
 
         org.jdesktop.layout.GroupLayout folderPanelLayout = new org.jdesktop.layout.GroupLayout(folderPanel);

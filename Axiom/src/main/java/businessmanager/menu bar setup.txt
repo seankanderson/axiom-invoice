@@ -172,7 +172,7 @@
 
         settingsItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/load-settings.png"))); // NOI18N
         settingsItem.setText("Settings");
-        settingsItem.setToolTipText("Customize & Configure Nevitium to your needs");
+        settingsItem.setToolTipText("Customize & Configure Axiom to your needs");
         settingsItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 settingsItemActionPerformed(evt);
@@ -474,7 +474,7 @@
         int a = javax.swing.JOptionPane.showConfirmDialog(null,
                 "This feature is intended for importing data from a Full Export of "+
                 System.getProperty("line.separator")+
-                "Nevitium into a blank database and will overwrite your data."+
+                "Axiom into a blank database and will overwrite your data."+
                 System.getProperty("line.separator")+"Do you want to continue?",
                 "WARNING",JOptionPane.WARNING_MESSAGE);
         if (a == 0){upgradeImport();}

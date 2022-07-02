@@ -128,7 +128,7 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
         jScrollPane1.setViewportView(handHoldingTextPane);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nevitium - Local User Settings");
+        setTitle("Axiom - Local User Settings");
         setAlwaysOnTop(true);
 
         filenameTextField.setEditable(false);

@@ -300,7 +300,7 @@ public class SecurityManager extends javax.swing.JDialog {
         settingsField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nevitium Security Manager");
+        setTitle("Axiom Security Manager");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("User Accounts"));
 

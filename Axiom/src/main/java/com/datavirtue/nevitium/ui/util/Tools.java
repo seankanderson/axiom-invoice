@@ -376,9 +376,9 @@ public class Tools {
 
         /* Test is skipped if the file doesn't exsist */
         if (file.exists() && !file.canWrite()) {
-            javax.swing.JOptionPane.showMessageDialog(null, "It appears you do not have permission to write certain data files owned by Nevitium." + nl
-                    + "Nevitium needs elevated permissions to work properly." + nl
-                    + "Shut down Nevitium & Contact technical support.");
+            javax.swing.JOptionPane.showMessageDialog(null, "It appears you do not have permission to write certain data files owned by Axiom." + nl
+                    + "Axiom needs elevated permissions to work properly." + nl
+                    + "Shut down Axiom & Contact technical support.");
             return false;
         }
 

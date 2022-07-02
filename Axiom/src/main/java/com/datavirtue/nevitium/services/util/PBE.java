@@ -62,7 +62,7 @@ public class PBE {
         } catch (Exception e) {
 
             javax.swing.JOptionPane.showMessageDialog(null,
-                    "Restart Nevitium and reset the password for the attempted user before retrying.");
+                    "Restart Axiom and reset the password for the attempted user before retrying.");
             return "";
         }
 

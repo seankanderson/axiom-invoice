@@ -73,7 +73,7 @@ public class CreditsDialog extends javax.swing.JDialog {
         textPane = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nevitium Art and Technology Credits");
+        setTitle("Axiom Art and Technology Credits");
         setAlwaysOnTop(true);
 
         textPane.setEditable(false);

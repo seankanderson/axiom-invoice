@@ -134,7 +134,7 @@ check for upc and code and display them in radio format to select auto renaming,
 if none of either is found display a text box for the user to provide a name.
 Put the files in a folder under the base name, this way the user can run slide
 shows of product lines easily
-Nevitium should allow the user to select products from inventory to run as a slide show
+Axiom should allow the user to select products from inventory to run as a slide show
 setup to provide user interaction through a touch interface, allowing them to scroll
 and get more information
 

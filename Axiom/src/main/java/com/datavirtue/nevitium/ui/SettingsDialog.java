@@ -794,7 +794,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         jLabel50 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nevitium Settings");
+        setTitle("Axiom Settings");
         setIconImage(winIcon);
         setResizable(false);
 
@@ -1234,7 +1234,7 @@ public class SettingsDialog extends javax.swing.JDialog {
             }
         });
 
-        secondaryBackupFolderField.setToolTipText("Nevitium will always attempt to backup here without prompting.");
+        secondaryBackupFolderField.setToolTipText("Axiom will always attempt to backup here without prompting.");
 
         org.jdesktop.layout.GroupLayout jPanel4Layout = new org.jdesktop.layout.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1863,10 +1863,10 @@ public class SettingsDialog extends javax.swing.JDialog {
         });
 
         catLineCheckBox.setText("Add category line to invoice items");
-        catLineCheckBox.setToolTipText("When using Nevitium as an inventory deployment tracker.");
+        catLineCheckBox.setToolTipText("When using Axiom as an inventory deployment tracker.");
 
         partialQuantityCheckBox.setText("Allow partial quantity sales by default");
-        partialQuantityCheckBox.setToolTipText("When using Nevitium as an inventory deployment tracker.");
+        partialQuantityCheckBox.setToolTipText("When using Axiom as an inventory deployment tracker.");
         partialQuantityCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 partialQuantityCheckBoxActionPerformed(evt);
@@ -2138,7 +2138,7 @@ public class SettingsDialog extends javax.swing.JDialog {
             });
 
             useSystemDefaultPdfReaderCheckbox.setText("Use System Default");
-            useSystemDefaultPdfReaderCheckbox.setToolTipText("Nevitium will use the default application associated with pdf files.");
+            useSystemDefaultPdfReaderCheckbox.setToolTipText("Axiom will use the default application associated with pdf files.");
             useSystemDefaultPdfReaderCheckbox.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     useSystemDefaultPdfReaderCheckboxActionPerformed(evt);
@@ -2299,7 +2299,7 @@ public class SettingsDialog extends javax.swing.JDialog {
             jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             jLabel18.setText("Theme");
 
-            themeComboBox.setToolTipText("If you have problems after switching themes you need to restart Nevitium");
+            themeComboBox.setToolTipText("If you have problems after switching themes you need to restart Axiom");
 
             jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             jLabel4.setText("Connection string");
@@ -2350,7 +2350,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .addContainerGap(86, Short.MAX_VALUE))
             );
 
-            jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Nevitium Invoice Manager"));
+            jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Axiom Invoice Manager"));
 
             jLabel14.setText("Copyright Data Virtue 2007-2022 - All Rights Reserved.");
 
@@ -2392,7 +2392,7 @@ public class SettingsDialog extends javax.swing.JDialog {
 
             checkUpdatesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZE/synchronized.png"))); // NOI18N
             checkUpdatesButton.setText("Check For Updates");
-            checkUpdatesButton.setToolTipText("Tells you if there are new updates for Nevitium.");
+            checkUpdatesButton.setToolTipText("Tells you if there are new updates for Axiom.");
             checkUpdatesButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     checkUpdatesButtonActionPerformed(evt);
@@ -2840,8 +2840,8 @@ public class SettingsDialog extends javax.swing.JDialog {
         email.setUsername(emailUserName.getText());
         email.setSSL(emailSslCheckbox.isSelected());
         email.setPassword(emailPassword.getText());
-        email.setSubject("Nevitium Test Email");
-        email.setText("Nevitium Email Test Successful!  Visit datavirtue.com for updates and support.");
+        email.setSubject("Axiom Test Email");
+        email.setText("Axiom Email Test Successful!  Visit datavirtue.com for updates and support.");
         email.setAttachment("ver.inf");
         email.sendEmail();
 

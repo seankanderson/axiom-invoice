@@ -151,7 +151,7 @@ public class ExportDialog extends javax.swing.JDialog implements Runnable,  Prog
         jProgressBar1 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nevitium Basic Export");
+        setTitle("Axiom Basic Export");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 

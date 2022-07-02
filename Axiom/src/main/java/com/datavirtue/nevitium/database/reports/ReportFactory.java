@@ -556,7 +556,7 @@ public class ReportFactory {
 //                    return "";
 //                } catch (IOException ex) {
 //                  javax.swing.JOptionPane.showMessageDialog(null,
-//                          "There was a problem trying to view the pdf with the default viewer, Nevitium will now try to use the viewer found in Settings->Output. ");
+//                          "There was a problem trying to view the pdf with the default viewer, Axiom will now try to use the viewer found in Settings->Output. ");
 //
 //                }
 //             

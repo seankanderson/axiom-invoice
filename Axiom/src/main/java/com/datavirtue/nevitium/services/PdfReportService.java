@@ -73,7 +73,7 @@ public class PdfReportService extends PdfPageEventHelper{
             
             document.addAuthor("Data Virtue");
             document.addCreationDate();
-            document.addSubject("Nevitium Report");
+            document.addSubject("Axiom Report");
             document.open();
             
             cb = writer.getDirectContent();
@@ -105,7 +105,7 @@ protected float H = 0f;
 
             document.addAuthor("Data Virtue");
             document.addCreationDate();
-            document.addSubject("Nevitium Report");
+            document.addSubject("Axiom Report");
             document.open();
 
             cb = writer.getDirectContent();

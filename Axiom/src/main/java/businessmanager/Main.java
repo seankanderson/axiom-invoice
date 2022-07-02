@@ -38,6 +38,11 @@ public class Main {
     }
 
     public static void main(String args[]) throws Exception {
+        
+        System.setProperty("apple.laf.useScreenMenuBar", "true");
+        
+        System.setProperty("apple.awt.application.name", "Axiom");
+                
         LocalSettingsService.setLookAndFeel();
         var frame = new JFrame();
         //frame.setIconImage(Toolkit.getDefaultToolkit().getImage(ControlCenter.class.getResource("src/main/java/Orange.png")));
@@ -81,7 +86,7 @@ public class Main {
                     control.display();
                 } catch (java.lang.UnsupportedClassVersionError e) {
                     javax.swing.JOptionPane.showMessageDialog(null,
-                            "Nevitium encountered: Unsupported Class Version error. Try updating Java.");
+                            "Axiom encountered: Unsupported Class Version error. Try updating Java.");
                 } catch (Exception e) {//consume linux exceptions
                     e.printStackTrace();
                 }

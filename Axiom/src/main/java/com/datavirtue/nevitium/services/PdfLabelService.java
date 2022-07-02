@@ -190,7 +190,7 @@ public class PdfLabelService {
 
             document.addAuthor("Data Virtue");  //change this or create fields with get/set to change this 
             document.addCreationDate();         //these statements must be called or set before calling open()
-            document.addSubject("Nevitium Labels - datavirtue.com");
+            document.addSubject("Axiom Labels - datavirtue.com");
             document.open();
 
             cb = writer.getDirectContent();  //direct writer for rendering the table manually - NOT IN USE

@@ -12,7 +12,7 @@ public class LocalAppSettings {
     private String dataPath;
     private String connectionString;
     
-    private String lastNevitiumUser;
+    private String lastAxiomUser;
     
     private String theme;
     
