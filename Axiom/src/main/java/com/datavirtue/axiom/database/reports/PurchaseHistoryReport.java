@@ -7,7 +7,6 @@ package com.datavirtue.axiom.database.reports;
 
 
 import com.datavirtue.axiom.services.PdfReportService;
-
 import com.datavirtue.axiom.models.invoices.old.InvoicePayment;
 
 

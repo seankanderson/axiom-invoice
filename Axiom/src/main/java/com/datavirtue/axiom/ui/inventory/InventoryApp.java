@@ -13,7 +13,6 @@
 package com.datavirtue.axiom.ui.inventory;
 
 import com.datavirtue.axiom.ui.util.LimitedDocument;
-
 import com.datavirtue.axiom.ui.util.JTextFieldFilter;
 import com.datavirtue.axiom.models.inventory.InventoryTableModel;
 import com.datavirtue.axiom.ui.StatusDialog;

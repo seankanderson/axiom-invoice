@@ -13,7 +13,6 @@ package com.datavirtue.axiom.database.reports;
 import com.datavirtue.axiom.services.util.DV;
 import com.datavirtue.axiom.ui.OldFileDialog;
 import com.datavirtue.axiom.ui.PleaseWait;
-
 import com.datavirtue.axiom.ui.util.DecimalCellRenderer;
 import com.datavirtue.axiom.ui.util.Tools;
 

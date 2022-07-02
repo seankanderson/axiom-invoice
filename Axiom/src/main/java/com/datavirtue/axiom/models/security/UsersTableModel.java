@@ -2,7 +2,6 @@ package com.datavirtue.axiom.models.security;
 
 import java.util.List;
 import com.datavirtue.axiom.models.AbstractCollectionTableModel;
-import com.datavirtue.axiom.models.security.User;
 
 /**
  *

@@ -8,9 +8,7 @@
 
 package com.datavirtue.axiom.database.reports;
 import com.datavirtue.axiom.services.PdfReportService;
-
 import com.datavirtue.axiom.models.contacts.Contact;
-
 import com.datavirtue.axiom.ui.util.NewEmail;
 import com.datavirtue.axiom.ui.util.Tools;
 import com.datavirtue.axiom.models.invoices.old.PDFInvoice;

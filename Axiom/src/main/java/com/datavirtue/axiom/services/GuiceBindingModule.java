@@ -3,7 +3,6 @@ package com.datavirtue.axiom.services;
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
-import com.datavirtue.axiom.services.LocalSettingsService;
 
 
 /**
