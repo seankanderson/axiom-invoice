@@ -6,7 +6,7 @@
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
  */
-package com.datavirtue.nevitium.ui.util;
+package com.datavirtue.axiom.ui.util;
 
 import javax.swing.table.*;
 import java.awt.Color;
@@ -18,11 +18,11 @@ import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.text.DateFormat;
 import java.util.Date;
-import com.datavirtue.nevitium.models.contacts.Contact;
-import com.datavirtue.nevitium.models.contacts.ContactAddress;
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.services.util.PlayWave;
+import com.datavirtue.axiom.models.contacts.Contact;
+import com.datavirtue.axiom.models.contacts.ContactAddress;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.services.util.PlayWave;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.apache.commons.codec.binary.Hex;

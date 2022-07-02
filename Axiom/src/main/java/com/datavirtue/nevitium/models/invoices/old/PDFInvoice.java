@@ -11,9 +11,9 @@
  * @rights Copyright Data Virtue 2006, 2007 All Rights Reserved.
  */
 
-package com.datavirtue.nevitium.models.invoices.old;
+package com.datavirtue.axiom.models.invoices.old;
 
-import com.datavirtue.nevitium.services.PdfReportService;
+import com.datavirtue.axiom.services.PdfReportService;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Document;
 import com.lowagie.text.ExceptionConverter;

@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.datavirtue.nevitium.models.invoices.old;
+package com.datavirtue.axiom.models.invoices.old;
 
 /**
  *

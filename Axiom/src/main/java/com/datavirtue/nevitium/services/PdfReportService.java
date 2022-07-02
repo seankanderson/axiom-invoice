@@ -12,7 +12,7 @@
  * @rights Copyright Data Virtue 2006, 2007 All Rights Reserved.
  */
 
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
 import com.lowagie.text.BadElementException;
 import com.lowagie.text.DocumentException;

@@ -9,7 +9,7 @@
  * Created on Jul 30, 2009, 1:23:06 AM
  */
 
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 import javax.swing.table.*;
 
 /**

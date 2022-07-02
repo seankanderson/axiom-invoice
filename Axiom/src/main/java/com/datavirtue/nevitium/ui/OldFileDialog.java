@@ -8,9 +8,9 @@
  *
  * @author  Sean K Anderson - Data Virtue 2006
  */
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.services.util.DV;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JFileChooser;

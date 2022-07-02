@@ -1,9 +1,9 @@
-package com.datavirtue.nevitium.models.contacts.old;
+package com.datavirtue.axiom.models.contacts.old;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.AbstractListModel;
-import com.datavirtue.nevitium.models.contacts.ContactJournal;
+import com.datavirtue.axiom.models.contacts.ContactJournal;
 
 /**
  *

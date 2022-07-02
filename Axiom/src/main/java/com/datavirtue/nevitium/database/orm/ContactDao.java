@@ -1,9 +1,9 @@
-package com.datavirtue.nevitium.database.orm;
+package com.datavirtue.axiom.database.orm;
 
 import com.j256.ormlite.dao.BaseDaoImpl;
 import com.j256.ormlite.support.ConnectionSource;
 import java.sql.SQLException;
-import com.datavirtue.nevitium.models.contacts.Contact;
+import com.datavirtue.axiom.models.contacts.Contact;
 
 /**
  *

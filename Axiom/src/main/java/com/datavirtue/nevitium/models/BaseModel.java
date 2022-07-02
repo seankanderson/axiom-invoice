@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.models;
+package com.datavirtue.axiom.models;
 
 import com.j256.ormlite.field.DatabaseField;
 import java.util.UUID;

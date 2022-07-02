@@ -7,7 +7,7 @@
  * and open the template in the editor.
  */
 
-package com.datavirtue.nevitium.services.util;
+package com.datavirtue.axiom.services.util;
 
 public class EnglishDecimalFormat {
   private static final String[] majorNames = {

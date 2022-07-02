@@ -1,7 +1,7 @@
 
-package com.datavirtue.nevitium.models.invoices.old;
+package com.datavirtue.axiom.models.invoices.old;
 
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
 
 /**
  *

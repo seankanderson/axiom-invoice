@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 /*
  * ColorChooser.java
  *

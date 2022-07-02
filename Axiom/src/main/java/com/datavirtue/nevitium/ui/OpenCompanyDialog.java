@@ -4,9 +4,9 @@
  * Created on October 20, 2007, 1:30 AM
  */
 
-package com.datavirtue.nevitium.ui;
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.util.Tools;
+package com.datavirtue.axiom.ui;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.util.Tools;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.*;

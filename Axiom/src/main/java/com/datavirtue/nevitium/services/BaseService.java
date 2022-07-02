@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -6,7 +6,7 @@ import com.j256.ormlite.dao.BaseDaoImpl;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import java.sql.SQLException;
 import java.util.List;
-import com.datavirtue.nevitium.models.BaseModel;
+import com.datavirtue.axiom.models.BaseModel;
 
 /**
  *

@@ -3,10 +3,10 @@
  * and open the template in the editor.
  */
 
-package com.datavirtue.nevitium.ui.layoutdesigner;
+package com.datavirtue.axiom.ui.layoutdesigner;
 
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.services.util.ExtensionFileFilter;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.services.util.ExtensionFileFilter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -1,5 +1,5 @@
 
-package com.datavirtue.nevitium.ui.util;
+package com.datavirtue.axiom.ui.util;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;

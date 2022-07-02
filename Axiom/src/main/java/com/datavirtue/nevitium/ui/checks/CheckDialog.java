@@ -3,29 +3,29 @@
  *
  * Created on July 13, 2007, 11:39 AM
  */
-package com.datavirtue.nevitium.ui.checks;
+package com.datavirtue.axiom.ui.checks;
 
 
-import com.datavirtue.nevitium.ui.contacts.ContactsApp;
-import com.datavirtue.nevitium.ui.util.JTextFieldFilter;
+import com.datavirtue.axiom.ui.contacts.ContactsApp;
+import com.datavirtue.axiom.ui.util.JTextFieldFilter;
 import java.awt.*;
 import java.sql.SQLException;
 
-import com.datavirtue.nevitium.ui.util.Tools;
-import com.datavirtue.nevitium.services.CheckPrinterService;
-import com.datavirtue.nevitium.models.checks.CheckStub;
+import com.datavirtue.axiom.ui.util.Tools;
+import com.datavirtue.axiom.services.CheckPrinterService;
+import com.datavirtue.axiom.models.checks.CheckStub;
 import com.google.inject.Injector;
-import com.datavirtue.nevitium.services.DiService;
+import com.datavirtue.axiom.services.DiService;
 import javax.swing.table.*;
 import javax.swing.*;
 import java.awt.event.*;
-import com.datavirtue.nevitium.models.contacts.Contact;
-import com.datavirtue.nevitium.models.settings.CheckSettings;
-import com.datavirtue.nevitium.services.CheckSettingsService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.util.AutoCompleteDocument;
+import com.datavirtue.axiom.models.contacts.Contact;
+import com.datavirtue.axiom.models.settings.CheckSettings;
+import com.datavirtue.axiom.services.CheckSettingsService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.util.AutoCompleteDocument;
 import java.util.prefs.BackingStoreException;
 
 /**

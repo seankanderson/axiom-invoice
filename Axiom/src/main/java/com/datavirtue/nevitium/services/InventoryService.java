@@ -1,9 +1,9 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
-import com.datavirtue.nevitium.database.orm.InventoryDao;
+import com.datavirtue.axiom.database.orm.InventoryDao;
 import java.util.List;
 import java.sql.SQLException;
-import com.datavirtue.nevitium.models.inventory.Inventory;
+import com.datavirtue.axiom.models.inventory.Inventory;
 import com.google.inject.Inject;
 import com.j256.ormlite.dao.DaoManager;
 import java.util.UUID;

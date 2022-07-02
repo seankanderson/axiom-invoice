@@ -1,6 +1,6 @@
-package com.datavirtue.nevitium.models.settings;
+package com.datavirtue.axiom.models.settings;
 
-import com.datavirtue.nevitium.models.contacts.ContactAddressInterface;
+import com.datavirtue.axiom.models.contacts.ContactAddressInterface;
 import lombok.Getter;
 import lombok.Setter;
 

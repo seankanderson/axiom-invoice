@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;

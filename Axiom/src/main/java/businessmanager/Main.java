@@ -11,18 +11,18 @@
  */
 package businessmanager;
 
-import com.datavirtue.nevitium.models.settings.AppSettings;
-import com.datavirtue.nevitium.services.AppSettingsService;
-import com.datavirtue.nevitium.services.DatabaseService;
-import com.datavirtue.nevitium.ui.ControlCenter;
-import com.datavirtue.nevitium.services.DiService;
+import com.datavirtue.axiom.models.settings.AppSettings;
+import com.datavirtue.axiom.services.AppSettingsService;
+import com.datavirtue.axiom.services.DatabaseService;
+import com.datavirtue.axiom.ui.ControlCenter;
+import com.datavirtue.axiom.services.DiService;
 import java.sql.SQLException;
 import javax.swing.JFrame;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.LocalSettingsService;
-import com.datavirtue.nevitium.services.TestDataService;
-import com.datavirtue.nevitium.ui.LocalSettingsDialog;
-import com.datavirtue.nevitium.ui.SettingsDialog;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.LocalSettingsService;
+import com.datavirtue.axiom.services.TestDataService;
+import com.datavirtue.axiom.ui.LocalSettingsDialog;
+import com.datavirtue.axiom.ui.SettingsDialog;
 
 /**
  *

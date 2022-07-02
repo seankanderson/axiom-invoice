@@ -4,22 +4,22 @@
  * Created on July 8, 2006, 8:25 AM
  ** Copyright (c) Data Virtue 2006, 2022
  */
-package com.datavirtue.nevitium.ui.invoices;
+package com.datavirtue.axiom.ui.invoices;
 
-import com.datavirtue.nevitium.models.invoices.Invoice;
-import com.datavirtue.nevitium.models.invoices.InvoiceManagerTableModel;
-import com.datavirtue.nevitium.models.invoices.InvoicePayment;
-import com.datavirtue.nevitium.models.invoices.PaymentActivityTableModel;
-import com.datavirtue.nevitium.models.settings.AppSettings;
-import com.datavirtue.nevitium.models.settings.LocalAppSettings;
-import com.datavirtue.nevitium.services.AppSettingsService;
-import com.datavirtue.nevitium.services.DiService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.InvoiceService;
-import com.datavirtue.nevitium.services.LocalSettingsService;
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.ui.util.DateCellRenderer;
-import com.datavirtue.nevitium.ui.util.DecimalCellRenderer;
+import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.invoices.InvoiceManagerTableModel;
+import com.datavirtue.axiom.models.invoices.InvoicePayment;
+import com.datavirtue.axiom.models.invoices.PaymentActivityTableModel;
+import com.datavirtue.axiom.models.settings.AppSettings;
+import com.datavirtue.axiom.models.settings.LocalAppSettings;
+import com.datavirtue.axiom.services.AppSettingsService;
+import com.datavirtue.axiom.services.DiService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.InvoiceService;
+import com.datavirtue.axiom.services.LocalSettingsService;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.ui.util.DateCellRenderer;
+import com.datavirtue.axiom.ui.util.DecimalCellRenderer;
 
 import java.awt.FlowLayout;
 import java.awt.Image;

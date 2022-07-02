@@ -1,9 +1,9 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
-import com.datavirtue.nevitium.database.orm.InvoicePaymentDao;
-import com.datavirtue.nevitium.models.invoices.Invoice;
-import com.datavirtue.nevitium.models.invoices.InvoicePayment;
-import com.datavirtue.nevitium.models.invoices.InvoicePaymentType;
+import com.datavirtue.axiom.database.orm.InvoicePaymentDao;
+import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.invoices.InvoicePayment;
+import com.datavirtue.axiom.models.invoices.InvoicePaymentType;
 import com.google.inject.Inject;
 import com.j256.ormlite.dao.DaoManager;
 import java.sql.SQLException;

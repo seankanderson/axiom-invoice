@@ -4,7 +4,7 @@
  * Created on November 22, 2008, 3:05 PM
  */
 
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 
 /**
  *

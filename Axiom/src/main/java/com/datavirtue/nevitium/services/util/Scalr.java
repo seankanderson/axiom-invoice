@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.services.util;
+package com.datavirtue.axiom.services.util;
 
 /**   
  * Copyright 2011 The Buzz Media, LLC

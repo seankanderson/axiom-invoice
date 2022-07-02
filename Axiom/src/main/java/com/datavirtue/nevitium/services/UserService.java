@@ -1,11 +1,11 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
-import com.datavirtue.nevitium.database.orm.UserDao;
+import com.datavirtue.axiom.database.orm.UserDao;
 import java.sql.SQLException;
-import com.datavirtue.nevitium.models.security.User;
-import com.datavirtue.nevitium.services.exceptions.DuplicateUserNameException;
-import com.datavirtue.nevitium.services.exceptions.FailedPasswordException;
-import com.datavirtue.nevitium.services.util.PBE;
+import com.datavirtue.axiom.models.security.User;
+import com.datavirtue.axiom.services.exceptions.DuplicateUserNameException;
+import com.datavirtue.axiom.services.exceptions.FailedPasswordException;
+import com.datavirtue.axiom.services.util.PBE;
 import com.j256.ormlite.dao.DaoManager;
 import org.apache.commons.lang3.StringUtils;
 

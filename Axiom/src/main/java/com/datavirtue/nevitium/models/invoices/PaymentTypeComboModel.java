@@ -1,5 +1,5 @@
 
-package com.datavirtue.nevitium.models.invoices;
+package com.datavirtue.axiom.models.invoices;
 
 import java.util.List;
 import javax.swing.AbstractListModel;

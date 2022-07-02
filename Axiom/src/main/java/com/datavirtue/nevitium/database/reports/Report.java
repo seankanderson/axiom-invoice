@@ -12,10 +12,10 @@
  *
  */
 
-package com.datavirtue.nevitium.database.reports;
+package com.datavirtue.axiom.database.reports;
 
 
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.services.util.DV;
 import java.io.*;
 
 /**

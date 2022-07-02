@@ -6,7 +6,7 @@
  * * Copyright (c) Data Virtue 2006
  */
 
-package com.datavirtue.nevitium.models.invoices.old;
+package com.datavirtue.axiom.models.invoices.old;
 import java.io.*;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;

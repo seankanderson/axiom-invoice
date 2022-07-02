@@ -575,7 +575,7 @@
 
     private void helpItemActionPerformed(java.awt.event.ActionEvent evt) {//event_helpItemActionPerformed
         
-        DV.launchURL("http://www.datavirtue.com/nevitium/manual/");
+        DV.launchURL("http://www.datavirtue.com/axiom/manual/");
         
         
     }//event_helpItemActionPerformed

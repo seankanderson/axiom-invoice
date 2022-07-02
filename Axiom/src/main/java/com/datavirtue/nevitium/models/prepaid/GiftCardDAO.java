@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 
-package com.datavirtue.nevitium.models.prepaid;
+package com.datavirtue.axiom.models.prepaid;
 
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
 import java.util.ArrayList;
 import java.util.Date;
 

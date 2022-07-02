@@ -6,7 +6,7 @@
  */
 
 
-package com.datavirtue.nevitium.services.util;
+package com.datavirtue.axiom.services.util;
 
 import java.util.Date;
 import java.util.GregorianCalendar;

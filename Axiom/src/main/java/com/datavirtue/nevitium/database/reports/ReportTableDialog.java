@@ -9,13 +9,13 @@
  * Created on Jul 30, 2009, 1:23:06 AM
  */
 
-package com.datavirtue.nevitium.database.reports;
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.OldFileDialog;
-import com.datavirtue.nevitium.ui.PleaseWait;
+package com.datavirtue.axiom.database.reports;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.OldFileDialog;
+import com.datavirtue.axiom.ui.PleaseWait;
 
-import com.datavirtue.nevitium.ui.util.DecimalCellRenderer;
-import com.datavirtue.nevitium.ui.util.Tools;
+import com.datavirtue.axiom.ui.util.DecimalCellRenderer;
+import com.datavirtue.axiom.ui.util.Tools;
 
 import java.beans.PropertyVetoException;
 import java.util.Calendar;

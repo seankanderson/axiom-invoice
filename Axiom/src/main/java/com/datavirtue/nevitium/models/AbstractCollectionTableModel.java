@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.models;
+package com.datavirtue.axiom.models;
 
 import java.util.Date;
 import java.util.List;

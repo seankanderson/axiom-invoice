@@ -1,7 +1,7 @@
-package com.datavirtue.nevitium.ui.shared;
+package com.datavirtue.axiom.ui.shared;
 
-import com.datavirtue.nevitium.models.inventory.InventoryImage;
-import com.datavirtue.nevitium.services.util.Scalr;
+import com.datavirtue.axiom.models.inventory.InventoryImage;
+import com.datavirtue.axiom.services.util.Scalr;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.image.BufferedImage;

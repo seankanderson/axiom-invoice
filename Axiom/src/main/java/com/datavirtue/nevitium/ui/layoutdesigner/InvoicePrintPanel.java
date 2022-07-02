@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 
-package com.datavirtue.nevitium.ui.layoutdesigner;
+package com.datavirtue.axiom.ui.layoutdesigner;
 
-import com.datavirtue.nevitium.ui.util.PrintPanel;
+import com.datavirtue.axiom.ui.util.PrintPanel;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;

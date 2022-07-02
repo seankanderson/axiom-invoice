@@ -1,8 +1,8 @@
 
 
-package com.datavirtue.nevitium.ui.util;
+package com.datavirtue.axiom.ui.util;
 
-import com.datavirtue.nevitium.ui.PleaseWait;
+import com.datavirtue.axiom.ui.PleaseWait;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.FileDataSource;

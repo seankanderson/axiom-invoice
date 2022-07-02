@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.models.security;
+package com.datavirtue.axiom.models.security;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;

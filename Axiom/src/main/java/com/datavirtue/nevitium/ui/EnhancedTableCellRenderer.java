@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 
 import java.awt.Color;
 import java.awt.Component;

@@ -1,7 +1,7 @@
-package com.datavirtue.nevitium.models.contacts;
+package com.datavirtue.axiom.models.contacts;
 
-import com.datavirtue.nevitium.database.orm.ContactAddressDao;
-import com.datavirtue.nevitium.models.BaseModel;
+import com.datavirtue.axiom.database.orm.ContactAddressDao;
+import com.datavirtue.axiom.models.BaseModel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import lombok.Getter;

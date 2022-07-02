@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.datavirtue.nevitium.ui.layoutdesigner;
+package com.datavirtue.axiom.ui.layoutdesigner;
 
 import java.awt.Component;
 import javax.swing.Icon;

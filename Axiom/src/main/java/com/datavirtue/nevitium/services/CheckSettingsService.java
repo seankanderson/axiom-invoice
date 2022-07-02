@@ -1,6 +1,6 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
-import com.datavirtue.nevitium.models.settings.CheckSettings;
+import com.datavirtue.axiom.models.settings.CheckSettings;
 
 /**
  *

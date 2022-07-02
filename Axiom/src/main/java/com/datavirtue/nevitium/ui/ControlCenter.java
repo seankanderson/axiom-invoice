@@ -4,15 +4,15 @@
  * Created on June 22, 2006, 9:47 AM
  ** Copyright (c) Data Virtue 2006 - 2022
  */
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 
-import com.datavirtue.nevitium.ui.inventory.InventoryApp;
-import com.datavirtue.nevitium.ui.contacts.ContactsApp;
+import com.datavirtue.axiom.ui.inventory.InventoryApp;
+import com.datavirtue.axiom.ui.contacts.ContactsApp;
 
 
-import com.datavirtue.nevitium.ui.util.Tools;
-import com.datavirtue.nevitium.ui.invoices.InvoiceApp;
-import com.datavirtue.nevitium.ui.invoices.InvoiceManager;
+import com.datavirtue.axiom.ui.util.Tools;
+import com.datavirtue.axiom.ui.invoices.InvoiceApp;
+import com.datavirtue.axiom.ui.invoices.InvoiceManager;
 import businessmanager.ReturnMessageThread;
 
 import de.schlichtherle.io.*;
@@ -22,14 +22,14 @@ import java.awt.Image;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
-import com.datavirtue.nevitium.models.settings.AppSettings;
-import com.datavirtue.nevitium.models.settings.LocalAppSettings;
-import com.datavirtue.nevitium.services.AppSettingsService;
-import com.datavirtue.nevitium.services.DatabaseService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.LocalSettingsService;
-import com.datavirtue.nevitium.services.UserService;
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.models.settings.AppSettings;
+import com.datavirtue.axiom.models.settings.LocalAppSettings;
+import com.datavirtue.axiom.services.AppSettingsService;
+import com.datavirtue.axiom.services.DatabaseService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.LocalSettingsService;
+import com.datavirtue.axiom.services.UserService;
+import com.datavirtue.axiom.services.util.DV;
 import com.google.inject.Inject;
 import java.awt.Desktop;
 import java.net.URI;
@@ -132,7 +132,7 @@ public class ControlCenter extends javax.swing.JFrame {
         }
         if (appSettings.getInternet().isShowRemoteMessage()) {
             /* Thread Example */
-            ReturnMessageThread rm = new ReturnMessageThread("http://datavirtue.com/nevitium/update/nevstat.txt",
+            ReturnMessageThread rm = new ReturnMessageThread("http://datavirtue.com/axiom/update/nevstat.txt",
                     remoteMessageBox, internetStatus);
             rm.start();
 
@@ -662,7 +662,7 @@ public class ControlCenter extends javax.swing.JFrame {
             tag = "\\My Documents\\";
         }
 
-        com.datavirtue.nevitium.ui.OldFileDialog fd = new OldFileDialog(null, true, System.getProperty("user.home") + tag, "Upgrade_Export_" + DV.getShortDate().replace('/', '-'));
+        com.datavirtue.axiom.ui.OldFileDialog fd = new OldFileDialog(null, true, System.getProperty("user.home") + tag, "Upgrade_Export_" + DV.getShortDate().replace('/', '-'));
         fd.setVisible(true);
 
         if (fd.getPath().equals("")) {
@@ -1577,7 +1577,7 @@ public class ControlCenter extends javax.swing.JFrame {
 
     private void helpItemActionPerformed(java.awt.event.ActionEvent evt) {//event_helpItemActionPerformed
 
-        //DV.launchURL("http://www.datavirtue.com/nevitium/manual/");
+        //DV.launchURL("http://www.datavirtue.com/axiom/manual/");
 
     }//event_helpItemActionPerformed
 

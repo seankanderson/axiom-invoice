@@ -1,7 +1,7 @@
-package com.datavirtue.nevitium.models.inventory;
+package com.datavirtue.axiom.models.inventory;
 
 import java.util.List;
-import com.datavirtue.nevitium.models.AbstractCollectionTableModel;
+import com.datavirtue.axiom.models.AbstractCollectionTableModel;
 
 /**
  * December 1st 2021

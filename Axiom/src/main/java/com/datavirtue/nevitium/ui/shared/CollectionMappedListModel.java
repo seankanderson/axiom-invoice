@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.ui.shared;
+package com.datavirtue.axiom.ui.shared;
 
 import java.util.ArrayList;
 import javax.swing.AbstractListModel;

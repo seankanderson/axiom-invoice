@@ -1,8 +1,8 @@
 
 
-package com.datavirtue.nevitium.models.invoices;
+package com.datavirtue.axiom.models.invoices;
 
-import com.datavirtue.nevitium.models.AbstractCollectionTableModel;
+import com.datavirtue.axiom.models.AbstractCollectionTableModel;
 import java.util.Date;
 import java.util.List;
 

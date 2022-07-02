@@ -1,10 +1,10 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
-import com.datavirtue.nevitium.database.orm.InventoryImageJoinDao;
+import com.datavirtue.axiom.database.orm.InventoryImageJoinDao;
 import java.util.List;
 import java.sql.SQLException;
-import com.datavirtue.nevitium.models.inventory.InventoryImage;
-import com.datavirtue.nevitium.models.inventory.InventoryImageJoin;
+import com.datavirtue.axiom.models.inventory.InventoryImage;
+import com.datavirtue.axiom.models.inventory.InventoryImageJoin;
 import com.j256.ormlite.dao.DaoManager;
 import java.util.ArrayList;
 import java.util.UUID;

@@ -4,12 +4,12 @@
  *
  * Created on Nov 30, 2011, 11:28:46 PM
  */
-package com.datavirtue.nevitium.ui.invoices;
+package com.datavirtue.axiom.ui.invoices;
 
-import com.datavirtue.nevitium.models.invoices.InvoiceItem;
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.util.JTextFieldFilter;
+import com.datavirtue.axiom.models.invoices.InvoiceItem;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.util.JTextFieldFilter;
 
 import java.awt.Image;
 import java.awt.Toolkit;

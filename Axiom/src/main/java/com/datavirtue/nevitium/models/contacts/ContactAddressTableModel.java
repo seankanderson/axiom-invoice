@@ -1,6 +1,6 @@
-package com.datavirtue.nevitium.models.contacts;
+package com.datavirtue.axiom.models.contacts;
 
-import com.datavirtue.nevitium.models.AbstractCollectionTableModel;
+import com.datavirtue.axiom.models.AbstractCollectionTableModel;
 import java.util.List;
 
 /**

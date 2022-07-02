@@ -3,17 +3,17 @@
  *
  * Created on Mar 25, 2011, 10:33:51 PM
  */
-package com.datavirtue.nevitium.ui.invoices;
+package com.datavirtue.axiom.ui.invoices;
 
-import com.datavirtue.nevitium.models.invoices.Invoice;
-import com.datavirtue.nevitium.models.invoices.PaymentActivityTableModel;
-import com.datavirtue.nevitium.models.settings.AppSettings;
-import com.datavirtue.nevitium.services.AppSettingsService;
-import com.datavirtue.nevitium.services.DiService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.InvoiceService;
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.invoices.PaymentActivityTableModel;
+import com.datavirtue.axiom.models.settings.AppSettings;
+import com.datavirtue.axiom.services.AppSettingsService;
+import com.datavirtue.axiom.services.DiService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.InvoiceService;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.DV;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.SQLException;

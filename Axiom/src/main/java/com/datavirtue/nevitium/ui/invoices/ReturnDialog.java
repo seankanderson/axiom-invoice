@@ -3,23 +3,23 @@
  *
  * Created on January 4, 2007, 8:38 PM
  */
-package com.datavirtue.nevitium.ui.invoices;
+package com.datavirtue.axiom.ui.invoices;
 
-import com.datavirtue.nevitium.models.invoices.Invoice;
-import com.datavirtue.nevitium.models.invoices.InvoiceItem;
-import com.datavirtue.nevitium.models.invoices.InvoiceItemReturn;
-import com.datavirtue.nevitium.models.invoices.InvoiceItemsTableModel;
-import com.datavirtue.nevitium.models.invoices.InvoiceReturnsTableModel;
-import com.datavirtue.nevitium.services.DiService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.InvoiceItemService;
-import com.datavirtue.nevitium.services.InvoiceService;
-import com.datavirtue.nevitium.services.exceptions.InvoiceItemAlreadyReturnedException;
-import com.datavirtue.nevitium.services.exceptions.InvoiceVoidedException;
-import com.datavirtue.nevitium.services.exceptions.PartialQuantityException;
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.util.JTextFieldFilter;
+import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.invoices.InvoiceItem;
+import com.datavirtue.axiom.models.invoices.InvoiceItemReturn;
+import com.datavirtue.axiom.models.invoices.InvoiceItemsTableModel;
+import com.datavirtue.axiom.models.invoices.InvoiceReturnsTableModel;
+import com.datavirtue.axiom.services.DiService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.InvoiceItemService;
+import com.datavirtue.axiom.services.InvoiceService;
+import com.datavirtue.axiom.services.exceptions.InvoiceItemAlreadyReturnedException;
+import com.datavirtue.axiom.services.exceptions.InvoiceVoidedException;
+import com.datavirtue.axiom.services.exceptions.PartialQuantityException;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.util.JTextFieldFilter;
 import com.google.inject.Injector;
 import java.awt.Frame;
 import java.awt.Image;

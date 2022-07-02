@@ -4,9 +4,9 @@
  * Created on December 9, 2008, 1:26 AM
  */
 
-package com.datavirtue.nevitium.ui.inventory;
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.util.JTextFieldFilter;
+package com.datavirtue.axiom.ui.inventory;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.util.JTextFieldFilter;
 
 
 

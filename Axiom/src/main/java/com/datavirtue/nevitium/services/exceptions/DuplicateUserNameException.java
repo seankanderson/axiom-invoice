@@ -1,6 +1,6 @@
 
 
-package com.datavirtue.nevitium.services.exceptions;
+package com.datavirtue.axiom.services.exceptions;
 
 /**
  *

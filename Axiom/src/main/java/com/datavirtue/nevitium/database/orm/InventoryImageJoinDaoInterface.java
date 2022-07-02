@@ -1,6 +1,6 @@
-package com.datavirtue.nevitium.database.orm;
+package com.datavirtue.axiom.database.orm;
 
-import com.datavirtue.nevitium.models.inventory.InventoryImageJoin;
+import com.datavirtue.axiom.models.inventory.InventoryImageJoin;
 import com.j256.ormlite.dao.Dao;
 
 /**

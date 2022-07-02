@@ -3,13 +3,13 @@
  *
  * Created on July 27, 2007, 10:40 PM
  */
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 
-import com.datavirtue.nevitium.models.security.User;
-import com.datavirtue.nevitium.services.DiService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.UserService;
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.models.security.User;
+import com.datavirtue.axiom.services.DiService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.UserService;
+import com.datavirtue.axiom.services.util.DV;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import lombok.Getter;

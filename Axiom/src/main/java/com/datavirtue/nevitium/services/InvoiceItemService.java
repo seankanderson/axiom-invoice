@@ -1,11 +1,11 @@
 
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
-import com.datavirtue.nevitium.database.orm.InvoiceItemDao;
-import com.datavirtue.nevitium.models.inventory.Inventory;
-import com.datavirtue.nevitium.models.invoices.Invoice;
-import com.datavirtue.nevitium.models.invoices.InvoiceItem;
-import com.datavirtue.nevitium.models.settings.AppSettings;
+import com.datavirtue.axiom.database.orm.InvoiceItemDao;
+import com.datavirtue.axiom.models.inventory.Inventory;
+import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.invoices.InvoiceItem;
+import com.datavirtue.axiom.models.settings.AppSettings;
 import com.google.inject.Inject;
 import com.j256.ormlite.dao.DaoManager;
 import java.sql.SQLException;

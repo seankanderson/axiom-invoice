@@ -9,7 +9,7 @@
  * Created on Aug 23, 2010, 12:51:35 AM
  */
 
-package com.datavirtue.nevitium.ui.invoices;
+package com.datavirtue.axiom.ui.invoices;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

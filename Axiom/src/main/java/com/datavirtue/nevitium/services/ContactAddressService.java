@@ -1,8 +1,8 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
-import com.datavirtue.nevitium.database.orm.ContactAddressDao;
+import com.datavirtue.axiom.database.orm.ContactAddressDao;
 import java.sql.SQLException;
-import com.datavirtue.nevitium.models.contacts.ContactAddress;
+import com.datavirtue.axiom.models.contacts.ContactAddress;
 import com.j256.ormlite.dao.DaoManager;
 import java.util.List;
 import java.util.UUID;

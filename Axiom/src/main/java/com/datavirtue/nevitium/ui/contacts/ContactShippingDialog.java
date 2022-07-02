@@ -8,21 +8,21 @@
  *
  * Created on Aug 17, 2009, 2:00:19 AM
  */
-package com.datavirtue.nevitium.ui.contacts;
+package com.datavirtue.axiom.ui.contacts;
 
-import com.datavirtue.nevitium.ui.util.LimitedDocument;
+import com.datavirtue.axiom.ui.util.LimitedDocument;
 
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.table.*;
 import java.util.*;
-import com.datavirtue.nevitium.models.contacts.Contact;
-import com.datavirtue.nevitium.models.contacts.ContactAddress;
-import com.datavirtue.nevitium.models.contacts.ContactAddressTableModel;
-import com.datavirtue.nevitium.services.ContactService;
-import com.datavirtue.nevitium.services.DiService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.models.contacts.Contact;
+import com.datavirtue.axiom.models.contacts.ContactAddress;
+import com.datavirtue.axiom.models.contacts.ContactAddressTableModel;
+import com.datavirtue.axiom.services.ContactService;
+import com.datavirtue.axiom.services.DiService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.util.DV;
 import java.sql.SQLException;
 
 /**

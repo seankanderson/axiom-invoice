@@ -1,12 +1,12 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
 import com.formdev.flatlaf.util.StringUtils;
 import com.google.gson.Gson;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
-import com.datavirtue.nevitium.models.settings.LocalAppSettings;
-import com.datavirtue.nevitium.models.settings.WindowSizeAndPosition;
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.models.settings.LocalAppSettings;
+import com.datavirtue.axiom.models.settings.WindowSizeAndPosition;
+import com.datavirtue.axiom.services.util.DV;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme;

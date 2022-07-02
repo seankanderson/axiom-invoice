@@ -4,19 +4,19 @@
  * Created on July 22, 2006, 12:29 PM
  ** Copyright (c) Data Virtue 2006, 2022
  */
-package com.datavirtue.nevitium.ui.invoices;
+package com.datavirtue.axiom.ui.invoices;
 
-import com.datavirtue.nevitium.models.invoices.Invoice;
-import com.datavirtue.nevitium.models.invoices.InvoicePayment;
-import com.datavirtue.nevitium.models.invoices.InvoicePaymentType;
-import com.datavirtue.nevitium.models.invoices.PaymentTypeComboModel;
-import com.datavirtue.nevitium.services.DiService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.InvoicePaymentService;
-import com.datavirtue.nevitium.services.InvoiceService;
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.ui.util.JTextFieldFilter;
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.invoices.InvoicePayment;
+import com.datavirtue.axiom.models.invoices.InvoicePaymentType;
+import com.datavirtue.axiom.models.invoices.PaymentTypeComboModel;
+import com.datavirtue.axiom.services.DiService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.InvoicePaymentService;
+import com.datavirtue.axiom.services.InvoiceService;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.ui.util.JTextFieldFilter;
+import com.datavirtue.axiom.services.util.DV;
 import java.awt.Desktop;
 import javax.swing.*;
 import java.awt.event.*;

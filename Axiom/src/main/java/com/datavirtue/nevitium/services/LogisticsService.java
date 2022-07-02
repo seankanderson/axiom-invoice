@@ -1,6 +1,6 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
-import com.datavirtue.nevitium.models.contacts.ContactAddressInterface;
+import com.datavirtue.axiom.models.contacts.ContactAddressInterface;
 
 /**
  *

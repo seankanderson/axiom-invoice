@@ -1,9 +1,9 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
-import com.datavirtue.nevitium.services.LocalSettingsService;
+import com.datavirtue.axiom.services.LocalSettingsService;
 
 
 /**
@@ -15,7 +15,7 @@ public class GuiceBindingModule extends AbstractModule{
     @Override
     protected void configure() {
         //bind(Inventory.class).to(Inventory.class);
-        //new JdbcConnectionSource("jdbc:h2:mem:nevitium")
+        //new JdbcConnectionSource("jdbc:h2:mem:axiom")
        try {
             bind(JdbcConnectionSource.class)
                 .annotatedWith(Names.named("DatabaseConnection"))

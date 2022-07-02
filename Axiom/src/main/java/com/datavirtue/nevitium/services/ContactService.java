@@ -1,12 +1,12 @@
 
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
-import com.datavirtue.nevitium.database.orm.ContactDao;
+import com.datavirtue.axiom.database.orm.ContactDao;
 import java.sql.SQLException;
 import java.util.List;
-import com.datavirtue.nevitium.models.contacts.Contact;
-import com.datavirtue.nevitium.models.contacts.ContactAddress;
-import com.datavirtue.nevitium.models.contacts.ContactAddressInterface;
+import com.datavirtue.axiom.models.contacts.Contact;
+import com.datavirtue.axiom.models.contacts.ContactAddress;
+import com.datavirtue.axiom.models.contacts.ContactAddressInterface;
 import com.google.inject.Inject;
 import com.j256.ormlite.dao.DaoManager;
 import java.text.MessageFormat;

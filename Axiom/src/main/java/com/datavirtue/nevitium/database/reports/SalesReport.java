@@ -3,10 +3,10 @@
  * and open the template in the editor.
  */
 
-package com.datavirtue.nevitium.database.reports;
+package com.datavirtue.axiom.database.reports;
 
 
-import com.datavirtue.nevitium.services.PdfReportService;
+import com.datavirtue.axiom.services.PdfReportService;
 
 import java.awt.Font;
 import java.text.DateFormat;

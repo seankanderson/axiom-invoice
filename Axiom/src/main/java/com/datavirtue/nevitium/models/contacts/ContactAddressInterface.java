@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.models.contacts;
+package com.datavirtue.axiom.models.contacts;
 
 /**
  *

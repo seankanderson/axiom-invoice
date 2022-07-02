@@ -3,16 +3,16 @@
  *
  * Created on July 13, 2007, 1:10 PM
  */
-package com.datavirtue.nevitium.ui.checks;
+package com.datavirtue.axiom.ui.checks;
 
 import com.google.inject.Injector;
-import com.datavirtue.nevitium.services.DiService;
+import com.datavirtue.axiom.services.DiService;
 import java.awt.Point;
 import javax.swing.*;
-import com.datavirtue.nevitium.models.settings.CheckSettings;
-import com.datavirtue.nevitium.services.CheckSettingsService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.models.settings.CheckSettings;
+import com.datavirtue.axiom.services.CheckSettingsService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.util.DV;
 import java.sql.SQLException;
 
 /**

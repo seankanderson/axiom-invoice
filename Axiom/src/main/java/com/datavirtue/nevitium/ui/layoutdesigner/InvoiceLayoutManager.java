@@ -9,12 +9,12 @@
  * Created on Aug 23, 2010, 12:51:35 AM
  */
 
-package com.datavirtue.nevitium.ui.layoutdesigner;
+package com.datavirtue.axiom.ui.layoutdesigner;
 
 
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.services.util.ExtensionFileFilter;
-import com.datavirtue.nevitium.ui.util.TreeUtil;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.services.util.ExtensionFileFilter;
+import com.datavirtue.axiom.ui.util.TreeUtil;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;

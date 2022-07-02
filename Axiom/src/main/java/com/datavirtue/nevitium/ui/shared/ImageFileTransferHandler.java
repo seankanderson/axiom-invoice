@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.ui.shared;
+package com.datavirtue.axiom.ui.shared;
 
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;

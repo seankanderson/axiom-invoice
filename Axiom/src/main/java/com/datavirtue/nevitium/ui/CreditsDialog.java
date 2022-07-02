@@ -9,7 +9,7 @@
  * Created on Aug 18, 2009, 1:08:28 AM
  */
 
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
@@ -50,11 +50,11 @@ public class CreditsDialog extends javax.swing.JDialog {
 
                 in.close();
                 textPane.setCaretPosition(0);
-            }else textPane.setText("credits.txt was not found, visit: http://www.datavirtue.com/nevitium.html");
+            }else textPane.setText("credits.txt was not found, visit: http://www.datavirtue.com/axiom.html");
 
 
         } catch (Exception e) {
-            textPane.setText("There was an error accessing credits.txt, visit: http://www.datavirtue.com/nevitium.html");
+            textPane.setText("There was an error accessing credits.txt, visit: http://www.datavirtue.com/axiom.html");
         }
 
 

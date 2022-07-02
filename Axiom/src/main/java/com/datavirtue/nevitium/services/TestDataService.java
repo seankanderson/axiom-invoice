@@ -1,12 +1,12 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
 import com.google.inject.Injector;
-import com.datavirtue.nevitium.models.contacts.Contact;
-import com.datavirtue.nevitium.models.contacts.ContactAddress;
-import com.datavirtue.nevitium.models.inventory.Inventory;
-import com.datavirtue.nevitium.models.invoices.Invoice;
-import com.datavirtue.nevitium.models.invoices.InvoicePayment;
-import com.datavirtue.nevitium.models.invoices.InvoicePaymentType;
+import com.datavirtue.axiom.models.contacts.Contact;
+import com.datavirtue.axiom.models.contacts.ContactAddress;
+import com.datavirtue.axiom.models.inventory.Inventory;
+import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.invoices.InvoicePayment;
+import com.datavirtue.axiom.models.invoices.InvoicePaymentType;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;

@@ -9,11 +9,11 @@
  * Created on Jan 21, 2011, 12:55:23 AM
  */
 
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.util.JTextFieldFilter;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.util.JTextFieldFilter;
 
 
 /**

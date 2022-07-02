@@ -1,9 +1,9 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
 import com.google.gson.Gson;
-import com.datavirtue.nevitium.database.orm.KeyValueStoreDao;
+import com.datavirtue.axiom.database.orm.KeyValueStoreDao;
 import java.sql.SQLException;
-import com.datavirtue.nevitium.models.KeyValueStore;
+import com.datavirtue.axiom.models.KeyValueStore;
 import com.j256.ormlite.dao.DaoManager;
 
 /**

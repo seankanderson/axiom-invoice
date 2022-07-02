@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;

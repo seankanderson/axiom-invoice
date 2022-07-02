@@ -5,8 +5,8 @@
  ** Copyright (c) Data Virtue 2006
  */
 
-package com.datavirtue.nevitium.database.reports;
-import com.datavirtue.nevitium.services.util.DV;
+package com.datavirtue.axiom.database.reports;
+import com.datavirtue.axiom.services.util.DV;
 import java.awt.Toolkit;
 import java.io.*;
 import javax.swing.JFileChooser;

@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.ui.layoutdesigner;
+package com.datavirtue.axiom.ui.layoutdesigner;
 
 import java.awt.Color;
 import java.awt.Font;

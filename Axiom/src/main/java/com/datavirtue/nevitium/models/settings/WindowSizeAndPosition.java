@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.models.settings;
+package com.datavirtue.axiom.models.settings;
 
 import java.awt.Dimension;
 import java.awt.Point;

@@ -9,7 +9,7 @@
  * Created on Jul 19, 2010, 9:39:05 AM
  */
 
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 
 /**
  *
@@ -36,7 +36,7 @@ public class SingleLabelDialog extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
-        labelPanel1 = new com.datavirtue.nevitium.ui.LabelPanel();
+        labelPanel1 = new com.datavirtue.axiom.ui.LabelPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -126,7 +126,7 @@ public class SingleLabelDialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private com.datavirtue.nevitium.ui.LabelPanel labelPanel1;
+    private com.datavirtue.axiom.ui.LabelPanel labelPanel1;
     // End of variables declaration//GEN-END:variables
 
 }

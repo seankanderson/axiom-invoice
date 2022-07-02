@@ -4,7 +4,7 @@
  * Created on July 13, 2007, 1:02 PM
  */
 
-package com.datavirtue.nevitium.ui.checks;
+package com.datavirtue.axiom.ui.checks;
 
 /**
  *

@@ -9,7 +9,7 @@
  * Created on Apr 5, 2011, 11:13:03 PM
  */
 
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 
 /**
  *

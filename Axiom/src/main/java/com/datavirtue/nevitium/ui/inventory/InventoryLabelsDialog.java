@@ -3,11 +3,11 @@
  *
  * Created on January 27, 2007, 12:26 PM
  */
-package com.datavirtue.nevitium.ui.inventory;
+package com.datavirtue.axiom.ui.inventory;
 
-import com.datavirtue.nevitium.services.PdfLabelService;
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.services.PdfLabelService;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.DV;
 import javax.swing.*;
 import java.io.*;
 //import org.pdfbox.PrintPDF;
@@ -276,7 +276,7 @@ public class InventoryLabelsDialog extends javax.swing.JDialog {
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
         buttonGroup5 = new javax.swing.ButtonGroup();
-        labelPanel1 = new com.datavirtue.nevitium.ui.LabelPanel();
+        labelPanel1 = new com.datavirtue.axiom.ui.LabelPanel();
         jPanel1 = new javax.swing.JPanel();
         goButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -781,7 +781,7 @@ public class InventoryLabelsDialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton5;
-    private com.datavirtue.nevitium.ui.LabelPanel labelPanel1;
+    private com.datavirtue.axiom.ui.LabelPanel labelPanel1;
     private javax.swing.JRadioButton leftRadio;
     private javax.swing.JRadioButton midRadio;
     private javax.swing.JCheckBox priceBox;

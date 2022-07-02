@@ -1,7 +1,7 @@
-package com.datavirtue.nevitium.models.inventory;
+package com.datavirtue.axiom.models.inventory;
 
-import com.datavirtue.nevitium.database.orm.InventoryImageDao;
-import com.datavirtue.nevitium.models.BaseModel;
+import com.datavirtue.axiom.database.orm.InventoryImageDao;
+import com.datavirtue.axiom.models.BaseModel;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;

@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.datavirtue.nevitium.database.orm;
+package com.datavirtue.axiom.database.orm;
 
 import com.j256.ormlite.dao.Dao;
-import com.datavirtue.nevitium.models.KeyValueStore;
+import com.datavirtue.axiom.models.KeyValueStore;
 
 /**
  *

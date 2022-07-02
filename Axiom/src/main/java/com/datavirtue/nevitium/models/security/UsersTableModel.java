@@ -1,8 +1,8 @@
-package com.datavirtue.nevitium.models.security;
+package com.datavirtue.axiom.models.security;
 
 import java.util.List;
-import com.datavirtue.nevitium.models.AbstractCollectionTableModel;
-import com.datavirtue.nevitium.models.security.User;
+import com.datavirtue.axiom.models.AbstractCollectionTableModel;
+import com.datavirtue.axiom.models.security.User;
 
 /**
  *

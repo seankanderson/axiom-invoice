@@ -5,35 +5,35 @@
  ** Copyright (c) Data Virtue 2006
  * revised Dec 2022 
  */
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 
-import com.datavirtue.nevitium.ui.util.NewEmail;
-import com.datavirtue.nevitium.ui.util.LimitedDocument;
+import com.datavirtue.axiom.ui.util.NewEmail;
+import com.datavirtue.axiom.ui.util.LimitedDocument;
 import java.io.*;
 import javax.swing.*;
 import com.google.inject.Injector;
-import com.datavirtue.nevitium.services.DiService;
-import com.datavirtue.nevitium.services.AppSettingsService;
+import com.datavirtue.axiom.services.DiService;
+import com.datavirtue.axiom.services.AppSettingsService;
 import java.sql.SQLException;
-import com.datavirtue.nevitium.models.settings.AppSettings;
-import com.datavirtue.nevitium.models.settings.CompanySettings;
-import com.datavirtue.nevitium.models.settings.DataSettings;
-import com.datavirtue.nevitium.models.settings.EmailSettings;
-import com.datavirtue.nevitium.models.settings.FontSetting;
-import com.datavirtue.nevitium.models.settings.InternetSettings;
-import com.datavirtue.nevitium.models.settings.InventorySettings;
-import com.datavirtue.nevitium.models.settings.InvoiceSettings;
-import com.datavirtue.nevitium.models.settings.OutputSettings;
-import com.datavirtue.nevitium.models.settings.SecuritySettings;
-import com.datavirtue.nevitium.services.DatabaseService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.ImageService;
-import com.datavirtue.nevitium.services.LocalSettingsService;
-import com.datavirtue.nevitium.services.UserService;
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.services.util.DVNET;
-import com.datavirtue.nevitium.ui.util.ImageFileFilter;
+import com.datavirtue.axiom.models.settings.AppSettings;
+import com.datavirtue.axiom.models.settings.CompanySettings;
+import com.datavirtue.axiom.models.settings.DataSettings;
+import com.datavirtue.axiom.models.settings.EmailSettings;
+import com.datavirtue.axiom.models.settings.FontSetting;
+import com.datavirtue.axiom.models.settings.InternetSettings;
+import com.datavirtue.axiom.models.settings.InventorySettings;
+import com.datavirtue.axiom.models.settings.InvoiceSettings;
+import com.datavirtue.axiom.models.settings.OutputSettings;
+import com.datavirtue.axiom.models.settings.SecuritySettings;
+import com.datavirtue.axiom.services.DatabaseService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.ImageService;
+import com.datavirtue.axiom.services.LocalSettingsService;
+import com.datavirtue.axiom.services.UserService;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.services.util.DVNET;
+import com.datavirtue.axiom.ui.util.ImageFileFilter;
 import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.FileDialog;
@@ -2527,7 +2527,7 @@ public class SettingsDialog extends javax.swing.JDialog {
 
         String siteData = "";
 
-        siteData = DVNET.HTTPGetFile("http://www.datavirtue.com/nevitium/update/nevupdate.html", "Problem retrieving update status.", false);
+        siteData = DVNET.HTTPGetFile("http://www.datavirtue.com/axiom/update/nevupdate.html", "Problem retrieving update status.", false);
         if (!siteData.contains("ERR:")) {
             String remoteVersion = siteData;
             String localVersion;
@@ -2595,7 +2595,7 @@ public class SettingsDialog extends javax.swing.JDialog {
 }//GEN-LAST:event_invoiceColorFieldMouseClicked
 
     private void manageUsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageUsersButtonActionPerformed
-        new com.datavirtue.nevitium.ui.SecurityManager(null, true).setVisible(true);
+        new com.datavirtue.axiom.ui.SecurityManager(null, true).setVisible(true);
 
     }//GEN-LAST:event_manageUsersButtonActionPerformed
 

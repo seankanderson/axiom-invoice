@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.services.exceptions;
+package com.datavirtue.axiom.services.exceptions;
 
 
 public class PartialQuantityException extends Exception { 

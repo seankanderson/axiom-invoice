@@ -1,6 +1,6 @@
-package com.datavirtue.nevitium.models;
+package com.datavirtue.axiom.models;
 
-import com.datavirtue.nevitium.database.orm.KeyValueStoreDao;
+import com.datavirtue.axiom.database.orm.KeyValueStoreDao;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;

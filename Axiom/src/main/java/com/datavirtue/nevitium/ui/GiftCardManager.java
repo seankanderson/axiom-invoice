@@ -9,13 +9,13 @@
  * Created on Oct 13, 2009, 9:28:08 PM
  */
 
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 
 
 
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.util.JTextFieldFilter;
-import com.datavirtue.nevitium.ui.util.LimitedDocument;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.util.JTextFieldFilter;
+import com.datavirtue.axiom.ui.util.LimitedDocument;
 import java.awt.Point;
 import java.text.DateFormat;
 import java.util.ArrayList;

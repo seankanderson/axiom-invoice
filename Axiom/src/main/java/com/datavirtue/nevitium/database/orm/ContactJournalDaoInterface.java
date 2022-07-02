@@ -1,7 +1,7 @@
-package com.datavirtue.nevitium.database.orm;
+package com.datavirtue.axiom.database.orm;
 
 import com.j256.ormlite.dao.Dao;
-import com.datavirtue.nevitium.models.contacts.ContactJournal;
+import com.datavirtue.axiom.models.contacts.ContactJournal;
 
 /**
  *

@@ -1,8 +1,8 @@
-package com.datavirtue.nevitium.database.orm;
+package com.datavirtue.axiom.database.orm;
 
 import com.j256.ormlite.dao.BaseDaoImpl;
 import com.j256.ormlite.support.ConnectionSource;
-import com.datavirtue.nevitium.models.inventory.InventoryImageJoin;
+import com.datavirtue.axiom.models.inventory.InventoryImageJoin;
 import java.sql.SQLException;
 
 /**

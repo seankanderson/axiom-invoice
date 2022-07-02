@@ -6,7 +6,7 @@
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
  */
-package com.datavirtue.nevitium.models.checks;
+package com.datavirtue.axiom.models.checks;
 
 /**
  *

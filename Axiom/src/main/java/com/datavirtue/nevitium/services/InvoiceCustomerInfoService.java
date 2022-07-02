@@ -1,7 +1,7 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
-import com.datavirtue.nevitium.database.orm.InvoiceCustomerInfoDao;
-import com.datavirtue.nevitium.models.invoices.InvoiceCustomerInfo;
+import com.datavirtue.axiom.database.orm.InvoiceCustomerInfoDao;
+import com.datavirtue.axiom.models.invoices.InvoiceCustomerInfo;
 import com.j256.ormlite.dao.DaoManager;
 import java.sql.SQLException;
 

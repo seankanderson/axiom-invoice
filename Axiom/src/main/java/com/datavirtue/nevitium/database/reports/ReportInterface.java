@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.datavirtue.nevitium.database.reports;
+package com.datavirtue.axiom.database.reports;
 
 import javax.swing.table.DefaultTableModel;
 

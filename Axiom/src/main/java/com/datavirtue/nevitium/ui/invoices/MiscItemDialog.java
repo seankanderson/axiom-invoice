@@ -3,22 +3,22 @@
  *
  * Created on December 10, 2006, 4:29 PM
  */
-package com.datavirtue.nevitium.ui.invoices;
+package com.datavirtue.axiom.ui.invoices;
 
-import com.datavirtue.nevitium.models.invoices.InvoiceItem;
-import com.datavirtue.nevitium.models.settings.AppSettings;
-import com.datavirtue.nevitium.models.settings.LocalAppSettings;
-import com.datavirtue.nevitium.services.AppSettingsService;
-import com.datavirtue.nevitium.services.DiService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.InventoryService;
-import com.datavirtue.nevitium.services.LocalSettingsService;
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.models.invoices.InvoiceItem;
+import com.datavirtue.axiom.models.settings.AppSettings;
+import com.datavirtue.axiom.models.settings.LocalAppSettings;
+import com.datavirtue.axiom.services.AppSettingsService;
+import com.datavirtue.axiom.services.DiService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.InventoryService;
+import com.datavirtue.axiom.services.LocalSettingsService;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.DV;
 
-import com.datavirtue.nevitium.ui.util.JTextFieldFilter;
-import com.datavirtue.nevitium.ui.util.LimitedDocument;
-import com.datavirtue.nevitium.ui.VATCalculator;
+import com.datavirtue.axiom.ui.util.JTextFieldFilter;
+import com.datavirtue.axiom.ui.util.LimitedDocument;
+import com.datavirtue.axiom.ui.VATCalculator;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.util.Date;

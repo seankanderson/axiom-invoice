@@ -4,10 +4,10 @@
  * Created on January 26, 2007, 8:46 AM
  */
 
-package com.datavirtue.nevitium.ui.contacts;
-import com.datavirtue.nevitium.services.PdfLabelService;
-import com.datavirtue.nevitium.database.reports.ReportFactory;
-import com.datavirtue.nevitium.services.util.DV;
+package com.datavirtue.axiom.ui.contacts;
+import com.datavirtue.axiom.services.PdfLabelService;
+import com.datavirtue.axiom.database.reports.ReportFactory;
+import com.datavirtue.axiom.services.util.DV;
 
 import java.io.*;
 import javax.swing.*;
@@ -74,7 +74,7 @@ public class ConnLabelDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        labelPanel1 = new com.datavirtue.nevitium.ui.LabelPanel();
+        labelPanel1 = new com.datavirtue.axiom.ui.LabelPanel();
         jPanel1 = new javax.swing.JPanel();
         goButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -482,7 +482,7 @@ public class ConnLabelDialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private com.datavirtue.nevitium.ui.LabelPanel labelPanel1;
+    private com.datavirtue.axiom.ui.LabelPanel labelPanel1;
     private javax.swing.JCheckBox nameBox;
     private javax.swing.JSpinner skipSpinner;
     private javax.swing.JCheckBox steBox;

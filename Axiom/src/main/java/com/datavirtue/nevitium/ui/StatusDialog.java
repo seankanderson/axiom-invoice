@@ -9,8 +9,8 @@
  * Created on Aug 14, 2009, 12:59:47 AM
  */
 
-package com.datavirtue.nevitium.ui;
-import com.datavirtue.nevitium.services.util.DV;
+package com.datavirtue.axiom.ui;
+import com.datavirtue.axiom.services.util.DV;
 
 
 /**

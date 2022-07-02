@@ -1,4 +1,4 @@
-package com.datavirtue.nevitium.ui.util;
+package com.datavirtue.axiom.ui.util;
 
 import javax.swing.text.*;
 import javax.swing.*;

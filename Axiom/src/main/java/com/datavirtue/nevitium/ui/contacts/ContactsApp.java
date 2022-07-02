@@ -4,15 +4,15 @@
  * Created on June 22, 2006, 10:08 AM
  ** Copyright (c) Data Virtue 2006
  */
-package com.datavirtue.nevitium.ui.contacts;
+package com.datavirtue.axiom.ui.contacts;
 
-import com.datavirtue.nevitium.ui.util.LimitedDocument;
-import com.datavirtue.nevitium.ui.invoices.PaymentDialog;
-import com.datavirtue.nevitium.ui.invoices.InvoiceApp;
-import com.datavirtue.nevitium.models.contacts.old.ContactJournalListModel;
-import com.datavirtue.nevitium.models.contacts.old.ContactsTableModel;
+import com.datavirtue.axiom.ui.util.LimitedDocument;
+import com.datavirtue.axiom.ui.invoices.PaymentDialog;
+import com.datavirtue.axiom.ui.invoices.InvoiceApp;
+import com.datavirtue.axiom.models.contacts.old.ContactJournalListModel;
+import com.datavirtue.axiom.models.contacts.old.ContactsTableModel;
 import com.google.inject.Injector;
-import com.datavirtue.nevitium.services.DiService;
+import com.datavirtue.axiom.services.DiService;
 import javax.swing.table.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -21,19 +21,19 @@ import java.awt.event.*;
 import java.awt.*;
 import java.net.URI;
 import java.sql.SQLException;
-import com.datavirtue.nevitium.models.contacts.Contact;
-import com.datavirtue.nevitium.models.contacts.ContactJournal;
-import com.datavirtue.nevitium.models.invoices.CustomerInvoiceListTableModel;
-import com.datavirtue.nevitium.models.invoices.Invoice;
-import com.datavirtue.nevitium.models.settings.AppSettings;
-import com.datavirtue.nevitium.models.settings.CompanySettings;
-import com.datavirtue.nevitium.services.AppSettingsService;
-import com.datavirtue.nevitium.services.ContactJournalService;
-import com.datavirtue.nevitium.services.ContactService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.LocalSettingsService;
-import com.datavirtue.nevitium.services.UserService;
-import com.datavirtue.nevitium.services.util.DV;
+import com.datavirtue.axiom.models.contacts.Contact;
+import com.datavirtue.axiom.models.contacts.ContactJournal;
+import com.datavirtue.axiom.models.invoices.CustomerInvoiceListTableModel;
+import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.settings.AppSettings;
+import com.datavirtue.axiom.models.settings.CompanySettings;
+import com.datavirtue.axiom.services.AppSettingsService;
+import com.datavirtue.axiom.services.ContactJournalService;
+import com.datavirtue.axiom.services.ContactService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.LocalSettingsService;
+import com.datavirtue.axiom.services.UserService;
+import com.datavirtue.axiom.services.util.DV;
 import java.net.URISyntaxException;
 import java.util.Locale;
 import java.util.prefs.BackingStoreException;
@@ -1973,7 +1973,7 @@ public class ContactsApp extends javax.swing.JDialog {
                 home = home + '\\' + "My Documents";
             }
 
-            com.datavirtue.nevitium.ui.OldFileDialog fd = new com.datavirtue.nevitium.ui.OldFileDialog(parentWin, true, home, "export.csv");
+            com.datavirtue.axiom.ui.OldFileDialog fd = new com.datavirtue.axiom.ui.OldFileDialog(parentWin, true, home, "export.csv");
 
             fd.setVisible(true);
 

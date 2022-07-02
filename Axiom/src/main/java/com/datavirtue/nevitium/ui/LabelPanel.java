@@ -4,7 +4,7 @@
  * Created on January 25, 2007, 4:25 PM
  */
 
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 import java.io.*;
 import javax.swing.DefaultListModel;
 

@@ -7,7 +7,7 @@
  * and open the template in the editor.
  */
 
-package com.datavirtue.nevitium.services.util;
+package com.datavirtue.axiom.services.util;
 import java.net.*;
 import java.io.*;
 

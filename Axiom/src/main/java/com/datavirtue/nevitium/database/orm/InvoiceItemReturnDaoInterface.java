@@ -1,7 +1,7 @@
 
-package com.datavirtue.nevitium.database.orm;
+package com.datavirtue.axiom.database.orm;
 
-import com.datavirtue.nevitium.models.invoices.InvoiceItemReturn;
+import com.datavirtue.axiom.models.invoices.InvoiceItemReturn;
 import com.j256.ormlite.dao.Dao;
 
 /**

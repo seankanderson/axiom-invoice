@@ -9,10 +9,10 @@
  * Created on Apr 26, 2011, 11:27:13 PM
  */
 
-package com.datavirtue.nevitium.ui.layoutdesigner;
+package com.datavirtue.axiom.ui.layoutdesigner;
 
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.util.PrintPanel;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.util.PrintPanel;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;

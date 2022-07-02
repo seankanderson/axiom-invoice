@@ -10,14 +10,14 @@
  * @rights Copyright Data Virtue 2006, 2007, 2008, 2009, 2010, 2011, 2022 All
  * Rights Reserved.
  */
-package com.datavirtue.nevitium.ui.inventory;
+package com.datavirtue.axiom.ui.inventory;
 
-import com.datavirtue.nevitium.ui.util.LimitedDocument;
+import com.datavirtue.axiom.ui.util.LimitedDocument;
 
-import com.datavirtue.nevitium.ui.util.JTextFieldFilter;
-import com.datavirtue.nevitium.models.inventory.InventoryTableModel;
-import com.datavirtue.nevitium.ui.StatusDialog;
-import com.datavirtue.nevitium.services.DiService;
+import com.datavirtue.axiom.ui.util.JTextFieldFilter;
+import com.datavirtue.axiom.models.inventory.InventoryTableModel;
+import com.datavirtue.axiom.ui.StatusDialog;
+import com.datavirtue.axiom.services.DiService;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,27 +28,27 @@ import java.text.*;
 import java.awt.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import com.datavirtue.nevitium.models.inventory.Inventory;
-import com.datavirtue.nevitium.models.inventory.InventoryImage;
-import com.datavirtue.nevitium.models.settings.AppSettings;
-import com.datavirtue.nevitium.services.InventoryService;
+import com.datavirtue.axiom.models.inventory.Inventory;
+import com.datavirtue.axiom.models.inventory.InventoryImage;
+import com.datavirtue.axiom.models.settings.AppSettings;
+import com.datavirtue.axiom.services.InventoryService;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.prefs.BackingStoreException;
-import com.datavirtue.nevitium.services.AppSettingsService;
-import com.datavirtue.nevitium.services.ExceptionService;
-import com.datavirtue.nevitium.services.InventoryImageService;
-import com.datavirtue.nevitium.services.LocalSettingsService;
-import com.datavirtue.nevitium.services.UserService;
-import com.datavirtue.nevitium.services.util.CurrencyUtil;
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.shared.CollectionMappedListModel;
-import com.datavirtue.nevitium.ui.shared.DroppedFilesHandler;
-import com.datavirtue.nevitium.ui.shared.ImageFileTransferHandler;
-import com.datavirtue.nevitium.ui.shared.InventoryImageCellRenderer;
-import com.datavirtue.nevitium.ui.util.AutoCompleteDocument;
-import com.datavirtue.nevitium.ui.util.DecimalCellRenderer;
+import com.datavirtue.axiom.services.AppSettingsService;
+import com.datavirtue.axiom.services.ExceptionService;
+import com.datavirtue.axiom.services.InventoryImageService;
+import com.datavirtue.axiom.services.LocalSettingsService;
+import com.datavirtue.axiom.services.UserService;
+import com.datavirtue.axiom.services.util.CurrencyUtil;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.shared.CollectionMappedListModel;
+import com.datavirtue.axiom.ui.shared.DroppedFilesHandler;
+import com.datavirtue.axiom.ui.shared.ImageFileTransferHandler;
+import com.datavirtue.axiom.ui.shared.InventoryImageCellRenderer;
+import com.datavirtue.axiom.ui.util.AutoCompleteDocument;
+import com.datavirtue.axiom.ui.util.DecimalCellRenderer;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

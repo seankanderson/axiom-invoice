@@ -4,7 +4,7 @@
  * Created on November 25, 2008, 1:26 AM
  */
 
-package com.datavirtue.nevitium.ui;
+package com.datavirtue.axiom.ui;
 import businessmanager.*;
 import java.awt.*;
 

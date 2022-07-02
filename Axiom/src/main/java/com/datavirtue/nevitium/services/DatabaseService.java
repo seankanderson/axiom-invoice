@@ -1,26 +1,26 @@
-package com.datavirtue.nevitium.services;
+package com.datavirtue.axiom.services;
 
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 import java.util.prefs.BackingStoreException;
-import com.datavirtue.nevitium.models.KeyValueStore;
-import com.datavirtue.nevitium.models.contacts.Contact;
-import com.datavirtue.nevitium.models.contacts.ContactAddress;
-import com.datavirtue.nevitium.models.contacts.ContactJournal;
-import com.datavirtue.nevitium.models.inventory.Inventory;
-import com.datavirtue.nevitium.models.inventory.InventoryImage;
-import com.datavirtue.nevitium.models.inventory.InventoryImageJoin;
-import com.datavirtue.nevitium.models.inventory.InventoryItemNote;
-import com.datavirtue.nevitium.models.invoices.Invoice;
-import com.datavirtue.nevitium.models.invoices.InvoiceCustomerInfo;
-import com.datavirtue.nevitium.models.invoices.InvoiceItem;
-import com.datavirtue.nevitium.models.invoices.InvoiceItemReturn;
-import com.datavirtue.nevitium.models.invoices.InvoiceMessages;
-import com.datavirtue.nevitium.models.invoices.InvoicePayment;
-import com.datavirtue.nevitium.models.invoices.InvoicePaymentType;
-import com.datavirtue.nevitium.models.security.User;
-import com.datavirtue.nevitium.models.security.UserAudit;
+import com.datavirtue.axiom.models.KeyValueStore;
+import com.datavirtue.axiom.models.contacts.Contact;
+import com.datavirtue.axiom.models.contacts.ContactAddress;
+import com.datavirtue.axiom.models.contacts.ContactJournal;
+import com.datavirtue.axiom.models.inventory.Inventory;
+import com.datavirtue.axiom.models.inventory.InventoryImage;
+import com.datavirtue.axiom.models.inventory.InventoryImageJoin;
+import com.datavirtue.axiom.models.inventory.InventoryItemNote;
+import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.invoices.InvoiceCustomerInfo;
+import com.datavirtue.axiom.models.invoices.InvoiceItem;
+import com.datavirtue.axiom.models.invoices.InvoiceItemReturn;
+import com.datavirtue.axiom.models.invoices.InvoiceMessages;
+import com.datavirtue.axiom.models.invoices.InvoicePayment;
+import com.datavirtue.axiom.models.invoices.InvoicePaymentType;
+import com.datavirtue.axiom.models.security.User;
+import com.datavirtue.axiom.models.security.UserAudit;
 
 /**
  *

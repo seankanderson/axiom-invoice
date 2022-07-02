@@ -4,8 +4,8 @@
  * Created on February 5, 2007, 10:53 PM
  */
 
-package com.datavirtue.nevitium.ui.inventory;
-import com.datavirtue.nevitium.services.util.DV;
+package com.datavirtue.axiom.ui.inventory;
+import com.datavirtue.axiom.services.util.DV;
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;

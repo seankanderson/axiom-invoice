@@ -6,14 +6,14 @@
  * * Copyright (c) Data Virtue 2006
  */
 
-package com.datavirtue.nevitium.database.reports;
-import com.datavirtue.nevitium.services.PdfReportService;
+package com.datavirtue.axiom.database.reports;
+import com.datavirtue.axiom.services.PdfReportService;
 
-import com.datavirtue.nevitium.models.contacts.Contact;
+import com.datavirtue.axiom.models.contacts.Contact;
 
-import com.datavirtue.nevitium.ui.util.NewEmail;
-import com.datavirtue.nevitium.ui.util.Tools;
-import com.datavirtue.nevitium.models.invoices.old.PDFInvoice;
+import com.datavirtue.axiom.ui.util.NewEmail;
+import com.datavirtue.axiom.ui.util.Tools;
+import com.datavirtue.axiom.models.invoices.old.PDFInvoice;
 
 
 import java.util.*;

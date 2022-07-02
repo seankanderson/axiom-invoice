@@ -4,9 +4,9 @@
  * Created on June 19, 2007, 1:00 PM
  */
 
-package com.datavirtue.nevitium.ui;
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.util.ProgressDialogInterface;
+package com.datavirtue.axiom.ui;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.util.ProgressDialogInterface;
 import javax.swing.JFileChooser;
 import java.awt.Image;
 import java.awt.Toolkit;

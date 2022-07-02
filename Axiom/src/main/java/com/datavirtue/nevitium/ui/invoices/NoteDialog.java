@@ -4,10 +4,10 @@
  * Created on June 30, 2006, 6:35 PM
  ** Copyright (c) Data Virtue 2006
  */
-package com.datavirtue.nevitium.ui.invoices;
+package com.datavirtue.axiom.ui.invoices;
 
-import com.datavirtue.nevitium.services.util.DV;
-import com.datavirtue.nevitium.ui.util.LimitedDocument;
+import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.util.LimitedDocument;
 
 import javax.swing.table.*;
 import javax.swing.JOptionPane;
