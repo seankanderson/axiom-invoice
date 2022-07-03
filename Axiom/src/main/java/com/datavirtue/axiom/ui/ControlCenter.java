@@ -8,16 +8,13 @@ package com.datavirtue.axiom.ui;
 
 import com.datavirtue.axiom.ui.inventory.InventoryApp;
 import com.datavirtue.axiom.ui.contacts.ContactsApp;
-import com.datavirtue.axiom.ui.util.Tools;
 import com.datavirtue.axiom.ui.invoices.InvoiceApp;
 import com.datavirtue.axiom.ui.invoices.InvoiceManager;
 import businessmanager.ReturnMessageThread;
-
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.Image;
 import java.io.IOException;
-import javax.swing.JOptionPane;
 import com.datavirtue.axiom.models.settings.AppSettings;
 import com.datavirtue.axiom.models.settings.LocalAppSettings;
 import com.datavirtue.axiom.services.AppSettingsService;
@@ -41,6 +38,8 @@ import java.util.prefs.BackingStoreException;
 public class ControlCenter extends javax.swing.JFrame {
 
     
+    private Image winIcon;
+    private String nl = System.getProperty("line.separator");
     private Toolkit tools = Toolkit.getDefaultToolkit();
     @Inject
     private final AppSettingsService appSettingsService = null;
@@ -69,28 +68,26 @@ public class ControlCenter extends javax.swing.JFrame {
         System.setProperty("http.agent", "Axiom Business Terminal");
         winIcon = tools.getImage(getClass().getResource("/Orange.png"));
         initComponents();
-        //buildMenu();
-         
+
     }
-    
+
     private void recordWindowSizeAndPosition() throws BackingStoreException {
-        var screenSettings = localSettings.getScreenSettings();     
+        var screenSettings = localSettings.getScreenSettings();
         var sizeAndPosition = LocalSettingsService.getWindowSizeAndPosition(this);
         screenSettings.setMain(sizeAndPosition);
         LocalSettingsService.saveLocalAppSettings(localSettings);
     }
 
     private void restoreSavedWindowSizeAndPosition() throws BackingStoreException {
-        var screenSettings = localSettings.getScreenSettings().getMain();       
+        var screenSettings = localSettings.getScreenSettings().getMain();
         LocalSettingsService.applyScreenSizeAndPosition(screenSettings, this);
     }
 
-
     public void display() throws BackingStoreException {
-        
+
         appSettingsService.setObjectType(AppSettings.class);
         localSettings = LocalSettingsService.getLocalAppSettings();
-        
+
         mainToolbar.setLayout(new FlowLayout());
         java.awt.Dimension dim = DV.computeCenter((java.awt.Window) this);
         this.setLocation(dim.width, dim.height);
@@ -152,14 +149,149 @@ public class ControlCenter extends javax.swing.JFrame {
                     UserService.setCurrentUser(accessDialog.getUser());
                 }
             } else {
-            // TODO: show dialog saying security is disabled...
-        }
+                // TODO: show dialog saying security is disabled...
+            }
 
         } catch (SQLException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error checking security status in database");
         }
     }
+    
+    private void launchContactsApp() {
+        var contactsApp = new ContactsApp(this, true, false, true, true);
+        try {
+            contactsApp.display();
+        } catch (SQLException ex) {
+            ExceptionService.showErrorDialog(this, ex, "Error access contacts database");
+        } catch (BackingStoreException ex) {
+            ExceptionService.showErrorDialog(this, ex, "Error accessing local settings");
+        }
 
+    }
+    
+    private void launchInventoryApp() {
+        var inventoryApp = new InventoryApp(null, true, false);
+        try {
+            inventoryApp.display();
+        } catch (SQLException ex) {
+            ExceptionService.showErrorDialog(this, ex, "Error starting the inventory app");
+        } catch (BackingStoreException ex) {
+            ExceptionService.showErrorDialog(this, ex, "Error fetching local settings from the OS");
+        }
+    }
+
+    private void launchInvoiceManagerApp() {
+        var invoiceManager = new InvoiceManager(this, true);
+
+        try {
+            invoiceManager.display();
+        } catch (BackingStoreException ex) {
+            ExceptionService.showErrorDialog(this, ex, "Error accessing local settings");
+        } catch (SQLException ex) {
+            ExceptionService.showErrorDialog(this, ex, "Error accessing database");
+        }
+    }
+
+    private void launchQuickInvoiceApp() {
+        var invoiceDialog = new InvoiceApp(this, true);
+        invoiceDialog.display();
+        invoiceDialog.dispose();
+    }
+    
+    
+    private void launchInfoSettings() {
+
+        var settingsDialog = new SettingsDialog(this, true, 8);
+        settingsDialog.display();
+        updateMessage();
+        setBG();
+
+    }
+
+    private void launchPaymentSystem() {
+
+        boolean usePaymentSystem = false;
+
+        String paymentURL = appSettings.getOutput().getPaymentSystemUri();
+
+        if (paymentURL.length() > 0) {
+            usePaymentSystem = true;
+        } else {
+            usePaymentSystem = false;
+        }
+
+        if (usePaymentSystem == false) {
+
+            javax.swing.JOptionPane.showMessageDialog(null,
+                    "It appears that you have not configured an external payment system." + nl
+                    + "Go to File-->Settings-->Output to configure a payment system.");
+
+            return;
+        }
+
+        if (usePaymentSystem) {
+
+            boolean webPayment = appSettings.getOutput().isPaymentSystemUriIsWeblink();
+            if (webPayment) {
+                String url = paymentURL;
+                if (!url.contains("http://") && !url.contains("HTTP://")
+                        && !url.contains("https://") && !url.contains("HTTPS://")) {
+
+                    javax.swing.JOptionPane.showMessageDialog(null,
+                            "You must spcifiy a protocol in the web address" + nl
+                            + "Example: http://www.stripe.com instead of just: www.stripe.com");
+                    return;
+                }
+
+                try {
+                    Desktop.getDesktop().browse(new URI(paymentURL));
+                } catch (URISyntaxException ex) {
+                    ExceptionService.showErrorDialog(this, ex, "URL is invalid");
+                } catch (IOException ex) {
+                    ExceptionService.showErrorDialog(this, ex, "Error opening url with local browser");
+                }
+
+            } else {
+
+                String nl = System.getProperty("line.separator");
+
+                String osName = System.getProperty("os.name");
+
+                try {
+
+                    if (osName.contains("Windows")) {
+                        Runtime.getRuntime().exec('"' + paymentURL + '"');
+                    } //FOR WINDOWS NT/XP/2000 USE CMD.EXE
+                    else {
+
+                        //System.out.println(acro + " " + file);
+                        Runtime.getRuntime().exec(paymentURL);
+
+                    }
+                } catch (IOException ex) {
+
+                    javax.swing.JOptionPane.showMessageDialog(null,
+                            "error: There was a problem launching the payment system!" + nl
+                            + "<<" + paymentURL + ">>");
+                    //ex.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+    private void launchSettingsApp() {
+        var settingsDialog = new SettingsDialog(this, true, 0);
+        settingsDialog.display();
+        updateMessage();
+        setBG();
+    }
+    
+     private void closeAll() {
+        DatabaseService.closeDatabaseConnections();
+        System.exit(0);
+    }
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -385,11 +517,21 @@ public class ControlCenter extends javax.swing.JFrame {
         invoicesAndQuotesMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         invoicesAndQuotesMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Money.png"))); // NOI18N
         invoicesAndQuotesMenuItem.setText("Invoices and Quotes");
+        invoicesAndQuotesMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                invoicesAndQuotesMenuItemActionPerformed(evt);
+            }
+        });
         toolsMenu.add(invoicesAndQuotesMenuItem);
 
         newInvoiceMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         newInvoiceMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Create.png"))); // NOI18N
         newInvoiceMenuItem.setText("New Invoice");
+        newInvoiceMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newInvoiceMenuItemActionPerformed(evt);
+            }
+        });
         toolsMenu.add(newInvoiceMenuItem);
         toolsMenu.add(jSeparator12);
 
@@ -416,6 +558,11 @@ public class ControlCenter extends javax.swing.JFrame {
         prepaidAccountManagerMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         prepaidAccountManagerMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Credit cards.png"))); // NOI18N
         prepaidAccountManagerMenuItem.setText("Prepaid account manager");
+        prepaidAccountManagerMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prepaidAccountManagerMenuItemActionPerformed(evt);
+            }
+        });
         toolsMenu.add(prepaidAccountManagerMenuItem);
 
         jMenuBar2.add(toolsMenu);
@@ -513,155 +660,23 @@ public class ControlCenter extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void custInvoiceHistory() throws SQLException {
-
-        var contactsApp = new ContactsApp(this, true, true, true, false);
-        
-        try {
-            contactsApp.display();
-        } catch (BackingStoreException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error accessing local settings");
-        }
-
-        var contact = contactsApp.getReturnValue();  
-
-        if (contact == null) {
-            return;
-        }
-
-        contactsApp.dispose();
-        //ReportFactory.generateCustomerStatement(application, contact);
-
-    }
-
-    private boolean getCoDialog(boolean exitOnCancel) {
-
-        OpenCompanyDialog ocd = new OpenCompanyDialog(null, true, "prev.inf");
-        String action = ocd.getStatus();
-
-        if (action.equals("cancel")) {
-
-            if (exitOnCancel) {
-                System.exit(0);
-            }
-            return true;
-        }
-        if (action.equals("open")) {
-            return this.openCompany();
-        }
-        if (action.equals("create")) {
-            return this.newCompany();
-        }
-        if (action.equals("previous")) {
-            //return this.previousCompany(ocd.getPath());
-        }
-        ocd = null;
-
-        return false;
-
-    }
-
-    private boolean newCompany() {
-
-        /*
-         *Ask to carry over Settings.ini and users.db, automatically carry over stored misc items
-         *Create a ver.inf file
-         *Cycle through and change each db in the data system  with dbsys.changePath()
-         *
-         */
-        NewCoFileDialog ncd = new NewCoFileDialog(null, true, "C:/", "My Company");
-        String newPath = ncd.getPath();
-
-        if (debug) {
-            System.out.println("NEW CO Path Name: " + newPath);
-        }
-        /* Make sure the folder is empty */
- /* Create the ver.inf OR open.run file */
-
-        if (newPath.trim().equals("")) {
-            return false;
-        }
-
-        if (!Tools.isFolderEmpty(newPath)) {
-            javax.swing.JOptionPane.showMessageDialog(null,
-                    "The selected folder is not valid or already contains files; please select an empty folder.");
-            return false;
-        }
-
-        int a = javax.swing.JOptionPane.showConfirmDialog(null, "Do you need support for non-English text?", "Character Encoding", JOptionPane.YES_NO_OPTION);
-        if (a == 0) {
-
-            DV.writeFile(newPath + "encode.char", "UTF", false);
-
-        } else {
-            DV.writeFile(newPath + "encode.char", "ASCII", false);
-        }
-
-        return createCompany(newPath);
-
-    }
-
-    private boolean createCompany(String path) {
-
-        return true;
-    }
-
-    private boolean openCompany() {
-
-        return true;
-    }
-
-    /* Used by openCompany, newCompany, getCoDialog, Constructor */
-    private boolean setCompany() {
-
-        return true;
-    }
-
-
-
+ 
+  
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
-        var settingsDialog = new SettingsDialog(this, true, 0);
-        settingsDialog.display();
-        updateMessage();
-        setBG();
+        launchSettingsApp();
     }//GEN-LAST:event_settingsButtonActionPerformed
 
     private void connectionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectionsButtonActionPerformed
-        //Tools.playSound(getClass().getResource("/slip.wav"));
-        var contactsApp = new ContactsApp(this, true, false, true, true);
-
-        try {
-            contactsApp.display();
-        } catch (SQLException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error getting contacts");
-        } catch (BackingStoreException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error accessing local settings");
-        }
-        
-
+        launchContactsApp();
     }//GEN-LAST:event_connectionsButtonActionPerformed
 
     private void invoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoiceButtonActionPerformed
-        
-        var invoiceDialog = new InvoiceApp(this, true);
-        invoiceDialog.display();
-        invoiceDialog.dispose();
+        launchQuickInvoiceApp();
+
     }//GEN-LAST:event_invoiceButtonActionPerformed
 
     private void activityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityButtonActionPerformed
-
-        var invoiceManager = new InvoiceManager(this, true);
-        
-        try {
-            invoiceManager.display();
-        } catch (BackingStoreException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error accessing local settings");
-        } catch (SQLException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error accessing database");
-        }
-
-
+        launchInvoiceManagerApp();
     }//GEN-LAST:event_activityButtonActionPerformed
 
     private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
@@ -674,15 +689,7 @@ public class ControlCenter extends javax.swing.JFrame {
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void contactsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactsMenuItemActionPerformed
-        var contactsApp = new ContactsApp(this, true, false, true, true);
-        try {
-            contactsApp.display();
-        } catch (SQLException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error access contacts database");
-        } catch (BackingStoreException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error accessing local settings");
-        }
-
+        launchContactsApp();
     }//GEN-LAST:event_contactsMenuItemActionPerformed
 
     private void printChecksMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printChecksMenuItemActionPerformed
@@ -698,7 +705,7 @@ public class ControlCenter extends javax.swing.JFrame {
     }//GEN-LAST:event_salesAndCogsMenuItemActionPerformed
 
     private void newCompanyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCompanyMenuItemActionPerformed
-        
+
     }//GEN-LAST:event_newCompanyMenuItemActionPerformed
 
     private void takePaymentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takePaymentMenuItemActionPerformed
@@ -706,7 +713,7 @@ public class ControlCenter extends javax.swing.JFrame {
     }//GEN-LAST:event_takePaymentMenuItemActionPerformed
 
     private void aboutAxiomMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutAxiomMenuItemActionPerformed
-        goSettings();
+        launchInfoSettings();
     }//GEN-LAST:event_aboutAxiomMenuItemActionPerformed
 
     private void shutDownMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shutDownMenuItemActionPerformed
@@ -714,119 +721,21 @@ public class ControlCenter extends javax.swing.JFrame {
     }//GEN-LAST:event_shutDownMenuItemActionPerformed
 
     private void inventoryMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryMenuItemActionPerformed
-        // TODO add your handling code here:
+        launchInventoryApp();
     }//GEN-LAST:event_inventoryMenuItemActionPerformed
 
-    private void closeAll() {
-       DatabaseService.closeDatabaseConnections();       
-       System.exit(0);
-    }
+    private void newInvoiceMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newInvoiceMenuItemActionPerformed
+        launchQuickInvoiceApp();
+    }//GEN-LAST:event_newInvoiceMenuItemActionPerformed
 
-    private void openInvoiceReport() {
+    private void invoicesAndQuotesMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoicesAndQuotesMenuItemActionPerformed
+        launchInvoiceManagerApp();
+    }//GEN-LAST:event_invoicesAndQuotesMenuItemActionPerformed
 
-//        if (!accessKey.checkReports(300)) {
-//            accessKey.showMessage("Reports");
-//            return;
-//        }
+    private void prepaidAccountManagerMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prepaidAccountManagerMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prepaidAccountManagerMenuItemActionPerformed
 
-//        sys_stat = ReportFactory.generateOpenInvoiceReport(application);
-//
-//        if (sys_stat.equals("none")) {
-//
-//            javax.swing.JOptionPane.showMessageDialog(null, "No open invoices found.");
-//            sys_stat = "";
-//        }
-
-    }
-
-    private void goSettings() {
-
-        var settingsDialog = new SettingsDialog(this, true, 8);
-        settingsDialog.display();
-        updateMessage();
-        setBG();
-
-    }
-
-    private String file_sep = System.getProperty("file.separator");
-
-    private void launchPaymentSystem() {
-
-        boolean usePaymentSystem = false;
-
-        String paymentURL = appSettings.getOutput().getPaymentSystemUri();
-
-        if (paymentURL.length() > 0) {
-            usePaymentSystem = true;
-        } else {
-            usePaymentSystem = false;
-        }
-
-        if (usePaymentSystem == false) {
-
-            javax.swing.JOptionPane.showMessageDialog(null,
-                    "It appears that you have not configured an external payment system." + nl
-                    + "Go to File-->Settings-->Output to configure a payment system.");
-
-            return;
-        }
-
-        if (usePaymentSystem) {
-
-            boolean webPayment = appSettings.getOutput().isPaymentSystemUriIsWeblink();
-            if (webPayment) {
-                String url = paymentURL;
-                if (!url.contains("http://") && !url.contains("HTTP://")
-                        && !url.contains("https://") && !url.contains("HTTPS://")) {
-
-                    javax.swing.JOptionPane.showMessageDialog(null,
-                            "You must spcifiy a protocol in the web address" + nl
-                            + "Example: http://www.stripe.com instead of just: www.stripe.com");
-                    return;
-                }
-                
-                
-                try {
-                    Desktop.getDesktop().browse(new URI(paymentURL));
-                } catch (URISyntaxException ex) {
-                    ExceptionService.showErrorDialog(this, ex, "URL is invalid");
-                } catch (IOException ex) {
-                    ExceptionService.showErrorDialog(this, ex, "Error opening url with local browser");
-                }
-                
-            } else {
-
-                String nl = System.getProperty("line.separator");
-
-                String osName = System.getProperty("os.name");
-
-                try {
-
-                    if (osName.contains("Windows")) {
-                        Runtime.getRuntime().exec('"' + paymentURL + '"');
-                    } //FOR WINDOWS NT/XP/2000 USE CMD.EXE
-                    else {
-
-                        //System.out.println(acro + " " + file);
-                        Runtime.getRuntime().exec(paymentURL);
-
-                    }
-                } catch (IOException ex) {
-
-                    javax.swing.JOptionPane.showMessageDialog(null,
-                            "error: There was a problem launching the payment system!" + nl
-                            + "<<" + paymentURL + ">>");
-                    //ex.printStackTrace();
-                }
-            }
-        }
-    }
-    
-    private boolean debug = false;
-    
-    private Image winIcon;
-
-    private String nl = System.getProperty("line.separator");
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutAxiomMenuItem;
@@ -872,15 +781,6 @@ public class ControlCenter extends javax.swing.JFrame {
     private javax.swing.JMenuItem unpaidInvoiceMenuItem;
     // End of variables declaration//GEN-END:variables
 
-    private void launchInventoryApp() {
-         var inventoryApp = new InventoryApp(null, true, false);
-        try {
-            inventoryApp.display();
-        } catch (SQLException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error starting the inventory app");
-        } catch (BackingStoreException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error fetching local settings from the OS");
-        }
-    }
+    
 
 }
