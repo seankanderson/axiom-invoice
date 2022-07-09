@@ -1,5 +1,5 @@
 
-Axiom is an easy-to-use invoicing and billing application with sophisticated payment, inventory, customer and vendor tracking features. It doesn't force you to work a certain way either. If your sales process doesnt involve taking detailed customer information, no problem, Axiom is really flexible and should naturally fit how YOU operate. Let us know your thoughts; we strive to add or enhance features as requested by the community. 
+Axiom is an easy-to-use invoicing and billing application with sophisticated payment, inventory, customer and vendor tracking features. It doesn't force you to work a certain way, either. If your sales process doesn't involve taking detailed customer information, no problem, Axiom is really flexible and should naturally fit how YOU operate. Let us know your thoughts; we strive to add or enhance features as requested by the community. 
 
 There is more to the story...
 
