@@ -50,7 +50,7 @@ public class DiscountDialog extends javax.swing.JDialog {
         return this.discountItem;
     }
     
-    public void display() {
+    public void displayApp() {
         
         if (itemToDiscount != null) {
             discDescField.setText(itemToDiscount.getDescription());

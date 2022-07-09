@@ -31,13 +31,6 @@ public class TestDataService {
         var invoicePaymentTypeService = injector.getInstance(InvoicePaymentTypeService.class);
 
         
-
-//        var user = new User();
-//        
-//        user.setAdmin(true);
-//        user.setUserName("admin");
-//        userService.save(user);
-//        
         var cardType = new InvoicePaymentType();
         cardType.setName("Card");
         cardType.setDescription("Credit or debit card payment toward an invoice.");

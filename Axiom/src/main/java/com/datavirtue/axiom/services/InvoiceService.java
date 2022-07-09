@@ -3,7 +3,6 @@ package com.datavirtue.axiom.services;
 import com.datavirtue.axiom.services.exceptions.PartialQuantityException;
 import com.datavirtue.axiom.database.orm.InvoiceDao;
 import com.datavirtue.axiom.models.contacts.Contact;
-import com.datavirtue.axiom.models.contacts.ContactAddress;
 import com.datavirtue.axiom.models.contacts.ContactAddressInterface;
 import com.datavirtue.axiom.models.inventory.Inventory;
 import java.sql.SQLException;

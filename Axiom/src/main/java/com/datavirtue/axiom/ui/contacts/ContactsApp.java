@@ -34,6 +34,7 @@ import com.datavirtue.axiom.services.ExceptionService;
 import com.datavirtue.axiom.services.LocalSettingsService;
 import com.datavirtue.axiom.services.UserService;
 import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.AxiomApp;
 import java.net.URISyntaxException;
 import java.util.Locale;
 import java.util.prefs.BackingStoreException;
@@ -44,7 +45,7 @@ import java.util.prefs.BackingStoreException;
  * @rights Copyright Data Virtue 2006, 2007, 2008, 2009, 2010, 2022 All Rights
  * Reserved.
  */
-public class ContactsApp extends javax.swing.JDialog {
+public class ContactsApp extends javax.swing.JDialog implements AxiomApp {
 
     private Contact currentContact = new Contact();
     private final ContactService contactService;
@@ -148,7 +149,7 @@ public class ContactsApp extends javax.swing.JDialog {
 
     }
 
-    public void display() throws SQLException, BackingStoreException {
+    public void displayApp() throws SQLException, BackingStoreException {
 
         var user = UserService.getCurrentUser();
 
@@ -380,6 +381,9 @@ public class ContactsApp extends javax.swing.JDialog {
 
     private void populateInvoices(boolean change) {
 
+        
+        
+        
         if (contactTable.getSelectedRow() < 0) {
             return;
         }
@@ -1882,7 +1886,7 @@ public class ContactsApp extends javax.swing.JDialog {
                     /* Opening quotes */
                     InvoiceApp id = new InvoiceApp(parentWin, true);
                     id.setInvoice(invoice);
-                    id.display();
+                    id.displayApp();
                     id.dispose();
                 }
             }
@@ -2323,7 +2327,7 @@ public class ContactsApp extends javax.swing.JDialog {
 
     private void shipToAction() {
         var dialog = new ContactShippingDialog(parentWin, true, this.currentContact.getId(), false);
-        dialog.display();
+        dialog.displayApp();
 
     }
 

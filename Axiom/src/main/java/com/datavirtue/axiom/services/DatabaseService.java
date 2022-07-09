@@ -19,7 +19,7 @@ import com.datavirtue.axiom.models.invoices.InvoiceItemReturn;
 import com.datavirtue.axiom.models.invoices.InvoiceMessages;
 import com.datavirtue.axiom.models.invoices.InvoicePayment;
 import com.datavirtue.axiom.models.invoices.InvoicePaymentType;
-import com.datavirtue.axiom.models.security.User;
+import com.datavirtue.axiom.models.security.AxiomUser;
 import com.datavirtue.axiom.models.security.UserAudit;
 
 /**
@@ -104,7 +104,7 @@ public class DatabaseService {
         
         TableUtils.createTableIfNotExists(getConnection(), InvoiceMessages.class); 
         TableUtils.clearTable(connectionSource, InvoiceMessages.class);
-        TableUtils.createTableIfNotExists(getConnection(), User.class); 
+        TableUtils.createTableIfNotExists(getConnection(), AxiomUser.class); 
         //TableUtils.clearTable(connectionSource, User.class);   
         TableUtils.createTableIfNotExists(getConnection(), KeyValueStore.class); 
         //TableUtils.clearTable(connectionSource, AppConfig.class);  

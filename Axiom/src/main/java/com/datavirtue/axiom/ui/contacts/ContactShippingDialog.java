@@ -434,7 +434,7 @@ public class ContactShippingDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void display() {
+    public void displayApp() {
 
         try {
             this.currentContact = this.contactService.getContactById(this.contactId);

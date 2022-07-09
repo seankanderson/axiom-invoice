@@ -5,13 +5,12 @@
  */
 package com.datavirtue.axiom.ui;
 
-import com.datavirtue.axiom.models.security.User;
+import com.datavirtue.axiom.models.security.AxiomUser;
 import com.datavirtue.axiom.services.DiService;
 import com.datavirtue.axiom.services.ExceptionService;
 import com.datavirtue.axiom.services.UserService;
 import com.datavirtue.axiom.services.util.DV;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 import lombok.Getter;
 
 /**
@@ -22,7 +21,7 @@ public class AccessDialog extends javax.swing.JDialog {
 
     private UserService userService;
     @Getter
-    private User user;
+    private AxiomUser user;
     @Getter
     private boolean securityEnabled = false;
 
@@ -37,24 +36,27 @@ public class AccessDialog extends javax.swing.JDialog {
 
         this.setLocation(dim.width, dim.height);
 
-        passField.requestFocus();
+        passwordField.requestFocus();
 
     }
 
-    public boolean wasCanceled() {
-        return canceled;
-    }
-
-    public void display() {
-
+    public void displayApp() {
+        
         try {
             securityEnabled = userService.isSecurityEnabled();
+            
         } catch (SQLException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error fetching security details from database");
             return;
         }
         if (securityEnabled) {
+            this.feedbackLabel.setText("");
             this.setVisible(true);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(null,
+                    "Security is disabled.  Go to Data->User access manager to enable.");
+            this.authResult = UserService.SECURITY_DISABLED;
+            this.setVisible(false);
         }
 
     }
@@ -73,19 +75,20 @@ public class AccessDialog extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         userField = new javax.swing.JTextField();
-        passField = new javax.swing.JPasswordField();
+        passwordField = new javax.swing.JPasswordField();
         tryButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        feedbackLabel = new javax.swing.JLabel();
         pathField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Axiom");
+        setTitle("Nevitium");
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/onebit_25.gif"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Lock.png"))); // NOI18N
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,14 +120,14 @@ public class AccessDialog extends javax.swing.JDialog {
             }
         });
 
-        passField.setNextFocusableComponent(tryButton);
-        passField.addKeyListener(new java.awt.event.KeyAdapter() {
+        passwordField.setNextFocusableComponent(tryButton);
+        passwordField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                passFieldKeyPressed(evt);
+                passwordFieldKeyPressed(evt);
             }
         });
 
-        tryButton.setText("Try");
+        tryButton.setText("Login");
         tryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tryButtonActionPerformed(evt);
@@ -142,6 +145,9 @@ public class AccessDialog extends javax.swing.JDialog {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Axiom Access Panel");
 
+        feedbackLabel.setForeground(new java.awt.Color(255, 0, 0));
+        feedbackLabel.setText("Password failed");
+
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -149,7 +155,8 @@ public class AccessDialog extends javax.swing.JDialog {
             .add(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                    .add(feedbackLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jLabel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
                     .add(jPanel2Layout.createSequentialGroup()
                         .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel2Layout.createSequentialGroup()
@@ -157,12 +164,13 @@ public class AccessDialog extends javax.swing.JDialog {
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .add(jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .add(tryButton)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 103, Short.MAX_VALUE)
-                                .add(cancelButton))
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, passField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                            .add(userField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, passwordField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                            .add(userField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .add(0, 0, Short.MAX_VALUE)
+                        .add(tryButton)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(cancelButton)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -177,12 +185,14 @@ public class AccessDialog extends javax.swing.JDialog {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel2)
-                    .add(passField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(passwordField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(feedbackLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(cancelButton)
                     .add(tryButton))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pathField.setEditable(false);
@@ -194,7 +204,7 @@ public class AccessDialog extends javax.swing.JDialog {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(pathField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .add(pathField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                     .add(layout.createSequentialGroup()
                         .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -207,10 +217,10 @@ public class AccessDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .add(pathField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -220,18 +230,18 @@ public class AccessDialog extends javax.swing.JDialog {
         userField.selectAll();
     }//GEN-LAST:event_userFieldFocusGained
 
-    private void passFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passFieldKeyPressed
+    private void passwordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordFieldKeyPressed
 
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
 
             this.authenticate();
         }
 
-    }//GEN-LAST:event_passFieldKeyPressed
-    private boolean canceled = false;
+    }//GEN-LAST:event_passwordFieldKeyPressed
+    
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-
-        canceled = true;
+        
+        this.authResult = UserService.NOT_AUTHORIZED;
         this.setVisible(false);
 
     }//GEN-LAST:event_cancelButtonActionPerformed
@@ -241,40 +251,52 @@ public class AccessDialog extends javax.swing.JDialog {
         authenticate();
 
     }//GEN-LAST:event_tryButtonActionPerformed
-
-    private void authenticate() {
+    
+    private String authResult = UserService.NOT_AUTHORIZED;
+    public String getAuthResult() {
+        return authResult;
+    }
+    private boolean authenticate() {
 
         try {
-            this.user = userService.authenticateUser(this.userField.getText().trim(), this.passField.getPassword());
+            authResult = userService.authenticateUser(this.userField.getText().trim(), this.passwordField.getPassword());
         } catch (Exception ex) {
-            ExceptionService.showErrorDialog(this, ex, "Password failed");
-            return;}
-//        } catch (DuplicateUserNameException ex) {
-//            ExceptionService.showErrorDialog(this, ex, "Data error ");
-//            this.setVisible(false);
-//        } catch (SQLException ex) {
-//            ExceptionService.showErrorDialog(this, ex, "Error fetching user from database");
-//            this.setVisible(false);
-//        }
-
-        if (this.user == null) {
-            JOptionPane.showMessageDialog(this, "The username does not exist in the database.", "User not found", JOptionPane.OK_OPTION);
-            return;
-        } else {
-            this.setVisible(false);
+            ExceptionService.showErrorDialog(this, ex, "Authentication failed unexpectedly");
+            return false;
         }
+
+        if (authResult.equals(UserService.USER_NOT_FOUND)) {
+            this.feedbackLabel.setText(authResult);
+            return false;
+        }
+
+        if (authResult.equals(UserService.PASSWORD_SUCCESS)) {
+            this.feedbackLabel.setText("");
+            this.setVisible(false);
+            return true;            
+        }
+        
+        if (authResult.equals(UserService.PASSWORD_FAILED)) {
+            this.feedbackLabel.setText(authResult);
+            this.passwordField.selectAll();
+            return false;            
+        }
+        
+        return false;
+
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
+    private javax.swing.JLabel feedbackLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField passField;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField pathField;
     private javax.swing.JButton tryButton;
     private javax.swing.JTextField userField;

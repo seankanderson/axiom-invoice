@@ -196,7 +196,7 @@ public class InventoryApp extends javax.swing.JDialog {
     };
 
     /* My initializer method */
-    public void display() throws SQLException, BackingStoreException {
+    public void displayApp() throws SQLException, BackingStoreException {
 
         appSettings = appSettingsService.getObject();
         var user = UserService.getCurrentUser();

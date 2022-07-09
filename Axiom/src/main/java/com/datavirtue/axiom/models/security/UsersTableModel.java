@@ -7,9 +7,9 @@ import com.datavirtue.axiom.models.AbstractCollectionTableModel;
  *
  * @author SeanAnderson
  */
-public class UsersTableModel extends AbstractCollectionTableModel<User> {
+public class UsersTableModel extends AbstractCollectionTableModel<AxiomUser> {
 
-    public UsersTableModel(List<User> users) {
+    public UsersTableModel(List<AxiomUser> users) {
         this.items = users;
         this.columns = new String[]{ "User Name", "Admin"};
     }

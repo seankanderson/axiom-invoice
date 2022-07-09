@@ -17,6 +17,7 @@ import com.datavirtue.axiom.services.InvoiceService;
 import com.datavirtue.axiom.services.util.CurrencyUtil;
 import com.datavirtue.axiom.ui.util.JTextFieldFilter;
 import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.AxiomApp;
 import java.awt.Desktop;
 import javax.swing.*;
 import java.awt.event.*;
@@ -28,15 +29,13 @@ import java.text.DateFormat;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Sean K Anderson - Data Virtue
  * @rights Copyright Data Virtue 2006, 2007 All Rights Reserved.
  */
-public class PaymentDialog extends javax.swing.JDialog {
+public class PaymentDialog extends javax.swing.JDialog implements AxiomApp {
 
     private InvoiceService invoiceService;
     private Invoice currentInvoice;
@@ -112,7 +111,7 @@ public class PaymentDialog extends javax.swing.JDialog {
         this.setVisible(true);
     }
     
-    public void display() throws SQLException {
+    public void displayApp() throws SQLException {
         this.display(null);
 
     }

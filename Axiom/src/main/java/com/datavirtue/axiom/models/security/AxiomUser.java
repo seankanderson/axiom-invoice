@@ -13,7 +13,7 @@ import lombok.Setter;
  */
 @Getter @Setter
 @DatabaseTable(tableName = "users", daoClass = UserDao.class)
-public class User extends BaseModel {
+public class AxiomUser extends BaseModel {
 
     @DatabaseField(canBeNull = false, unique = true)
     private String userName;

@@ -450,7 +450,7 @@ public class CheckDialog extends javax.swing.JDialog {
 
         var contactsApp = new ContactsApp(null, true, true, false, true);
         try {
-            contactsApp.display();
+            contactsApp.displayApp();
         } catch (SQLException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error getting contacts from database");
             return;

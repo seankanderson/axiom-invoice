@@ -1,0 +1,24 @@
+
+Axiom is an easy-to-use invoicing and billing application with sophisticated payment, inventory, customer and vendor tracking features. It doesn't force you to work a certain way either. If your sales process doesnt involve taking detailed customer information, no problem, Axiom is really flexible and should naturally fit how YOU operate. Let us know your thoughts; we strive to add or enhance features as requested by the community. 
+
+There is more to the story...
+
+Axiom lets you exploit different online services under a single "business terminal" style of app. Integrating and tying together various best-in-class, competeing SaaS products in different spaces : payments, product barcode lookup, sending text/email, and postal and address services--letting you choose which one you want to use as your needs--or the market--change. Axiom guides you through any caveats that arise and makes these services appear as native features within the app--or synchronizes data with them if you choose. At any time you can log directly into the services (side-stepping Axiom) to see the activity and audit any details. 
+
+How can Axiom do this? These servies, as part of thier standard offerings, let you generate API keys that you can use to programmatically access thier back-end system online. This routine access method allows companies to build custom workflows around these online services--leveraging the "API Economy." Because these keys allow anyone posessing them to acces the service programmatically via the API, and as a security measure, they are revokable by you at any time via the service's management console. [show exmaples of paypal and another popular service] You simply log on and delete or "revoke" the key, and it no longer works.  As mentioned previously, it is just as easy to create new keys (click of a button). You plug the API key into Axiom and it can then utilize the features of the API to empower your business by orchestrating activity among them. For example, you can have Axiom update an AirTable database, process a payment with Stripe, or issue an invoice with a PayPal QR code payment link and Axiom will track it all for you in the Axiom database. In this scenario you could change from Stripe to Square arbitrarily (and back again!) and it would not disrupt Axiom's tracking or reporting.  Mixing and matching services makes a lot more things possible. 
+
+You can easily switch between PayPal, Stripe, and other services (or use them both for different features) without disrupting your business operations or customers.
+
+Axiom's tight integration with third party (non-affiliated) services, and local-and/or-cloud database technology, put you in control and allow you to easily explore the marketplace for online services--without disrupting your flow.
+
+Axiom is built for the single-person startup, but loaded with high-end features that scale to support serious growth when things take off. Capabilities like: integrated multi-user server mode (to support three bustling POS systems, for example) or the ability to connect to remote database servers like AWS Aurora, Azure SQL, PostgreSQL or MySQL to support a secure global user base. 
+
+All this comes as a simple to install app--that can serve thousands of users--or just as happily run on a single laptop with no internet connectivity!
+
+It is open source under the GNU GPLv3 license. 
+Runs on: MacOS, Windows, and Linux laptops, desktops, and devices.
+
+
+
+
+

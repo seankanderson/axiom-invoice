@@ -14,21 +14,24 @@ import com.datavirtue.axiom.services.ExceptionService;
 import com.datavirtue.axiom.services.UserService;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import com.datavirtue.axiom.models.security.User;
+import com.datavirtue.axiom.models.security.AxiomUser;
 import com.datavirtue.axiom.services.util.DV;
 import com.datavirtue.axiom.services.util.PBE;
-import org.apache.commons.lang3.StringUtils;
+import java.awt.Frame;
+import java.awt.event.KeyEvent;
 
 /**
  *
  * @author Data Virtue
  */
-public class SecurityManager extends javax.swing.JDialog {
+public class SecurityManager extends javax.swing.JDialog implements AxiomApp {
 
+    private Frame parentWin;
     private final UserService userService;
-    
+
     public SecurityManager(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.parentWin = parent;
         initComponents();
 
         Toolkit tools = Toolkit.getDefaultToolkit();
@@ -40,20 +43,30 @@ public class SecurityManager extends javax.swing.JDialog {
 
         Injector injector = DiService.getInjector();
         userService = injector.getInstance(UserService.class);
-        
-        init();
     }
-  
-    private void init() {
+
+    @Override
+    public void displayApp() throws SQLException {
+        createAdminUserIfNotExist();
         refreshTable();
         setSecurityStatus();
+        this.setVisible(true);
+    }
+
+    private void createAdminUserIfNotExist() throws SQLException {
+        var admin = userService.getRootAdminUser();
+        if (admin == null) {
+            var user = new AxiomUser();
+            user.setAdmin(true);
+            user.setUserName("admin");
+            userService.save(user);
+        }
     }
 
     private void setSecurityStatus() {
 
         try {
-            var admin = userService.getRootAdminUser();
-            if (admin != null && StringUtils.isEmpty(admin.getPassword())) {
+            if (!userService.isSecurityEnabled()) {
                 statBox.setText("Security Is DISABLED.");
                 statBox.setBackground(new java.awt.Color(255, 102, 102));
             } else {
@@ -98,17 +111,17 @@ public class SecurityManager extends javax.swing.JDialog {
                     savePassword(cipher);
                     return;
                 } else {
-                    javax.swing.JOptionPane.showMessageDialog(null, "The cipher did not compute!");
+                    javax.swing.JOptionPane.showMessageDialog(this.parentWin, "The cipher did not compute!");
                     return;
                 }
 
             } catch (Exception e) {
-                ExceptionService.showErrorDialog(this, e, "Error encrypting password");
+                ExceptionService.showErrorDialog(this.parentWin, e, "Error encrypting password");
                 return;
             }
 
         } else {
-            javax.swing.JOptionPane.showMessageDialog(null, "The two passwords did not match.  Try Again.");
+            javax.swing.JOptionPane.showMessageDialog(this.parentWin, "The two passwords did not match.  Try Again.");
         }
     }
 
@@ -117,10 +130,10 @@ public class SecurityManager extends javax.swing.JDialog {
         try {
             userService.save(currentUser);
         } catch (SQLException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error saving password");
+            ExceptionService.showErrorDialog(this.parentWin, ex, "Error saving password");
             return;
         }
-        javax.swing.JOptionPane.showMessageDialog(null, "Password for " + currentUser.getUserName() + " reset.");
+        javax.swing.JOptionPane.showMessageDialog(this.parentWin, "Password for " + currentUser.getUserName() + " reset.");
         passField1.setText("");
         passField2.setText("");
         resetButton.setEnabled(false);
@@ -156,7 +169,7 @@ public class SecurityManager extends javax.swing.JDialog {
             JOptionPane.showConfirmDialog(this, "User name already exists: " + newUserName);
         }
 
-        var newUser = new User();
+        var newUser = new AxiomUser();
         newUser.setUserName(newUserName);
 
         var templateUser = currentUsers
@@ -210,7 +223,7 @@ public class SecurityManager extends javax.swing.JDialog {
         setSecurityStatus();
     }
 
-    private User currentUser;
+    private AxiomUser currentUser;
 
     private void populateUser() {
 
@@ -219,7 +232,7 @@ public class SecurityManager extends javax.swing.JDialog {
         if (row > -1) {
 
             var tableModel = (UsersTableModel) userTable.getModel();
-            currentUser = (User) tableModel.getValueAt(row);
+            currentUser = (AxiomUser) tableModel.getValueAt(row);
             if (currentUser.isAdmin()) {
                 masterRadio.setSelected(true);
             } else {
@@ -300,7 +313,7 @@ public class SecurityManager extends javax.swing.JDialog {
         settingsField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Axiom Security Manager");
+        setTitle("Nevitium Security Manager");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("User Accounts"));
 
@@ -331,13 +344,13 @@ public class SecurityManager extends javax.swing.JDialog {
             }
         });
         userTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                userTableMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userTableMousePressed(evt);
             }
         });
         userTable.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                userTableKeyReleased(evt);
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                userTableKeyPressed(evt);
             }
         });
         jScrollPane1.setViewportView(userTable);
@@ -345,10 +358,9 @@ public class SecurityManager extends javax.swing.JDialog {
         statBox.setEditable(false);
         statBox.setText("Security Status");
 
-        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Security.png"))); // NOI18N
+        newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/User.png"))); // NOI18N
         newButton.setText("New ");
         newButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -422,7 +434,7 @@ public class SecurityManager extends javax.swing.JDialog {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
@@ -468,10 +480,9 @@ public class SecurityManager extends javax.swing.JDialog {
             }
         });
 
-        jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Floppy.png"))); // NOI18N
         saveButton.setText("Save User Permissions");
         saveButton.setEnabled(false);
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -614,27 +625,31 @@ public class SecurityManager extends javax.swing.JDialog {
         setSecurityStatus();
     }//GEN-LAST:event_newButtonActionPerformed
 
-    private void userTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTableMouseClicked
-        int mouseButton = evt.getButton();
-        if (mouseButton == evt.BUTTON2 || mouseButton == evt.BUTTON3) {
-            return;
-        }
-        populateUser();
-    }//GEN-LAST:event_userTableMouseClicked
-
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
 
         saveCurrentUser();
     }//GEN-LAST:event_saveButtonActionPerformed
 
-    private void userTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userTableKeyReleased
-        populateUser();
-    }//GEN-LAST:event_userTableKeyReleased
-
     private void userRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userRadioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userRadioActionPerformed
+
+    private void userTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userTableKeyPressed
+        int key = evt.getKeyCode();
+        if (key != KeyEvent.VK_ENTER) {
+            return;
+        }
+        populateUser();        
+    }//GEN-LAST:event_userTableKeyPressed
+
+    private void userTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTableMousePressed
+        int mouseButton = evt.getButton();
+        if (mouseButton == evt.BUTTON2 || mouseButton == evt.BUTTON3) {
+            return;
+        }
+        populateUser();
+    }//GEN-LAST:event_userTableMousePressed
 
     private String nl = System.getProperty("line.separator");
     // Variables declaration - do not modify//GEN-BEGIN:variables

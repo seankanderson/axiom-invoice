@@ -33,7 +33,6 @@ import com.datavirtue.axiom.services.UserService;
 import com.datavirtue.axiom.services.util.CurrencyUtil;
 import com.datavirtue.axiom.services.util.DV;
 import com.datavirtue.axiom.services.util.DVNET;
-import com.datavirtue.axiom.ui.util.ImageFileFilter;
 import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.FileDialog;
@@ -50,7 +49,7 @@ import java.util.prefs.BackingStoreException;
  * @author Sean K Anderson - Data Virtue
  * @copyright Copyright Data Virtue 2006-2022 All Rights Reserved.
  */
-public class SettingsDialog extends javax.swing.JDialog {
+public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
 
     private final AppSettingsService appSettingsService;
     private ImageService imageService;
@@ -119,7 +118,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         jTabbedPane1.setTabComponentAt(index, lbl);
     }
 
-    public void display() {
+    public void displayApp() {
 
         var user = UserService.getCurrentUser();
 
@@ -670,9 +669,6 @@ public class SettingsDialog extends javax.swing.JDialog {
         jPanel11 = new javax.swing.JPanel();
         manageUsersButton = new javax.swing.JButton();
         logButton = new javax.swing.JButton();
-        showStatusIconCheckbox = new javax.swing.JCheckBox();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabel17 = new javax.swing.JLabel();
         invoicePanel = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         inkSaverCheckbox = new javax.swing.JCheckBox();
@@ -794,7 +790,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         jLabel50 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Axiom Settings");
+        setTitle("Nevitium Settings");
         setIconImage(winIcon);
         setResizable(false);
 
@@ -998,13 +994,13 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .add(alternateLogoBrowse))
                 .add(18, 18, 18)
                 .add(jPanel17Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(alternateLogoPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                    .add(companyLogoPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
+                    .add(alternateLogoPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .add(companyLogoPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZEglobe.png"))); // NOI18N
+        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZEglobe.png"))); // NOI18N
 
         org.jdesktop.layout.GroupLayout jPanel16Layout = new org.jdesktop.layout.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -1044,7 +1040,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("My Company", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Globe.png")), companyInfoPanel); // NOI18N
+        jTabbedPane1.addTab("My Company", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Globe.png")), companyInfoPanel); // NOI18N
 
         showRemoteMessageCheckbox.setText("Show Remote Message (Grabs a small message from datavirtue.com)");
         showRemoteMessageCheckbox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -1081,7 +1077,7 @@ public class SettingsDialog extends javax.swing.JDialog {
 
         emailPassword.setToolTipText("The password for your email account on the mail server.");
 
-        testEmailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZE/wifi16.png"))); // NOI18N
+        testEmailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZE/wifi16.png"))); // NOI18N
         testEmailButton.setText("Send Test Message");
         testEmailButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1163,7 +1159,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .add(jLabel35)))
         );
 
-        configEDIButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Data transmission.png"))); // NOI18N
+        configEDIButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Data transmission.png"))); // NOI18N
         configEDIButton.setText("Configure EDI");
         configEDIButton.setToolTipText("Configure EDI to support multiple users and/or locations.");
         configEDIButton.setEnabled(false);
@@ -1197,7 +1193,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap(230, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Internet", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Address book.png")), EDIPanel); // NOI18N
+        jTabbedPane1.addTab("Internet", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Address book.png")), EDIPanel); // NOI18N
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(" Backups "));
 
@@ -1234,7 +1230,7 @@ public class SettingsDialog extends javax.swing.JDialog {
             }
         });
 
-        secondaryBackupFolderField.setToolTipText("Axiom will always attempt to backup here without prompting.");
+        secondaryBackupFolderField.setToolTipText("Nevitium will always attempt to backup here without prompting.");
 
         org.jdesktop.layout.GroupLayout jPanel4Layout = new org.jdesktop.layout.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1291,11 +1287,11 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap(330, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Backups", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Archive.png")), backupPanel); // NOI18N
+        jTabbedPane1.addTab("Backups", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Archive.png")), backupPanel); // NOI18N
 
         jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        manageUsersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/onebit_25.gif"))); // NOI18N
+        manageUsersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/onebit_25.gif"))); // NOI18N
         manageUsersButton.setText("Manage Users");
         manageUsersButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         manageUsersButton.setMargin(new java.awt.Insets(2, 7, 2, 7));
@@ -1305,7 +1301,7 @@ public class SettingsDialog extends javax.swing.JDialog {
             }
         });
 
-        logButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Information.png"))); // NOI18N
+        logButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-48/Information.png"))); // NOI18N
         logButton.setText("View Log");
         logButton.setEnabled(false);
         logButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1314,30 +1310,16 @@ public class SettingsDialog extends javax.swing.JDialog {
         logButton.setMinimumSize(new java.awt.Dimension(135, 41));
         logButton.setPreferredSize(new java.awt.Dimension(139, 57));
 
-        showStatusIconCheckbox.setSelected(true);
-        showStatusIconCheckbox.setText("Show status icon on the main screen");
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel17.setText("Data Integrity");
-
         org.jdesktop.layout.GroupLayout jPanel11Layout = new org.jdesktop.layout.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel11Layout.createSequentialGroup()
-                        .add(jSeparator5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .add(jPanel11Layout.createSequentialGroup()
-                        .add(jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                                .add(org.jdesktop.layout.GroupLayout.LEADING, logButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                                .add(org.jdesktop.layout.GroupLayout.LEADING, manageUsersButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
-                            .add(jLabel17)
-                            .add(showStatusIconCheckbox))
-                        .add(239, 239, 239))))
+                .add(jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, logButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, manageUsersButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
+                .addContainerGap(654, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1346,13 +1328,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .add(manageUsersButton)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(logButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 37, Short.MAX_VALUE)
-                .add(jLabel17)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jSeparator5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(showStatusIconCheckbox)
-                .addContainerGap())
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout securityPanelLayout = new org.jdesktop.layout.GroupLayout(securityPanel);
@@ -1369,10 +1345,10 @@ public class SettingsDialog extends javax.swing.JDialog {
             .add(securityPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addContainerGap(388, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Security", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Lock.png")), securityPanel); // NOI18N
+        jTabbedPane1.addTab("Security", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Lock.png")), securityPanel); // NOI18N
 
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -1774,7 +1750,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Invoice", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Order form.png")), invoicePanel); // NOI18N
+        jTabbedPane1.addTab("Invoice", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Order form.png")), invoicePanel); // NOI18N
 
         layoutPathLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         layoutPathLabel.setText("Layout Path");
@@ -1833,7 +1809,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap(400, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Layouts", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Measure.png")), layoutPanel); // NOI18N
+        jTabbedPane1.addTab("Layouts", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Measure.png")), layoutPanel); // NOI18N
 
         jPanel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -1863,10 +1839,10 @@ public class SettingsDialog extends javax.swing.JDialog {
         });
 
         catLineCheckBox.setText("Add category line to invoice items");
-        catLineCheckBox.setToolTipText("When using Axiom as an inventory deployment tracker.");
+        catLineCheckBox.setToolTipText("When using Nevitium as an inventory deployment tracker.");
 
         partialQuantityCheckBox.setText("Allow partial quantity sales by default");
-        partialQuantityCheckBox.setToolTipText("When using Axiom as an inventory deployment tracker.");
+        partialQuantityCheckBox.setToolTipText("When using Nevitium as an inventory deployment tracker.");
         partialQuantityCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 partialQuantityCheckBoxActionPerformed(evt);
@@ -1942,7 +1918,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Inventory", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Book of records.png")), inventoryPanel); // NOI18N
+        jTabbedPane1.addTab("Inventory", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Book of records.png")), inventoryPanel); // NOI18N
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(" Output "));
 
@@ -2138,7 +2114,7 @@ public class SettingsDialog extends javax.swing.JDialog {
             });
 
             useSystemDefaultPdfReaderCheckbox.setText("Use System Default");
-            useSystemDefaultPdfReaderCheckbox.setToolTipText("Axiom will use the default application associated with pdf files.");
+            useSystemDefaultPdfReaderCheckbox.setToolTipText("Nevitium will use the default application associated with pdf files.");
             useSystemDefaultPdfReaderCheckbox.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     useSystemDefaultPdfReaderCheckboxActionPerformed(evt);
@@ -2230,7 +2206,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .add(73, 73, 73))
             );
 
-            jTabbedPane1.addTab("Output", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Documents.png")), outputPanel); // NOI18N
+            jTabbedPane1.addTab("Output", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Documents.png")), outputPanel); // NOI18N
 
             jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -2299,7 +2275,7 @@ public class SettingsDialog extends javax.swing.JDialog {
             jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             jLabel18.setText("Theme");
 
-            themeComboBox.setToolTipText("If you have problems after switching themes you need to restart Axiom");
+            themeComboBox.setToolTipText("If you have problems after switching themes you need to restart Nevitium");
 
             jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             jLabel4.setText("Connection string");
@@ -2350,7 +2326,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .addContainerGap(86, Short.MAX_VALUE))
             );
 
-            jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Axiom Invoice Manager"));
+            jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Nevitium Invoice Manager"));
 
             jLabel14.setText("Copyright Data Virtue 2007-2022 - All Rights Reserved.");
 
@@ -2390,9 +2366,9 @@ public class SettingsDialog extends javax.swing.JDialog {
                 }
             });
 
-            checkUpdatesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZE/synchronized.png"))); // NOI18N
+            checkUpdatesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZE/synchronized.png"))); // NOI18N
             checkUpdatesButton.setText("Check For Updates");
-            checkUpdatesButton.setToolTipText("Tells you if there are new updates for Axiom.");
+            checkUpdatesButton.setToolTipText("Tells you if there are new updates for Nevitium.");
             checkUpdatesButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     checkUpdatesButtonActionPerformed(evt);
@@ -2474,9 +2450,9 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .addContainerGap())
             );
 
-            jTabbedPane1.addTab("Info", new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Info.png")), infoPanel); // NOI18N
+            jTabbedPane1.addTab("Info", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Info.png")), infoPanel); // NOI18N
 
-            saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
+            saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
             saveButton.setText("Close/Save");
             saveButton.setToolTipText("Click to save and exit.");
             saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2989,7 +2965,6 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -3058,7 +3033,6 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JRadioButton kgsRadio;
     private javax.swing.JPanel layoutPanel;
@@ -3097,7 +3071,6 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JCheckBox secondaryCheckBox;
     private javax.swing.JPanel securityPanel;
     private javax.swing.JCheckBox showRemoteMessageCheckbox;
-    private javax.swing.JCheckBox showStatusIconCheckbox;
     private javax.swing.JCheckBox showTax1Box;
     private javax.swing.JCheckBox showTax2Box;
     private javax.swing.JCheckBox showTaxIdCheckBox;

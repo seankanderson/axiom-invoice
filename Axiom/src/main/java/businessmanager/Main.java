@@ -48,7 +48,7 @@ public class Main {
         //frame.setIconImage(Toolkit.getDefaultToolkit().getImage(ControlCenter.class.getResource("src/main/java/Orange.png")));
         frame.setVisible(true);
         var localSettingsApp = new LocalSettingsDialog(frame, true);
-        localSettingsApp.display();
+        localSettingsApp.displayApp();
         frame.dispose();
         if (LocalSettingsService.getLocalAppSettings() == null) {
             System.exit(-1);
@@ -66,7 +66,7 @@ public class Main {
 
         if (settings == null) {
             var settingsDialog = new SettingsDialog(frame, true, 0);
-            settingsDialog.display();
+            settingsDialog.displayApp();
         }
 
         try {
@@ -83,7 +83,7 @@ public class Main {
             public void run() {
                 try {
                     System.out.println("running ControlCenter");
-                    control.display();
+                    control.displayApp();
                 } catch (java.lang.UnsupportedClassVersionError e) {
                     javax.swing.JOptionPane.showMessageDialog(null,
                             "Axiom encountered: Unsupported Class Version error. Try updating Java.");

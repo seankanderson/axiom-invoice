@@ -28,6 +28,8 @@ import java.awt.Desktop;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
 
 /**
@@ -35,9 +37,8 @@ import java.util.prefs.BackingStoreException;
  * @author Sean K Anderson - Data Virtue
  * @rights Copyright Data Virtue 2006, 2007, 2022 All Rights Reserved.
  */
-public class ControlCenter extends javax.swing.JFrame {
+public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
 
-    
     private Image winIcon;
     private String nl = System.getProperty("line.separator");
     private Toolkit tools = Toolkit.getDefaultToolkit();
@@ -83,7 +84,7 @@ public class ControlCenter extends javax.swing.JFrame {
         LocalSettingsService.applyScreenSizeAndPosition(screenSettings, this);
     }
 
-    public void display() throws BackingStoreException {
+    public void displayApp() throws BackingStoreException, SQLException {
 
         appSettingsService.setObjectType(AppSettings.class);
         localSettings = LocalSettingsService.getLocalAppSettings();
@@ -93,7 +94,6 @@ public class ControlCenter extends javax.swing.JFrame {
         this.setLocation(dim.width, dim.height);
 
         try {
-
             appSettings = this.appSettingsService.getObject();
         } catch (SQLException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error fetching settings from database");
@@ -102,7 +102,10 @@ public class ControlCenter extends javax.swing.JFrame {
         setBG();
         restoreSavedWindowSizeAndPosition();
         this.setVisible(true);
-        this.authenticateUser();
+        if (this.userService.isSecurityEnabled() ) {
+            this.authenticateUser();
+        }
+        
     }
 
     private void setBG() {
@@ -137,30 +140,26 @@ public class ControlCenter extends javax.swing.JFrame {
     }
 
     private void authenticateUser() {
+
+        var accessDialog = new AccessDialog(this, true);
+
+        accessDialog.displayApp();
+        String authResult = accessDialog.getAuthResult();
         try {
-            if (this.userService.isSecurityEnabled()) {
-                var accessDialog = new AccessDialog(this, true);
-
-                accessDialog.display();
-
-                if (accessDialog.wasCanceled() || accessDialog.getUser() == null) {
-                    System.exit(0);
-                } else {
-                    UserService.setCurrentUser(accessDialog.getUser());
-                }
-            } else {
-                // TODO: show dialog saying security is disabled...
+            if ((this.userService.isSecurityEnabled() && this.userService.getCurrentUser() == null) 
+                    || authResult.equals(UserService.NOT_AUTHORIZED) || authResult.equals(UserService.PASSWORD_FAILED)) {
+                System.exit(0);
             }
-
         } catch (SQLException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error checking security status in database");
+            ExceptionService.showErrorDialog(this, ex, "Error accessing security settings in the database.");
         }
+
     }
-    
+
     private void launchContactsApp() {
         var contactsApp = new ContactsApp(this, true, false, true, true);
         try {
-            contactsApp.display();
+            contactsApp.displayApp();
         } catch (SQLException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error access contacts database");
         } catch (BackingStoreException ex) {
@@ -168,11 +167,11 @@ public class ControlCenter extends javax.swing.JFrame {
         }
 
     }
-    
+
     private void launchInventoryApp() {
         var inventoryApp = new InventoryApp(null, true, false);
         try {
-            inventoryApp.display();
+            inventoryApp.displayApp();
         } catch (SQLException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error starting the inventory app");
         } catch (BackingStoreException ex) {
@@ -184,7 +183,7 @@ public class ControlCenter extends javax.swing.JFrame {
         var invoiceManager = new InvoiceManager(this, true);
 
         try {
-            invoiceManager.display();
+            invoiceManager.displayApp();
         } catch (BackingStoreException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error accessing local settings");
         } catch (SQLException ex) {
@@ -194,18 +193,26 @@ public class ControlCenter extends javax.swing.JFrame {
 
     private void launchQuickInvoiceApp() {
         var invoiceDialog = new InvoiceApp(this, true);
-        invoiceDialog.display();
+        invoiceDialog.displayApp();
         invoiceDialog.dispose();
     }
-    
-    
+
     private void launchInfoSettings() {
 
         var settingsDialog = new SettingsDialog(this, true, 8);
-        settingsDialog.display();
+        settingsDialog.displayApp();
         updateMessage();
         setBG();
 
+    }
+    
+    private void launchUserManager() {
+        var userManager = new com.datavirtue.axiom.ui.SecurityManager(this, true);
+        try {
+            userManager.displayApp();
+        } catch (SQLException ex) {
+            ExceptionService.showErrorDialog(this, ex, "Error accessing database");
+        }
     }
 
     private void launchPaymentSystem() {
@@ -279,19 +286,18 @@ public class ControlCenter extends javax.swing.JFrame {
         }
     }
 
-
     private void launchSettingsApp() {
         var settingsDialog = new SettingsDialog(this, true, 0);
-        settingsDialog.display();
+        settingsDialog.displayApp();
         updateMessage();
         setBG();
     }
-    
-     private void closeAll() {
+
+    private void closeAll() {
         DatabaseService.closeDatabaseConnections();
         System.exit(0);
     }
-     
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -318,6 +324,7 @@ public class ControlCenter extends javax.swing.JFrame {
         openCompanyMenuItem = new javax.swing.JMenuItem();
         jSeparator13 = new javax.swing.JPopupMenu.Separator();
         loginLogoutMenuItem = new javax.swing.JMenuItem();
+        userManagerMenuItem = new javax.swing.JMenuItem();
         jSeparator14 = new javax.swing.JPopupMenu.Separator();
         shutDownMenuItem = new javax.swing.JMenuItem();
         toolsMenu = new javax.swing.JMenu();
@@ -450,7 +457,7 @@ public class ControlCenter extends javax.swing.JFrame {
         internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Connect.png"))); // NOI18N
         internetStatus.setToolTipText("Nevitium Internet Status");
 
-        fileMenu.setText("File");
+        fileMenu.setText("Data");
 
         newCompanyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Database.png"))); // NOI18N
         newCompanyMenuItem.setText("New company database");
@@ -468,7 +475,7 @@ public class ControlCenter extends javax.swing.JFrame {
         fileMenu.add(jSeparator13);
 
         loginLogoutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        loginLogoutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Key.png"))); // NOI18N
+        loginLogoutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/User logout.png"))); // NOI18N
         loginLogoutMenuItem.setText("Login / Logout user");
         loginLogoutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -476,6 +483,15 @@ public class ControlCenter extends javax.swing.JFrame {
             }
         });
         fileMenu.add(loginLogoutMenuItem);
+
+        userManagerMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Users.png"))); // NOI18N
+        userManagerMenuItem.setText("User access manager");
+        userManagerMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userManagerMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(userManagerMenuItem);
         fileMenu.add(jSeparator14);
 
         shutDownMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -660,8 +676,8 @@ public class ControlCenter extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- 
-  
+
+
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
         launchSettingsApp();
     }//GEN-LAST:event_settingsButtonActionPerformed
@@ -736,7 +752,11 @@ public class ControlCenter extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_prepaidAccountManagerMenuItemActionPerformed
 
-   
+    private void userManagerMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userManagerMenuItemActionPerformed
+        launchUserManager();
+    }//GEN-LAST:event_userManagerMenuItemActionPerformed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutAxiomMenuItem;
     private javax.swing.JButton activityButton;
@@ -779,8 +799,7 @@ public class ControlCenter extends javax.swing.JFrame {
     private javax.swing.JMenuItem takePaymentMenuItem;
     private javax.swing.JMenu toolsMenu;
     private javax.swing.JMenuItem unpaidInvoiceMenuItem;
+    private javax.swing.JMenuItem userManagerMenuItem;
     // End of variables declaration//GEN-END:variables
-
-    
 
 }

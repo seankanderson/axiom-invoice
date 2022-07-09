@@ -15,6 +15,7 @@ import com.datavirtue.axiom.services.InventoryService;
 import com.datavirtue.axiom.services.LocalSettingsService;
 import com.datavirtue.axiom.services.util.CurrencyUtil;
 import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.AxiomApp;
 import com.datavirtue.axiom.ui.util.JTextFieldFilter;
 import com.datavirtue.axiom.ui.util.LimitedDocument;
 import com.datavirtue.axiom.ui.VATCalculator;
@@ -28,7 +29,7 @@ import java.util.prefs.BackingStoreException;
  * @author Sean K Anderson - Data Virtue
  * @rights Copyright Data Virtue 2006, 2007, 2008, 2022 All Rights Reserved.
  */
-public class MiscItemDialog extends javax.swing.JDialog {
+public class MiscItemDialog extends javax.swing.JDialog implements AxiomApp {
 
     private AppSettingsService appSettingsService;
     private AppSettings appSettings;
@@ -75,7 +76,7 @@ public class MiscItemDialog extends javax.swing.JDialog {
         LocalSettingsService.applyScreenSizeAndPosition(screenSettings, this);
     }
 
-    public void display() throws BackingStoreException {
+    public void displayApp() throws BackingStoreException {
         this.localSettings = LocalSettingsService.getLocalAppSettings();
         restoreSavedWindowSizeAndPosition();
         try {

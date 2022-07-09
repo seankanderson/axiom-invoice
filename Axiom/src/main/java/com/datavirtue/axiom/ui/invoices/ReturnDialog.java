@@ -19,6 +19,7 @@ import com.datavirtue.axiom.services.exceptions.InvoiceVoidedException;
 import com.datavirtue.axiom.services.exceptions.PartialQuantityException;
 import com.datavirtue.axiom.services.util.CurrencyUtil;
 import com.datavirtue.axiom.services.util.DV;
+import com.datavirtue.axiom.ui.AxiomApp;
 import com.datavirtue.axiom.ui.util.JTextFieldFilter;
 import com.google.inject.Injector;
 import java.awt.Frame;
@@ -33,7 +34,7 @@ import javax.swing.JOptionPane;
  * @author Sean K Anderson - Data Virtue
  * @rights Copyright Data Virtue 2006, 2007, 2022 All Rights Reserved.
  */
-public class ReturnDialog extends javax.swing.JDialog {
+public class ReturnDialog extends javax.swing.JDialog implements AxiomApp {
 
     private Image winIcon;
     private InvoiceService invoiceService;
@@ -66,7 +67,7 @@ public class ReturnDialog extends javax.swing.JDialog {
 
     }
 
-    public void display() throws SQLException {
+    public void displayApp() throws SQLException {
         
         var items = new InvoiceItemsTableModel(new ArrayList(this.currentInvoice.getItems()));
         invoiceItemTable.setModel(items);

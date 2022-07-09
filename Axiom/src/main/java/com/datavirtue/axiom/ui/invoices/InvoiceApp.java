@@ -38,7 +38,6 @@ import com.datavirtue.axiom.models.invoices.Invoice;
 import com.datavirtue.axiom.models.invoices.InvoiceItem;
 import com.datavirtue.axiom.models.invoices.InvoiceItemsTableModel;
 import com.datavirtue.axiom.models.settings.AppSettings;
-import com.datavirtue.axiom.models.settings.LocalAppSettings;
 import com.datavirtue.axiom.services.AppSettingsService;
 import com.datavirtue.axiom.services.BarcodeService;
 import com.datavirtue.axiom.services.ContactService;
@@ -53,9 +52,9 @@ import com.datavirtue.axiom.services.UserService;
 import com.datavirtue.axiom.services.util.CurrencyUtil;
 import com.datavirtue.axiom.services.util.DV;
 import com.datavirtue.axiom.services.util.LinePrinter;
+import com.datavirtue.axiom.ui.AxiomApp;
 import com.datavirtue.axiom.ui.EnhancedTableCellRenderer;
 import com.datavirtue.axiom.ui.util.DecimalCellRenderer;
-import com.formdev.flatlaf.util.StringUtils;
 import com.google.zxing.WriterException;
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 import java.sql.SQLException;
@@ -91,7 +90,7 @@ import net.sourceforge.barbecue.output.OutputException;
  * @rights Copyright Data Virtue 2006, 2007, 2008, 2009, 2022 All Rights
  * Reserved.
  */
-public class InvoiceApp extends javax.swing.JDialog {
+public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
 
     private boolean addCategoryInfo = false;
     private Invoice currentInvoice = new Invoice();
@@ -108,7 +107,6 @@ public class InvoiceApp extends javax.swing.JDialog {
     private String invoiceMessage = "Thank You!";
     private javax.swing.table.DefaultTableModel tm;
     private java.awt.Frame parentWin;
-    private boolean hold = false;
     private String nl = System.getProperty("line.separator");
     private boolean viewPrint = false;
 
@@ -132,7 +130,7 @@ public class InvoiceApp extends javax.swing.JDialog {
 
     /**
      *
-     * Pass in invoice before calling display() to load an existing invoice.
+     * Pass in invoice before calling displayApp() to load an existing invoice.
      *
      * @param invoice
      */
@@ -141,7 +139,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         this.currentInvoice = invoice;
     }
 
-    public void display() {
+    public void displayApp() {
 
         var injector = DiService.getInjector();
         invoiceService = injector.getInstance(InvoiceService.class);
@@ -644,7 +642,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         var miscItemDialog = new MiscItemDialog(null, true, null);
 
         try {
-            miscItemDialog.display();
+            miscItemDialog.displayApp();
         } catch (BackingStoreException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error getting local settings");
             return;
@@ -1856,7 +1854,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         var inventoryApp = new InventoryApp(this.parentWin, true, true);
 
         try {
-            inventoryApp.display();
+            inventoryApp.displayApp();
         } catch (SQLException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error fetching settings when starting inventory");
         } catch (BackingStoreException ex) {
@@ -2406,7 +2404,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         var item = tableModel.getValueAt(selectedRow);
 
         var discountDialog = new DiscountDialog(this.parentWin, true, item);
-        discountDialog.display();
+        discountDialog.displayApp();
 
         var discountItem = discountDialog.getDiscountItem();
 
@@ -2446,7 +2444,7 @@ public class InvoiceApp extends javax.swing.JDialog {
 
                 var shippingDialog
                         = new ContactShippingDialog(parentWin, true, this.currentInvoice.getCustomerId(), true);
-                shippingDialog.display();
+                shippingDialog.displayApp();
 
                 var address = shippingDialog.getSelectedAddress();
 
@@ -2464,7 +2462,7 @@ public class InvoiceApp extends javax.swing.JDialog {
         var contactsApp = new ContactsApp(this.parentWin, true, true, true, false);
 
         try {
-            contactsApp.display();
+            contactsApp.displayApp();
         } catch (SQLException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error accessing settings database");
         } catch (BackingStoreException ex) {
@@ -2494,7 +2492,7 @@ public class InvoiceApp extends javax.swing.JDialog {
                 = new ContactsApp(this.parentWin, true, true, true, false);
 
         try {
-            contactsApp.display();
+            contactsApp.displayApp();
         } catch (SQLException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error accessing settings database");
         } catch (BackingStoreException ex) {

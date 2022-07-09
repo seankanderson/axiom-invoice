@@ -86,7 +86,7 @@ public class InvoiceManager extends javax.swing.JDialog {
 
     }
 
-    public void display() throws BackingStoreException, SQLException {
+    public void displayApp() throws BackingStoreException, SQLException {
         
         this.appSettings = appSettingsService.getObject();
 
@@ -732,7 +732,7 @@ public class InvoiceManager extends javax.swing.JDialog {
 
             var invoiceApp = new InvoiceApp(this.parentWin, true);
             invoiceApp.setInvoice(invoice);
-            invoiceApp.display();
+            invoiceApp.displayApp();
             invoiceApp.dispose();
 //            if (quoteRadio.isSelected()) {
 //                /* Opening quotes, the key is used before the application to load quotes */
@@ -785,7 +785,7 @@ public class InvoiceManager extends javax.swing.JDialog {
             var paymentDialog = new PaymentDialog(parentWin, true, invoice);
 
             try {
-                paymentDialog.display();
+                paymentDialog.displayApp();
             } catch (SQLException ex) {
                 ExceptionService.showErrorDialog(this, ex, "Error accessing invoice payments in database");
             }
@@ -1202,7 +1202,7 @@ public class InvoiceManager extends javax.swing.JDialog {
             var invoice = tableModel.getValueAt(selectedRow);
             var returnDialog = new ReturnDialog(null, true, invoice);
             try {
-                returnDialog.display();
+                returnDialog.displayApp();
             } catch (SQLException ex) {
                 ExceptionService.showErrorDialog(this, ex, "Error getting returns from database");
             }
@@ -1348,7 +1348,7 @@ public class InvoiceManager extends javax.swing.JDialog {
 
         var invoiceApp = new InvoiceApp(parentWin, true);
 
-        invoiceApp.display();
+        invoiceApp.displayApp();
 
         unpaidRadioAction();
 

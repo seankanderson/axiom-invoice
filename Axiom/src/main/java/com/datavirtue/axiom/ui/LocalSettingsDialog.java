@@ -32,7 +32,7 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
     private boolean freshRun = false;
     
     
-    public void display() throws BackingStoreException {
+    public void displayApp() throws BackingStoreException {
 
         var localSettings = LocalSettingsService.getLocalAppSettings();
 
