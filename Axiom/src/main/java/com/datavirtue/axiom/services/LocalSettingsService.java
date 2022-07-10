@@ -1,6 +1,5 @@
 package com.datavirtue.axiom.services;
 
-import com.formdev.flatlaf.util.StringUtils;
 import com.google.gson.Gson;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
@@ -15,6 +14,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -25,8 +25,11 @@ public class LocalSettingsService {
     private static final String APP_NODE = "com/datavirtue/axiom";
     private static final String USER_SETTINGS_KEY = "LocalUserSettings";
     private static final String DEFAULT_VALUE = "";
-    public static final String DEFAULT_DATA_PATH = "~/axiom-invoice/axiom_database";
-    public static final String DEFAULT_CONNECTION_STRING = "jdbc:h2:" + DEFAULT_DATA_PATH + ";AUTO_SERVER=TRUE";
+    
+    public static final String DEFAULT_DATA_FOLDER = "~/axiom-invoice";
+    public static final String DEFAULT_DATA_FILE = "axiom-data";
+    public static final String DEFAULT_CONNECTION_TEMPLATE = "jdbc:h2:%filename%;AUTO_SERVER=TRUE";
+    public static final String DEFAULT_CONNECTION_STRING = buildConnectionString(DEFAULT_DATA_FOLDER, DEFAULT_DATA_FILE, DEFAULT_CONNECTION_TEMPLATE);
 
     public static final String ARC_ORANGE_THEME = "ArcOrange";
     public static final String PURPLE_DARK_THEME = "DarkPurple";
@@ -48,11 +51,38 @@ public class LocalSettingsService {
         return new Gson().fromJson(settings, LocalAppSettings.class);
     }
 
+    
+    public static String buildConnectionString(String folder, String filename, String template) {
+        
+        folder= folder.strip();   
+        folder = folder.replace("\\", "/");
+        folder = StringUtils.appendIfMissing(folder, "/");
+        
+        filename = filename.strip();        
+        filename = filename.replace("\\", "/");
+        if (filename.endsWith("/")) {
+            filename = StringUtils.chop(filename);
+        }        
+        if (filename.startsWith("/")) {
+            filename = filename.substring(1, filename.length()-1);
+        }
+        
+        var dataPath = folder + filename;
+        
+        // TODO: is valid path?  can read and write?
+        
+        var connectionString = template.replace("%filename%", dataPath);
+        
+        return connectionString;
+    }
+    
     public static LocalAppSettings createDefaultLocalAppSettings() {
-        var userConfig = new LocalAppSettings();
-        userConfig.setConnectionString(DEFAULT_CONNECTION_STRING);
-        userConfig.setDataPath(DEFAULT_DATA_PATH);
-        return userConfig;
+        var localSettings = new LocalAppSettings();        
+        localSettings.setDatabaseFolder(DEFAULT_DATA_FOLDER);
+        localSettings.setDatabaseFilename(DEFAULT_DATA_FILE);        
+        localSettings.setDatabaseConnectionStringTemplate(DEFAULT_CONNECTION_TEMPLATE);
+        localSettings.setConnectionString(DEFAULT_CONNECTION_STRING);        
+        return localSettings;
     }
 
     public static void saveLocalAppSettings(LocalAppSettings settings) throws BackingStoreException {

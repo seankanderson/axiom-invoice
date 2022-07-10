@@ -197,6 +197,16 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
         invoiceDialog.dispose();
     }
 
+    private void launchLocalAppSettingsApp() {
+        var localSettingsApp = new LocalSettingsDialog(this, true);
+        try {
+            localSettingsApp.displayApp();
+        } catch (BackingStoreException ex) {
+            ExceptionService.showErrorDialog(this, ex, "Error getting local settings");
+        }
+        
+    }
+    
     private void launchInfoSettings() {
 
         var settingsDialog = new SettingsDialog(this, true, 8);
@@ -471,11 +481,16 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
 
         openCompanyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Open file.png"))); // NOI18N
         openCompanyMenuItem.setText("Open company database");
+        openCompanyMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openCompanyMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(openCompanyMenuItem);
         fileMenu.add(jSeparator13);
 
         loginLogoutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        loginLogoutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/User logout.png"))); // NOI18N
+        loginLogoutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/User login.png"))); // NOI18N
         loginLogoutMenuItem.setText("Login / Logout user");
         loginLogoutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -721,7 +736,7 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
     }//GEN-LAST:event_salesAndCogsMenuItemActionPerformed
 
     private void newCompanyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCompanyMenuItemActionPerformed
-
+        launchLocalAppSettingsApp();
     }//GEN-LAST:event_newCompanyMenuItemActionPerformed
 
     private void takePaymentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takePaymentMenuItemActionPerformed
@@ -755,6 +770,10 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
     private void userManagerMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userManagerMenuItemActionPerformed
         launchUserManager();
     }//GEN-LAST:event_userManagerMenuItemActionPerformed
+
+    private void openCompanyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openCompanyMenuItemActionPerformed
+        launchLocalAppSettingsApp();
+    }//GEN-LAST:event_openCompanyMenuItemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

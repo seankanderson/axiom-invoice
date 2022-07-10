@@ -9,6 +9,7 @@ import com.datavirtue.axiom.services.LocalSettingsService;
 import com.datavirtue.axiom.models.settings.LocalAppSettings;
 import com.datavirtue.axiom.services.ExceptionService;
 import com.datavirtue.axiom.services.util.DV;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -21,24 +22,24 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
      */
     public LocalSettingsDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();                
-        
-         java.awt.Dimension dim = DV.computeCenter((java.awt.Window) this);
-        
+        initComponents();
+
+        java.awt.Dimension dim = DV.computeCenter((java.awt.Window) this);
+
         this.setLocation(dim.width, dim.height);
-        
+
         this.themeComboBox.setModel(new DefaultComboBoxModel(LocalSettingsService.THEME_NAMES));
     }
-    private boolean freshRun = false;
-    
-    
+
     public void displayApp() throws BackingStoreException {
 
         var localSettings = LocalSettingsService.getLocalAppSettings();
 
         if (localSettings == null) { // new settings
-            freshRun = true;
             localSettings = LocalSettingsService.createDefaultLocalAppSettings();
+            populateForm(localSettings);
+            this.setVisible(true);
+        } else {
             populateForm(localSettings);
             this.setVisible(true);
         }
@@ -51,34 +52,43 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
         int option = fileChooser.showOpenDialog(this);
         if (option == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-            this.filenameTextField.setText(file.getCanonicalPath());            
-        } 
-        
-        return "~/";        
+            this.folderTextField.setText(file.getCanonicalPath());
+        }
+
+        return "~/";
     }
 
     private void populateForm(LocalAppSettings localSettings) {
 
-        this.filenameTextField.setEditable(freshRun);
-        this.connectionStringTemplateTextField.setEditable(freshRun);
-        this.themeComboBox.setSelectedItem(LocalSettingsService.DEFAULT_THEME);
-        if (this.freshRun) {
-            this.filenameTextField.setText(LocalSettingsService.DEFAULT_DATA_PATH);
-            this.connectionStringTemplateTextField.setText("jdbc:h2:%filename%;AUTO_SERVER=TRUE");
-            this.effectiveConnectionStringTextField.setText(LocalSettingsService.DEFAULT_CONNECTION_STRING);
-        } else {
-            this.effectiveConnectionStringTextField.setText(localSettings.getConnectionString());
+        if (localSettings != null
+                && (StringUtils.isBlank(localSettings.getDatabaseFolder())
+                || StringUtils.isBlank(localSettings.getDatabaseFilename())
+                || StringUtils.isBlank(localSettings.getDatabaseConnectionStringTemplate()))) {
+            localSettings = LocalSettingsService.createDefaultLocalAppSettings();
         }
+
+        if (StringUtils.isBlank(localSettings.getTheme())) {
+            localSettings.setTheme(LocalSettingsService.DEFAULT_THEME);
+        }
+        
+        this.folderTextField.setText(localSettings.getDatabaseFolder());
+        this.filenameTextField.setText(localSettings.getDatabaseFilename());
+        this.connectionStringTemplateTextField.setText(localSettings.getDatabaseConnectionStringTemplate());
+        this.effectiveConnectionStringTextField.setText(localSettings.getConnectionString());
+        this.themeComboBox.setSelectedItem(localSettings.getTheme());
+
     }
 
     private void saveLocalSettings() {
 
         var localSettings = new LocalAppSettings();
 
+        localSettings.setDatabaseFolder(this.folderTextField.getText());
+        localSettings.setDatabaseFilename(this.filenameTextField.getText());
+        localSettings.setDatabaseConnectionStringTemplate(this.connectionStringTemplateTextField.getText());
         localSettings.setConnectionString(this.effectiveConnectionStringTextField.getText());
-        localSettings.setDataPath(this.filenameTextField.getText());
-        localSettings.setTheme((String)this.themeComboBox.getSelectedItem());
-        
+        localSettings.setTheme((String) this.themeComboBox.getSelectedItem());
+
         try {
             LocalSettingsService.saveLocalAppSettings(localSettings);
         } catch (BackingStoreException ex) {
@@ -87,10 +97,11 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
     }
 
     private void updateDerivedConnectionString() {
-        var filepath = this.filenameTextField.getText();
-        var connStringTemplate = this.connectionStringTemplateTextField.getText();
-        var effective = connStringTemplate.replace("%filename%", filepath);
-        this.effectiveConnectionStringTextField.setText(effective);
+        var folder = this.folderTextField.getText();
+        var filename = this.filenameTextField.getText();
+        var template = this.connectionStringTemplateTextField.getText();
+        var connectionString = LocalSettingsService.buildConnectionString(folder, filename, template);
+        this.effectiveConnectionStringTextField.setText(connectionString);
     }
 
     /**
@@ -105,83 +116,78 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         handHoldingTextPane = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
-        filenameTextField = new javax.swing.JTextField();
+        folderTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         connectionStringTemplateTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         effectiveConnectionStringTextField = new javax.swing.JTextField();
-        restoredDefaultsButton = new javax.swing.JButton();
-        editSettingsCheckBox = new javax.swing.JCheckBox();
-        importSettingsButton = new javax.swing.JButton();
         browseFilePathButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        filenameTextField = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         themeComboBox = new javax.swing.JComboBox<>();
         saveButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
-        helperPanel = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        importSettingsButton = new javax.swing.JButton();
+        restoredDefaultsButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
 
         handHoldingTextPane.setText("We didn't find any local settings for you.. Some default settings were created for you and are shown below. It is often acceptable, especially when just started out, to accept the defaults.");
         jScrollPane1.setViewportView(handHoldingTextPane);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Axiom - Local User Settings");
+        setTitle("Nevitium - Local User Settings");
         setAlwaysOnTop(true);
 
-        filenameTextField.setEditable(false);
-        filenameTextField.setToolTipText("");
-        filenameTextField.addActionListener(new java.awt.event.ActionListener() {
+        folderTextField.setToolTipText("The location of the database files. This should be a folder or directory specifically for the data files. The files can live alongside other files without issue though.");
+        folderTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                filenameTextFieldActionPerformed(evt);
+                folderTextFieldActionPerformed(evt);
             }
         });
-        filenameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                filenameTextFieldKeyTyped(evt);
+        folderTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                folderTextFieldKeyReleased(evt);
             }
         });
 
-        jLabel2.setText("Database connection string helper template");
+        jLabel2.setText("Database connection string template");
 
-        connectionStringTemplateTextField.setEditable(false);
+        connectionStringTemplateTextField.setToolTipText("Databse connection string template where folder and filename are inserted automatically in place of %filename%");
         connectionStringTemplateTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectionStringTemplateTextFieldActionPerformed(evt);
             }
         });
         connectionStringTemplateTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                connectionStringTemplateTextFieldKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                connectionStringTemplateTextFieldKeyReleased(evt);
             }
         });
 
-        jLabel1.setText("Database path + filename  = %filename%");
+        jLabel1.setText("Database folder");
 
         jLabel4.setText("Effective connection string");
 
-        restoredDefaultsButton.setText("Use Default");
-        restoredDefaultsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                restoredDefaultsButtonActionPerformed(evt);
-            }
-        });
-
-        editSettingsCheckBox.setText("Edit ");
-        editSettingsCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editSettingsCheckBoxActionPerformed(evt);
-            }
-        });
-
-        importSettingsButton.setText("Import");
+        effectiveConnectionStringTextField.setEditable(false);
+        effectiveConnectionStringTextField.setToolTipText("This is built from the connection string folder, filename, and template from above. You can manually edit this string and save it.");
 
         browseFilePathButton.setText("Browse");
         browseFilePathButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 browseFilePathButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Database file name");
+
+        filenameTextField.setToolTipText("Descriptive database name, normally named after the company. Try to avoid spaces, and instead use dashes.");
+        filenameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                filenameTextFieldKeyReleased(evt);
             }
         });
 
@@ -192,23 +198,20 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(connectionStringTemplateTextField)
-                    .addComponent(filenameTextField)
-                    .addComponent(effectiveConnectionStringTextField)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(editSettingsCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(importSettingsButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(restoredDefaultsButton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(folderTextField)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                        .addComponent(browseFilePathButton)))
+                        .addComponent(browseFilePathButton))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(connectionStringTemplateTextField)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(effectiveConnectionStringTextField)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(filenameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -219,8 +222,12 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
                     .addComponent(browseFilePathButton)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(filenameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(folderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(filenameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(connectionStringTemplateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,11 +235,6 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(effectiveConnectionStringTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(restoredDefaultsButton)
-                    .addComponent(editSettingsCheckBox)
-                    .addComponent(importSettingsButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -262,7 +264,7 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(themeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         saveButton.setText("Save");
@@ -279,41 +281,46 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
             }
         });
 
-        helperPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Help Text"));
+        importSettingsButton.setText("Import");
+        importSettingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importSettingsButtonActionPerformed(evt);
+            }
+        });
 
-        jScrollPane2.setViewportView(jTextPane1);
+        restoredDefaultsButton.setText("Use Default");
+        restoredDefaultsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restoredDefaultsButtonActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout helperPanelLayout = new javax.swing.GroupLayout(helperPanel);
-        helperPanel.setLayout(helperPanelLayout);
-        helperPanelLayout.setHorizontalGroup(
-            helperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(helperPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
-        );
-        helperPanelLayout.setVerticalGroup(
-            helperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(helperPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jButton1.setText("Export");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(helperPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(importSettingsButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(restoredDefaultsButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancelButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(saveButton)))
                 .addContainerGap())
         );
@@ -321,49 +328,42 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(helperPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveButton)
-                    .addComponent(cancelButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(saveButton)
+                        .addComponent(cancelButton))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(importSettingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addComponent(restoredDefaultsButton)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void filenameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filenameTextFieldActionPerformed
+    private void folderTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folderTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_filenameTextFieldActionPerformed
+    }//GEN-LAST:event_folderTextFieldActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         this.saveLocalSettings();
         this.dispose();
     }//GEN-LAST:event_saveButtonActionPerformed
 
-    private void filenameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filenameTextFieldKeyTyped
-        updateDerivedConnectionString();
-    }//GEN-LAST:event_filenameTextFieldKeyTyped
-
     private void connectionStringTemplateTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectionStringTemplateTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_connectionStringTemplateTextFieldActionPerformed
 
-    private void connectionStringTemplateTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_connectionStringTemplateTextFieldKeyTyped
-        updateDerivedConnectionString();
-    }//GEN-LAST:event_connectionStringTemplateTextFieldKeyTyped
-
     private void restoredDefaultsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restoredDefaultsButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_restoredDefaultsButtonActionPerformed
-
-    private void editSettingsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSettingsCheckBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editSettingsCheckBoxActionPerformed
 
     private void browseFilePathButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseFilePathButtonActionPerformed
         try {
@@ -374,12 +374,28 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_browseFilePathButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        if (this.freshRun) {
-            System.exit(1);
-        } else {
-          this.dispose();
-        }
+        this.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void folderTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_folderTextFieldKeyReleased
+        updateDerivedConnectionString();
+    }//GEN-LAST:event_folderTextFieldKeyReleased
+
+    private void connectionStringTemplateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_connectionStringTemplateTextFieldKeyReleased
+        updateDerivedConnectionString();
+    }//GEN-LAST:event_connectionStringTemplateTextFieldKeyReleased
+
+    private void importSettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importSettingsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_importSettingsButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void filenameTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filenameTextFieldKeyReleased
+        updateDerivedConnectionString();
+    }//GEN-LAST:event_filenameTextFieldKeyReleased
 
     /**
      * @param args the command line arguments
@@ -428,21 +444,21 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
     private javax.swing.JButton browseFilePathButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField connectionStringTemplateTextField;
-    private javax.swing.JCheckBox editSettingsCheckBox;
     private javax.swing.JTextField effectiveConnectionStringTextField;
     private javax.swing.JTextField filenameTextField;
+    private javax.swing.JTextField folderTextField;
     private javax.swing.JTextPane handHoldingTextPane;
-    private javax.swing.JPanel helperPanel;
     private javax.swing.JButton importSettingsButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton restoredDefaultsButton;
     private javax.swing.JButton saveButton;
     private javax.swing.JComboBox<String> themeComboBox;

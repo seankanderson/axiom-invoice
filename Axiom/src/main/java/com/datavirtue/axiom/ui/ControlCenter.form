@@ -28,6 +28,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Open company database"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openCompanyMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator13">
             </MenuItem>
@@ -37,7 +40,7 @@
                   <KeyStroke key="Ctrl+Alt+L"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Aha-24/enabled/User logout.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/User login.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Login / Logout user"/>
               </Properties>

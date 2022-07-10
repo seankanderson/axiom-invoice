@@ -95,7 +95,7 @@
               <JTabbedPaneConstraints tabName="My Company">
                 <Property name="tabTitle" type="java.lang.String" value="My Company"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Globe.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Globe.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -209,7 +209,7 @@
                                               <Component id="alternateLogoPanel" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="91" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="86" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -477,7 +477,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="alternateLogoImage" pref="124" max="32767" attributes="0"/>
+                                  <Component id="alternateLogoImage" pref="116" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -497,7 +497,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/RRZEglobe.png"/>
+                      <Image iconType="3" name="/Aha-48/Globe.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -508,10 +508,10 @@
         <Container class="javax.swing.JPanel" name="EDIPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Internet">
-                <Property name="tabTitle" type="java.lang.String" value="Internet"/>
+              <JTabbedPaneConstraints tabName="Integrations">
+                <Property name="tabTitle" type="java.lang.String" value="Integrations"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Address book.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Connect.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -524,8 +524,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel19" alignment="0" max="32767" attributes="0"/>
-                          <Component id="showRemoteMessageCheckbox" alignment="0" pref="810" max="32767" attributes="0"/>
-                          <Component id="configEDIButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="showRemoteMessageCheckbox" alignment="0" pref="809" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -538,9 +537,7 @@
                       <Component id="showRemoteMessageCheckbox" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel19" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="configEDIButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="230" max="32767" attributes="0"/>
+                      <EmptySpace pref="265" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -581,10 +578,10 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="emailAddressField" pref="688" max="32767" attributes="0"/>
-                              <Component id="emailUserName" alignment="0" pref="688" max="32767" attributes="0"/>
+                              <Component id="emailAddressField" pref="674" max="32767" attributes="0"/>
+                              <Component id="emailUserName" alignment="0" pref="674" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="emailServerField" pref="593" max="32767" attributes="0"/>
+                                  <Component id="emailServerField" pref="579" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel60" min="-2" pref="37" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -692,7 +689,7 @@
                 <Component class="javax.swing.JButton" name="testEmailButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/RRZE/wifi16.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/E-mail.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Send Test Message"/>
                   </Properties>
@@ -726,19 +723,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="configEDIButton">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-24/enabled/Data transmission.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Configure EDI"/>
-                <Property name="toolTipText" type="java.lang.String" value="Configure EDI to support multiple users and/or locations."/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="configEDIButtonActionPerformed"/>
-              </Events>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="backupPanel">
@@ -747,7 +731,7 @@
               <JTabbedPaneConstraints tabName="Backups">
                 <Property name="tabTitle" type="java.lang.String" value="Backups"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Archive.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Transfer.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -768,7 +752,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="330" max="32767" attributes="0"/>
+                      <EmptySpace pref="336" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -795,10 +779,10 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="dataFolderField" alignment="0" pref="712" max="32767" attributes="1"/>
+                              <Component id="dataFolderField" alignment="0" pref="714" max="32767" attributes="1"/>
                               <Component id="secondaryCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="secondaryBackupFolderField" alignment="0" pref="712" max="32767" attributes="0"/>
-                              <Component id="backupFolderField" alignment="0" pref="712" max="32767" attributes="1"/>
+                              <Component id="secondaryBackupFolderField" alignment="0" pref="714" max="32767" attributes="0"/>
+                              <Component id="backupFolderField" alignment="0" pref="714" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -902,7 +886,7 @@
               <JTabbedPaneConstraints tabName="Security">
                 <Property name="tabTitle" type="java.lang.String" value="Security"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Lock.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Locked folder.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -923,7 +907,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="388" max="32767" attributes="0"/>
+                      <EmptySpace pref="381" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -947,7 +931,7 @@
                               <Component id="logButton" alignment="0" pref="173" max="32767" attributes="1"/>
                               <Component id="manageUsersButton" alignment="0" pref="173" max="32767" attributes="1"/>
                           </Group>
-                          <EmptySpace pref="654" max="32767" attributes="0"/>
+                          <EmptySpace pref="626" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -967,7 +951,7 @@
                 <Component class="javax.swing.JButton" name="manageUsersButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/onebit_25.gif"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Users.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Manage Users"/>
                     <Property name="horizontalAlignment" type="int" value="2"/>
@@ -982,7 +966,7 @@
                 <Component class="javax.swing.JButton" name="logButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-48/Information.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Information.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="View Log"/>
                     <Property name="enabled" type="boolean" value="false"/>
@@ -1011,7 +995,7 @@
               <JTabbedPaneConstraints tabName="Invoice">
                 <Property name="tabTitle" type="java.lang.String" value="Invoice"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Order form.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Order form 3d.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -1252,7 +1236,7 @@
                                   <Component id="printZerosCheckBox" min="-2" max="-2" attributes="2"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="212" max="32767" attributes="0"/>
+                          <EmptySpace pref="184" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1261,7 +1245,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="54" max="32767" attributes="0"/>
+                          <EmptySpace pref="74" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="currencyField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1524,7 +1508,7 @@
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel62" alignment="0" pref="487" max="32767" attributes="1"/>
+                              <Component id="jLabel62" alignment="0" pref="486" max="32767" attributes="1"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="interestGracePeriodField" max="32767" attributes="1"/>
@@ -1584,7 +1568,7 @@
                           <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="cashRoundingCombo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="77" max="32767" attributes="0"/>
+                          <EmptySpace pref="76" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1681,7 +1665,7 @@
               <JTabbedPaneConstraints tabName="Layouts">
                 <Property name="tabTitle" type="java.lang.String" value="Layouts"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Measure.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Measure.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -1702,7 +1686,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="400" max="32767" attributes="0"/>
+                      <EmptySpace pref="414" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1722,7 +1706,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="invoiceLayoutComboBox" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
-                              <Component id="layoutPathField" alignment="0" pref="709" max="32767" attributes="0"/>
+                              <Component id="layoutPathField" alignment="0" pref="701" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -1783,7 +1767,7 @@
               <JTabbedPaneConstraints tabName="Inventory">
                 <Property name="tabTitle" type="java.lang.String" value="Inventory"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Book of records.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Book library.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -1828,7 +1812,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabel21" pref="165" max="32767" attributes="1"/>
+                                          <Component id="jLabel21" pref="160" max="32767" attributes="1"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="markupField" min="-2" pref="45" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1878,7 +1862,7 @@
                           <Component id="catLineCheckBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="partialQuantityCheckBox" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="313" max="32767" attributes="0"/>
+                          <EmptySpace pref="309" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1964,10 +1948,10 @@
         <Container class="javax.swing.JPanel" name="outputPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Output">
-                <Property name="tabTitle" type="java.lang.String" value="Output"/>
+              <JTabbedPaneConstraints tabName="Automation">
+                <Property name="tabTitle" type="java.lang.String" value="Automation"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Documents.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Export table.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -2032,7 +2016,7 @@
                                   <Component id="invoiceOutputFolderField" alignment="0" max="32767" attributes="1"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="162" max="32767" attributes="0"/>
+                          <EmptySpace pref="163" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2369,7 +2353,7 @@
               <JTabbedPaneConstraints tabName="Info">
                 <Property name="tabTitle" type="java.lang.String" value="Info"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Info.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Info.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -2428,7 +2412,7 @@
                           <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="42" max="32767" attributes="0"/>
+                          <EmptySpace pref="39" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2456,20 +2440,20 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                                      <Component id="osInfoLabel" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="workingFolderInfoLabel" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
+                                      <Component id="javaInfoLabel" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2479,17 +2463,17 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="osInfoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="javaInfoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="workingFolderInfoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -2502,12 +2486,9 @@
                         <Property name="text" type="java.lang.String" value="Operating System:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel28">
+                    <Component class="javax.swing.JLabel" name="osInfoLabel">
                       <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="10" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="jLabel28"/>
+                        <Property name="text" type="java.lang.String" value="os info"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel29">
@@ -2515,12 +2496,9 @@
                         <Property name="text" type="java.lang.String" value="Java Version:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel30">
+                    <Component class="javax.swing.JLabel" name="javaInfoLabel">
                       <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="10" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="jLabel30"/>
+                        <Property name="text" type="java.lang.String" value="java"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel32">
@@ -2528,12 +2506,9 @@
                         <Property name="text" type="java.lang.String" value="Working Folder:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel31">
+                    <Component class="javax.swing.JLabel" name="workingFolderInfoLabel">
                       <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="10" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="jLabel31"/>
+                        <Property name="text" type="java.lang.String" value="working folder"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -2558,7 +2533,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel38" max="32767" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" pref="113" max="32767" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" pref="106" max="32767" attributes="0"/>
                                   <Component id="jLabel18" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -2649,7 +2624,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Nevitium Invoice Manager">
+                        <TitledBorder title="Axiom Business Terminal">
                           <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                             <EtchetBorder/>
                           </Border>
@@ -2707,7 +2682,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="11" style="1"/>
+                          <Font name="Tahoma" size="12" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Updates:"/>
                       </Properties>
@@ -2729,7 +2704,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel48">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="11" style="1"/>
+                          <Font name="Tahoma" size="12" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Support: "/>
                       </Properties>
@@ -2751,7 +2726,7 @@
                     <Component class="javax.swing.JButton" name="checkUpdatesButton">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/businessmanager/res/RRZE/synchronized.png"/>
+                          <Image iconType="3" name="/Aha-24/enabled/Update.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Check For Updates"/>
                         <Property name="toolTipText" type="java.lang.String" value="Tells you if there are new updates for Nevitium."/>
@@ -2771,7 +2746,7 @@
     <Component class="javax.swing.JButton" name="saveButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Floppy.png"/>
+          <Image iconType="3" name="/Aha-24/enabled/Floppy.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Close/Save"/>
         <Property name="toolTipText" type="java.lang.String" value="Click to save and exit."/>

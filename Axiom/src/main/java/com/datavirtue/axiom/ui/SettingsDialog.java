@@ -89,16 +89,15 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 }
             }
         });
-
-        this.addTab(0, "My Company", "/Aha-16/enabled/Globe.png");
-        this.addTab(1, "Internet  ", "/Aha-16/enabled/Address book.png");
-        this.addTab(2, "Backups   ", "/Aha-16/enabled/Archive.png");
-        this.addTab(3, "Security  ", "/Aha-16/enabled/Lock.png");
-        this.addTab(4, "Invoice   ", "/Aha-16/enabled/Barcode scanner1.png");
-        this.addTab(5, "Layouts   ", "/Aha-16/enabled/Measure.png");
-        this.addTab(6, "Inventory ", "/Aha-16/enabled/Book of records.png");
-        this.addTab(7, "Output    ", "/Aha-16/enabled/Documents.png");
-        this.addTab(8, "Info      ", "/Aha-16/enabled/Info.png");
+        this.addTab(0, "My Company", "/Aha-24/enabled/Globe.png");
+        this.addTab(1, "Integrations  ", "/Aha-24/enabled/Connect.png");
+        this.addTab(2, "Backups   ", "/Aha-24/enabled/Archive.png");
+        this.addTab(3, "Security  ", "/Aha-24/enabled/Lock.png");
+        this.addTab(4, "Invoice   ", "/Aha-24/enabled/Barcode scanner1.png");
+        this.addTab(5, "Layouts   ", "/Aha-24/enabled/Measure.png");
+        this.addTab(6, "Inventory ", "/Aha-24/enabled/Book library.png");
+        this.addTab(7, "Automation", "/Aha-24/enabled/Export table.png");
+        this.addTab(8, "Info      ", "/Aha-24/enabled/Info.png");
 
         invoicePrefixField.setDocument(new LimitedDocument(3));
         quotePrefixField.setDocument(new LimitedDocument(3));
@@ -447,9 +446,9 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
 
         quantityWarningCheckBox.setSelected(inventory.isIgnoreQuantityWarnings());
 
-        jLabel28.setText(System.getProperty("os.name") + " " + System.getProperty("os.version") + " : " + System.getProperty("sun.os.patch.level"));
-        jLabel30.setText(System.getProperty("java.runtime.name") + " " + System.getProperty("java.vm.version"));
-        jLabel31.setText(System.getProperty("user.dir"));
+        osInfoLabel.setText(System.getProperty("os.name") + " " + System.getProperty("os.version"));
+        javaInfoLabel.setText(System.getProperty("java.runtime.name") + " " + System.getProperty("java.vm.version"));
+        workingFolderInfoLabel.setText(System.getProperty("user.dir"));
         this.operatingSystemUserTextField.setText(System.getProperty("user.name"));
 
     }
@@ -655,7 +654,6 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
         emailPortField = new javax.swing.JTextField();
         emailSslCheckbox = new javax.swing.JCheckBox();
         jLabel35 = new javax.swing.JLabel();
-        configEDIButton = new javax.swing.JButton();
         backupPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -766,11 +764,11 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
         jPanel7 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
+        osInfoLabel = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
+        javaInfoLabel = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        workingFolderInfoLabel = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -903,7 +901,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
             alternateLogoPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(alternateLogoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .add(alternateLogoImage, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                .add(alternateLogoImage, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -943,7 +941,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                                 .add(companyLogoPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
                                 .add(alternateLogoPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                        .add(0, 91, Short.MAX_VALUE))
+                        .add(0, 86, Short.MAX_VALUE))
                     .add(jPanel17Layout.createSequentialGroup()
                         .add(jPanel17Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(logoBrowse)
@@ -1000,7 +998,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
         );
 
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZEglobe.png"))); // NOI18N
+        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-48/Globe.png"))); // NOI18N
 
         org.jdesktop.layout.GroupLayout jPanel16Layout = new org.jdesktop.layout.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -1040,7 +1038,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("My Company", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Globe.png")), companyInfoPanel); // NOI18N
+        jTabbedPane1.addTab("My Company", new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Globe.png")), companyInfoPanel); // NOI18N
 
         showRemoteMessageCheckbox.setText("Show Remote Message (Grabs a small message from datavirtue.com)");
         showRemoteMessageCheckbox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -1077,7 +1075,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
 
         emailPassword.setToolTipText("The password for your email account on the mail server.");
 
-        testEmailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZE/wifi16.png"))); // NOI18N
+        testEmailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/E-mail.png"))); // NOI18N
         testEmailButton.setText("Send Test Message");
         testEmailButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1112,10 +1110,10 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel42, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel19Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(emailAddressField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
-                    .add(emailUserName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                    .add(emailAddressField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+                    .add(emailUserName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel19Layout.createSequentialGroup()
-                        .add(emailServerField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+                        .add(emailServerField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jLabel60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 37, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -1159,16 +1157,6 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                     .add(jLabel35)))
         );
 
-        configEDIButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-24/enabled/Data transmission.png"))); // NOI18N
-        configEDIButton.setText("Configure EDI");
-        configEDIButton.setToolTipText("Configure EDI to support multiple users and/or locations.");
-        configEDIButton.setEnabled(false);
-        configEDIButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                configEDIButtonActionPerformed(evt);
-            }
-        });
-
         org.jdesktop.layout.GroupLayout EDIPanelLayout = new org.jdesktop.layout.GroupLayout(EDIPanel);
         EDIPanel.setLayout(EDIPanelLayout);
         EDIPanelLayout.setHorizontalGroup(
@@ -1177,8 +1165,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 .addContainerGap()
                 .add(EDIPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel19, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(showRemoteMessageCheckbox, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
-                    .add(configEDIButton))
+                    .add(showRemoteMessageCheckbox, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE))
                 .addContainerGap())
         );
         EDIPanelLayout.setVerticalGroup(
@@ -1188,12 +1175,10 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 .add(showRemoteMessageCheckbox)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(configEDIButton)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Internet", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Address book.png")), EDIPanel); // NOI18N
+        jTabbedPane1.addTab("Integrations", new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Connect.png")), EDIPanel); // NOI18N
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(" Backups "));
 
@@ -1244,10 +1229,10 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                     .add(secondaryButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(dataFolderField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
+                    .add(dataFolderField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
                     .add(secondaryCheckBox)
-                    .add(secondaryBackupFolderField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
-                    .add(backupFolderField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE))
+                    .add(secondaryBackupFolderField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
+                    .add(backupFolderField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -1284,14 +1269,14 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
             .add(backupPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Backups", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Archive.png")), backupPanel); // NOI18N
+        jTabbedPane1.addTab("Backups", new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Transfer.png")), backupPanel); // NOI18N
 
         jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        manageUsersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/onebit_25.gif"))); // NOI18N
+        manageUsersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Users.png"))); // NOI18N
         manageUsersButton.setText("Manage Users");
         manageUsersButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         manageUsersButton.setMargin(new java.awt.Insets(2, 7, 2, 7));
@@ -1301,7 +1286,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
             }
         });
 
-        logButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-48/Information.png"))); // NOI18N
+        logButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Information.png"))); // NOI18N
         logButton.setText("View Log");
         logButton.setEnabled(false);
         logButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1319,7 +1304,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 .add(jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, logButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, manageUsersButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
-                .addContainerGap(654, Short.MAX_VALUE))
+                .addContainerGap(626, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1345,10 +1330,10 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
             .add(securityPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(388, Short.MAX_VALUE))
+                .addContainerGap(381, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Security", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Lock.png")), securityPanel); // NOI18N
+        jTabbedPane1.addTab("Security", new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Locked folder.png")), securityPanel); // NOI18N
 
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -1514,14 +1499,14 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                         .add(currencyField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(printZerosCheckBox)))
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 74, Short.MAX_VALUE)
                 .add(jPanel12Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel40)
                     .add(currencyField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -1669,7 +1654,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                         .add(jLabel23, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 79, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel14Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel62, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+                    .add(jLabel62, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
                     .add(jPanel14Layout.createSequentialGroup()
                         .add(jPanel14Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(interestGracePeriodField)
@@ -1716,7 +1701,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 .add(jLabel62)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(cashRoundingCombo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout invoicePanelLayout = new org.jdesktop.layout.GroupLayout(invoicePanel);
@@ -1750,7 +1735,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Invoice", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Order form.png")), invoicePanel); // NOI18N
+        jTabbedPane1.addTab("Invoice", new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Order form 3d.png")), invoicePanel); // NOI18N
 
         layoutPathLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         layoutPathLabel.setText("Layout Path");
@@ -1775,7 +1760,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(invoiceLayoutComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 197, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(layoutPathField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE))
+                    .add(layoutPathField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -1806,10 +1791,10 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
             .add(layoutPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(400, Short.MAX_VALUE))
+                .addContainerGap(414, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Layouts", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Measure.png")), layoutPanel); // NOI18N
+        jTabbedPane1.addTab("Layouts", new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Measure.png")), layoutPanel); // NOI18N
 
         jPanel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -1859,7 +1844,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                     .add(jPanel15Layout.createSequentialGroup()
                         .add(jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                             .add(jPanel15Layout.createSequentialGroup()
-                                .add(jLabel21, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                                .add(jLabel21, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                 .add(markupField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
@@ -1898,7 +1883,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 .add(catLineCheckBox)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(partialQuantityCheckBox)
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addContainerGap(309, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout inventoryPanelLayout = new org.jdesktop.layout.GroupLayout(inventoryPanel);
@@ -1918,7 +1903,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Inventory", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Book of records.png")), inventoryPanel); // NOI18N
+        jTabbedPane1.addTab("Inventory", new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Book library.png")), inventoryPanel); // NOI18N
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(" Output "));
 
@@ -1996,7 +1981,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                         .add(reportOutputFolderField)
                         .add(quoteOutputFolderField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
                         .add(invoiceOutputFolderField)))
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -2206,7 +2191,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                     .add(73, 73, 73))
             );
 
-            jTabbedPane1.addTab("Output", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Documents.png")), outputPanel); // NOI18N
+            jTabbedPane1.addTab("Automation", new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Export table.png")), outputPanel); // NOI18N
 
             jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -2214,18 +2199,15 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
 
             jLabel27.setText("Operating System:");
 
-            jLabel28.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-            jLabel28.setText("jLabel28");
+            osInfoLabel.setText("os info");
 
             jLabel29.setText("Java Version:");
 
-            jLabel30.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-            jLabel30.setText("jLabel30");
+            javaInfoLabel.setText("java");
 
             jLabel32.setText("Working Folder:");
 
-            jLabel31.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-            jLabel31.setText("jLabel31");
+            workingFolderInfoLabel.setText("working folder");
 
             org.jdesktop.layout.GroupLayout jPanel6Layout = new org.jdesktop.layout.GroupLayout(jPanel6);
             jPanel6.setLayout(jPanel6Layout);
@@ -2237,16 +2219,16 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                         .add(jPanel6Layout.createSequentialGroup()
                             .add(jLabel27)
                             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                            .add(jLabel28))
-                        .add(jPanel6Layout.createSequentialGroup()
-                            .add(jLabel29)
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                            .add(jLabel30))
+                            .add(osInfoLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .add(jPanel6Layout.createSequentialGroup()
                             .add(jLabel32)
                             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                            .add(jLabel31)))
-                    .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .add(workingFolderInfoLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .add(jPanel6Layout.createSequentialGroup()
+                            .add(jLabel29)
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(javaInfoLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap())
             );
             jPanel6Layout.setVerticalGroup(
                 jPanel6Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -2254,15 +2236,15 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                     .addContainerGap()
                     .add(jPanel6Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(jLabel27)
-                        .add(jLabel28))
+                        .add(osInfoLabel))
                     .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                     .add(jPanel6Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(jLabel29)
-                        .add(jLabel30))
+                        .add(javaInfoLabel))
                     .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                     .add(jPanel6Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(jLabel32)
-                        .add(jLabel31))
+                        .add(workingFolderInfoLabel))
                     .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
@@ -2294,7 +2276,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                     .addContainerGap()
                     .add(jPanel8Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                         .add(jLabel38, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(jLabel4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                        .add(jLabel4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
                         .add(jLabel18, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                     .add(jPanel8Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -2326,11 +2308,11 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                     .addContainerGap(86, Short.MAX_VALUE))
             );
 
-            jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Nevitium Invoice Manager"));
+            jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Axiom Business Terminal"));
 
             jLabel14.setText("Copyright Data Virtue 2007-2022 - All Rights Reserved.");
 
-            jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+            jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
             jLabel3.setText("Updates:");
 
             jLabel12.setForeground(new java.awt.Color(0, 102, 255));
@@ -2348,7 +2330,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 }
             });
 
-            jLabel48.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+            jLabel48.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
             jLabel48.setText("Support: ");
 
             jLabel13.setForeground(new java.awt.Color(0, 102, 255));
@@ -2366,7 +2348,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 }
             });
 
-            checkUpdatesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/RRZE/synchronized.png"))); // NOI18N
+            checkUpdatesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Update.png"))); // NOI18N
             checkUpdatesButton.setText("Check For Updates");
             checkUpdatesButton.setToolTipText("Tells you if there are new updates for Nevitium.");
             checkUpdatesButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2430,7 +2412,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                     .add(jPanel6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                     .add(jPanel8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(42, Short.MAX_VALUE))
+                    .addContainerGap(39, Short.MAX_VALUE))
             );
 
             org.jdesktop.layout.GroupLayout infoPanelLayout = new org.jdesktop.layout.GroupLayout(infoPanel);
@@ -2450,9 +2432,9 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                     .addContainerGap())
             );
 
-            jTabbedPane1.addTab("Info", new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Info.png")), infoPanel); // NOI18N
+            jTabbedPane1.addTab("Info", new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Info.png")), infoPanel); // NOI18N
 
-            saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/businessmanager/res/Aha-16/enabled/Floppy.png"))); // NOI18N
+            saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Floppy.png"))); // NOI18N
             saveButton.setText("Close/Save");
             saveButton.setToolTipText("Click to save and exit.");
             saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2858,10 +2840,6 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
 // TODO add your handling code here:
 }//GEN-LAST:event_invoiceOutputFolderFieldActionPerformed
 
-    private void configEDIButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configEDIButtonActionPerformed
-        // new EDIConfig(null, true, application);
-    }//GEN-LAST:event_configEDIButtonActionPerformed
-
     private void usePaymentSystemForCardsCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usePaymentSystemForCardsCheckboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usePaymentSystemForCardsCheckboxActionPerformed
@@ -2931,7 +2909,6 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JLabel companyLogoImage;
     private javax.swing.JPanel companyLogoPanel;
     private javax.swing.JTextField companyNameField;
-    private javax.swing.JButton configEDIButton;
     private javax.swing.JComboBox countryCombo;
     private javax.swing.JTextField currencyField;
     private javax.swing.JTextField currentConnectionStringTextField;
@@ -2976,11 +2953,8 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -3034,6 +3008,7 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel javaInfoLabel;
     private javax.swing.JRadioButton kgsRadio;
     private javax.swing.JPanel layoutPanel;
     private javax.swing.JTextField layoutPathField;
@@ -3044,6 +3019,7 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JButton manageUsersButton;
     private javax.swing.JTextField markupField;
     private javax.swing.JTextField operatingSystemUserTextField;
+    private javax.swing.JLabel osInfoLabel;
     private javax.swing.JPanel outputPanel;
     private javax.swing.JCheckBox partialQuantityCheckBox;
     private javax.swing.JButton paymentSystemBinPathBrowseButton;
@@ -3088,6 +3064,7 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JCheckBox useWatermarkOnReportsCheckbox;
     private javax.swing.JButton watermarkBrowse;
     private javax.swing.JTextField watermarkImagePathField;
+    private javax.swing.JLabel workingFolderInfoLabel;
     // End of variables declaration//GEN-END:variables
 
 }
