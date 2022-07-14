@@ -27,87 +27,88 @@ import com.datavirtue.axiom.models.security.UserAudit;
  * @author SeanAnderson
  */
 public class DatabaseService {
+
     private static JdbcConnectionSource connectionSource;
-    
+
     public static JdbcConnectionSource getConnection() throws SQLException, BackingStoreException {
-        
+
         var connectionString = LocalSettingsService.getLocalAppSettings().getConnectionString();
-                
+
         if (connectionSource == null) {
-            connectionSource = new JdbcConnectionSource(connectionString);            
+            connectionSource = new JdbcConnectionSource(connectionString);
         }
         return connectionSource;
     }
-    
+
     public static void closeDatabaseConnections() {
         if (connectionSource != null) {
             connectionSource.closeQuietly();
         }
     }
-    
-    public static void createTables(boolean dropTablesFirst) throws SQLException, BackingStoreException {
-        
+
+    public static void createEachTableIfNotExist() throws SQLException, BackingStoreException {
+
         getConnection();
-        
-        if (dropTablesFirst) {
-            TableUtils.dropTable(connectionSource, Inventory.class, true);
-            TableUtils.dropTable(connectionSource, InventoryItemNote.class, true);
-            TableUtils.dropTable(connectionSource, InventoryImage.class, true);
-            TableUtils.dropTable(connectionSource, InventoryImageJoin.class, true);
-            TableUtils.dropTable(connectionSource, Contact.class, true);
-            TableUtils.dropTable(connectionSource, ContactAddress.class, true);
-            TableUtils.dropTable(connectionSource, Invoice.class, true);
-            TableUtils.dropTable(connectionSource, InvoiceItem.class, true);
-            TableUtils.dropTable(connectionSource, InvoiceItemReturn.class, true);
-            TableUtils.dropTable(connectionSource, InvoicePayment.class, true);
-            TableUtils.dropTable(connectionSource, InvoiceMessages.class, true);
-            TableUtils.dropTable(connectionSource, InvoicePaymentType.class, true);
-            TableUtils.dropTable(connectionSource, InvoiceCustomerInfo.class, true);
-            //TableUtils.dropTable(connectionSource, User.class, true);
-            //TableUtils.dropTable(connectionSource, UserAudit.class, true);
-            //TableUtils.dropTable(connectionSource, AppConfig.class, true);
-        }
-        
-        TableUtils.createTableIfNotExists(getConnection(), InventoryImageJoin.class); 
-        TableUtils.createTableIfNotExists(getConnection(), Inventory.class); 
-        TableUtils.clearTable(connectionSource, Inventory.class);
-        TableUtils.createTableIfNotExists(getConnection(), InventoryItemNote.class); 
-        TableUtils.clearTable(connectionSource, InventoryItemNote.class);
-        
-        TableUtils.createTableIfNotExists(getConnection(), InventoryImage.class); 
-        TableUtils.clearTable(connectionSource, InventoryImage.class);
-        
-        TableUtils.createTableIfNotExists(getConnection(), Contact.class); 
-        TableUtils.clearTable(connectionSource, Contact.class);
-        TableUtils.createTableIfNotExists(getConnection(), ContactJournal.class); 
-        TableUtils.clearTable(connectionSource, ContactJournal.class);
-        TableUtils.createTableIfNotExists(getConnection(), ContactAddress.class); 
-        TableUtils.clearTable(connectionSource, ContactAddress.class);
-        TableUtils.createTableIfNotExists(getConnection(), Invoice.class); 
-        TableUtils.clearTable(connectionSource, Invoice.class);
-        
-        TableUtils.createTableIfNotExists(getConnection(), InvoiceItem.class); 
-        TableUtils.clearTable(connectionSource, InvoiceItem.class);  
-        
-        TableUtils.createTableIfNotExists(getConnection(), InvoiceItemReturn.class); 
-        TableUtils.clearTable(connectionSource, InvoiceItemReturn.class); 
-        
-        TableUtils.createTableIfNotExists(getConnection(), InvoicePayment.class); 
-        TableUtils.clearTable(connectionSource, InvoicePayment.class);  
-        
-        TableUtils.createTableIfNotExists(getConnection(), InvoicePaymentType.class); 
-        TableUtils.clearTable(connectionSource, InvoicePaymentType.class);  
-        
-        TableUtils.createTableIfNotExists(getConnection(), InvoiceCustomerInfo.class); 
-        TableUtils.clearTable(connectionSource, InvoiceCustomerInfo.class);  
-        
-        
-        TableUtils.createTableIfNotExists(getConnection(), InvoiceMessages.class); 
-        TableUtils.clearTable(connectionSource, InvoiceMessages.class);
-        TableUtils.createTableIfNotExists(getConnection(), AxiomUser.class); 
-        //TableUtils.clearTable(connectionSource, User.class);   
-        TableUtils.createTableIfNotExists(getConnection(), KeyValueStore.class); 
-        //TableUtils.clearTable(connectionSource, AppConfig.class);  
-        TableUtils.createTableIfNotExists(getConnection(), UserAudit.class); 
+        TableUtils.createTableIfNotExists(getConnection(), InventoryImageJoin.class);
+        TableUtils.createTableIfNotExists(getConnection(), Inventory.class);
+        TableUtils.createTableIfNotExists(getConnection(), InventoryItemNote.class);
+        TableUtils.createTableIfNotExists(getConnection(), InventoryImage.class);
+        TableUtils.createTableIfNotExists(getConnection(), Contact.class);
+        TableUtils.createTableIfNotExists(getConnection(), ContactJournal.class);
+        TableUtils.createTableIfNotExists(getConnection(), ContactAddress.class);
+        TableUtils.createTableIfNotExists(getConnection(), Invoice.class);
+        TableUtils.createTableIfNotExists(getConnection(), InvoiceItem.class);
+        TableUtils.createTableIfNotExists(getConnection(), InvoiceItemReturn.class);
+        TableUtils.createTableIfNotExists(getConnection(), InvoicePayment.class);
+        TableUtils.createTableIfNotExists(getConnection(), InvoicePaymentType.class);
+        TableUtils.createTableIfNotExists(getConnection(), InvoiceCustomerInfo.class);
+        TableUtils.createTableIfNotExists(getConnection(), InvoiceMessages.class);
+        TableUtils.createTableIfNotExists(getConnection(), AxiomUser.class);
+        TableUtils.createTableIfNotExists(getConnection(), KeyValueStore.class);
+        TableUtils.createTableIfNotExists(getConnection(), UserAudit.class);
     }
+    
+    
+    public static void dropAllTables() throws SQLException, BackingStoreException {
+        getConnection();
+        TableUtils.dropTable(connectionSource, Inventory.class, true);
+        TableUtils.dropTable(connectionSource, InventoryItemNote.class, true);
+        TableUtils.dropTable(connectionSource, InventoryImage.class, true);
+        TableUtils.dropTable(connectionSource, InventoryImageJoin.class, true);
+        TableUtils.dropTable(connectionSource, Contact.class, true);
+        TableUtils.dropTable(connectionSource, ContactAddress.class, true);
+        TableUtils.dropTable(connectionSource, Invoice.class, true);
+        TableUtils.dropTable(connectionSource, InvoiceItem.class, true);
+        TableUtils.dropTable(connectionSource, InvoiceItemReturn.class, true);
+        TableUtils.dropTable(connectionSource, InvoicePayment.class, true);
+        TableUtils.dropTable(connectionSource, InvoiceMessages.class, true);
+        TableUtils.dropTable(connectionSource, InvoicePaymentType.class, true);
+        TableUtils.dropTable(connectionSource, InvoiceCustomerInfo.class, true);
+        //TableUtils.dropTable(connectionSource, User.class, true);
+        //TableUtils.dropTable(connectionSource, UserAudit.class, true);
+        //TableUtils.dropTable(connectionSource, AppConfig.class, true);
+    }
+    
+    public static void clearAllTables() throws SQLException, BackingStoreException {
+        getConnection();
+        TableUtils.clearTable(connectionSource, Inventory.class);
+        TableUtils.clearTable(connectionSource, InventoryItemNote.class);
+        TableUtils.clearTable(connectionSource, InventoryImage.class);
+        TableUtils.clearTable(connectionSource, Contact.class);
+        TableUtils.clearTable(connectionSource, ContactJournal.class);
+        TableUtils.clearTable(connectionSource, ContactAddress.class);
+        TableUtils.clearTable(connectionSource, Invoice.class);
+        TableUtils.clearTable(connectionSource, InvoiceItem.class);
+        TableUtils.clearTable(connectionSource, InvoiceItemReturn.class);
+        TableUtils.clearTable(connectionSource, InvoicePayment.class);
+        TableUtils.clearTable(connectionSource, InvoicePaymentType.class);
+        TableUtils.clearTable(connectionSource, InvoiceCustomerInfo.class);
+        TableUtils.clearTable(connectionSource, InvoiceMessages.class);
+        //TableUtils.clearTable(connectionSource, User.class);   
+        //TableUtils.clearTable(connectionSource, AppConfig.class);  
+
+    }
+
+    
+    
 }

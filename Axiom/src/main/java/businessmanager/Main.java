@@ -38,30 +38,38 @@ public class Main {
     }
 
     public static void main(String args[]) throws Exception {
-        
+
         System.setProperty("apple.laf.useScreenMenuBar", "true");
-        
+
         System.setProperty("apple.awt.application.name", "Axiom");
-                
+
         LocalSettingsService.setLookAndFeel();
         var frame = new JFrame();
         //frame.setIconImage(Toolkit.getDefaultToolkit().getImage(ControlCenter.class.getResource("src/main/java/Orange.png")));
         frame.setVisible(true);
-        var localSettingsApp = new LocalSettingsDialog(frame, true);
-        localSettingsApp.displayApp();
-        frame.dispose();
+        if (LocalSettingsService.getLocalAppSettings() == null) {
+            var localSettingsApp = new LocalSettingsDialog(frame, true);
+            localSettingsApp.displayApp();
+            frame.dispose();
+        }
+
         if (LocalSettingsService.getLocalAppSettings() == null) {
             System.exit(-1);
         }
+        
+        // Refresh LnF
         LocalSettingsService.setLookAndFeel();
 
         var injector = DiService.getInjector();
 
-        boolean dropTables = true;
-        DatabaseService.createTables(dropTables);
-
+        DatabaseService.dropAllTables();
+        DatabaseService.createEachTableIfNotExist();
+        DatabaseService.clearAllTables();
+        
         var appSettingsService = injector.getInstance(AppSettingsService.class);
         appSettingsService.setObjectType(AppSettings.class);
+        
+        // check for app settings in database
         var settings = appSettingsService.getObject();
 
         if (settings == null) {

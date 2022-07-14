@@ -18,6 +18,14 @@ import org.apache.commons.lang3.StringUtils;
 public class LocalSettingsDialog extends javax.swing.JDialog {
 
     /**
+     * @return the settingsSaved
+     */
+    private boolean settingsSaved = false;
+    public boolean isSettingsSaved() {
+        return settingsSaved;
+    }
+
+    /**
      * Creates new form FirstContactDialog
      */
     public LocalSettingsDialog(java.awt.Frame parent, boolean modal) {
@@ -31,6 +39,7 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
         this.themeComboBox.setModel(new DefaultComboBoxModel(LocalSettingsService.THEME_NAMES));
     }
 
+    
     public void displayApp() throws BackingStoreException {
 
         var localSettings = LocalSettingsService.getLocalAppSettings();
@@ -91,6 +100,7 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
 
         try {
             LocalSettingsService.saveLocalAppSettings(localSettings);
+            this.settingsSaved = true;
         } catch (BackingStoreException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error saving local user settings");
         }

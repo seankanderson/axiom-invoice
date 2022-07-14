@@ -89,6 +89,8 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 }
             }
         });
+        
+        // the Netbeans Swing builder is settings these then I do it again to left-justify them and set the font....can this be done in the builder?
         this.addTab(0, "My Company", "/Aha-24/enabled/Globe.png");
         this.addTab(1, "Integrations  ", "/Aha-24/enabled/Connect.png");
         this.addTab(2, "Backups   ", "/Aha-24/enabled/Archive.png");

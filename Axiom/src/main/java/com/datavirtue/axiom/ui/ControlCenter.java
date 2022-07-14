@@ -102,10 +102,10 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
         setBG();
         restoreSavedWindowSizeAndPosition();
         this.setVisible(true);
-        if (this.userService.isSecurityEnabled() ) {
+        if (this.userService.isSecurityEnabled()) {
             this.authenticateUser();
         }
-        
+
     }
 
     private void setBG() {
@@ -146,7 +146,7 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
         accessDialog.displayApp();
         String authResult = accessDialog.getAuthResult();
         try {
-            if ((this.userService.isSecurityEnabled() && this.userService.getCurrentUser() == null) 
+            if ((this.userService.isSecurityEnabled() && this.userService.getCurrentUser() == null)
                     || authResult.equals(UserService.NOT_AUTHORIZED) || authResult.equals(UserService.PASSWORD_FAILED)) {
                 System.exit(0);
             }
@@ -201,12 +201,28 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
         var localSettingsApp = new LocalSettingsDialog(this, true);
         try {
             localSettingsApp.displayApp();
+            if (localSettingsApp.isSettingsSaved()) {
+                try {
+                    DatabaseService.createEachTableIfNotExist();
+                    //TODO: need to restart ControlCenter to take effect
+                    LocalSettingsService.setLookAndFeel();
+                    // check for app settings in database
+                    var settings = appSettingsService.getObject();
+
+                    if (settings == null) {
+                        var settingsDialog = new SettingsDialog(this, true, 0);
+                        settingsDialog.displayApp();
+                    }
+                } catch (SQLException ex) {
+                    ExceptionService.showErrorDialog(this, ex, "Failed to create ");
+                }
+            }
         } catch (BackingStoreException ex) {
             ExceptionService.showErrorDialog(this, ex, "Error getting local settings");
         }
-        
+
     }
-    
+
     private void launchInfoSettings() {
 
         var settingsDialog = new SettingsDialog(this, true, 8);
@@ -215,7 +231,7 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
         setBG();
 
     }
-    
+
     private void launchUserManager() {
         var userManager = new com.datavirtue.axiom.ui.SecurityManager(this, true);
         try {
