@@ -149,7 +149,7 @@ public class LocalSettingsDialog extends javax.swing.JDialog {
         jScrollPane1.setViewportView(handHoldingTextPane);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nevitium - Local User Settings");
+        setTitle("Axiom - Local User Settings");
         setAlwaysOnTop(true);
 
         folderTextField.setToolTipText("The location of the database files. This should be a folder or directory specifically for the data files. The files can live alongside other files without issue though.");

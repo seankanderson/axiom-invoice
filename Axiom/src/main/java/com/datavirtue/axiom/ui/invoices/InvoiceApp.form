@@ -98,7 +98,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="autoInvoiceNumberButton" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="documentNumberField" pref="211" max="32767" attributes="2"/>
+                          <Component id="documentNumberField" pref="210" max="32767" attributes="2"/>
                           <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                           <Component id="invoiceNumberEditCheckBox" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -152,7 +152,7 @@
         <Component class="javax.swing.JButton" name="custButton">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Customers.png"/>
+              <Image iconType="3" name="/Aha-24/enabled/Customers.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Bill To:"/>
             <Property name="toolTipText" type="java.lang.String" value="Select a customer from My Connections"/>
@@ -232,7 +232,7 @@
         <Component class="javax.swing.JButton" name="shipToButton">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Airplane.png"/>
+              <Image iconType="3" name="/Aha-24/enabled/Card index.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ship To:"/>
             <Property name="toolTipText" type="java.lang.String" value="Select a shipping address from My Connections"/>
@@ -282,7 +282,7 @@
         <Component class="javax.swing.JButton" name="convertButton">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Copy document.png"/>
+              <Image iconType="3" name="/Aha-24/enabled/Object manager.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Copy To Invoice"/>
             <Property name="toolTipText" type="java.lang.String" value="Uses this Quote to Build a New Invoice"/>
@@ -295,7 +295,7 @@
         <Component class="javax.swing.JButton" name="copyBillToButton">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/businessmanager/res/RRZE/template16.png"/>
+              <Image iconType="3" name="/Aha-24/enabled/Text file.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Copy"/>
             <Property name="toolTipText" type="java.lang.String" value="Copies the &apos;Bill To&apos;  into &apos;Ship To&apos;"/>
@@ -308,7 +308,7 @@
         <Component class="javax.swing.JButton" name="clearShipToButton">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Erase.png"/>
+              <Image iconType="3" name="/Aha-24/enabled/Erase.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Clear"/>
             <Property name="toolTipText" type="java.lang.String" value="Clears the &apos;Ship To&apos; info"/>
@@ -376,7 +376,7 @@
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel1" max="32767" attributes="1"/>
-                      <Component id="jPanel5" alignment="0" pref="203" max="32767" attributes="2"/>
+                      <Component id="jPanel5" alignment="0" pref="202" max="32767" attributes="2"/>
                       <Component id="jPanel7" alignment="0" max="32767" attributes="2"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -453,7 +453,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="optionsToolbar" pref="169" max="32767" attributes="0"/>
+                      <Component id="optionsToolbar" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -471,7 +471,7 @@
                 <Component class="javax.swing.JButton" name="messageButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Get message.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Get message.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Invoice Message"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -488,7 +488,7 @@
                 <Component class="javax.swing.JButton" name="viewReturnsButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/RRZE/monitoring16.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Notes.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="View Returns"/>
                     <Property name="toolTipText" type="java.lang.String" value="Product Returns for this Invoice"/>
@@ -503,7 +503,7 @@
                 <Component class="javax.swing.JButton" name="printButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Print preview.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Print preview.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Print Preview"/>
                     <Property name="toolTipText" type="java.lang.String" value="Print"/>
@@ -518,7 +518,7 @@
                 <Component class="javax.swing.JButton" name="printReceiptButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Form 3d.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Form 3d.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Print Receipt"/>
                     <Property name="focusable" type="boolean" value="false"/>
@@ -654,7 +654,7 @@
                 <Component class="javax.swing.JButton" name="calcButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Grid.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Grid.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Prices"/>
                     <Property name="toolTipText" type="java.lang.String" value="Tally Invoice Totals"/>
@@ -672,7 +672,7 @@
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Floppy.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Floppy.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Quote"/>
                     <Property name="toolTipText" type="java.lang.String" value="Save As a Quote"/>
@@ -689,7 +689,7 @@
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Next.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Next.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value=" Post"/>
                     <Property name="toolTipText" type="java.lang.String" value="Save As an Invoice"/>
@@ -705,7 +705,7 @@
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Cancel.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Cancel.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Discard"/>
                     <Property name="toolTipText" type="java.lang.String" value="Cancel / Close"/>
@@ -753,6 +753,7 @@
             <Component class="javax.swing.JTextField" name="discountTextField">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -764,6 +765,7 @@
             <Component class="javax.swing.JTextField" name="taxableTotalField">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
@@ -823,7 +825,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="toolBar" pref="95" max="32767" attributes="0"/>
+                      <Component id="toolBar" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -870,7 +872,7 @@
                 <Component class="javax.swing.JButton" name="paymentButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-24/enabled/Money.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Money bag.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Activity"/>
                     <Property name="toolTipText" type="java.lang.String" value="Process Payments and Adjustments for this Invoice"/>
@@ -884,7 +886,7 @@
                 <Component class="javax.swing.JButton" name="statementButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-24/enabled/Period end.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Period end.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Statement"/>
                     <Property name="toolTipText" type="java.lang.String" value="Detailed Statement of Activity for this Invoice"/>
@@ -898,7 +900,7 @@
                 <Component class="javax.swing.JButton" name="historyButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/businessmanager/res/Aha-24/enabled/Case history.png"/>
+                      <Image iconType="3" name="/Aha-24/enabled/Case history.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="History"/>
                     <Property name="toolTipText" type="java.lang.String" value="Invoice History for the Associated Customer"/>
@@ -974,7 +976,7 @@
             <Component class="javax.swing.JButton" name="VATButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Calculator.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Calculator.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="VAT  "/>
                 <Property name="toolTipText" type="java.lang.String" value="VAT - GST Tax Calculator"/>
@@ -986,7 +988,7 @@
             <Component class="javax.swing.JButton" name="shippingButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Balance.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Scales.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Weight"/>
                 <Property name="toolTipText" type="java.lang.String" value="Calculate the weight of the select items"/>
@@ -999,7 +1001,7 @@
             <Component class="javax.swing.JButton" name="packingslipButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Package.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Pallet.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Packing"/>
                 <Property name="toolTipText" type="java.lang.String" value="Print a packing slip of the selected items"/>
@@ -1020,7 +1022,7 @@
             <Component class="javax.swing.JButton" name="miscButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Login.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Login.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Misc Item"/>
                 <Property name="toolTipText" type="java.lang.String" value="Add Non-Inventory Item"/>
@@ -1035,7 +1037,7 @@
             <Component class="javax.swing.JButton" name="discountButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Percent.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Percent.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Disc"/>
                 <Property name="toolTipText" type="java.lang.String" value="Insert a discount"/>
@@ -1049,7 +1051,7 @@
             <Component class="javax.swing.JButton" name="removeButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/businessmanager/res/Aha-16/enabled/Delete.png"/>
+                  <Image iconType="3" name="/Aha-24/enabled/Delete.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Remove"/>
                 <Property name="toolTipText" type="java.lang.String" value="Removes the Selected Items"/>

@@ -894,7 +894,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        custButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Customers.png"))); // NOI18N
+        custButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Customers.png"))); // NOI18N
         custButton.setText("Bill To:");
         custButton.setToolTipText("Select a customer from My Connections");
         custButton.setIconTextGap(1);
@@ -939,7 +939,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         shipToTextArea.setToolTipText("DO NOT use this as the customer field, it is for Shipping directives only.");
         jScrollPane4.setViewportView(shipToTextArea);
 
-        shipToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Airplane.png"))); // NOI18N
+        shipToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Card index.png"))); // NOI18N
         shipToButton.setText("Ship To:");
         shipToButton.setToolTipText("Select a shipping address from My Connections");
         shipToButton.setMaximumSize(new java.awt.Dimension(39, 23));
@@ -971,7 +971,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
             }
         });
 
-        convertButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Copy document.png"))); // NOI18N
+        convertButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Object manager.png"))); // NOI18N
         convertButton.setText("Copy To Invoice");
         convertButton.setToolTipText("Uses this Quote to Build a New Invoice");
         convertButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -981,7 +981,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
             }
         });
 
-        copyBillToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZE/template16.png"))); // NOI18N
+        copyBillToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Text file.png"))); // NOI18N
         copyBillToButton.setText("Copy");
         copyBillToButton.setToolTipText("Copies the 'Bill To'  into 'Ship To'");
         copyBillToButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -991,7 +991,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
             }
         });
 
-        clearShipToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Erase.png"))); // NOI18N
+        clearShipToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Erase.png"))); // NOI18N
         clearShipToButton.setText("Clear");
         clearShipToButton.setToolTipText("Clears the 'Ship To' info");
         clearShipToButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1027,7 +1027,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(autoInvoiceNumberButton)
                     .add(jPanel2Layout.createSequentialGroup()
-                        .add(documentNumberField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                        .add(documentNumberField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(invoiceNumberEditCheckBox))
                     .add(convertButton)
@@ -1114,11 +1114,10 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        optionsToolbar.setFloatable(false);
         optionsToolbar.setOrientation(javax.swing.SwingConstants.VERTICAL);
         optionsToolbar.setRollover(true);
 
-        messageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Get message.png"))); // NOI18N
+        messageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Get message.png"))); // NOI18N
         messageButton.setText("Invoice Message");
         messageButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
         messageButton.setPreferredSize(new java.awt.Dimension(160, 33));
@@ -1129,7 +1128,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         });
         optionsToolbar.add(messageButton);
 
-        viewReturnsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RRZE/monitoring16.png"))); // NOI18N
+        viewReturnsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Notes.png"))); // NOI18N
         viewReturnsButton.setText("View Returns");
         viewReturnsButton.setToolTipText("Product Returns for this Invoice");
         viewReturnsButton.setPreferredSize(new java.awt.Dimension(160, 29));
@@ -1140,7 +1139,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         });
         optionsToolbar.add(viewReturnsButton);
 
-        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Print preview.png"))); // NOI18N
+        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Print preview.png"))); // NOI18N
         printButton.setText("Print Preview");
         printButton.setToolTipText("Print");
         printButton.setPreferredSize(new java.awt.Dimension(160, 29));
@@ -1151,7 +1150,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         });
         optionsToolbar.add(printButton);
 
-        printReceiptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Form 3d.png"))); // NOI18N
+        printReceiptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Form 3d.png"))); // NOI18N
         printReceiptButton.setText("Print Receipt");
         printReceiptButton.setFocusable(false);
         printReceiptButton.setPreferredSize(new java.awt.Dimension(160, 29));
@@ -1176,7 +1175,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(optionsToolbar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .add(optionsToolbar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1198,10 +1197,9 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         grandTotalField.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         grandTotalField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
-        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        calcButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Grid.png"))); // NOI18N
+        calcButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Grid.png"))); // NOI18N
         calcButton.setText("Prices");
         calcButton.setToolTipText("Tally Invoice Totals");
         calcButton.setMargin(new java.awt.Insets(1, 1, 1, 1));
@@ -1213,7 +1211,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         jToolBar1.add(calcButton);
 
         saveButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Floppy.png"))); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Floppy.png"))); // NOI18N
         saveButton.setText("Quote");
         saveButton.setToolTipText("Save As a Quote");
         saveButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1226,7 +1224,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         jToolBar1.add(saveButton);
 
         postButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        postButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Next.png"))); // NOI18N
+        postButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Next.png"))); // NOI18N
         postButton.setText(" Post");
         postButton.setToolTipText("Save As an Invoice");
         postButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1238,7 +1236,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         jToolBar1.add(postButton);
 
         closeButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Cancel.png"))); // NOI18N
+        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Cancel.png"))); // NOI18N
         closeButton.setText("Discard");
         closeButton.setToolTipText("Cancel / Close");
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1249,7 +1247,6 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         });
         jToolBar1.add(closeButton);
 
-        jToolBar3.setFloatable(false);
         jToolBar3.setRollover(true);
 
         receiptCheckBox.setText("Print Receipt ");
@@ -1265,11 +1262,13 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         jToolBar3.add(paymentCheckBox);
 
         discountTextField.setEditable(false);
+        discountTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Discounts");
 
         taxableTotalField.setEditable(false);
+        taxableTotalField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Taxable");
@@ -1342,10 +1341,9 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
 
         t2Label.setText("Tax2");
 
-        toolBar.setFloatable(false);
         toolBar.setRollover(true);
 
-        paymentButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Money.png"))); // NOI18N
+        paymentButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Money bag.png"))); // NOI18N
         paymentButton.setText("Activity");
         paymentButton.setToolTipText("Process Payments and Adjustments for this Invoice");
         paymentButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1440,7 +1438,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(toolBar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                .add(toolBar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1452,10 +1450,9 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
             }
         });
 
-        jToolBar4.setFloatable(false);
         jToolBar4.setRollover(true);
 
-        VATButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Calculator.png"))); // NOI18N
+        VATButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Calculator.png"))); // NOI18N
         VATButton.setText("VAT  ");
         VATButton.setToolTipText("VAT - GST Tax Calculator");
         VATButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1465,7 +1462,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         });
         jToolBar4.add(VATButton);
 
-        shippingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Balance.png"))); // NOI18N
+        shippingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Scales.png"))); // NOI18N
         shippingButton.setText("Weight");
         shippingButton.setToolTipText("Calculate the weight of the select items");
         shippingButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1476,7 +1473,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         });
         jToolBar4.add(shippingButton);
 
-        packingslipButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Package.png"))); // NOI18N
+        packingslipButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Pallet.png"))); // NOI18N
         packingslipButton.setText("Packing");
         packingslipButton.setToolTipText("Print a packing slip of the selected items");
         packingslipButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1486,10 +1483,9 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         });
         jToolBar4.add(packingslipButton);
 
-        jToolBar5.setFloatable(false);
         jToolBar5.setRollover(true);
 
-        miscButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Login.png"))); // NOI18N
+        miscButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Login.png"))); // NOI18N
         miscButton.setText("Misc Item");
         miscButton.setToolTipText("Add Non-Inventory Item");
         miscButton.setNextFocusableComponent(qtyTextField);
@@ -1500,7 +1496,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         });
         jToolBar5.add(miscButton);
 
-        discountButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Percent.png"))); // NOI18N
+        discountButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Percent.png"))); // NOI18N
         discountButton.setText("Disc");
         discountButton.setToolTipText("Insert a discount");
         discountButton.setFocusable(false);
@@ -1512,7 +1508,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         });
         jToolBar5.add(discountButton);
 
-        removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Delete.png"))); // NOI18N
+        removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Delete.png"))); // NOI18N
         removeButton.setText("Remove");
         removeButton.setToolTipText("Removes the Selected Items");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1572,7 +1568,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jPanel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .add(jPanel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                     .add(jPanel7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );

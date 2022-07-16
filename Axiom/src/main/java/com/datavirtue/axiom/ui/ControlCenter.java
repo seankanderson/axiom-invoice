@@ -28,8 +28,6 @@ import java.awt.Desktop;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
 
 /**
@@ -342,7 +340,6 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
         invoiceButton = new javax.swing.JButton();
         settingsButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-        statusMessagePanel = new javax.swing.JPanel();
         internetStatus = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -378,6 +375,8 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Axiom Business Terminal");
         setIconImage(winIcon);
+
+        jScrollPane1.setBorder(null);
 
         picLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jScrollPane1.setViewportView(picLabel);
@@ -465,19 +464,6 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
             }
         });
         mainToolbar.add(exitButton);
-
-        statusMessagePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        org.jdesktop.layout.GroupLayout statusMessagePanelLayout = new org.jdesktop.layout.GroupLayout(statusMessagePanel);
-        statusMessagePanel.setLayout(statusMessagePanelLayout);
-        statusMessagePanelLayout.setHorizontalGroup(
-            statusMessagePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 627, Short.MAX_VALUE)
-        );
-        statusMessagePanelLayout.setVerticalGroup(
-            statusMessagePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 124, Short.MAX_VALUE)
-        );
 
         internetStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         internetStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aha-16/enabled/Connect.png"))); // NOI18N
@@ -683,7 +669,6 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
                     .add(mainToolbar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
-                    .add(statusMessagePanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                         .add(remoteMessageBox, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
                         .add(1, 1, 1)
@@ -696,9 +681,7 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
                 .add(mainToolbar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(statusMessagePanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(140, 140, 140)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(remoteMessageBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(internetStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -829,7 +812,6 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
     private javax.swing.JMenuItem salesAndCogsMenuItem;
     private javax.swing.JButton settingsButton;
     private javax.swing.JMenuItem shutDownMenuItem;
-    private javax.swing.JPanel statusMessagePanel;
     private javax.swing.JMenu supportMenu;
     private javax.swing.JMenuItem takePaymentMenuItem;
     private javax.swing.JMenu toolsMenu;
