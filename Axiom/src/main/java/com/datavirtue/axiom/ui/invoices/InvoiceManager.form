@@ -276,7 +276,6 @@
             </Component>
             <Container class="javax.swing.JToolBar" name="actionToolbar">
               <Properties>
-                <Property name="floatable" type="boolean" value="false"/>
                 <Property name="rollover" type="boolean" value="true"/>
               </Properties>
 
@@ -446,7 +445,6 @@
             </Container>
             <Container class="javax.swing.JToolBar" name="statusToolbar">
               <Properties>
-                <Property name="floatable" type="boolean" value="false"/>
                 <Property name="rollover" type="boolean" value="true"/>
               </Properties>
 

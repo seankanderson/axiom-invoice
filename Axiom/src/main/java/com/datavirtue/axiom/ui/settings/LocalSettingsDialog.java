@@ -1,4 +1,4 @@
-package com.datavirtue.axiom.ui;
+package com.datavirtue.axiom.ui.settings;
 
 import java.io.File;
 import java.io.IOException;

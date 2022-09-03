@@ -5,8 +5,9 @@
  ** Copyright (c) Data Virtue 2006
  * revised Dec 2022 
  */
-package com.datavirtue.axiom.ui;
+package com.datavirtue.axiom.ui.settings;
 
+import com.datavirtue.axiom.models.integrations.PayPal.PayPalAmountBreakdown;
 import com.datavirtue.axiom.ui.util.NewEmail;
 import com.datavirtue.axiom.ui.util.LimitedDocument;
 import java.io.*;
@@ -25,14 +26,26 @@ import com.datavirtue.axiom.models.settings.InventorySettings;
 import com.datavirtue.axiom.models.settings.InvoiceSettings;
 import com.datavirtue.axiom.models.settings.OutputSettings;
 import com.datavirtue.axiom.models.settings.SecuritySettings;
+import com.datavirtue.axiom.services.integrations.PayPalApiService;
+import com.datavirtue.axiom.models.integrations.PayPal.PayPalInvoice;
+import com.datavirtue.axiom.models.integrations.PayPal.PayPalInvoiceBillingInfo;
+import com.datavirtue.axiom.models.integrations.PayPal.PayPalInvoiceDetail;
+import com.datavirtue.axiom.models.integrations.PayPal.PayPalInvoiceItem;
+import com.datavirtue.axiom.models.integrations.PayPal.PayPalInvoicePaymentTerm;
+import com.datavirtue.axiom.models.integrations.PayPal.PayPalInvoiceRecipient;
+import com.datavirtue.axiom.models.integrations.PayPal.PayPalMoney;
 import com.datavirtue.axiom.services.DatabaseService;
 import com.datavirtue.axiom.services.ExceptionService;
 import com.datavirtue.axiom.services.ImageService;
+import com.datavirtue.axiom.services.JsonHelper;
 import com.datavirtue.axiom.services.LocalSettingsService;
 import com.datavirtue.axiom.services.UserService;
 import com.datavirtue.axiom.services.util.CurrencyUtil;
 import com.datavirtue.axiom.services.util.DV;
 import com.datavirtue.axiom.services.util.DVNET;
+import com.datavirtue.axiom.ui.AxiomApp;
+import com.datavirtue.axiom.ui.ColorChooser;
+import com.datavirtue.axiom.ui.FontDialog;
 import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.FileDialog;
@@ -41,7 +54,10 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
 
 /**
@@ -58,6 +74,8 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
     private Cursor defaultCursor;
     private Image winIcon;
 
+    private PayPalApiService payPalApiService;
+    
     public SettingsDialog(java.awt.Frame parent, boolean modal, int tabIndex) {
         super(parent, modal);
         parentWin = parent;
@@ -72,6 +90,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
         appSettingsService = injector.getInstance(AppSettingsService.class);
         appSettingsService.setObjectType(AppSettings.class);
         imageService = injector.getInstance(ImageService.class);
+        payPalApiService = injector.getInstance(PayPalApiService.class);
 
         java.awt.Dimension dim = DV.computeCenter((java.awt.Window) this);
         this.setLocation(dim.width, dim.height);
@@ -656,6 +675,9 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
         emailPortField = new javax.swing.JTextField();
         emailSslCheckbox = new javax.swing.JCheckBox();
         jLabel35 = new javax.swing.JLabel();
+        testApiCallButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        payPalIntegrationCheckBox = new javax.swing.JCheckBox();
         backupPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -1159,6 +1181,27 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                     .add(jLabel35)))
         );
 
+        testApiCallButton.setText("Create PayPal Invoice Call");
+        testApiCallButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testApiCallButtonActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Get PayPal Invoice Call");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        payPalIntegrationCheckBox.setText("Enable PayPal integration");
+        payPalIntegrationCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payPalIntegrationCheckBoxActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout EDIPanelLayout = new org.jdesktop.layout.GroupLayout(EDIPanel);
         EDIPanel.setLayout(EDIPanelLayout);
         EDIPanelLayout.setHorizontalGroup(
@@ -1167,7 +1210,15 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 .addContainerGap()
                 .add(EDIPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel19, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(showRemoteMessageCheckbox, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE))
+                    .add(showRemoteMessageCheckbox, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
+                    .add(EDIPanelLayout.createSequentialGroup()
+                        .add(EDIPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jButton2)
+                            .add(EDIPanelLayout.createSequentialGroup()
+                                .add(testApiCallButton)
+                                .add(18, 18, 18)
+                                .add(payPalIntegrationCheckBox)))
+                        .add(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         EDIPanelLayout.setVerticalGroup(
@@ -1177,7 +1228,13 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
                 .add(showRemoteMessageCheckbox)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(265, Short.MAX_VALUE))
+                .add(18, 18, 18)
+                .add(EDIPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(testApiCallButton)
+                    .add(payPalIntegrationCheckBox))
+                .add(18, 18, 18)
+                .add(jButton2)
+                .addContainerGap(183, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Integrations", new javax.swing.ImageIcon(getClass().getResource("/Aha-24/enabled/Connect.png")), EDIPanel); // NOI18N
@@ -2555,7 +2612,7 @@ public class SettingsDialog extends javax.swing.JDialog implements AxiomApp {
 }//GEN-LAST:event_invoiceColorFieldMouseClicked
 
     private void manageUsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageUsersButtonActionPerformed
-        new com.datavirtue.axiom.ui.SecurityManager(null, true).setVisible(true);
+        new com.datavirtue.axiom.ui.settings.SecurityManager(null, true).setVisible(true);
 
     }//GEN-LAST:event_manageUsersButtonActionPerformed
 
@@ -2854,6 +2911,97 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
         // TODO add your handling code here:
     }//GEN-LAST:event_partialQuantityCheckBoxActionPerformed
 
+    private void testApiCallButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testApiCallButtonActionPerformed
+        var service = new PayPalApiService();
+        try {
+            
+            var newInvoice = new PayPalInvoice();
+                        
+            
+            // add item(s)
+            var item = new PayPalInvoiceItem();
+            item.setName("Reference Invoice# INV-4515168541");
+            var price = new PayPalMoney();
+            price.setCurrencyCode("USD");
+            price.setValue("14.99");
+            item.setUnitAmount(price);            
+            item.setUnitOfMeasure("AMOUNT");
+            item.setQuantity("1");
+            var items = new ArrayList<PayPalInvoiceItem>();
+            items.add(item);
+            newInvoice.setItems(items);
+            
+            // set amount
+            var invoiceAmount = new PayPalAmountBreakdown();
+            invoiceAmount.setItemTotal(price);
+            newInvoice.setAmount(invoiceAmount);
+            
+            // set a due date
+            var paymentTerm = new PayPalInvoicePaymentTerm();
+            paymentTerm.setDueDate("2022-09-01");
+            
+            // set invoice details
+            var detail = new PayPalInvoiceDetail();
+            detail.setPaymentTerm(paymentTerm);
+            detail.setCurrencyCode("USD");
+            detail.setMemo("INV-10001");
+            detail.setNote("Contact Sean for support.");
+            detail.setReference("INV-315314351");
+            newInvoice.setDetail(detail);            
+            
+            
+            // set recipient(s)
+            var billingInfo = new PayPalInvoiceBillingInfo();
+            billingInfo.setEmailAddress("sean.anderson@gmail.com");
+            var recipient = new PayPalInvoiceRecipient();
+            recipient.setBillingInfo(billingInfo);
+            var recipients = new ArrayList<PayPalInvoiceRecipient>();
+            recipients.add(recipient);
+            newInvoice.setPrimaryRecipients(recipients);
+            
+            // create the draft invoice
+            var response = service.createDraftInvoice(newInvoice);
+            
+            // call HATEOAS link
+            var createdInvoice = service.getByUrl(response.getHref());
+            
+            var payPalInvoice = JsonHelper.getGson().fromJson(createdInvoice, PayPalInvoice.class);
+            
+            System.out.println("PayPal Invoice Id:  "+ payPalInvoice.getId());
+                        
+            var sendResult = service.sendDraftInvoice(payPalInvoice.getId());
+            
+            System.out.println("sendResult...." + sendResult.getHref());
+            
+            
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(SettingsDialog.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SettingsDialog.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(SettingsDialog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_testApiCallButtonActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            var result = payPalApiService.getPayPalInvoicesByPrivateBookkeepingMemo("INV-10001");
+            var single = result.get(0);
+            
+        } catch (InterruptedException ex) {
+            Logger.getLogger(SettingsDialog.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(SettingsDialog.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SettingsDialog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void payPalIntegrationCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payPalIntegrationCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_payPalIntegrationCheckBoxActionPerformed
+
     private void changeHandCursor() {
         saveCursor();
         Cursor c = new Cursor(Cursor.HAND_CURSOR);
@@ -2938,6 +3086,7 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JPanel invoicePanel;
     private javax.swing.JTextField invoicePrefixField;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -3024,6 +3173,7 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JLabel osInfoLabel;
     private javax.swing.JPanel outputPanel;
     private javax.swing.JCheckBox partialQuantityCheckBox;
+    private javax.swing.JCheckBox payPalIntegrationCheckBox;
     private javax.swing.JButton paymentSystemBinPathBrowseButton;
     private javax.swing.JCheckBox paymentSystemIsWebCheckbox;
     private javax.swing.JTextField paymentSystemUriField;
@@ -3058,6 +3208,7 @@ private void invoiceOutputFolderFieldActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JTextField tax2Field;
     private javax.swing.JTextField tax2NameField;
     private javax.swing.JTextField taxIdField;
+    private javax.swing.JButton testApiCallButton;
     private javax.swing.JButton testEmailButton;
     private javax.swing.JComboBox themeComboBox;
     private javax.swing.JCheckBox usePaymentSystemForCardsCheckbox;

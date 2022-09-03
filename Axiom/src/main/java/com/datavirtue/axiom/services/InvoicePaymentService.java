@@ -7,6 +7,7 @@ import com.datavirtue.axiom.models.invoices.InvoicePaymentType;
 import com.google.inject.Inject;
 import com.j256.ormlite.dao.DaoManager;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +18,9 @@ public class InvoicePaymentService extends BaseService<InvoicePaymentDao, Invoic
 
     @Inject
     private InvoicePaymentTypeService typeService;
+    @Inject
+    private InvoiceService invoiceService;
+
 
     public InvoicePaymentService() {
 
@@ -49,4 +53,46 @@ public class InvoicePaymentService extends BaseService<InvoicePaymentDao, Invoic
         return typeService.getTypeByName(name);
     }
 
+    public void postInvoicePayment() {
+        
+    }
+    
+    private InvoicePayment mapNewInvoicePayment(Invoice invoice, InvoicePaymentType paymentType, String memo, Date effectivePaymentDate) {
+
+        if (paymentType == null) {
+            return null;
+        }
+
+        var payment = new InvoicePayment();
+        payment.setInvoice(invoice);
+        payment.setMemo(memo);
+        payment.setPaymentActivityDate(new Date());
+        payment.setPaymentEffectiveDate(effectivePaymentDate);
+        payment.setPaymentType(paymentType);
+        return payment;
+    }
+    
+    public void postPaymentAndSetInvoiceStatus(Invoice invoice, InvoicePaymentType paymentType, String memo, Date effectivePaymentDate, double amount) 
+            throws SQLException {
+        
+        var payment = mapNewInvoicePayment(
+                        invoice, 
+                        paymentType, 
+                        memo, 
+                        effectivePaymentDate
+                );
+                
+        if (paymentType.isInvoiceCredit()) {
+            payment.setCredit(amount);
+        }else if (paymentType.isInvoiceDebit()) {
+            payment.setDebit(amount);
+        }
+        this.save(payment);
+        
+        var invoiceStatus = invoiceService.calculateInvoicePaymentStatus(invoice);
+        invoice.setStatus(invoiceStatus);
+        invoiceService.save(invoice);
+                
+    }
+    
 }

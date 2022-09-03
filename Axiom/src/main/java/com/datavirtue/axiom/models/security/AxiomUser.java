@@ -1,7 +1,7 @@
 package com.datavirtue.axiom.models.security;
 
 import com.datavirtue.axiom.database.orm.UserDao;
-import com.datavirtue.axiom.models.BaseModel;
+import com.datavirtue.axiom.models.BaseAxiomEntityModel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import lombok.Setter;
  */
 @Getter @Setter
 @DatabaseTable(tableName = "users", daoClass = UserDao.class)
-public class AxiomUser extends BaseModel {
+public class AxiomUser extends BaseAxiomEntityModel {
 
     @DatabaseField(canBeNull = false, unique = true)
     private String userName;

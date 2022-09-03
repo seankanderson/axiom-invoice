@@ -27,7 +27,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.DateFormat;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -792,10 +791,10 @@ public class PaymentDialog extends javax.swing.JDialog implements AxiomApp {
         if (paymentType == null) {
             return;
         }
-        var balanceDue = invoiceService.calculateInvoiceAmountDue(currentInvoice);
+        var amountDue = invoiceService.calculateInvoiceAmountDue(currentInvoice);
 
         
-        if (balanceDue < 0 && !paymentType.getName().equalsIgnoreCase("refund")) {
+        if (amountDue < 0 && !paymentType.getName().equalsIgnoreCase("refund")) {
 
             JOptionPane.showMessageDialog(null,
                     "Only refunds can be applied to invoices with a negative balance.",
@@ -806,7 +805,7 @@ public class PaymentDialog extends javax.swing.JDialog implements AxiomApp {
 
         if (paymentType.getName().equalsIgnoreCase("refund")) {
 
-            if (balanceDue >= 0) {
+            if (amountDue >= 0) {
 
                 JOptionPane.showMessageDialog(null,
                         "Refunds are only applied to invoices that have a negative balance." + nl
@@ -818,7 +817,7 @@ public class PaymentDialog extends javax.swing.JDialog implements AxiomApp {
 
         if (paymentType.getName().equalsIgnoreCase("credit")) {
 
-            if (balanceDue < 0) {
+            if (amountDue < 0) {
 
                 JOptionPane.showMessageDialog(null,
                         "Credits should not be applied to invoices with a negative balance." + nl
@@ -842,13 +841,8 @@ public class PaymentDialog extends javax.swing.JDialog implements AxiomApp {
             return;
         }
 
-        
-        if (paymentType.isInvoiceCredit()) { 
-            postCredit();
-        }else if (paymentType.isInvoiceDebit()) {
-            postDebit();
-        }
-                
+        paymentService.postPaymentAndSetInvoiceStatus(currentInvoice, paymentType, this.paymentMemoField.getText(), paymentDatePicker.getDate(), amountDue);
+               
         if (usePaymentSystem && paymentSystemBox.isSelected()) {
 
             if (webPayment) {
@@ -867,11 +861,8 @@ public class PaymentDialog extends javax.swing.JDialog implements AxiomApp {
             }
 
         }
-
         
-        balanceDue = invoiceService.calculateInvoiceAmountDue(currentInvoice);
-        
-        if (balanceDue > 0 && paymentType.getName().equals("Prepaid")) {
+        if (amountDue > 0 && paymentType.getName().equals("Prepaid")) {
             int a = javax.swing.JOptionPane.showConfirmDialog(null,
                     "The Prepaid Account was not able to payout the invoice.  Would you like to accept another payment?",
                     "Another Payment?", JOptionPane.YES_NO_OPTION);
@@ -879,66 +870,15 @@ public class PaymentDialog extends javax.swing.JDialog implements AxiomApp {
                 return;
             }
         }
-        
-        if (balanceDue <= 0) {
-            this.currentInvoice.setPaid(true);
-            this.invoiceService.save(currentInvoice);
-        }
+                        
+        var invoiceStatus = invoiceService.calculateInvoicePaymentStatus(currentInvoice, amountDue);
+        this.currentInvoice.setStatus(invoiceStatus);
+        this.invoiceService.save(currentInvoice);
         this.dispose();
 
     }
 
-    private InvoicePayment primeNewInvoicePayment() {
-
-        var paymentTypeModel = (PaymentTypeComboModel) paymentTypeCombo.getModel();
-        var paymentType = (InvoicePaymentType) paymentTypeModel.getType(this.paymentTypeCombo.getSelectedIndex());
-
-        if (paymentType == null) {
-            return null;
-        }
-
-        var payment = new InvoicePayment();
-        payment.setInvoice(currentInvoice);
-        payment.setMemo(this.paymentMemoField.getText());
-        payment.setPaymentActivityDate(new Date());
-        payment.setPaymentEffectiveDate(this.paymentDatePicker.getDate());
-        payment.setPaymentType(paymentType);
-        return payment;
-    }
-
-    private void postCredit() {
-        var amount = Double.parseDouble(this.paymentAmountField.getText());
-        var payment = primeNewInvoicePayment();
-        payment.setCredit(amount);
-        try {
-            paymentService.save(payment);
-            
-        } catch (SQLException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error saving payment to database");
-        }
-
-        return;
-    }
-
-    /**
-     * Revenue payments
-     *
-     * @param paymentType
-     * @return
-     */
-    private void postDebit() {
-        var amount = Double.parseDouble(this.paymentAmountField.getText());
-        var payment = primeNewInvoicePayment();
-        payment.setDebit(amount);
-        try {
-            paymentService.save(payment);
-            
-        } catch (SQLException ex) {
-            ExceptionService.showErrorDialog(this, ex, "Error saving payment to database");
-        }
-        return;
-    }
-
+   
     private void launchPaymentSystem() {
 
         String nl = System.getProperty("line.separator");

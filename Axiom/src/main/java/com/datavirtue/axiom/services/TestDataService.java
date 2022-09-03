@@ -5,6 +5,7 @@ import com.datavirtue.axiom.models.contacts.Contact;
 import com.datavirtue.axiom.models.contacts.ContactAddress;
 import com.datavirtue.axiom.models.inventory.Inventory;
 import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.invoices.Invoice.InvoiceStatus;
 import com.datavirtue.axiom.models.invoices.InvoicePayment;
 import com.datavirtue.axiom.models.invoices.InvoicePaymentType;
 import java.sql.SQLException;
@@ -139,7 +140,7 @@ public class TestDataService {
         var billTo = invoiceService.mapContactToInvoiceCustomer(contact);
         var shipTo = invoiceService.mapContactToInvoiceCustomer(contact);
         invoice.setBillTo(billTo);
-        invoice.setShiptTo(shipTo);
+        invoice.setShipTo(shipTo);
         var items = new ArrayList();
         var item = invoiceItemService.mapInventoryToInvoiceItem(2, invoice, inventory);
         item.setTaxable1(true);
@@ -148,7 +149,7 @@ public class TestDataService {
         invoice.setInvoiceDate(new Date());
         invoice.setItems(items);
         invoice.setInvoiceNumber(invoiceService.getNewInvoiceNumber("Q"));
-        invoice.setQuote(true);
+        invoice.setStatus(InvoiceStatus.QUOTE);
         invoiceService.postInvoice(invoice);
 
         inventory = new Inventory();
@@ -199,12 +200,12 @@ public class TestDataService {
         billTo = invoiceService.mapContactToInvoiceCustomer(contact);
         shipTo = invoiceService.mapContactToInvoiceCustomer(contact);
         invoice.setBillTo(billTo);
-        invoice.setShiptTo(shipTo);
+        invoice.setShipTo(shipTo);
         
         invoice.setInvoiceDate(new Date());
         invoice.setItems(items);
         invoice.setInvoiceNumber(invoiceService.getNewInvoiceNumber("I"));
-        invoice.setQuote(false);
+        invoice.setStatus(InvoiceStatus.OPEN_UNPAID);
         invoiceService.postInvoice(invoice);
         
         

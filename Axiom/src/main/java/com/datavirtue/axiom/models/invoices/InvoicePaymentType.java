@@ -1,7 +1,7 @@
 package com.datavirtue.axiom.models.invoices;
 
 import com.datavirtue.axiom.database.orm.InvoicePaymentTypeDao;
-import com.datavirtue.axiom.models.BaseModel;
+import com.datavirtue.axiom.models.BaseAxiomEntityModel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @DatabaseTable(tableName = "invoice_payment_types", daoClass = InvoicePaymentTypeDao.class)
-public class InvoicePaymentType extends BaseModel {
+public class InvoicePaymentType extends BaseAxiomEntityModel {
 
     @DatabaseField
     private String name;

@@ -1,7 +1,7 @@
 package com.datavirtue.axiom.models.inventory;
 
 import com.datavirtue.axiom.database.orm.InventoryDao;
-import com.datavirtue.axiom.models.BaseModel;
+import com.datavirtue.axiom.models.BaseAxiomEntityModel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import lombok.Setter;
  */
 @Getter @Setter
 @DatabaseTable(tableName = "inventory", daoClass = InventoryDao.class)
-public class Inventory extends BaseModel{    
+public class Inventory extends BaseAxiomEntityModel{    
     @DatabaseField
     private String upc;
     @DatabaseField

@@ -1,7 +1,7 @@
 package com.datavirtue.axiom.models.contacts;
 
 import com.datavirtue.axiom.database.orm.ContactAddressDao;
-import com.datavirtue.axiom.models.BaseModel;
+import com.datavirtue.axiom.models.BaseAxiomEntityModel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import lombok.Setter;
  */
 @Getter @Setter
 @DatabaseTable(tableName = "contact_addresses", daoClass = ContactAddressDao.class)
-public class ContactAddress extends BaseModel implements ContactAddressInterface {
+public class ContactAddress extends BaseAxiomEntityModel implements ContactAddressInterface {
      
     @DatabaseField(foreign=true,foreignAutoRefresh=true, canBeNull = false)
     private Contact contact;

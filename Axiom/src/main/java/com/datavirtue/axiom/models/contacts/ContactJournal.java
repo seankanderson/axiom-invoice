@@ -1,7 +1,7 @@
 package com.datavirtue.axiom.models.contacts;
 
 import com.datavirtue.axiom.database.orm.ContactJournalDao;
-import com.datavirtue.axiom.models.BaseModel;
+import com.datavirtue.axiom.models.BaseAxiomEntityModel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import java.util.Date;
@@ -14,7 +14,7 @@ import lombok.Setter;
  */
 @Getter @Setter
 @DatabaseTable(tableName = "contact_journals", daoClass = ContactJournalDao.class)
-public class ContactJournal extends BaseModel {    
+public class ContactJournal extends BaseAxiomEntityModel {    
     
     @DatabaseField(canBeNull = false)
     private Date date = new Date();

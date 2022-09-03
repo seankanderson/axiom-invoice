@@ -21,8 +21,8 @@ import javax.swing.JFrame;
 import com.datavirtue.axiom.services.ExceptionService;
 import com.datavirtue.axiom.services.LocalSettingsService;
 import com.datavirtue.axiom.services.TestDataService;
-import com.datavirtue.axiom.ui.LocalSettingsDialog;
-import com.datavirtue.axiom.ui.SettingsDialog;
+import com.datavirtue.axiom.ui.settings.LocalSettingsDialog;
+import com.datavirtue.axiom.ui.settings.SettingsDialog;
 
 /**
  *

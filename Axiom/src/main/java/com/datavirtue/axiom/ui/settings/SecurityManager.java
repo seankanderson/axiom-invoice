@@ -3,7 +3,7 @@
  *
  * Created on July 26, 2007, 11:49 AM
  */
-package com.datavirtue.axiom.ui;
+package com.datavirtue.axiom.ui.settings;
 
 import com.datavirtue.axiom.models.security.UsersTableModel;
 import com.google.inject.Injector;
@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import com.datavirtue.axiom.models.security.AxiomUser;
 import com.datavirtue.axiom.services.util.DV;
 import com.datavirtue.axiom.services.util.PBE;
+import com.datavirtue.axiom.ui.AxiomApp;
 import java.awt.Frame;
 import java.awt.event.KeyEvent;
 

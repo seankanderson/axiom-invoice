@@ -10,7 +10,7 @@ import lombok.Setter;
  * @author SeanAnderson
  */
 @Getter @Setter
-public class BaseModel {
+public class BaseAxiomEntityModel {
 
     @DatabaseField(generatedId = true)
     private UUID id; 

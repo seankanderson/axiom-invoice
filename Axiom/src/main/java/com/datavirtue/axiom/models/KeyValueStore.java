@@ -13,7 +13,7 @@ import lombok.Setter;
  */
 @Getter @Setter
 @DatabaseTable(tableName = "key_value_store", daoClass = KeyValueStoreDao.class)
-public class KeyValueStore extends BaseModel {
+public class KeyValueStore extends BaseAxiomEntityModel {
     
     @DatabaseField(canBeNull = false, unique = true)
     private String key;

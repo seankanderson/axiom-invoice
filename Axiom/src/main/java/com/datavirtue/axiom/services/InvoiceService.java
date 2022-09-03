@@ -7,6 +7,7 @@ import com.datavirtue.axiom.models.contacts.ContactAddressInterface;
 import com.datavirtue.axiom.models.inventory.Inventory;
 import java.sql.SQLException;
 import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.invoices.Invoice.InvoiceStatus;
 import com.datavirtue.axiom.models.invoices.InvoiceCustomerInfo;
 import com.datavirtue.axiom.models.invoices.InvoiceItem;
 import com.datavirtue.axiom.models.invoices.InvoiceItemReturn;
@@ -59,17 +60,17 @@ public class InvoiceService extends BaseService<InvoiceDao, Invoice> {
     }
 
     public List<Invoice> getAllQuotes() throws SQLException {
-        var result = this.getDao().queryBuilder().where().eq("isQuote", true).and().eq("voided", false);
+        var result = this.getDao().queryBuilder().where().eq("status", InvoiceStatus.QUOTE);
         return result.query();
     }
 
     public List<Invoice> getUnpaidInvoices() throws SQLException {
-        var result = this.getDao().queryBuilder().where().eq("paid", false).and().eq("voided", false).and().eq("isQuote", false);
+        var result = this.getDao().queryBuilder().where().eq("status", InvoiceStatus.OPEN_UNPAID).or().eq("status", InvoiceStatus.NEW_OPEN);
         return result.query();
     }
 
     public List<Invoice> getPaidInvoices() throws SQLException {
-        var result = this.getDao().queryBuilder().where().eq("paid", true).and().eq("voided", false).and().eq("isQuote", false);
+        var result = this.getDao().queryBuilder().where().eq("status", InvoiceStatus.PAID);
         return result.query();
     }
 
@@ -122,6 +123,24 @@ public class InvoiceService extends BaseService<InvoiceDao, Invoice> {
         invoiceCustomer.setPhoneNumber(contactAddress.getPhoneNumber());
 
         return invoiceCustomer;
+    }
+
+    public InvoiceStatus calculateInvoicePaymentStatus(Invoice invoice, double amountDue) throws SQLException {
+                
+        if (amountDue > 0) {
+            return InvoiceStatus.NEW_OPEN; // TODO: or this could be past the invoice due date 
+        }else if (amountDue < 0) {
+            return InvoiceStatus.OPEN_OVERPAID;
+        }else if (amountDue == 0) {
+            return InvoiceStatus.PAID;
+        }
+        return invoice.getStatus();
+    }
+    
+    
+    public InvoiceStatus calculateInvoicePaymentStatus(Invoice invoice) throws SQLException {
+        var amountDue = this.calculateInvoiceAmountDue(invoice);
+        return calculateInvoicePaymentStatus(invoice, amountDue);
     }
 
     // https://www.calculator.net/sales-tax-calculator.html?beforetax=199.99&taxrate=7.0&finalprice=&x=51&y=20
@@ -221,6 +240,12 @@ public class InvoiceService extends BaseService<InvoiceDao, Invoice> {
         return CurrencyUtil.round((totals.getGrandTotal() + debits) - credits);
     }
 
+    public double calculateInvoiceAmountDue(Invoice invoice, InvoiceTotals totals) throws SQLException {
+        var debits = calculateTotalDebits(invoice);
+        var credits = calculateTotalCredits(invoice);
+        return CurrencyUtil.round((totals.getGrandTotal() + debits) - credits);
+    }
+
     public double calculateNumberSold(InvoiceItem item) {
         var items = item.getInvoice().getItems();
 
@@ -271,28 +296,28 @@ public class InvoiceService extends BaseService<InvoiceDao, Invoice> {
         var returnValue = TransactionManager.callInTransaction(this.connection,
                 new Callable<Void>() {
             public Void call() throws SQLException {
-                
+
                 save(invoice);
-                
+
                 if (invoice.getBillTo() != null) {
                     invoice.getBillTo().setInvoice(invoice);
                     customerInfoService.save(invoice.getBillTo());
                 }
-                
-                if (invoice.getShiptTo() != null) {
-                    invoice.getShiptTo().setInvoice(invoice);
-                    customerInfoService.save(invoice.getShiptTo());
+
+                if (invoice.getShipTo() != null) {
+                    invoice.getShipTo().setInvoice(invoice);
+                    customerInfoService.save(invoice.getShipTo());
                 }
-                
+
                 save(invoice);
-                
+
                 // make sure invoice items reference the invoice
                 for (var item : invoice.getItems()) {
                     item.setInvoice(invoice);
                     invoiceItemService.save(item);
                 }
 
-                if (!invoice.isQuote() && !invoice.isVoided()) {
+                if (invoice.getStatus() != InvoiceStatus.VOID && invoice.getStatus() != InvoiceStatus.QUOTE) {
                     for (var item : invoice.getItems()) { // reduce inventory quantities
                         if (item.getSourceInventoryId() == null) {
                             continue;
@@ -333,7 +358,7 @@ public class InvoiceService extends BaseService<InvoiceDao, Invoice> {
         double credit = itemReturn.getReturnCreditAmount();
         Date returnDate = itemReturn.getDate();
 
-        if (invoice.isVoided()) {
+        if (invoice.getStatus() == InvoiceStatus.VOID) {
             throw new InvoiceVoidedException("");
         }
 
@@ -375,13 +400,13 @@ public class InvoiceService extends BaseService<InvoiceDao, Invoice> {
         var paymentType = paymentTypeService.getTypeByName("Credit");
         refundForItemReturn.setPaymentType(paymentType);
 
-        invoice.getPaymentActivity().add(refundForItemReturn);
+        invoice.getPayments().add(refundForItemReturn);
         this.invoicePaymentService.save(refundForItemReturn);
 
         var invoiceDue = this.calculateInvoiceAmountDue(invoice);
 
         if (invoiceDue <= 0) {
-            invoice.setPaid(true);
+            invoice.setStatus(InvoiceStatus.PAID);
 
             if (invoiceDue < 0) { // TODO: make a setting "minimum dollar amount for refund payment" to skip this if the amount is too low to trigger a refund payment
                 // create refund payment

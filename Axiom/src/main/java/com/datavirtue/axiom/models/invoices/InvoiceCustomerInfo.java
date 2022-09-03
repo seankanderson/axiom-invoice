@@ -1,7 +1,7 @@
 package com.datavirtue.axiom.models.invoices;
 
 import com.datavirtue.axiom.database.orm.InvoiceCustomerInfoDao;
-import com.datavirtue.axiom.models.BaseModel;
+import com.datavirtue.axiom.models.BaseAxiomEntityModel;
 import com.datavirtue.axiom.models.contacts.ContactAddressInterface;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -15,7 +15,7 @@ import lombok.Setter;
  */
 @Getter @Setter
 @DatabaseTable(tableName = "invoice_customer_info", daoClass = InvoiceCustomerInfoDao.class)
-public class InvoiceCustomerInfo extends BaseModel implements ContactAddressInterface {
+public class InvoiceCustomerInfo extends BaseAxiomEntityModel implements ContactAddressInterface {
      
     @DatabaseField(foreign=true,foreignAutoRefresh=true, canBeNull = false)
     private Invoice invoice;

@@ -1,7 +1,7 @@
 package com.datavirtue.axiom.models.inventory;
 
 import com.datavirtue.axiom.database.orm.InventoryImageJoinDao;
-import com.datavirtue.axiom.models.BaseModel;
+import com.datavirtue.axiom.models.BaseAxiomEntityModel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import lombok.Setter;
  */
 @Getter @Setter
 @DatabaseTable(tableName = "inventory_image_join", daoClass = InventoryImageJoinDao.class)
-public class InventoryImageJoin extends BaseModel {
+public class InventoryImageJoin extends BaseAxiomEntityModel {
     
     public InventoryImageJoin() {
     }

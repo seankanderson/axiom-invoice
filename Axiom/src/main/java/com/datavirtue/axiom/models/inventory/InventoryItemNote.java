@@ -1,6 +1,6 @@
 package com.datavirtue.axiom.models.inventory;
 
-import com.datavirtue.axiom.models.BaseModel;
+import com.datavirtue.axiom.models.BaseAxiomEntityModel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import java.util.Date;
@@ -14,7 +14,7 @@ import lombok.Setter;
  */
 @Getter @Setter
 @DatabaseTable(tableName = "inventory_item_notes")
-public class InventoryItemNote extends BaseModel{
+public class InventoryItemNote extends BaseAxiomEntityModel{
     
     @DatabaseField
     private UUID inventoryItemId;

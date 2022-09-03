@@ -32,4 +32,9 @@ public class FormatService {
         }
     }
     
+    public static String doubleToFormattedString(double number) {
+        NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
+        return format.format(number);
+    }
+    
 }

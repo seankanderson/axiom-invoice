@@ -6,7 +6,7 @@ import com.j256.ormlite.dao.BaseDaoImpl;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import java.sql.SQLException;
 import java.util.List;
-import com.datavirtue.axiom.models.BaseModel;
+import com.datavirtue.axiom.models.BaseAxiomEntityModel;
 
 /**
  *
@@ -14,7 +14,7 @@ import com.datavirtue.axiom.models.BaseModel;
  * @param <T1> database entity-typed dao implementation
  * @param <T2> database model entity type
  */
-public abstract class BaseService<T1 extends BaseDaoImpl<T2, Object>, T2 extends BaseModel> implements BaseServiceInterface<T1> {
+public abstract class BaseService<T1 extends BaseDaoImpl<T2, Object>, T2 extends BaseAxiomEntityModel> implements BaseServiceInterface<T1> {
     
     @Inject
     @Named("DatabaseConnection")

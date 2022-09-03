@@ -6,32 +6,20 @@
 package com.datavirtue.axiom.ui.layoutdesigner;
 
 import com.datavirtue.axiom.ui.util.PrintPanel;
-import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.font.FontRenderContext;
 import java.awt.font.LineBreakMeasurer;
 import java.awt.font.TextAttribute;
 import java.awt.font.TextLayout;
-import java.awt.geom.Line2D;
-import java.awt.geom.Rectangle2D;
-import java.awt.geom.RoundRectangle2D;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterJob;
 import java.text.AttributedCharacterIterator;
 import java.text.AttributedString;
-import java.text.DateFormat;
 import java.util.ArrayList;
-import javax.swing.JPanel;
-import net.sourceforge.barbecue.Barcode;
-import net.sourceforge.barbecue.BarcodeException;
-import net.sourceforge.barbecue.BarcodeFactory;
-import net.sourceforge.barbecue.output.OutputException;
 
 /**
  *

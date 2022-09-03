@@ -1848,7 +1848,7 @@ public class ContactsApp extends javax.swing.JDialog implements AxiomApp {
         }
         var invoice = tableModel.getValueAt(selectedRow);
 
-        if (invoice.isPaid()) {
+        if (invoice.getStatus() == Invoice.InvoiceStatus.PAID ) {
             JOptionPane.showMessageDialog(this, "Invoice is marked as paid.");
             invoiceTable.changeSelection(selectedRow, 0, false, false);
             invoiceTable.requestFocus();

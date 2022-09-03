@@ -12,7 +12,7 @@ public class CustomerInvoiceListTableModel extends AbstractCollectionTableModel<
 
     public CustomerInvoiceListTableModel(List<Invoice> invoices) {
         this.items = invoices;
-        this.columns = new String[]{"Invoice Date", "Paid"};
+        this.columns = new String[]{"Invoice Date", "Status"};
     }
 
     @Override
@@ -28,7 +28,6 @@ public class CustomerInvoiceListTableModel extends AbstractCollectionTableModel<
                 ;
                 break;
             case 1:
-                item.setPaid((Boolean) value);
                 break;
 
         }
@@ -45,7 +44,7 @@ public class CustomerInvoiceListTableModel extends AbstractCollectionTableModel<
             case 0:
                 return item.getInvoiceDate();
             case 1:
-                return item.isPaid();
+                return item.getStatus().toString();
 
         }
         return null;

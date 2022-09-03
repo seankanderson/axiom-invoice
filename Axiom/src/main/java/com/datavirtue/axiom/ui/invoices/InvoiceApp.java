@@ -35,6 +35,7 @@ import com.datavirtue.axiom.models.contacts.Contact;
 import com.datavirtue.axiom.models.contacts.ContactAddressInterface;
 import com.datavirtue.axiom.models.inventory.Inventory;
 import com.datavirtue.axiom.models.invoices.Invoice;
+import com.datavirtue.axiom.models.invoices.Invoice.InvoiceStatus;
 import com.datavirtue.axiom.models.invoices.InvoiceItem;
 import com.datavirtue.axiom.models.invoices.InvoiceItemsTableModel;
 import com.datavirtue.axiom.models.settings.AppSettings;
@@ -150,7 +151,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         imageService = injector.getInstance(ImageService.class);
         barcodeService = injector.getInstance(BarcodeService.class);
         contactService = injector.getInstance(ContactService.class);
-        
+
         var user = UserService.getCurrentUser();
 
         if (!user.isAdmin() && user.getInvoices() < 300) {
@@ -168,7 +169,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         if (currentInvoice.getId() == null) {
             this.initForNewInvoice();
         } else {
-            if (currentInvoice.isQuote()) {
+            if (currentInvoice.getStatus() == InvoiceStatus.QUOTE) {
                 this.initForViewQuote();
             } else {
                 this.initForViewInvoice();
@@ -210,7 +211,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         }
         var tableModel = new InvoiceItemsTableModel(new ArrayList(this.currentInvoice.getItems()));
         this.invoiceItemsTable.setModel(tableModel);
-        
+
         try {
             appSettings = this.settingsService.getObject();
         } catch (SQLException ex) {
@@ -320,7 +321,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         }
 
         this.setAddressView(currentInvoice.getBillTo(), custTextArea);
-        
+
         convertButton.setVisible(false);
         printButton.setVisible(false);
         setInvoiceNumber(this.currentInvoice);
@@ -417,24 +418,26 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         } catch (PropertyVetoException ex) {
             ex.printStackTrace();
         }
-        
+
         this.setAddressView(currentInvoice.getBillTo(), custTextArea);
-        this.setAddressView(currentInvoice.getShiptTo(), shipToTextArea);
+        this.setAddressView(currentInvoice.getShipTo(), shipToTextArea);
 
         customizeView();
         computePrices();
 
     }
 
-    public void viewToModel() {
+    public void viewToModel(InvoiceStatus invoiceStatus) {
 
+        // TODO: set status based on invocation context. is it a quote or new? 
+        if (invoiceStatus != null) {
+            this.currentInvoice.setStatus(invoiceStatus);
+        }
         this.currentInvoice.setInvoiceNumber(this.documentNumberField.getText());
 
         this.currentInvoice.setInvoiceDate(datePicker1.getDate());
 
-        this.currentInvoice.setMessage(invoiceMessage);
-
-        this.currentInvoice.setPaid(false);
+        this.currentInvoice.setInvoiceMessage(invoiceMessage);
 
         if (this.customer != null) {
             this.currentInvoice.setCustomerId(this.customer.getId());
@@ -443,7 +446,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         var tableModel = (InvoiceItemsTableModel) this.invoiceItemsTable.getModel();
 
         this.currentInvoice.setItems(tableModel.getCollection());
-        
+
     }
 
     private boolean printReciept() {
@@ -749,7 +752,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         var tableModel = new InvoiceItemsTableModel(items);
         this.invoiceItemsTable.setModel(tableModel);
         this.customizeView();
-        
+
         this.invoiceItemsTable.repaint();
 
         return (items.size() - 1);
@@ -1967,7 +1970,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
     }//GEN-LAST:event_upcFieldKeyPressed
 
     private void post() {
-        this.viewToModel();
+        this.viewToModel(InvoiceStatus.NEW_OPEN);
         if (invoiceItemsTable.getRowCount() < 1) {
             return;
         }
@@ -2031,7 +2034,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         var companySettings = appSettings.getCompany();
         var emailSettings = appSettings.getInternet().getEmailSettings();
 
-        var type = this.currentInvoice.isQuote() ? invoiceSettings.getQuoteName() : invoiceSettings.getInvoiceName();
+        var type = this.currentInvoice.getStatus() == InvoiceStatus.QUOTE ? invoiceSettings.getQuoteName() : invoiceSettings.getInvoiceName();
 
         NewEmail email = new NewEmail();
         email.setAttachment(file);
@@ -2077,7 +2080,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
 //            props.setMediaDeviceDescription(mediaDeviceDescription);
 //            HtmlConverter.convertToPdf(html, new FileOutputStream(pdfTempFile.toFile()), props);
 
-            try (OutputStream os = new FileOutputStream(pdfTempFile.toAbsolutePath().toString())) {
+            try ( OutputStream os = new FileOutputStream(pdfTempFile.toAbsolutePath().toString())) {
                 PdfRendererBuilder builder = new PdfRendererBuilder();
                 builder.useFastMode();
                 var file = htmlTempFile.toUri().toString(); // .getFileName().toAbsolutePath().toString();
@@ -2100,7 +2103,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
             Logger.getLogger(InvoiceApp.class.getName()).log(Level.SEVERE, null, ex);
         } catch (WriterException ex) {
             Logger.getLogger(InvoiceApp.class.getName()).log(Level.SEVERE, null, ex);
-        }catch(SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(InvoiceApp.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -2127,7 +2130,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
 
     private void saveQuote() {
 
-        viewToModel();
+        viewToModel(InvoiceStatus.QUOTE);
 
         if (invoiceItemsTable.getRowCount() < 1) {
             return;  // TODO: notify via dialog?
@@ -2142,7 +2145,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
             return;
         }
 
-        this.currentInvoice.setQuote(true);
+        this.currentInvoice.setStatus(InvoiceStatus.QUOTE);
         this.setInvoiceNumber(this.currentInvoice);
         computePrices();
 
@@ -2159,7 +2162,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
     private String setInvoiceNumber(Invoice invoice) {
 
         String documentNumber;
-        if (invoice.isQuote()) {
+        if (invoice.getStatus() == InvoiceStatus.QUOTE) {
             documentNumber = invoiceService.getNewInvoiceNumber(appSettings.getInvoice().getQuotePrefix());
         } else {
             documentNumber = invoiceService.getNewInvoiceNumber(appSettings.getInvoice().getInvoicePrefix());
@@ -2217,7 +2220,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
 
     private String createHtml() throws URISyntaxException, IOException, TemplateException, OutputException, BarcodeException, WriterException, SQLException {
 
-        this.viewToModel();
+        this.viewToModel(null);
         var totals = InvoiceService.calculateInvoiceTotals(currentInvoice);
 
         /* Create and adjust the configuration singleton */
@@ -2240,7 +2243,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         var base64CompanyLogo = this.settingsService.getObject().getCompany().getCompanyLogo();
         var companyLogoImgSrc = imageService.createHtmlImgSrc(base64CompanyLogo);
         root.put("companyLogo", companyLogoImgSrc);
-        
+
         var coQrCode = barcodeService.createQrCodeImage("https://datavirtue.com", 80);
         var base64coQrCode = imageService.convertImageToBase64Png(coQrCode);
         var coQrCodeImgSrc = imageService.createHtmlImgSrc(base64coQrCode);
@@ -2256,32 +2259,31 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         var qrCodeImgSrc = imageService.createHtmlImgSrc(base64QrCode);
         root.put("websiteQrCode", qrCodeImgSrc);
 
-        
         if (this.currentInvoice.getBillTo() != null) {
             var billToGoogleMapsLink = contactService.createGoogleMapLink(this.currentInvoice.getBillTo());
-            
+
             var billToMapQrCode = barcodeService.createQrCodeImage(billToGoogleMapsLink, 80);
             var base64BillToQr = imageService.convertImageToBase64Png(billToMapQrCode);
             var billToQrCodeImgSrc = imageService.createHtmlImgSrc(base64BillToQr);
-            root.put("billToQrCode", billToQrCodeImgSrc);        
-       } else {
-           root.put("billToQrCode", null); 
-       }
-        
-       if (this.currentInvoice.getShiptTo() != null) {
-            var shipToGoogleMapsLink = contactService.createGoogleMapLink(this.currentInvoice.getShiptTo());
-            
+            root.put("billToQrCode", billToQrCodeImgSrc);
+        } else {
+            root.put("billToQrCode", null);
+        }
+
+        if (this.currentInvoice.getShipTo() != null) {
+            var shipToGoogleMapsLink = contactService.createGoogleMapLink(this.currentInvoice.getShipTo());
+
             var shipToMapQrCode = barcodeService.createQrCodeImage(shipToGoogleMapsLink, 80);
             var base64ShipToQr = imageService.convertImageToBase64Png(shipToMapQrCode);
             var shipToQrCodeImgSrc = imageService.createHtmlImgSrc(base64ShipToQr);
-            root.put("shipToQrCode", shipToQrCodeImgSrc);        
-       } else {
-           root.put("shipToQrCode", null); 
-       }
-       
+            root.put("shipToQrCode", shipToQrCodeImgSrc);
+        } else {
+            root.put("shipToQrCode", null);
+        }
+
         root.put("invoice", this.currentInvoice);
         root.put("billTo", this.currentInvoice.getBillTo());
-        root.put("shipTo", this.currentInvoice.getShiptTo());
+        root.put("shipTo", this.currentInvoice.getShipTo());
         root.put("items", this.currentInvoice.getItems());
 
         /*  Totals */
@@ -2448,7 +2450,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
 
                     this.setAddressView(address, shipToTextArea);
                     var customerInfo = invoiceService.mapContactAddressToInvoiceShipTo(address);
-                    this.currentInvoice.setShiptTo(customerInfo);
+                    this.currentInvoice.setShipTo(customerInfo);
                 }
                 return;
             }
@@ -2470,7 +2472,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         if (shippingContact == null) {
             return;
         }
-        
+
         if (shippingContact != null) {
             this.setAddressView(shippingContact, shipToTextArea);
         } else {
@@ -2496,7 +2498,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         }
 
         var contact = contactsApp.getReturnValue();
-       
+
         if (contact == null) {
             return;
         }
@@ -2507,7 +2509,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
         this.currentInvoice.setCustomerId(contact.getId());
         var customer = invoiceService.mapContactToInvoiceCustomer(contact);
         this.currentInvoice.setBillTo(customer);
-        
+
         contactsApp.dispose();
         contactsApp = null;
 
@@ -2558,7 +2560,7 @@ public class InvoiceApp extends javax.swing.JDialog implements AxiomApp {
 
         if (this.currentInvoice.getBillTo() != null) {
             var shipTo = invoiceService.mapContactAddressToInvoiceShipTo(this.currentInvoice.getBillTo());
-            this.currentInvoice.setShiptTo(shipTo);
+            this.currentInvoice.setShipTo(shipTo);
             setAddressView(shipTo, shipToTextArea);
         }
     }//GEN-LAST:event_copyBillToButtonActionPerformed
@@ -2766,7 +2768,7 @@ private void datePicker1PropertyChange(java.beans.PropertyChangeEvent evt) {//GE
     }
 
     private void convertToInvoice() {
-        this.currentInvoice.setQuote(false);
+        this.currentInvoice.setStatus(InvoiceStatus.NEW_OPEN);
         this.setInvoiceNumber(this.currentInvoice);
         this.modelToView();
         saveButton.setEnabled(true);
@@ -2799,12 +2801,12 @@ private void datePicker1PropertyChange(java.beans.PropertyChangeEvent evt) {//GE
 
         newInvoice.setItems(items);
         newInvoice.setBillTo(this.currentInvoice.getBillTo());
-        newInvoice.setShiptTo(this.currentInvoice.getShiptTo());
+        newInvoice.setShipTo(this.currentInvoice.getShipTo());
         newInvoice.setCustomerId(this.currentInvoice.getCustomerId());
         newInvoice.setInvoiceDate(new Date());
-        newInvoice.setMessage(this.currentInvoice.getMessage());
-        
-        newInvoice.setVoided(false);
+        newInvoice.setInvoiceMessage(this.currentInvoice.getInvoiceMessage());
+
+        newInvoice.setStatus(InvoiceStatus.NEW_OPEN);
 
         newInvoice.setInvoiceNumber(this.setInvoiceNumber(newInvoice));
         this.setInvoice(newInvoice);

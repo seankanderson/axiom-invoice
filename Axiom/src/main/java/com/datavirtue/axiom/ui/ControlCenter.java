@@ -6,6 +6,8 @@
  */
 package com.datavirtue.axiom.ui;
 
+import com.datavirtue.axiom.ui.settings.SettingsDialog;
+import com.datavirtue.axiom.ui.settings.LocalSettingsDialog;
 import com.datavirtue.axiom.ui.inventory.InventoryApp;
 import com.datavirtue.axiom.ui.contacts.ContactsApp;
 import com.datavirtue.axiom.ui.invoices.InvoiceApp;
@@ -231,7 +233,7 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
     }
 
     private void launchUserManager() {
-        var userManager = new com.datavirtue.axiom.ui.SecurityManager(this, true);
+        var userManager = new com.datavirtue.axiom.ui.settings.SecurityManager(this, true);
         try {
             userManager.displayApp();
         } catch (SQLException ex) {
