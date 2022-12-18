@@ -73,6 +73,7 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
     }
 
     private void recordWindowSizeAndPosition() throws BackingStoreException {
+        var localSettings = LocalSettingsService.getLocalAppSettings();
         var screenSettings = localSettings.getScreenSettings();
         var sizeAndPosition = LocalSettingsService.getWindowSizeAndPosition(this);
         screenSettings.setMain(sizeAndPosition);
@@ -80,6 +81,7 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
     }
 
     private void restoreSavedWindowSizeAndPosition() throws BackingStoreException {
+        var localSettings = LocalSettingsService.getLocalAppSettings();
         var screenSettings = localSettings.getScreenSettings().getMain();
         LocalSettingsService.applyScreenSizeAndPosition(screenSettings, this);
     }
@@ -87,7 +89,6 @@ public class ControlCenter extends javax.swing.JFrame implements AxiomApp {
     public void displayApp() throws BackingStoreException, SQLException {
 
         appSettingsService.setObjectType(AppSettings.class);
-        localSettings = LocalSettingsService.getLocalAppSettings();
 
         mainToolbar.setLayout(new FlowLayout());
         java.awt.Dimension dim = DV.computeCenter((java.awt.Window) this);

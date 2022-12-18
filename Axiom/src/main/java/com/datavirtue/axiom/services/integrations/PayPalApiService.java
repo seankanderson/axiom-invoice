@@ -5,6 +5,7 @@ import com.datavirtue.axiom.models.integrations.PayPal.PayPalInvoice;
 import com.datavirtue.axiom.models.integrations.PayPal.PayPalInvoicePaymentRequest;
 import com.datavirtue.axiom.models.integrations.PayPal.PayPalLinkDescription;
 import com.datavirtue.axiom.models.integrations.PayPal.PayPalListInvoicesResponse;
+import com.datavirtue.axiom.models.invoices.Invoice;
 import com.datavirtue.axiom.services.JsonHelper;
 import java.io.IOException;
 import java.net.URI;
@@ -207,15 +208,21 @@ public class PayPalApiService {
         var response = HttpClient.newHttpClient().send(postRequest, BodyHandlers.ofString());
 
     }
-    
-public void deleteExternalPaymentAgainstPayPalInvoice(String payPalInvoiceId, PayPalInvoicePaymentRequest paymentRequest)
+
+    public void deleteExternalPaymentAgainstPayPalInvoice(String payPalInvoiceId, PayPalInvoicePaymentRequest paymentRequest)
             throws URISyntaxException, IOException, InterruptedException {
         var body = JsonHelper.getGson().toJson(paymentRequest);
         var postRequest = createHttpPostRequest("/v2/invoicing/invoices/" + payPalInvoiceId + "/payments", body);
         var response = HttpClient.newHttpClient().send(postRequest, BodyHandlers.ofString());
 
     }
-        
+
+    public void synchronizePaymentsFromPayPalToAxiom(Invoice invoice) {
+        // get corresponding invoice from PayPal
+        // iterate over payment array
+        // check each payment for an Axiom reference
+        // if no axiom reference exists, record a payment against the axiom invoice
+    }
 
     /**
      * First integration I tested due to simplicity...not really in use. Invoice
