@@ -31,7 +31,8 @@ public class InventoryImageService extends BaseService<InventoryImageDao, Invent
     }
 
     public List<InventoryImage> getAllImagesForInventory(UUID inventoryId) throws SQLException {
-        return joinService.getAllImagesForInventory(inventoryId);
+        var results = joinService.getAllImagesForInventory(inventoryId);
+        return results;
     }
     
     /**

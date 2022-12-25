@@ -9,6 +9,6 @@ import java.util.UUID;
  *
  * @author SeanAnderson
  */
-public interface InvoiceItemDaoInterface extends Dao<InvoiceItem, Object>{
+public interface InvoiceItemDaoInterface extends Dao<InvoiceItem, UUID>{
 
 }

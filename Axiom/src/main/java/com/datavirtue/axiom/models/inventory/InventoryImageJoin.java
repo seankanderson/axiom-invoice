@@ -21,7 +21,7 @@ public class InventoryImageJoin extends BaseAxiomEntityModel {
     @DatabaseField(foreign=true,foreignAutoRefresh=false, canBeNull = false)
     private Inventory inventory;
     
-    @DatabaseField(foreign=true,foreignAutoRefresh=false, canBeNull = false)
+    @DatabaseField(foreign=true,foreignAutoRefresh=true, canBeNull = false)
     private InventoryImage image;
     
 }

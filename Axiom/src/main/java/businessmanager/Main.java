@@ -85,12 +85,12 @@ public class Main {
             System.exit(-2);
         }
 
-        ControlCenter control = injector.getInstance(ControlCenter.class);
+        
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                ControlCenter control = injector.getInstance(ControlCenter.class);
                 try {
-                    System.out.println("running ControlCenter");
                     control.displayApp();
                 } catch (java.lang.UnsupportedClassVersionError e) {
                     javax.swing.JOptionPane.showMessageDialog(null,

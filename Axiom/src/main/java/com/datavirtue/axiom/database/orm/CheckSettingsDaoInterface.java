@@ -6,11 +6,12 @@ package com.datavirtue.axiom.database.orm;
 
 import com.j256.ormlite.dao.Dao;
 import com.datavirtue.axiom.models.KeyValueStore;
+import java.util.UUID;
 
 /**
  *
  * @author SeanAnderson
  */
-public interface CheckSettingsDaoInterface extends Dao<KeyValueStore, Object> { 
+public interface CheckSettingsDaoInterface extends Dao<KeyValueStore, UUID> { 
     
 }

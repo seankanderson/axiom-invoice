@@ -12,7 +12,7 @@ import java.util.UUID;
  *
  * @author SeanAnderson
  */
-public class InvoiceItemDao extends BaseDaoImpl<InvoiceItem, Object> implements InvoiceItemDaoInterface{
+public class InvoiceItemDao extends BaseDaoImpl<InvoiceItem, UUID> implements InvoiceItemDaoInterface{
     public InvoiceItemDao(ConnectionSource connectionSource) throws SQLException {
         super(connectionSource, InvoiceItem.class);
         

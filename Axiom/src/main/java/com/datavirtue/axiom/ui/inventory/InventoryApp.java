@@ -34,6 +34,7 @@ import com.datavirtue.axiom.services.InventoryService;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.prefs.BackingStoreException;
 import com.datavirtue.axiom.services.AppSettingsService;
 import com.datavirtue.axiom.services.ExceptionService;
@@ -52,6 +53,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 
 public class InventoryApp extends javax.swing.JDialog {
@@ -162,7 +164,7 @@ public class InventoryApp extends javax.swing.JDialog {
             StatusDialog sd = new StatusDialog(parentWin, false, "Please Wait", false);
             sd.changeMessage("Initializing Inventory");
             sd.addStatus("Building inventory table...");
-            
+
             try {
                 var allInventory = inventoryService.getAll();
                 tm = new InventoryTableModel(allInventory);
@@ -298,9 +300,6 @@ public class InventoryApp extends javax.swing.JDialog {
         catTextField.setEnabled(enabled);
         serviceBox.setEnabled(enabled);
         reorderSpinnerControl.setEnabled(enabled);
-
-        picField.setEnabled(enabled);
-
         taxCheckBox.setEnabled(enabled);
         tax2CheckBox.setEnabled(enabled);
         partialBox.setEnabled(enabled);
@@ -347,9 +346,6 @@ public class InventoryApp extends javax.swing.JDialog {
         recvdField.setText("");
 
         reorderSpinnerControl.setValue(0);
-
-        picField.setText("");
-
         taxCheckBox.setSelected(false);
         tax2CheckBox.setSelected(false);
         availableCheckBox.setSelected(false);
@@ -362,10 +358,6 @@ public class InventoryApp extends javax.swing.JDialog {
 
         serviceBox.setSelected(false);
 
-    }
-
-    private void populateImageListModel() {
-        imageList.setModel(new CollectionMappedListModel<InventoryImage>((ArrayList<InventoryImage>) new ArrayList(this.currentItem.getImages().stream().toList())));
     }
 
     private void createImageList() {
@@ -616,6 +608,8 @@ public class InventoryApp extends javax.swing.JDialog {
         }
     }
 
+    ArrayList<SwingWorker> workers = new ArrayList<SwingWorker>();
+
     private void populateForm() throws SQLException {
         int selectedRow = inventoryTable.getSelectedRow();
         if (selectedRow < 0) {
@@ -657,12 +651,37 @@ public class InventoryApp extends javax.swing.JDialog {
         partialBox.setSelected(currentItem.isPartialSaleAllowed());
         availableCheckBox.setSelected(currentItem.isAvailable());
 
+        this.createImageList(); // TODO: rename this or do something 
+        //loadImages();
+
+        var worker = new SwingWorker<ArrayList<InventoryImage>, String>() {
+            // Method
+            @Override
+            protected ArrayList<InventoryImage> doInBackground()
+                    throws Exception {
+                var rawImages = inventoryImageService.getAllImagesForInventory(currentItem.getId());
+
+                if (rawImages.size() > 0) {
+                    var list = rawImages.stream().toList();
+                    return new ArrayList<InventoryImage>(list);
+                }
+
+                return new ArrayList<InventoryImage>();
+            }
+
+            @Override
+            protected void done() {
+                try {
+                    var imageListModel = new CollectionMappedListModel<>(get());
+                    imageList.setModel(imageListModel);
+                } catch (Exception ignore) {
+                    System.out.println("swallowed exception");
+                }
+            }
+
+        };
+        worker.execute();
         computePrices();
-
-        loadImages();
-
-        this.createImageList();
-        this.populateImageListModel();
 
         setFieldsEnabled(true);
 
@@ -675,17 +694,24 @@ public class InventoryApp extends javax.swing.JDialog {
         noteButton.setEnabled(true);
     }
 
-    private void loadImages() {
-        if (imageLoader != null) {
-            imageLoader.complete(null);
-        }
-        imageLoader = CompletableFuture.runAsync(() -> {
+    private void populateImageListModel() {
 
-            if (currentItem.getImages() == null) {
+        var list = this.currentItem.getImages().stream().collect(Collectors.toList());
+        var images = (ArrayList<InventoryImage>) new ArrayList(list);
+        var imageListModel = new CollectionMappedListModel<>(images);
+        imageList.setModel(imageListModel);
+
+    }
+
+    private void loadImages() {
+        CompletableFuture.runAsync(() -> {
+
+            if (currentItem.getImages() == null || currentItem.getImages().isEmpty()) {
                 try {
                     // TODO: make cancellable...                    
                     var images = inventoryImageService.getAllImagesForInventory(currentItem.getId());
                     currentItem.setImages(images);
+
                 } catch (SQLException ex) {
                     ExceptionService.showErrorDialog(parentWin, ex, "Error retrieving images from database");
                 }
@@ -860,7 +886,6 @@ public class InventoryApp extends javax.swing.JDialog {
         notesPane = new javax.swing.JTextPane();
         noteButton = new javax.swing.JButton();
         picturesPanel = new javax.swing.JPanel();
-        picField = new javax.swing.JTextField();
         picButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         imageList = new javax.swing.JList<>();
@@ -1460,16 +1485,10 @@ public class InventoryApp extends javax.swing.JDialog {
 
         picturesPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        picField.setColumns(50);
-        picField.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
-        picField.setToolTipText("Picture Reference");
-        picField.setNextFocusableComponent(saveButton);
-
         picButton.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        picButton.setText("Picture");
+        picButton.setText("Select Images");
         picButton.setToolTipText("Browse to a Picture");
         picButton.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        picButton.setNextFocusableComponent(picField);
         picButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 picButtonActionPerformed(evt);
@@ -1486,24 +1505,20 @@ public class InventoryApp extends javax.swing.JDialog {
         picturesPanelLayout.setHorizontalGroup(
             picturesPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(picturesPanelLayout.createSequentialGroup()
-                .add(picturesPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(picturesPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(picButton)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(picField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE))
-                    .add(jScrollPane2))
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addContainerGap())
+            .add(picturesPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .add(picButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 89, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         picturesPanelLayout.setVerticalGroup(
             picturesPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(picturesPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .add(picturesPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(picButton)
-                    .add(picField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(picButton)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1692,12 +1707,6 @@ public class InventoryApp extends javax.swing.JDialog {
 
     private void catTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_catTextFieldKeyPressed
 
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-
-            picField.requestFocus();
-
-        }
-
 
     }//GEN-LAST:event_catTextFieldKeyPressed
 
@@ -1738,10 +1747,7 @@ public class InventoryApp extends javax.swing.JDialog {
 
         try {
 
-            java.io.File file;
-
-            file = new java.io.File(picField.getText());
-            JFileChooser fileChooser = new JFileChooser(file);
+            JFileChooser fileChooser = new JFileChooser();
             fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
             int returnVal = fileChooser.showOpenDialog(null);
             java.io.File curFile = fileChooser.getSelectedFile();
@@ -1758,7 +1764,6 @@ public class InventoryApp extends javax.swing.JDialog {
             var inventoryImage = new InventoryImage();
             inventoryImage.setImage(image);
             this.saveImage(inventoryImage);
-            picField.setText(DV.verifyPath(picField.getText()));
 
         } catch (Exception e) {
 
@@ -1771,17 +1776,9 @@ public class InventoryApp extends javax.swing.JDialog {
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
 
-        if (inventoryTable.getSelectedRow() > -1 && !picField.getText().equals("")) {
-
-            viewPic();
-
-        }
-
     }//GEN-LAST:event_viewButtonActionPerformed
 
     private void viewPic() {
-
-        new PictureDialog(null, true, picField.getText(), true);
 
         inventoryTable.requestFocus();
 
@@ -2103,15 +2100,28 @@ public class InventoryApp extends javax.swing.JDialog {
             return false;
 
         }
+        // any with this description already exist?
         var withDescription = inventoryService.getAllInventoryByDecription(descTextField.getText());
 
+        // prevent changing the descrioption to one that already exists on another inventory item
+        // if current record is not new, check for existing inventory that have the same description
         if (currentItem.getId() != null && withDescription.size() > 0) {
             var descWithDiffId
                     = withDescription.stream().filter(x -> !x.getId().equals(currentItem.getId())).count();
             if (descWithDiffId > 0) {
-                JOptionPane.showMessageDialog(this, "A record with this DESC. already exsists.", "No Duplicates", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(this, "A record with this description already exsists.", "Existing inventory with same", JOptionPane.OK_OPTION);
                 return false;
             }
+        }
+
+        // prevent duplicate from new 
+        if (currentItem.getId() == null && withDescription.size() > 0) {
+            JOptionPane.
+                    showMessageDialog(this,
+                            "A record with this description already exsists.",
+                            "Existing inventory with same",
+                            JOptionPane.OK_OPTION);
+            return false;
         }
 
         var withCode = inventoryService.getAllInventoryByCode(codeTextField.getText());
@@ -2316,7 +2326,6 @@ public class InventoryApp extends javax.swing.JDialog {
     private javax.swing.JScrollPane notesScrollPane;
     private javax.swing.JCheckBox partialBox;
     private javax.swing.JButton picButton;
-    private javax.swing.JTextField picField;
     private javax.swing.JPanel picturesPanel;
     private javax.swing.JTextField priceTextField;
     private javax.swing.JTextField qtyTextField;
